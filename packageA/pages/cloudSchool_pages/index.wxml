@@ -1,0 +1,36 @@
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="poster-view-box">
+  <swiper class='swiper' bindchange="moveServerProSwiper" data-id="{{item.id}}" circular="true" current="{{swiper_index}}" previous-margin="40rpx" next-margin="40rpx">
+    <block wx:for="{{poster_tabs}}" wx:key="index">
+      <swiper-item  class="is_secl" data-swiper_index="{{swiper_index}}">
+        <view class="swiper-item-view {{index == swiper_index?'scaleY-1':'scaleY-2'}}" >
+          <image src="{{item}}" mode='widthFix'/>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class="volundetails-box">
+  <view class="volundetails-box1">
+    <view class="volundetails-title">活动详情</view>
+    <view class="volundetails-info">
+      <view class="info-text">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 广告    -->
+<view class="ad-box">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30" bindclose="adClose"></ad>
+</view>
+<!-- 广告    -->
+<view style="width:100%;height:210rpx;"></view>
+<view class="valundetails-bott-box">
+  <view class="bott-box-btn" bindtap="{{be_assistant?'gotozujiao':'gototeaching'}}">去宣传</view>
+  <view class="bott-box-btn" bindtap="{{topic_status?'gotoAnswer':'gotodati'}}">{{topic_status?"已参与":"参与调研"}}</view>
+</view>
+
+
+

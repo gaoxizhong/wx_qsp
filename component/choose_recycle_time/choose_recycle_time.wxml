@@ -1,0 +1,38 @@
+<view class="container">
+    <view class="add-title">
+      <text class="add-title-text">请选择上门时间</text>
+    </view>
+    <!-- 日期列表 -->
+    <scroll-view class="scroll-view_H b-t b-b" scroll-x>
+      <block wx:for="{{dateArr}}" wx:key="index">
+        <view class="flex-box {{index == dateActive?'borderb':''}}" data-id="{{item.id}}" data-index="{{index}}" data-item="{{item}}"bindtap="selectDateEvent">
+          <view class="date-box" style="color:{{index==dateActive?'#ff6000':'#333'}};">
+            <text class="fontw">{{item.week}}</text>
+            <text>{{item.date}}</text>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+    <!-- 时间选项 -->
+    <view class="time-box">
+      <block wx:for="{{timeArr}}" wx:key="index">
+        <view class="item">
+          <view class=" item-box {{item.disable?'disable':''}} {{index==timeActive?'active':''}}" style="color:{{item.isActive || index==timeActive ?'#ff6000':'#333'}};" data-index="{{index}}" data-item="{{item}}" bindtap="selectTimeEvent">
+            <text>{{item.schedule_start_t}}</text>
+            <text class="all">{{item.disable?disableText:undisableText}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+<view class="t-20"></view>
+<view class="footer-box">
+  <view class="footeritem-box">
+    <view class="footeritem-t">预约时间</view>
+    <view class="footeritem-r">2023-04-27 15:00:00</view>
+  </view>
+</view>
+<view class="t-20"></view>
+<view class="footer-btn-box">
+  <view bindtap="reserve_btn" hover-class="hoverClass" class="footer-btn">确认</view>
+</view>

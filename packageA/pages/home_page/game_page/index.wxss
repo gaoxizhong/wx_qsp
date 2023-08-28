@@ -1,0 +1,28 @@
+page{
+  box-sizing: border-box;
+  padding: 30rpx;
+}
+/* 隐藏滚动条 */
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.list-box{
+  width: 100%;
+  box-sizing: border-box;
+}
+.list-box>view{
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 23rpx 0;
+  position: relative;
+  box-shadow: 2rpx 4rpx 4px #00000020;
+}
+.list-box>view>image{
+  width: 100%;
+  vertical-align: middle;
+}

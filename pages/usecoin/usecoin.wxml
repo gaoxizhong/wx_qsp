@@ -1,0 +1,154 @@
+<wxs module="filters">
+var filters = {
+  toFix: function (value) {
+    return value.toFixed(1)
+  }
+}
+module.exports = {
+  toFix: filters.toFix
+}
+</wxs>
+
+
+<view class="usecoin-nav-box">
+  <view class="tab-view-left">
+    <image src="http://oss.qingshanpai.com/icon/usecoin-icon-bmyz11.png" mode="widthFix"  bindtap="tab_view" data-index='4' class="{{tab_view_id == '4'? 'usecoin-hover' :''}}"></image>
+  </view>
+  <view class="tab-view-right">
+    <view bindtap="goto_usecoin">
+      <image src="http://oss.qingshanpai.com/icon/usecoin-icon-fjhd11.png" mode="widthFix"></image>
+    </view>
+    <view bindtap="tab_view" data-index='3'>
+      <image src="http://oss.qingshanpai.com/icon/usecoin-icon-zrfl11.png" mode="widthFix" class="{{tab_view_id == '3'? 'usecoin-hover' :''}}"></image>
+    </view>
+
+  </view>
+
+  <!-- <view bindtap="tab_view" bindtap="gettxian_btn">
+    <image src="http://oss.qingshanpai.com/banner/usecoin-3.png"></image>
+    <view class="number_view">{{ a_coupon }}</view>
+  </view> -->
+  <!-- <view bindtap="tab_view" data-index='2'>
+    <image src="http://oss.qingshanpai.com/banner/usecoin-1.png" class="{{tab_view_id == '2'? 'usecoin-hover' :''}}"></image>
+    <view class="number_view">{{ b_coupon }}</view>
+  </view> -->
+</view>
+<view style="width:100%;height:352rpx;"></view>
+
+<view wx:if="{{tab_view_id == '1'}}">
+  <view wx:if="{{ swiper_data.length != 0 && is_show }}" style="padding-bottom: 140rpx;">
+    <view class="coupon-list-box">
+      <block wx:for="{{swiper_data}}" wx:key="index">
+        <!-- 福利券 -->
+        <view class="coupon-list-items {{index == 0?'is-jifen':''}}" data-index="{{index}}" data-id="{{item.data.id}}"
+          style="z-index:-{{index}};" bindtap="goToActivity" animation="{{item.anim}}" wx:if="{{item.tab.select_type == '2' && index == 0}}">
+          <view class="sheng-bg">
+            <image src="/images/sheng-bg.png"></image>
+          </view>
+          <view class="listitems-le">
+            <view class="listitems-le-title">凭此券 享优惠</view>
+            <view class="calendar-box">
+              <view class="calendar-con"><text style="font-size:28rpx;">￥</text>{{filters.toFix(item.data.youhui)}}</view>
+            </view>
+            <view class="shops-name">{{item.data.business_name}}</view>
+          </view>
+          <view class="listitems-ri">
+            <view class="listitems-rititle-box">
+              <view class="coupon-title">{{item.data.name}} 优惠券</view>
+            </view>
+            <view class="ri-price-curr"><text>原价： {{item.data.price}}</text><text style="padding-left:12rpx;">劵后价： {{item.data.current_price}}</text></view>
+            <view class="coupon-view">支付：￥{{item.data.coupon_price}} + {{item.data.coupon_integral}}积分 获取本券</view>
+            <view class="start-end-time">{{item.data.start_time}} - {{item.data.end_time}}内有效。</view>
+          </view>
+        </view>
+        <!-- 商品 -->
+        <view class="commodity-items {{index == 0?'is-jifen':''}}" data-detail_id="{{item.data.detail_id}}" data-index="{{index}}" style="z-index:-{{index}};" animation="{{item.anim}}" wx:if="{{item.tab.select_type == '1' && index == 0}}">
+          <view class='circle' style="padding:30rpx 20rpx;">
+            <view class='shop-centent'>
+              <view class='shop-centent-title'>
+                <view class="shop-img">
+                  <image class="shop-img-width" src="{{ item.data.img[0] }}"></image>
+                </view>
+                <view class='shop-jottings'>
+                  <view selectable='true' class='text'>{{item.data.title}}</view>
+                  <view class='circle-head' style="justify-content: space-between;">
+                    <text style="font-size:20rpx;text-decoration: line-through;">原价 ￥{{item.data.price}}</text>
+                  </view>
+                  <view class="discount">
+                    <view class="discount-price">
+                      <text>折扣价：￥{{item.data.total_price}}+{{item.data.hbb?item.data.hbb:'0.00'}}积分</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="prduct-box">
+      <view class="prduct-img-box">
+        <image src="{{swiper_data[0].data.thumb}}" mode="aspectFit" class="is-jifen1" wx:if="{{swiper_data[0].tab.select_type == '2'}}"></image>
+        <image src="{{swiper_data[0].data.img[0]}}" mode="aspectFit" class="is-jifen1" wx:if="{{swiper_data[0].tab.select_type == '1'}}"></image>
+
+      </view>
+    </view>
+    <view class="liuyan-box">
+      <view class="liuyan-box-left">
+        <image src="{{swiper_data[0].data.avatar}}"></image>
+      </view>
+      <view class="liuyan-box-right">
+        <view style="font-size:28rpx;">{{swiper_data[0].data.business_name}}</view>
+        <view class="dianzhang-info">
+          {{swiper_data[0].data.content?swiper_data[0].data.content:'我是店长，赠送您一张优惠券，诚邀您到店体验！'}}
+          <image src="/images/sanjiao.png" class="dianzhang-info-image"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="meiyou-box" wx:if="{{swiper_data.length <= 0}}">
+    <image src="http://oss.qingshanpai.com/banner/eaa2842fd16c198fb9efe56654a4dcf.png"></image>
+  </view>
+</view>
+<!-- 我的券包 -->
+<view wx:if="{{tab_view_id == '2'}}">
+  <couponList coupon_list="{{coupon_list}}" binduse_btn="use_btn" bindgoToActivity="goToActivity"  data-is_mycoupon="1" />
+
+  <view wx:if="{{ coupon_list.length <= 0 }}" style="text-align:center;padding-top:140rpx;color:#666;">
+    暂无优惠券
+  </view>
+</view>
+<!-- 今日福利 -->
+<view wx:if="{{tab_view_id == '3'}}">
+  <todayWelfare id="test"/>
+</view>
+
+<view wx:if="{{ tab_view_id == '4' }}">
+  <view class="class-module">
+    <block wx:for="{{ class_items_list }}" wx:key="index">
+      <view class="items" data-id="{{ item.id }}" data-url="{{ item.url }}" bindtap="goToclassactical">
+        <image src="{{ item.icon }}"></image>
+        <view class="title_text">{{item.distance}}Km</view>
+      </view>
+    </block>
+    <view class="items" bindtap="me_become">
+      <image src="/images/me_become.png"></image>
+    </view>
+    <view class="items" bindtap="view_more" wx:if="{{is_true}}">
+      <image src="/images/view_more.png"></image>
+    </view>
+  </view>
+</view>
+
+<!-- <view class="bottom-box"  wx:if="{{tab_view_id == '1' && swiper_data[0].tab.select_type == '2' && swiper_data.length != 0 &&  is_show}}">
+  <view class="bottom-box-ri you-box-ri" bindtap="delt_coupon">立享优惠</view>
+</view>
+<view class="bottom-box"  wx:if="{{tab_view_id == '1' && swiper_data[0].tab.select_type == '1' && swiper_data.length != 0 &&  is_show}}">
+  <view class="bottom-box-ri shang-box-ri" bindtap="audit_btn" data-status="1">查看优惠详情</view>
+</view>
+<view class="jia-jifen2">
+  <view style="color:red;text-align: center;padding: 10rpx 0;">+ <text style="font-size:36rpx;"> {{jiage}}</text>元</view>
+  <view styke="text-align: left;">环保账号余额{{total_price}}元</view>
+  <view styke="text-align: left;">可在积分账户或我的钱包提现</view>
+</view> -->

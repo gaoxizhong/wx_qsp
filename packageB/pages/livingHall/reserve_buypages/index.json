@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "buyerInfo":"/packageB/component/buyerInfo/buyerInfo"
+  }
+}

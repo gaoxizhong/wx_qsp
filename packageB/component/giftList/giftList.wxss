@@ -1,0 +1,138 @@
+.poster_car_box{
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.is-gift-mask{
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: .5;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.is-gift-box{
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 15rpx;
+  background: #f8f8f8;
+  border-radius: 20px 20px 0 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.gift-list-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.giftList-items-box{
+  width: 25%;
+  height: 226rpx;
+  margin: 5rpx 0;
+  padding: 0 5rpx;
+  box-sizing: border-box;
+}
+.giftList-items-nostatus{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.listitems-image{
+  width: 145rpx;
+}
+.listitems-title{
+  text-align: center;
+  font-size: 28rpx;
+}
+.giftList-items-isstatus{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: url('https://oss.qingshanpai.com/gift/gift_status_bg.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.listitems-zsbtn-box{
+  width:100%;
+  text-align: center;
+  font-size: 28rpx;
+}
+.listitems-zsbtn{
+  padding: 10rpx 0;
+  color: #fff;
+}
+.listitems-zsimage{
+  width: 145rpx;
+}
+.jifen-box{
+  width: 100%;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  text-align: right;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+
+
+/* =============  积分不足 开始 ===================== */
+.is-jfbz-box{
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.is-jfbz-mask{
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: .5;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.is-jfbz-view{
+  width: 540rpx;
+  height: 550rpx;
+  box-sizing: border-box;
+  padding: 40rpx 0;
+  background: #f8f8f8;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.zqjf-btn{
+  width: 378rpx;
+  height: 88rpx;
+  border-radius: 20px;
+  background: #fb2e52;
+  text-align: center;
+  line-height: 88rpx;
+  color: #fff;
+  font-weight: bold;
+  font-size: 30rpx;
+  margin: 70rpx 0 20rpx 0;
+}
+/* ========================= 弹窗样式 结束 =========================== */

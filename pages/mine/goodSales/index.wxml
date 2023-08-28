@@ -1,0 +1,138 @@
+<view class="image-box1">
+  <view style="display: flex;align-items: center;">
+    <image mode='widthFix' src='{{avatarUrl ? avatarUrl : "/images/notlogin.jpg"}}'/>
+    <view class="name1">
+      {{nickName}}<text> 的代卖</text>
+    </view>
+  </view>
+  <view class="idle-release1" data-is_sales="2" bindtap = "idleRelease"  wx:if="{{shangjia_id == memberid}}">+ 发布代卖</view>
+</view>
+<view style="height:198rpx;"></view>
+<view class='nulldata_wrap' wx:if="{{dataStatus}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据</view>
+</view>
+<view class='page' wx:else>
+  <view class="idleList-box">
+    <block wx:for="{{wenzData}}" wx:key="idx" wx:for-index="idx">
+      <view class="idleList-box-item" style='{{item.length != 0?"border-bottom:2rpx solid #F2F2F2;":""}}'>
+        <view class='circle'>
+          <view class='shop-centent'>
+            <view class='shop-centent-title' bind:tap="goToActivity"
+                  data-idle="{{item.id}}"
+                  data-curidx="{{idx}}" 
+                  data-is_idle="{{item.is_idle}}"
+                  data-copy_business="{{item.copy_business}}">
+              <view class="shop-img">
+                <image src='{{item.img.url}}' class="shop-img-width" ></image>
+              </view>
+              <view class='shop-jottings'>
+                <view selectable='true' class='text'>{{item.title}}</view>
+                  <view class='circle-head'style="justify-content: space-between;">
+                    <text style="font-size:20rpx;text-decoration: line-through;color:#010101;">原价 ￥{{item.price}}</text>
+                    <view class='time'>
+                      {{item.created_at}}
+                      <text decode="true">&emsp;{{item.idle_num}} 阅读</text>
+                    </view>
+                  </view>
+
+                <view class="discount">
+                  <view class="discount-price"><text>折扣价：￥{{item.total_price}} + {{item.hbb}}积分</text></view>
+                  
+                </view>
+
+              </view>
+            </view>
+            <view class='circle-footer-operation'>
+              <view class="editstatus" wx:if="{{shangjia_id == memberid}}">
+                  <view class="editstatus-item" data-is_sales="{{item.is_idle}}" bindtap = "edit" data-id="{{item.id}}" data-curidx="{{idx}}" wx:if="{{ item.in_stock < 2 }}">
+                      编辑    
+                  </view>
+                  <view class="editstatus-item" hover-class='none'
+                  bindtap="stand" 
+                  data-sale="{{item.id}}"
+                  data-index="{{idx}}" 
+                  data-sale_status="{{item.sale_status}}"
+                  data-stand="2" 
+                  wx:if="{{item.stand == 1 && item.sale_status == 2}}">下架</view>
+                  <view class="editstatus-item" hover-class='none'
+                  bindtap="stand" 
+                  data-sale="{{item.id}}"
+                  data-index="{{idx}}" 
+                  data-sale_status="{{item.sale_status}}"
+                  data-stand="1"
+                  wx:else>上架</view>
+                  <view class="editstatus-item" data-id="{{item.id}}" data-curidx="{{idx}}" wx:if="{{item.in_stock == 1 && item.sale_status == 2}}">
+                      在售    
+                  </view>
+                  <view class="editstatus-item qu" data-business_id="{{item.business_id}}" data-id="{{item.id}}" data-curidx="{{idx}}" wx:if="{{item.in_stock == 2 && item.sale_status == 2}}">
+                      待发货   
+                  </view>
+                  <view class="editstatus-item" data-business_id="{{item.business_id}}" data-id="{{item.id}}" data-curidx="{{idx}}" wx:if="{{item.in_stock == 3 && item.sale_status == 2}}">
+                      已发货   
+                  </view>
+                <view class="editstatus-item" data-business_id="{{item.business_id}}" data-id="{{item.id}}" data-curidx="{{idx}}" wx:if="{{item.in_stock == 4 && item.sale_status == 2}}">
+                      已签收   
+                  </view>
+                  <view class="more-activit" bindtap='openguanli' data-curindex="{{idx}}" style="margin-left: 10px;">
+                    <image src="/images/dian.png"></image>
+                  </view>
+              </view>
+            
+            </view>
+            <view class="retweet-2">
+            <button hover-class='none' open-type="share" data-confirm="1" data-is_sales="4" data-sharetxt="{{item.title}}" data-gdImages="{{item.img.url}}" data-discount_price="{{item.discount_price}}"  data-contentid="{{item.id}}" wx:if="{{item.sale_status == 1}}">
+                  <image mode='widthFix' src='/images/icon-relay.png'></image>
+                  <label></label>
+                  去确认
+                </button>
+                <button hover-class='none' open-type="share" data-is_sales="4" data-sharetxt="{{item.title}}" data-gdImages="{{item.img.url}}" data-contentid="{{item.id}}" wx:if="{{item.sale_status == 2}}">
+                  <image mode='widthFix' src='/images/icon-relay.png'></image>
+                  <label></label>
+                  分享
+                </button>
+              </view>
+          </view>
+          <view 
+              class="discount-btn"
+              bind:tap="goToActivity"
+              data-idle="{{item.id}}"
+              data-curidx="{{idx}}" 
+              data-is_idle="{{item.is_idle}}"
+              data-copy_business="{{item.copy_business}}" wx:if="{{shangjia_id != member_id}}">
+                立即抢购
+              </view>
+        </view>
+        <view  wx:if="{{idx == popidx && pop3}}">
+          <view class='pop-bg' catchtouchmove='true' bindtap="popLock_itemm"></view>
+          <view  class='pop-add'>
+            <view class='itemm'>
+              <form report-submit bindsubmit='viewLogistics' data-discount_order_tid="{{item.discount_order_tid}}" data-order_id="{{item.order_id}}" data-in_stock="{{item.in_stock}}" data-curidx="{{idx}}" wx:if="{{item.in_stock >= 3}}"> 
+                <button form-type='submit' class='last' hover-class='none'>查看物流</button>
+              </form>
+              <form report-submit bindsubmit='' data-content_id="{{item.id}}" data-id="{{item.activty.id}}" data-curidx="{{idx}}" wx:else>
+                <button form-type='submit' class='last' hover-class='none'>暂无物流</button>
+              </form>
+            </view>
+            <view class='itemm'>
+              <form report-submit bindsubmit='delCircle' data-content_id="{{item.content_id}}" data-member_id="{{item.member_id}}" data-discount_id="{{item.id}}" data-curidx="{{idx}}">
+                <button form-type='submit' class='last' hover-class='none'>删除商品</button>
+              </form>
+            </view>
+            <view class='itemm'>
+              <form report-submit bindsubmit='popLock_itemm' data-content_id="{{item.content_id}}" data-member_id="{{item.member_id}}" data-discount_id="{{item.id}}" data-curidx="{{idx}}">
+                <button form-type='submit' class='last' hover-class='none'>取 消</button>
+              </form>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    </view>
+</view>
+<!-- 返回上一步 -->
+<include src="/pages/module/backto/index.wxml" />
+
+
+<!-- 撑底 -->
+<view style="height:120rpx;"></view>

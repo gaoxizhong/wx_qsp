@@ -1,0 +1,30 @@
+<view class="deliery-mask" catchtouchmove="catchtouchmove" bindtap="click_mask"></view>
+<view class="deliery-box">
+  <view class="deliery-title">请填写您的收货信息</view>
+  <view class="garden-box">
+		<view class="types-i">联系人</view>
+		<input class="types-input"  value="{{name}}" placeholder="姓名" bindinput="name"></input>
+	</view>
+  <view class="garden-box">
+		<view class="types-i">联系电话</view>
+		<input class="types-input"  value="{{mobile}}" placeholder="电话" bindinput="mobile"></input>
+	</view>
+	<view class="garden-box">
+		<view class="types-i">所在地区</view>
+		<picker mode="region" style="flex:1;" name="saveGarden" value="{{region}}" bindchange="saveGarden">
+			<view class="shengshi">{{saveGarden ? saveGarden:'请选择'}}</view>
+		</picker>
+	</view>
+	<view class="garden-box">
+		<view class="types-i">收货地址</view>
+		<input class="types-input"  value="{{address}}" placeholder="请填写收货地址" bindinput="address"></input>
+	</view>
+	<view class="garden-box">
+		<view class="types-i">备注</view>
+		<input class="types-input" value="{{remark}}" placeholder="备注" bindinput="remark"></input>
+	</view>
+  <view class="delivery-box">
+    <view class="delivery-btn" bindtap="saveAddress">确认</view>
+  </view>
+
+</view>

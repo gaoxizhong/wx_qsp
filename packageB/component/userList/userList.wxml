@@ -1,0 +1,58 @@
+<!-- 展示列表 开始 -->
+<block wx:for="{{space_list}}" wx:key="index">
+  <view class="userList-box" wx-if="{{index == 0}}">
+    <!-- 生活照轮播模块 -->
+    <view class="lifeimg-box">
+      <swiper class='swiper' autoplay="true" circular="true" interval="2500">
+        <swiper-item>
+          <image src="{{homeworkList.background}}" class="slide-image"/>
+        </swiper-item>
+      </swiper>
+      <view class="lifeimg-infobtn-box">
+        <view class="lifeimg-infobtn-box-l">
+          <view class="lifeimg-photo-box">
+            <image src="{{homeworkList.member.avatar}}" class="photo-image"></image>
+          </view>
+          <view class="lifeimg-name-title">
+            <view class="lifeimg-n-t">{{homeworkList.name}}</view>
+            <view hover-class="hoverClass" class="lifeimg-n-btn" data-member_id="{{homeworkList.member_id}}" bindtap="gotoPersonalHome">
+              <image class="lifeimg-n-icon2" src="/packageB/assets/images/livingHall/icon-tx.png" mode="widthFix"></image>
+              <text style="margin: 0 6rpx;">主页</text>
+              <image class="lifeimg-n-icon2" src="/packageB/image/my_more.png" mode="widthFix"></image>
+            </view>
+          </view>
+        </view>
+        <view class="lifeimg-infobtn-box-r">
+          <!-- <view class="type-item">
+            <image src="/packageB/assets/images/livingHall/icon-zf.png" mode="widthFix" class="type-itemimage"></image>
+            <text>0</text>
+          </view> -->
+        </view>
+      </view>
+    </view>
+    <!-- 生活照轮播模块 -->
+
+    <view class="lifeimg-titlebox">
+      <view style="font-weight: bold;">{{member_id == homeworkList.member_id ?'我':'他/她'}}的作品</view>
+      <!-- <view class="titlebox-ljxq" hover-class="hoverClass">了解详情<image src="/packageB/image/my_more.png" mode="widthFix" class="titlebox-ljxqimage"></image></view> -->
+    </view>
+    <!-- 她的作品列表 开始-->
+    <view class="workList-box">
+      <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+        <view class="scroll-view-item_H demo-text-1" wx:for="{{homeworkList.work}}" wx:key="index">
+          <image src="{{item.image_array[0]}}"  data-id="{{item.id}}" bindtap="clickBuy"></image>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 她的作品列表 结束-->
+    <view class="userList-btnbox">
+      <view class="userList-btn" hover-class="hoverClass" bindtap="gotoAll">查看更多人作品</view>
+    </view>
+  </view>
+</block>
+
+<view class='nulldata_wrap' wx:if="{{space_list.length == 0}}">
+  <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+  <view class='msg'>暂无用户创建主页...</view>
+</view>
+<!-- 展示列表 结束 -->

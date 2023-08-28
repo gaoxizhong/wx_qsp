@@ -1,0 +1,171 @@
+<!-- 分类选择开始 -->
+<view class="hdrt-box">
+	<view class="title1-box">
+		<view style="display: flex;align-items: center;font-size: 600;">
+			<image src="/images/jyhs-icon-yf.png" mode="widthFix"></image>
+			<text>请选择{{name}}</text>
+		</view>
+	</view>
+	<view class="hd rt">
+		<view class="items" bindtap="changere"
+			wx:for="{{newlists}}" 
+			wx:key='idx' 
+			wx:for-index='idx'  
+			wx:for-item="item" 
+			data-goods_id="{{item.id}}" 
+			data-curidx="{{idx}}" 
+			data-name="{{item.name}}" 
+			data-integral="{{item.integral}}" 
+			data-rand_name="{{item.rand_name}}" 
+			data-goods_type="{{item.type}}" 
+			>
+			<view class="{{goodid == item.id && sel_type==1 ? 'items-list-hove':''}} items-list">{{item.rand_name}}</view>
+		</view>
+		<view class="items" bindtap="changere" data-goods_id="-1" data-goods_type="{{goods_type}}">
+			<input 
+				class="{{goodid == -1 && sel_type==1 ? 'items-list-hove':''}}"
+				type="{{type == 3? 'text' : 'number'}}"
+				name="text"
+				value="{{numbers}}" 
+				data-goods_id="-1" 
+				data-goods_type="{{goods_type}}"
+				bindinput="save_input_num"
+				placeholder="手动输入" 
+			>
+			</input>
+		</view>
+	</view>
+</view>
+<!-- 分类选择结束 -->
+
+<!-- 上传照片开始 -->
+<view class="hdrt-box" style="margin-top: 20rpx;">
+	<view class="title1-box">
+		<view style="display: flex;align-items: center;font-size: 600;">
+			<image src="/images/jyhs-icon-lc.png" mode="widthFix"></image>
+			<text>请上传照片</text>
+		</view>
+	</view>
+
+
+	<view class="activity-imgs">
+		<image src="http://oss.qingshanpai.com/banner/{{type}}_1type.jpg" bind:tap="openPhoto1" data-image="http://oss.qingshanpai.com/banner/{{type}}_1type.jpg"></image>
+		<image src="http://oss.qingshanpai.com/banner/{{type}}_2type.jpg" bind:tap="openPhoto1" data-image="http://oss.qingshanpai.com/banner/{{type}}_2type.jpg"></image>
+		<image  wx:for="{{img}}" wx:for-item="item" wx:for-index="index" wx:key="index" mode="aspectFill" data-index="{{index}}" src="{{item}}" bind:tap="openPhoto"/>
+		<view class="add-pic" bind:tap="choosePic" wx:if="{{img.length < 9}}">
+			<image src="/images/icon-addphoto.png" mode="aspectFill"/>
+		</view>
+	</view>
+	<view class="text-tishi">说明：至少两张照片，其中一张“{{explain}}”分类的图片，一张{{explain}}正确投放的场景图</view>
+</view>
+<!-- 上传照片结束 -->
+
+<!-- 填写个人信息开始 -->
+<view class="hdrt-box" style="margin-top: 20rpx;">
+	<view class="title1-box">
+		<view style="display: flex;align-items: center;font-size: 600;">
+			<image src="/images/jyhs-icon-tb.png" mode="widthFix"></image>
+			<text>请填写个人信息</text>
+		</view>
+	</view>
+	<view class='tips'>
+		<!-- <input type="text" name='shequ' value="{{shequ}}" placeholder="例如：xx小区xx号楼" bindinput="shequ"></input> -->
+		<view class="tot1">
+			<view class="name-phone">
+				<view style="padding-right: 20rpx;">
+					<view class="types-i" style="width:75rpx;text-align:left;">姓名</view>
+					<input class="types-input" value="{{contact_name}}" placeholder="选填(如活动需要)" bindinput="contact_name"></input>
+				</view>
+				<view>
+					<view class="types-i" style="width:75rpx;text-align:left;">电话</view>
+					<input class="types-input"  value="{{contact_phone}}" placeholder="选填(如活动需要)" bindinput="contact_phone"></input>
+				</view>
+			</view>
+			<view class="garden-box">
+				<view class="types-i">所在地区</view>
+				<picker mode="region" style="flex:1;height:60rpx;" name="garden" value="{{garden}}" start="2015-09-01" bindchange="saveGarden">
+					<view class="shengshi">{{garden ? garden:'请选择'}}</view>
+				</picker>
+			</view>
+			<view class="garden-box">
+				<view class="types-i">详细地址</view>
+				<input class="types-input" style="margin-left:20rpx;"  value="{{address}}" placeholder="地址用于垃圾分类信息统计" bindinput="address"></input>
+			</view>
+			<view class="garden-box">
+				<view class="types-i">订单备注</view>
+				<input class="types-input" style="margin-left:20rpx;"  value="{{remark}}" placeholder="" bindinput="remark"></input>
+			</view>
+		</view>
+		<scroll-view scroll-y="true" class="scrollview" hidden="{{hideScroll}}" style="{{arrayHeight>340?'height:340rpx':''}}">
+			<view wx:for="{{bindSource}}" wx:key="index">
+				<view id="{{item}}" bindtap="itemtap" class="itemview">{{item}}</view>
+			</view>
+		</scroll-view>
+	</view>
+	<!-- 承德打卡活动 -->
+	<include src="/pages/module/chengde_huodong/index.wxml" />
+</view>
+<!-- 填写个人信息结束 -->
+
+<!-- 环保积分奖励开始 -->
+<view class="hdrt-box" style="margin-top: 20rpx;">
+	<view class="title1-box">
+		<view style="display: flex;align-items: center;font-size: 600;">
+			<image src="/images/jyhs-icon-jl.png" mode="widthFix"></image>
+			<text>环保积分奖励</text>
+		</view>
+	</view>
+	<view class='bd'>
+		<view class='items'>
+			<form report-submit>
+				<button form-type='submit' hover-class='none'>
+					<view>
+						<view wx:if="{{checked}}" class='icon_box'>
+							<icon type="success_no_circle" size="16"></icon>
+						</view>
+					</view>
+					<image src='http://oss.qingshanpai.com/banner/integral.png'></image>
+				</button>
+			</form>
+			<view class="icon_box_text">
+				<text>环保积分</text>
+				<text style="color:#999999;">{{jifen_name}}</text> 
+			</view>
+		</view>
+		<view class='tot'>合计：
+			<text class='color-64B'>{{total?total:'0.00'}}环保积分</text>
+		</view>
+	</view>
+</view>
+<!-- 环保积分奖励结束 -->
+
+
+<view style="width:100%;height:100rpx;"></view>
+
+
+<view class="ad-box">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30" bindclose="adClose"></ad>
+</view>
+
+
+<view class="page-listbox listbox-btn">
+	<form report-submit bindsubmit='savaData'>
+		<button form-type='submit' hover-class='none' class="footer-btn">提交</button>
+	</form>
+</view>
+
+<view class="layer" wx:if="{{showFull}}" bindtap='closePic'>
+  <view class="cover"></view>
+  <view class="con">
+    <image src='{{preview}}' mode="widthFix"></image>
+    <view bindtap='delPic' class="txt" bindtap='delPic'>删除</view>
+  </view>
+</view>
+<view class="layer" wx:if="{{showFull_image}}" bindtap='closePic1'>
+  <view class="cover"></view>
+  <view class="con">
+    <image src='{{preview1}}' mode="widthFix"></image>
+  </view>
+</view>
+<!-- 信息预览弹窗 -->
+<include src="/pages/module/ad_preview/index.wxml" />

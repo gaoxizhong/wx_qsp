@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "创建团组",
+  "navigationBarBackgroundColor": "#ffbd6d",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {}
+}

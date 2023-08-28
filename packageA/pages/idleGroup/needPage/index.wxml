@@ -1,0 +1,56 @@
+<view class="mdmjy-box">
+  <view class="mdmjy-box1" data-is_tab="1" bindtap="clicktab">
+
+    <view class="mdmjy-titlebox">
+      <image src="https://oss.qingshanpai.com/idle/icon-mdmjy.png" mode="widthFix" class="title-left"></image>
+      <view class="title-right">
+        <view class="right-t">
+          <text>面对面交易</text>
+          <image src="https://oss.qingshanpai.com/idle/icon-tj.png" mode="widthFix"></image>
+        </view>
+        <image src="https://oss.qingshanpai.com/idle/{{is_tab == '1' ? 'icon-sel':'icon-nosel'}}.png" mode="widthFix" class="right-icon"></image>
+      </view>
+    </view>
+    <view class="text-box">
+      <view class="text-view">
+        <image src="https://oss.qingshanpai.com/idle/icon-1.png" mode="widthFix"></image>
+        <view class="text-view-t">面对面交易可以查验物品 也可以结交朋友 是一个不错的选择，同时还省下物流环节，很环保。</view>
+      </view>
+      <view class="text-view">
+        <image src="https://oss.qingshanpai.com/idle/icon-1.png" mode="widthFix"></image>
+        <view class="text-view-t">面对面交易 现场通过微信或支付宝、现金支付，无需通过平台</view>
+      </view>
+      <view class="text-view">
+        <image src="https://oss.qingshanpai.com/idle/icon-1.png" mode="widthFix"></image>
+        <view class="text-view-t">记得售出后 将商品下架哦~</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="mdmjy-box1" style="margin-top: 30rpx;" data-is_tab="2"  bindtap="clicktab">
+  <view class="mdmjy-titlebox">
+    <image src="https://oss.qingshanpai.com/idle/icon-xxjy.png" mode="widthFix" class="title-left"></image>
+    <view class="title-right">
+      <view class="right-t">
+        <text>线上交易</text>
+      </view>
+      <image src="https://oss.qingshanpai.com/idle/{{is_tab == '2' ? 'icon-sel':'icon-nosel'}}.png" mode="widthFix" class="right-icon"></image>
+    </view>
+  </view>
+  <view class="text-box">
+    <view class="text-view">
+      <image src="https://oss.qingshanpai.com/idle/icon-1.png" mode="widthFix"></image>
+      <view class="text-view-t">适合场景：交易双方太忙，时间无法匹配的场景。</view>
+    </view>
+    <view class="text-view">
+      <image src="https://oss.qingshanpai.com/idle/icon-1.png" mode="widthFix"></image>
+      <view class="text-view-t">通过平台交易，完成交易后请确认收货，对方会收到货款，平台会收取一定平台服务费。</view>
+    </view>
+  </view>
+</view>
+
+
+<view class="btn-box">
+  <image src="https://oss.qingshanpai.com/idle/icon-btn.png" mode="widthFix" bindtap="clickbtn"></image>
+</view>

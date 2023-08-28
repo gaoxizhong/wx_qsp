@@ -1,0 +1,99 @@
+  <wxs module="filters">
+var filters = {
+  toFix: function (value) {
+    return value.toFixed(2)
+  }
+}
+module.exports = {
+  toFix: filters.toFix
+}
+</wxs>
+   <view class="edit-address edit-address1" wx:if="{{!buyer_type}}" bind:tap="openEdit">
+    <view style="flex:1;padding-left:32rpx;" >
+      <text style="width: 80%;">请设置您的收货地址</text>
+    </view>
+    <image src="/images/icon_editcomment.png"/>
+  </view>
+  <image src="/images/address_line.png" style="height: 5rpx;width:100%" wx:if="{{!buyer_type}}" />
+
+  <view class="edit-address edit-address2" wx:if="{{buyer_type == 1}}" bind:tap="openEdit">
+    <view style="flex:1;padding-left:32rpx;" >
+       <view class="name-phone">{{buyer_name+ '  '}}{{ '  '+buyer_phone}}</view>
+       <view class="address">买家地址：{{buyer_ssq}}{{buyer_addressDetail}}</view>
+    </view>
+    <image src="/images/icon_editcomment.png"/>
+  </view>
+  <image src="/images/address_line.png" style="height: 5rpx;width:100%"  wx:if="{{buyer_type == 1}}"/>
+
+
+  <view class="divide" style="height:20rpx" wx:if="{{obtainType != ''}}"></view>
+  <view class="edit-info" wx:if="{{showEdit}}">
+    <view class="need-hbb">
+      <text>姓名</text>
+      <view>
+        <input type="text" value="{{buyer_name}}" placeholder="请输入姓名" bindinput="inputName"/>
+      </view>
+    </view>
+    <view class="need-hbb">
+      <text>联系方式</text>
+      <view>
+        <input type="digit" value="{{buyer_phone}}" placeholder="请输入联系方式" bindinput="inputPhone"/>
+      </view>
+    </view>
+    <view class="end-time">
+      <text>省市区</text>
+      <picker mode="region" value="{{buyer_ssq}}" start="2015-09-01" bindchange="chooseAddress">
+        <view>{{buyer_ssq ? buyer_ssq:'请选择省市区'}}</view>
+      </picker>
+    </view>
+    <view class="need-hbb">
+      <text>详细地址</text>
+      <view>
+        <input type="text" value="{{buyer_addressDetail}}" placeholder="请输入详细地址" bindinput="inputAddrDetail"/>
+      </view>
+    </view>
+    <button bind:tap="saveAddress">确定</button>
+    <view class="divide" style="height:20rpx"></view>
+  </view>
+
+  <!-- 商品列表 -->
+<view class="book_info" >
+    <view>
+      <!-- 商品组键 -->
+      <view class='shopgoodlist' wx:for="{{book_info.book_info}}" wx:key="index">
+        <image class="cart-thumb" src="{{item.img}}"></image>
+        <view class='goodsdata'>
+          <text class='goodsname'>{{item.name}}</text>
+          <!-- <view>x {{item.num}}</view> -->
+          <view>x 1</view>
+        </view>
+        <!-- <view class='price'>{{item.integral_price}}积分</view> -->
+
+      </view>
+    </view>
+</view>
+<view class="divide" style="height:20rpx"></view>
+<view class="good-desc">
+  <view class="price-info-list header1">
+    <text>配送方式：</text>
+    <text>包邮</text>
+  </view>
+</view>
+<view class="divide" style="height:20rpx"></view>
+<view class="price-info-list price-info" style="padding: 15rpx;margin-top:5rpx">
+  <text>订单备注</text>
+  <input class="remark" placeholder="选填，填写订单的备注信息" value='{{orderRemark}}' bindinput="inputRemark" maxlength="200"></input>
+</view>
+<view class="divide" style="height:20rpx"></view>
+<view class="price-info" style="padding: 15rpx;margin-top:5rpx">
+    <text>共{{number}}件 小计：</text>
+    <text class="total-price">￥{{pay_money}} + {{all_integral}}积分</text>
+</view>
+<view class="divide" style="height:100rpx"></view>
+<view class="bottom-buy">
+  <view class="price">
+    <text>实付款</text>
+    <text class="total-price">￥{{pay_money}} + {{all_integral}}积分</text>
+  </view>
+  <view class="to-buy" bind:tap="confirmBuy">提交订单</view>
+</view>

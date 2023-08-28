@@ -1,0 +1,36 @@
+<view class="list-box">
+  <view wx:for="{{listData}}" wx:key="index" bindtap="goTodetails" class="list-box-items">
+    <view class="box-items-head">
+      <text class="items-title">{{item.name}}</text>
+      <text class="items-distance">{{item.distance}}Km</text>
+    </view>
+    <view class="items-desc">
+      <image src="{{item.img}}" 
+        bind:tap="goToActivity" 
+        data-business_id="{{item.business_id}}" 
+        data-discount_id="{{item.id}}" 
+        data-is_tuan="{{item.is_tuan}}"
+      ></image>
+      <view style="flex:1;padding-left:20rpx;" 
+        bind:tap="goToActivity" 
+        data-business_id="{{item.business_id}}" 
+        data-discount_id="{{item.id}}" 
+        data-is_tuan="{{item.is_tuan}}"  
+      >
+        <view class="items-desc-title">{{item.title}}</view>
+        <view class="items-desc-num">{{item.tuan_num}}份团</view>
+        <view class="items-desc-price"><text style="color:#f0914a;font-size:30rpx;">￥{{item.tuan_price}}</text><text style="margin-left:14rpx;color:#cecece;font-size:26rpx;">￥{{item.total_price}}</text></view>
+      </view>
+      <view class="items-btn-box">
+        <view class="btn-bt" 
+        bind:tap="goToActivity" 
+        data-business_id="{{item.business_id}}" 
+        data-discount_id="{{item.id}}" 
+        data-is_tuan="{{item.is_tuan}}" 
+        hover-class="hoverpin"
+         >拼团</view>
+        <view class="yishou-text">已售{{item.saled_num?item.saled_num:'0'}}</view>
+      </view>
+    </view>
+  </view>
+</view>

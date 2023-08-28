@@ -1,0 +1,100 @@
+
+<view class="register-info">
+  <image src="http://oss.qingshanpai.com/banner/register-bg.png"></image>
+</view>
+<form bindsubmit='savaData' report-submit>
+  <view class="mine_nav">
+    <view>
+      <view class="items">
+        <text><i style="color:red">*</i>展厅名称</text>
+        <input placeholder='请输入完整姓名' placeholder-style='color:#b2b2b2;' name="contact_name" value="{{contact_name}}"></input>
+      </view>
+      <!-- <view class="items">
+        <text>展厅简介</text>
+        <input placeholder='请输入简介信息' placeholder-style='color:#b2b2b2;' name="contact_profile" value="{{contact_profile}}"></input>
+      </view> -->
+      <view class="items">
+        <text>联系电话</text>
+        <input placeholder='手机或固话' placeholder-style='color:#b2b2b2;' name="contact_phone" value="{{contact_phone}}"></input>
+      </view>
+      <view class="items">
+        <text>所在地区</text>
+        <picker mode="region" style="flex:1;height:60rpx;line-height: 60rpx;" name="garden" value="{{garden}}" start="" bindchange="saveGarden">
+          <view class="shengshi" style="color:{{garden == ''? '#b2b2b2' : '#000'}}">{{ garden ? garden:'请选择' }}</view>
+        </picker>
+      </view>
+      <view class="items" style="align-items:start;">
+        <text>联系地址</text>
+        <input placeholder='请输入详细地址' placeholder-style='color:#b2b2b2;' name="contact_area" value="{{contact_area}}"></input>        
+      </view>
+    </view>
+  </view>
+
+<view class="v-pics">
+  <view class="v-head">
+    <span>展厅头像</span>
+    <view class='photo'>
+      <image mode='scaleToFill' src="{{v_head}}"></image>
+      <button class='btn-addphoto' bindtap='chooseHead' hover-class='none' style="opacity:{{v_head &&  v_head!='' ? 0 : 1}}">
+        <image mode='widthFix' src='/images/icon-addphoto.png'></image>
+      </button>
+    </view>
+  </view>
+  <view class="v-back">
+    <span>展厅背景</span>
+    <view class='photo'>
+      <image mode='scaleToFill' src="{{v_back}}"></image>
+      <button class='btn-addphoto' bindtap='chooseBack' hover-class='none' style="opacity:{{v_back && v_back!='' ? 0 : 1}}">
+        <image mode='widthFix' src='/images/icon-addphoto.png'></image>
+      </button>
+    </view>
+  </view>
+</view>
+<view class="confirm-agree">
+  <checkbox-group bindchange="checkboxChange">
+    <checkbox value="1" color="#64B532"/>
+  </checkbox-group>
+  <view>
+    <span>已同意</span>
+    <a href="javascript:void(0)" bindtap="showAgreement" class="color-64B">《入驻协议》</a>
+  </view>
+</view>
+<button form-type='submit' hover-class='hover_color' class="send-apply">立即提交申请</button>
+</form>
+<comp id="comp"/>
+<view class="agree-detail" wx:if="{{isAgreeShow}}">
+    <view style="text-align:center;font-size:40rpx;font-weight:bold;width:100%">小程序入驻协议书</view>
+  <text decode="{{true}}" class="text-detail">
+    <text>
+      一．入驻协议：
+      为了提供良好的网络环境，更好的为本地用户服务，甲乙双方本着双赢的策略，根据甲方青山生态入驻条件，乙方申请入驻，并完全接受甲方规范，经友好协商，甲乙双方签订以下协议。
+    </text>
+    <text>
+      二．入驻基本条件：
+    1.	有良好的合作意愿，能提供优质的商品或者活动、资讯等服务，保证顺利进行，并提供良好的售后服务；
+    2.	乙方必须满意以下条件之一（符合其中一项即可）：
+    A.	有合法正规营业执照；
+    B.	授权商，获得国际或国内知名品牌厂商授权；
+    C.	拥有自己注册商标的生产型厂商；
+    D.	专业品牌经销商、代理商；
+    E.	专业品牌专卖店；
+    F.	拥有食品许可证的厂商或授权店；
+    G.	参加甲方特定活动；
+    H.	专栏 作家； 
+    I.	其它甲方允许的企业或个人；
+    </text>
+    <text>
+      三.	双方权利和义务：
+      1.甲方根据市场情况有权利对各种入住条件进行调整。
+      2.甲方有权审核乙方提供的商品信息，对乙方提供不符合法律、法规或甲方有理由相信如果发布将给甲方带来不利影响的信息，甲方有权要求乙方进行修改，也有权拒绝发布或删除该信息。
+      3.乙方使用甲方提供的小程序平台按甲方要求在小程序中建立网上店铺、活动平台、专栏文章，经甲方审核，发布和管理商品信息、活动内容、文章等；
+      4.乙方应保证其在小程序中的商品和服务、发布的活动和文章、舆论信息等内容合法、真实、准确。如因乙方提供的商品、活动、文章。舆论等信息存在问题而引起任何纠纷，乙方应负责解决；如给甲方造成损失，乙方应当负责赔偿。
+      5.乙方有义务对所售商品、发布的活动、专栏资讯等信息，提供监督、售后等后续服务。
+      6.乙方保证其在小程序中的商品零售价格不高于在店铺销售的最低价格；发布的活动信息必须真实、有效、；专栏内容不得违反法律法规，否则甲方有权拒绝发布或删除该商品信息。
+      7.乙方应妥善保管相应账号密码等信息，如保管、设置、使用不当造成的损失，由乙方自行承担。
+    </text>
+  </text>
+  <view class="confirm-btns">
+    <button hover-class='none' bindtap="comfirmAgree">确认</button>
+  </view>
+</view>

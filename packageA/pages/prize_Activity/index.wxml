@@ -1,0 +1,28 @@
+<view class="swiper-container">
+  <swiper class='swiper' autoplay="true" circular="true">
+    <block wx:for="{{img}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" mode="aspectFit" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="price-info">
+  <view class="info-title">{{prize_info.prize_name}}</view>
+  <view class="origin-price">
+    <text decode="true" style="padding-left: 20rpx;margin:0 20rpx;">价值</text>
+    <text style="color:#ff9823;font-size:30rpx;">￥{{prize_info.prize_price}}</text>
+    <text decode="true" style="padding-left: 20rpx;margin:0 20rpx;">兑换价</text>
+    <text style="color:#ff9823;font-size:30rpx;">￥0</text>
+  </view>
+</view>
+<view class="divide" style="height:34rpx"></view>
+<view class="good-desc">
+  <view class="desc-title">商品详情</view>
+  <view style="color: #9C9A9A;font-size: 28rpx;width:100%;height:auto;" bindlongtap="textPaste" data-content="{{desc}}">{{desc?desc:'暂无商品详情'}}</view>
+  <view style="height:30rpx"></view>
+</view>
+
+  <!-- 返回上一步 -->
+<include src="/pages/module/backto/index.wxml" />
+

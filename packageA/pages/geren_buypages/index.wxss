@@ -1,0 +1,94 @@
+page{
+  padding: 28rpx 30rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+}
+.setint-box{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 36rpx 16rpx;
+  background: #fff;
+  box-shadow: 0 0 20rpx 0 #00000015;
+}
+.setint-title{
+  font-weight: 600;
+}
+.setint-title-desc{
+  color: #999;
+}
+.setint-list-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 36rpx;
+}
+.setint-list-box>.setint-list-item{
+  width: 33.3333333333333333%;
+  font-size: 26rpx;
+  margin: 15rpx 0;
+  display: flex;
+  align-items: center;
+}
+.setint-list-box>.setint-list-item>view{
+  width: auto;
+  height: auto;
+  padding: 16rpx 40rpx;
+  border-radius: 20px;
+  box-shadow: 0 0 20rpx 0 #00000015;
+}
+.set-btn{
+  background: #cecece;
+}
+
+.setint-list-item>input{
+  width: 152rpx;
+  height: 100%;
+  text-align: center;
+  padding: 10rpx 40rpx;
+  border-radius: 20px;
+  box-shadow: 0 0 20rpx 0 #00000015;
+}
+.show-number-box{
+  margin-top: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.que-btn{
+  width: 298rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  text-align: center;
+  font-weight: 600;
+  margin: 40rpx auto;
+  border-radius: 20px;
+  box-shadow: 0 0 20rpx 0 #00000015;
+}
+.tishi-text{
+  width: 100%;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  color: #ababab;
+  box-sizing: border-box;
+}
+.seld-btn{
+  background: #4ac081;
+  color: #fff;
+}
+
+
+.transac-input-btn{
+  margin: 0 auto;
+  margin-top: 98rpx;
+  width: 70%;
+  padding: 22rpx 0;
+  background: #63d080;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  border-radius: 20px;
+}

@@ -1,0 +1,10 @@
+@import "../choosedynamic/index.wxss";
+.theirList-btm{
+  width: 482rpx;
+  height: 82rpx;
+  background: #4ac081;
+  color: #fff;
+  line-height: 82rpx;
+  text-align: center;
+  border-radius: 20px;
+}

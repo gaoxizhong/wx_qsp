@@ -1,0 +1,60 @@
+page{
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.add-wealth-list{
+  flex-wrap: wrap;
+}
+.add-wealth-list .buy-item {
+  width: 33.33333333333333333%;
+  height: 206rpx;
+  border-radius: 8rpx;
+  padding: 10rpx;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.box-nei{
+  width: 100%;
+  height: 100%;
+  padding: 10rpx;
+  box-sizing: border-box;
+  position: relative;
+  border:none;
+}
+.box-nei:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid #e4a014;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 200%;
+  height: 200%;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transform-origin: left top;
+  transform-origin: left top;
+}
+.buy-item-title {
+  font-size: 26rpx;
+  text-align: center;
+}
+.buy-item-btn {
+  width: 94rpx;
+  padding: 4rpx 8rpx;
+  font-size: 20rpx;
+  background: #e4a014;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  z-index: 100;
+}
+.buy-item-price{
+  font-size: 28rpx;
+}
+.buy-price{
+  font-size: 36rpx;
+  color: #e4a014;
+}

@@ -1,0 +1,49 @@
+<view class="pages-tbox">
+  <view class="tbox-title">可提现余额（元）</view>
+  <view class="tbox-money">{{money}}</view>
+</view>
+<!-- <view class="money-itemsbox">
+  <view class="itemsbox-i">作品收益 <text>234.00</text></view>
+  <view class="itemsbox-m"></view>
+  <view class="itemsbox-i">其他收益 <text>234.00</text></view>
+</view> -->
+<view class="t-30"></view>
+
+<form bindsubmit="gettxian">
+  <!-- <view class="withdraw-box">
+    <view class="withdraw-t">提现金额</view>
+    <view class="withdraw-money-box">￥<input style="padding-left: 10rpx;" class="ktxje-num" name="money" value="{{money}}" disabled/></view>
+  </view> -->
+  <view class="srxm-box">
+    <view class="section_title">输入本人姓名:</view>
+    <input type="text" name="name" id="" bindinput="setName" placeholder="请输入真实姓名"/>
+  </view>
+  <view class="btn-areabox">
+    <button class="btn-area" form-type="submit" hover-class="hover_color">提现</button>
+  </view>
+</form>
+<view class="mx-itemsbox">
+  <view class="mx-items" bindtap="goto_s_etails">
+    收入明细
+    <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+  </view>
+  <view class="mx-items" bindtap="goto_s_etails1">
+    提现明细
+    <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+  </view>
+</view>
+
+
+<view class="illustrate-box" catchtouchmove="catchtouchmove" wx:if="{{is_illustrate}}">
+  <view class="illustrate-pop" catchtouchmove="catchtouchmove" bindtap="infoTextBtn"></view>
+  <view class="illustrate-infobox">
+    <view class="illustrate-title-box">
+      <view>今日收到的赞</view>
+      <view class="close" bindtap="infoTextBtn">X</view>
+    </view>
+    <view class="infoText-box">
+      今日收到的赞有本人发布对的所有作品获取的赞，一个赞是0.1元，该收益可用来抵现兑换项目或抵现加金钱兑换，不可提现。
+    </view>
+    <view class="infoText-btn" bindtap="infoTextBtn">我知道了</view>
+  </view>
+</view>

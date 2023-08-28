@@ -1,0 +1,76 @@
+<view class="search-box">
+  <view class="search-button" bind:tap="changeCheck">
+    <text>筛选</text>
+    <image src="{{showOrderList ? '/images/icon_down.png' : '/images/icon_up.png'}}" />
+  </view>
+  <view class="total-view" wx:if="{{showOrderList}}">
+    <text>支出 {{orderSum.paySum}}</text>
+    <text>收入 {{orderSum.incomeSum}}</text>
+  </view>
+</view>
+<view class="order-list" wx:if="{{showOrderList}}">
+  <view 
+    class="order-item"
+    wx:for="{{orderList}}"
+    wx:for-index="index"
+    wx:key="index"
+    wx:for-item="item"
+    >
+    <image src="{{item.avatar}}"/>
+    <view class="order-info">
+      <text class="name">{{item.nickname}}</text>
+      <text class="time">{{item.create_time}}</text>
+      <text class="time">详情：{{item.note}}</text>
+    </view>
+    <view class="hbb {{item.status == '收' ? 'color-64B' : 'color-333'}}">{{item.status == '收'? '+' : '-'}}{{item.amount}}</view>
+  </view>
+  <view class='nulldata_wrap' wx:if="{{orderList.length <= 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg' style="color:#000;">暂无数据</view>
+  </view>
+</view>
+<view class="search-condition" wx:else>
+  <view class="date-choose">
+    <view class="start-time">
+      <picker mode="date" value="{{start_time}}" bindchange="startTime" style="height:100%;width:100%">
+        <text>开始时间：<text style="color:#CDCDCD">{{start_time?start_time:'选择开始时间'}}</text></text>
+      </picker>
+    </view>
+    <view class="end-time">
+      <picker mode="date" value="{{end_time}}" bindchange="endTime" style="height:100%;width:100%">
+        <text>结束时间：<text style="color:#CDCDCD">{{end_time?end_time:'选择结束时间'}}</text></text>
+      </picker>
+    </view>
+  </view>
+  <view class="type-choose">
+    <view class="status-radio">
+      <text>收支状态：</text>
+      <radio-group class="radio-group" bindchange="statusChange">
+        <radio value="2" checked="{{status==2}}" color="#64B532">支出</radio>
+        <radio value="1" checked="{{status==1}}" color="#64B532">收入</radio>
+      </radio-group>
+    </view>
+    <view class="status-radio">
+      <text>收支来源：</text>
+      <radio-group class="radio-group" bindchange="officialChange">
+        <radio value="1" checked="{{official==1}}" color="#64B532">官方</radio>
+        <radio value="0" checked="{{official==='0'}}" color="#64B532">非官方</radio>
+
+      </radio-group>
+    </view>
+    <view class="type-radio">
+      <text>积分类型：</text>
+      <radio-group class="radio-group" bindchange="typeChange">
+        <radio value="1" checked="{{type==1}}" color="#64B532">普通</radio>
+        <radio value="2" checked="{{type==2}}" color="#64B532">活动</radio>
+      </radio-group>
+    </view>
+  </view>
+  <view class="btn-search">
+    <button bindtap="resetSearch">查询订单</button>
+  </view>
+</view>
+<!-- 返回上一步 -->
+<include src="/pages/module/backto/index.wxml" />
+
+

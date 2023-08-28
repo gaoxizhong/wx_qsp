@@ -1,0 +1,91 @@
+<!-- 选择省市区 -->
+<view class="item-box"  bindtap="logintest">
+  <view class="item-left-icon">
+    <icon class="iconfont icon-dibiao" style="font-size:40rpx;"></icon>
+  </view>
+  <picker mode="region" name="address_start" value="{{address_start}}" start="2015-09-01" bindchange="address_start" style="flex:1;padding:12rpx 18rpx;">
+    <view class="shengshi" style="color:{{address_start?'#000':'#9e9e9e'}}">{{address_start ? address_start:'请选择省市区'}}</view>
+  </picker>
+  <view class="min_icon">
+    <image src='/images/icon_mine_more.png' mode='widthFix'></image>
+  </view>
+</view>
+<!-- 选择详细地址 -->
+<view class="item-box"  bindtap="logintest">
+  <view class="item-left-icon">
+    <icon class="iconfont icon-dibiao" style="font-size:40rpx;"></icon>
+  </view>
+  <view class="title1-input1" style="flex:1;padding:12rpx 18rpx;">
+   <input type="text" name="detail_address_start" value="{{detail_address_start}}" bindinput="detail_address_start" placeholder-style="color:#9e9e9e;" placeholder="请输入详细地址"></input> 
+  </view>
+    <view class="item-right"></view>
+</view>
+<!-- 联系人电话 -->
+<view class="item-box"  bindtap="logintest">
+  <view class="item-left-icon">
+    <icon class="iconfont icon-dianhua" style="font-size:40rpx;"></icon>
+  </view>
+  <view class="title1-input1" style="flex:1;padding:12rpx 18rpx;">
+   <input type="text" name="contact_phone" value="{{contact_phone}}" bindinput="contact_phone" placeholder-style="color:#9e9e9e;" placeholder="请输入联系电话"></input> 
+  </view>
+    <view class="item-right"></view>
+</view>
+<!-- 服务项目 -->
+<view class="item-box"  bindtap="logintest">
+  <view class="item-left-icon">
+    <icon class="iconfont icon-shouye" style="font-size:40rpx;"></icon>
+  </view>
+  <picker 
+  mode="selector" 
+  name="xiangmu" 
+  value="{{xiangmuIndex}}"  
+  range="{{xiangmuArray.list}}" 
+  bindchange="bindxiangmuChange" 
+  style='flex:1;padding:12rpx 18rpx;color:{{xiangmu == "服务项目" ? "#9e9e9e":""}};'>
+    {{xiangmu}}
+  </picker>
+  <view class="min_icon">
+    <image src='/images/icon_mine_more.png' mode='widthFix'></image>
+  </view>
+</view>
+<view class="biaozhun">
+  <text>收费标准</text>
+  <text>50元/小时</text>
+</view>
+<!-- 预约时间 -->
+<view class="item-box" bindtap="logintest">
+  <view class="item-left-icon">
+    <icon class="iconfont icon-fenleiorguangchangorqita" style="font-size:40rpx;"></icon>
+  </view>
+  <picker 
+    style='flex:1;padding:12rpx 18rpx;color:{{startDate == "预约时间" ? "#9e9e9e":""}};' 
+    disabled="{{!member_id}}" 
+    class='time-picker' 
+    mode="multiSelector" 
+    bindchange="bindStartMultiPickerChange" 
+    bindtap='pickerTap' 
+    bindcolumnchange="bindMultiPickerColumnChange" 
+    value="{{multiIndex}}" 
+    range="{{multiArray}}"
+    >
+    {{startDate}}
+  </picker>
+  <view class="min_icon">
+    <image src='/images/icon_mine_more.png' mode='widthFix'></image>
+  </view>
+</view>
+<view bindtap="logintest" style="margin:16rpx 28rpx;">
+  <view style="font-weight:700;">备注信息：</view>
+  <input style="margin:20rpx 0; padding:20rpx 10rpx;background:#f1f1f1;" type="text" name='beizhu' value="{{beizhu}}" bindinput="beizhu" placeholder-style="color:#9e9e9e;" placeholder="请填写备注信息..."></input>
+</view>
+
+
+
+<!-- 底部footer -->
+<view class="footer-btn-box">
+  <view  class="footer-box-text">
+    <view>预估费用 <text style="font-size:36rpx; font-weight:700;color:#333333;">￥{{permaner}}</text></view>
+    <view>服务完成后支付</view>
+  </view>
+  <view class="footer-btn" bindtap="submitdata">立即预约</view>
+</view>

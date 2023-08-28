@@ -1,0 +1,77 @@
+<view class="ts-box">
+  到店前请与商户确认营业时间和是否需要核酸证明并预约，进店请佩戴口罩。
+</view>
+<view class="workList-box">
+  <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+    <view class="scroll-view-item_H" wx:for="{{imageList}}" wx:key="index">
+      <image src="{{item}}" mode="widthFix" data-images="{{imageList}}" data-subidx="{{index}}" bindtap="previewImage1"/>
+    </view>
+  </scroll-view>
+</view>
+<view class="reserve-title-box">青山生态生活馆</view>
+<view class="reserve-subtitle"> 
+  <text>营业中</text>
+  <text>周一至周日</text>
+  <text>10:00-22:00</text>
+</view>
+<view class="reserve-icon-btn">
+  <view class="icon-itembtn">免费wifi</view>
+  <view class="icon-itembtn">20人容量</view>
+  <view class="icon-itembtn">专业指导</view>
+  <view class="icon-itembtn">免费换书</view>
+  <view class="icon-itembtn">团体活动</view>
+  <view class="icon-itembtn">咖啡小屋</view>
+  <view class="icon-itembtn">茶艺展示</view>
+</view>
+
+<view class="add-box">
+  <view class="add-box-r">
+    <view style="font-size: 30rpx;">朝阳区城建N次方底商</view>
+    <view style="font-size: 28rpx; color: #545454;">距离通路北站公交站步行320m</view>
+  </view>
+  <view class="add-box-l">
+    <view bindtap="getRoadLine">
+      <image src="/packageB/assets/images/livingHall/icon-shg-dh.png" mode="widthFix"></image>
+      <text>导航</text>
+    </view>
+    <view>
+      <image src="/packageB/assets/images/livingHall/icon-shg-tp.png" mode="widthFix"></image>
+      <text>电话</text>
+    </view>
+
+  </view>
+</view>
+
+
+
+<view class="reserve-Toshop-box" bindtap="gotoChooseTime">
+  <view class="Toshop-box-l">
+    <image src="/packageB/assets/images/livingHall/icon_dtfx.png" mode="widthFix"></image>
+    <text>预约到店</text>
+  </view>
+  <view class="Toshop-box-r">
+    <text>预约后商户将通过电话联系你</text>
+    <image src="/packageB/image/my_more.png" mode="widthFix"></image>
+  </view>
+</view>
+
+<view class="t-20"></view>
+
+<view class="projectList-box">
+  <view class="projectList-boxtitle">特惠项目</view>
+  <projectList page="{{page}}" id="projectID"/>
+</view>
+
+
+
+
+<!--  banner图  -->
+<view class="swiper-shop" wx:if="{{swiper_shop}}">
+  <swiper class='swiper' current="{{swiper_index}}">
+    <block wx:for="{{top_img}}" wx:key="index">
+      <swiper-item bindtap="close_swiper">
+        <image src="{{item}}" class="slide-image" mode='widthFix' data-img="{{item}}" bindlongpress="handleLongPress"/>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

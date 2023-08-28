@@ -1,0 +1,13 @@
+<view class="page-box">
+  <image src="http://oss.qingshanpai.com/banner/blindbox-bg.png" mode="widthFix" class="blindbox-bg"></image>
+  <image src="http://oss.qingshanpai.com/banner/blindbox-btn.png" mode="widthFix" class="blindbox-btn icon_relay" wx:if="{{is_judge == '1' || is_judge}}" bindtap="{{confirm_coupons.tab.select_type == '1'?'audit_btn':'xuyao_coupon'}}"></image>
+  <image src="http://oss.qingshanpai.com/banner/blindbox-btn.png" mode="widthFix" class="blindbox-btn icon_relay" wx:else bindtap="blindbox_btn"></image>
+  <view class="gz-box">
+    <image src="/packageA/assets/images/blindbox-gz.png"></image>
+    <view style="font-size: 32rpx;">
+      <view class="box-text-list"><view>1、</view><text>每天最多有10次机会!</text></view>
+      <view class="box-text-list"><view>2、</view><text>全凭手气，有时候得现金微信提现，有时候得积分奖励，有时候为空！</text></view>
+      <view class="box-text-list"><view>3、</view><text>越拆越富！快开拆吧！</text></view>
+    </view>
+  </view>
+</view>

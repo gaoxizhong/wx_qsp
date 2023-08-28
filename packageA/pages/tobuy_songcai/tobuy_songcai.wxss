@@ -1,0 +1,7 @@
+@import "/pages/tobuy_welfare/tobuy_welfare.wxss";
+.good-info{
+  margin-top: 36rpx;
+}
+.edit-info {
+  margin-top: 30rpx;
+}

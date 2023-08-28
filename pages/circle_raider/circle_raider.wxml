@@ -1,0 +1,30 @@
+<!--pages/circle_raider/circle_raider.wxml-->
+<view class="circle_raider">
+  <view style="padding:30rpx" class="main">
+    <text class="title" decode="{{true}}" space="{{true}}">&ensp;&ensp;&ensp;&ensp;随着环保圈成员数量的增加，圈主的等级会自动升级！收益奖励金和积分的比例也不断提高！只要会用手机和电脑，闲暇时间就能轻松获得收益！</text>
+    <view>
+      <text class="title_secondary" decode="{{true}}" space="{{true}}">&ensp;&ensp;&ensp;&ensp; 圈主等级：</text> 四个等级，分别是V1小圈主、V2圈主、V3大圈主、V4超级圈主。邀请1位好友升级为小圈主、20人为圈主、50人为大圈主；100人获得“超级圈主”称号。圈主升级可得积分：10、50、100、300环保积分。
+    </view>
+    <view>
+      <text class="title_secondary" decode="{{true}}" space="{{true}}">&ensp;&ensp;&ensp;&ensp; 圈主收益：</text>圈主收益的规则为B+C（B为环保圈成员，C为影响范围里的成员），收益比例分别为：1%（0.5%+0.5%）、1.5%（0.75%+0.75%）、2%（1%+1%）、2.5%（1.25%+1.25%）。每一个环保圈成员以及环保圈影响范围内的用户每一次消费和呼叫上门回收都会源源的不断给圈主带来收益！
+    </view>
+    <view>
+      <text class="title_secondary" decode="{{true}}" space="{{true}}"> &ensp;&ensp;&ensp;&ensp;升级方法：</text>通过点击“
+      <text class="red">扩大收益</text>”或者环保圈内的“
+      <text class="red">去增加+</text>”把小程序转发给好友或者微信群去招募环保圈成员，只要对方点击并登录成功后，自动被招募为圈主的环保圈成员，同时，您的环保圈成员邀请的好友，会成为您的影响范围，两者都会源源不断给您带来收入！
+    </view>
+    <view>
+      <text decode="{{true}}" space="{{true}}">&ensp;&ensp;&ensp;&ensp;赶紧转发分享给好友，邀请他们加入您的环保圈！鼓励好友也建环保圈，他们的圈成员是您的影响范围，也会给您带来收益！</text>
+    </view>
+  </view>
+  <view style="height:200rpx"></view>
+</view>
+<view bindtap="turnto">
+  <form report-submit bindsubmit='getFormId'>
+    <button form-type='submit' hover-class='none'>
+      <view class='pop_music gohome'>
+        <image mode='widthFix' class='audio' src="http://oss.qingshanpai.com/banner/icon_gohome.png"></image>
+      </view>
+    </button>
+  </form>
+</view>

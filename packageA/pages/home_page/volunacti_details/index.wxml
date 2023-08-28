@@ -1,0 +1,258 @@
+<import src="../../../../wxParse/wxParse.wxml" />
+<view class="vol-bg-box">
+<image src="{{ poster_tabs[0] }}" mode='scaleToFill' class="vol-bg-img"/>
+</view>
+<view class="newVolundetails-box">
+  <view class="newVolundetails-title-box">
+    <view class="newVols-title">
+      <!-- <image src="/packageA/assets/images/vol/vol-icon-title.png" mode="widthFix" class="newVols-title-img"></image> -->
+      <view class="newVols-title-text">{{details_info.title}}</view>
+    </view>
+    <view class="newVols-subtitle">{{details_info.subtitle?details_info.subtitle:'无'}}</view>
+  </view>
+  <!-- 活动清单 开始 -->
+  <view class="plate-box">
+    <view class="plate-title-box">
+      <image src="/packageA/assets/images/vol/vol-icon-p.png" mode="widthFix"></image>
+      <view class="plate-title-text">活动清单</view>
+    </view>
+    <view class="info-text">{{details_info.materiel?details_info.materiel:"暂无"}}</view>
+    <view class="jiage-box" wx:if="{{is_duizhang == '1'}}">物料价格：{{total_price?total_price + '元':'暂无数据'}}<text style="font-size:28rpx;color:#ff0000;padding-left:20rpx;">  团体价： {{daze}}元</text></view>
+  </view>
+  <!-- 活动清单 结束 -->
+  <!-- 用户组团 展示 开始 -->
+  <view class="plate-box" wx:if="{{is_duizhang == '1' && my_share.member.id == member_id && my_share.record_count != 0 && my_share.member.id == share.member.id || (is_duizhang == '1' && share_info == null && my_share.record_count != 0) }}">
+    <view class="plate-title-box">
+      <image src="/packageA/assets/images/vol/vol-icon-p.png" mode="widthFix"></image>
+      <view class="plate-title-text">{{details_info.title}}-志愿活动</view>
+    </view>
+    <view class="duizhang-recordcount-box" wx:if="{{my_share.record_count < 3}}">已有<text style="color:#4ac081;">{{my_share.record_count}}</text>名队员成功参加活动,满3人参加后,即可组队成功</view>
+    <view class="duizhang-recordcount-box" wx:if="{{my_share.record_count >= 3}}">组团成功，请尽快申领免费物料。</view>
+    <view class="duizhang-red-box">组团截止时间：{{my_share.updated_at}}</view>
+    <view class="ranklist-box">
+      <view class="ranklist-items" wx:for="{{my_share.record}}" wx:key="index">
+        <view class="rank-avatar"><image src="{{item.member.avatar}}"></image></view>
+        <view style="color:#757474;width:auto;max-width: 380rpx;">{{item.member.nickname}}</view>
+        <view style="flex: 1;padding-left:30rpx;">{{item.created_at}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 用户组团 展示 结束 -->
+  <!-- 活动形式与流程 开始 -->
+  <view class="plate-box" wx:else>
+    <view class="plate-title-box">
+      <image src="/packageA/assets/images/vol/vol-icon-p.png" mode="widthFix"></image>
+      <view class="plate-title-text">活动形式与流程</view>
+    </view>
+    <view class="info-text">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+  </view>
+  <!-- 活动形式与流程 结束 -->
+</view>
+<!-- 广告    -->
+<view class="ad-box">
+  <!-- <ad-custom unit-id="adunit-a20365282e40944a"></ad-custom> -->
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30" bindclose="adClose"></ad>
+</view>
+<!-- 广告    -->
+<view style="width:100%;height:210rpx;"></view>
+<view wx:if="{{!is_duizhang || is_duizhang == '0'}}">
+  <view class="valundetails-bott-box"  wx:if="{{activity_status === 1}}">
+    <view bindtap="instructions">
+      <view class="bott-box-icon">
+        <image src="/packageA/assets/images/vol/valun_bott_1.png"></image>
+      </view>
+      <view class="bott-box-title">报名须知</view>
+    </view>
+    <view class="bott_arrow">
+      <image src="/packageA/assets/images/vol/bott_arrow.png"></image>
+    </view>
+    <view bindtap="get_material_url">
+      <view class="bott-box-icon">
+        <image src="/packageA/assets/images/vol/valun_bott_2.png"></image>
+      </view>
+      <view class="bott-box-title">获取工具</view>
+    </view>
+    <view class="bott_arrow">
+      <image src="/packageA/assets/images/vol/bott_arrow.png"></image>
+    </view>
+    <view bindtap="goto_clock">
+      <view class="bott-box-icon">
+        <image src="/packageA/assets/images/vol/valun_bott_3.png"></image>
+      </view>
+      <view class="bott-box-title">成果提交</view>
+    </view>
+    <view class="bott_arrow">
+      <image src="/packageA/assets/images/vol/bott_arrow.png"></image>
+    </view>
+    <view bindtap="click_declare">
+      <view class="bott-box-icon">
+        <image src="/packageA/assets/images/vol/valun_bott_4.png"></image>
+      </view>
+      <view class="bott-box-title">进度查询</view>
+    </view>
+  </view>
+  <view class="jsbtn-bott-box" wx:else>
+    <view class="jsbtn-box">活动已结束</view>
+  </view>
+</view>
+
+
+<view class="valundetails-bott-box" wx:if="{{is_duizhang == '1' && my_share.member.id == member_id && my_share.record_count == 0}}">
+   <button class="duiziang-btn" data-is_duizhang="1" open-type="share"
+    data-activity_id="{{my_share.activity.id}}" 
+    data-id="{{my_share.id}}" 
+    data-member_id="{{my_share.member_id}}" 
+    data-gdImages="{{details_info.image[0]}}">
+   <image src="/packageA/assets/images/yaoqing.png"></image></button> 
+</view>
+<view class="jixu-bott-box" wx:if="{{is_duizhang == '1' && my_share.member.id == member_id && my_share.record_count != 0 || (is_duizhang == '1' && share_info == null && my_share.record_count != 0) }}">
+   <button class="jixu-btn" data-is_duizhang="1" open-type="share"
+    data-activity_id="{{my_share.activity.id}}" 
+    data-member_id="{{my_share.member_id}}" 
+    data-id="{{my_share.id}}" 
+    data-gdImages="{{details_info.image[0]}}" wx:if="{{my_share.record_count < 3}}">
+   <image src="/packageA/assets/images/jixu.png"></image></button> 
+   <button class="lingqu-btn" data-share_id="{{share_id}}" data-activity_id="{{id}}" data-url="{{details_info.materiel_url}}" style="background:{{my_share.record_count == 3?'#4ac081':'#aaa'}};" bindtap="{{my_share.record_count == 3?'gotoduizhangcanyu':''}}">免费领取物料</button>
+</view>
+<view class="valundetails-bott-box1" wx:if="{{ is_duizhang == '1'  && share_info && my_share.member.id != share_info.member.id }}">
+   <view class="canyu-btn" style="background: {{ share_info.record_count == 3?'#aaa':'#4ac081' }};" data-share_id="{{share_id}}" data-discount="{{discount}}" data-activity_id="{{id}}" data-url="{{details_info.materiel_url}}" bindtap="{{share_info.record_count == 3?'':'gotocanyu'}}"> {{share_info.record_count == 3?'活动已结束':'参与活动'}}</view>
+</view>
+
+
+
+
+<!-- 报名须知弹窗 -->
+<view class="is_notice_marek" wx:if="{{is_notice}}"></view>
+<view class="is_notice_box" wx:if="{{is_notice}}">
+  <view class="notice_title">提示</view>
+  <view class="notice_center">
+    <text>{{details_info.activity_notes?details_info.activity_notes:'请您先去志愿北京报名参加活动，再返回本小程序完成活动。'}}</text>
+    <view>
+      <view>
+        <text>{{details_info.sign_url?details_info.sign_url:""}}</text>
+        <text class="fz-box" data-url="{{details_info.sign_url?details_info.sign_url:''}}" bindtap="fuzhi_btn">复制</text>
+      </view>
+      <view>
+        <text>如有问题添加微信：{{details_info.wx_number?details_info.wx_number:''}}</text>
+        <text class="fz-box" data-wxtext="{{details_info.wx_number?details_info.wx_number:''}}" bindtap="fuzhi_wxText">复制</text>
+      </view>
+
+    </view>
+  </view>
+  <view class="notice_btn" hover-class="notice_hover_btn" bindtap="notice_btn">确定</view>
+</view>
+
+<!-- 获取物料弹窗 -->
+<view class="is_notice_marek" wx:if="{{is_materiel_text}}"></view>
+<view class="is_notice_box" wx:if="{{is_materiel_text}}">
+  <view class="notice_center">{{details_info.materiel_text?details_info.materiel_text:'暂无'}}</view>
+  <view class="notice_btn" hover-class="notice_hover_btn" bindtap="materiel_text_btn" data-material_url="{{details_info.materiel_url}}">确定</view>
+</view>
+
+<!-- 打卡，爱心弹窗 -->
+<view class="is_notice_marek" wx:if="{{is_clock_img}}" bindtap="clock_img"></view>
+<view class="is_notice_box" wx:if="{{is_clock_img}}">
+  <view  style="text-align:center;font-size:32rpx;">上传图片照片</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="activity-imgs">
+      <image wx:for="{{img}}" wx:for-item="item" wx:key="index" mode="aspectFill" data-index="{{index}}" src="{{item}}" bindtap="openPhoto"/>
+      <view class="add-pic" bindtap="choosePic" wx:if="{{img.length < 9}}">
+        <image src="/images/icon-addphoto.png" mode="aspectFill" class="add-pic-icon"/>
+      </view>
+    </view>
+  </view>
+  <view class="notice_btn" hover-class="notice_hover_btn" bindtap="clock_text_btn">确定</view>
+</view>
+
+<!-- 完成后提示弹窗 -->
+<view class="is_notice_marek" wx:if="{{is_succss}}" bindtap="clock_succss"></view>
+<view class="is_notice_box" wx:if="{{is_succss}}" style="padding:100rpx 0;">
+  <view class="succss-img">
+    <image src="/packageA/image/S1.jpg"></image>
+  </view>
+  <view class="succss-title">活动已完成</view>
+  <view class="succss-text">客服会在3--5个工作日审核通过并录入时长</view>
+</view>
+
+
+
+<!-- 申报弹窗 -->
+<!-- <include src="/packageA/pages/module/declare_pop/index.wxml" /> -->
+<view wx:if="{{is_pop}}" class="is-pop-mark" catchtouchmove="myCatchTouch" bindtap="click_useinter"></view>
+<view wx:if="{{is_pop}}"  class="is-pop-box" catchtouchmove="myCatchTouch">
+  <view class="is-pop-listbox">
+    <view>
+      <view class="infoItem-title">志愿者信息</view>
+        <view class="items-list" bindtap="chooseExt" data-ext_id="{{ selectedExt.ext_id }}">
+          <view class="infoItem-list-box">
+            <image src="/packageA/assets/images/vol/vol-icon-grtx.png" mode="widthFix" class="index-list-img"></image>
+            <view class="list-titletext">
+              <view>
+                <text style="font-weight:600;font-size: 30rpx;">{{selectedExt.member_name}}</text>
+                <text style="padding-left: 10rpx;font-size: 28rpx;">{{selectedExt.vol_number}}</text>
+              </view>
+              <view style="font-size: 28rpx;color: #555555;">{{selectedExt.member_mobile}}</view>
+              <view style="font-size: 28rpx;color: #555555;">{{selectedExt.member_garden}}{{selectedExt.member_address}}</view>
+            </view>
+            <view class="list-top-sele">
+              <image src="/packageA/assets/images/my_more.png" mode="widthFix"></image>
+            </view>
+          </view>
+        </view>
+        <view class="infoPlate-box" wx:if="{{ !selectedExt }}">
+          <view bindtap="fixed_btn" class="infoPlate-Push-box">
+            <image src="/packageA/assets/images/vol/vol-icon-btn1.png" mode="widthFix"></image>
+            <view class="infoPlate-text" hover-class="hoverClass">+ 添加志愿者信息</view>
+          </view>
+        </view>
+    </view>
+  </view>
+  <view class="newbtn-area" wx:if="{{ selectedExt }}">
+    <button bindtap="newformSubmit">确定</button>
+  </view>
+</view>
+
+<!-- 信息广告弹窗 -->
+<!-- <include src="/pages/module/ad_preview/index.wxml" /> -->
+
+<view class="is_notice_marek2" wx:if="{{is_clock_text2}}" bindtap="cle_marek2"></view>
+<view class="is_notice_box2" wx:if="{{is_clock_text2}}">
+  <view class="notice_center2">
+    <view style="text-align: center;padding-bottom:10rpx;">{{details_info.activity_tips_title?details_info.activity_tips_title:'审核要求-志愿点赞人'}}</view>
+    <view class="template-text">
+      <template is="wxParse" data="{{wxParseData:activity_tips.nodes}}" />
+    </view>
+    <view style="color:red;padding:10rpx 0;">目前已有{{like}}人点赞</view>
+    <view class="pos-box">
+      <view class="content-words-box">
+        <view>{{content.words}}</view>
+        <view class="circle-img" wx:if="{{content.image.length > 0}}">
+          <image 
+            wx:for="{{content.image}}" 
+            wx:for-item="items" 
+            wx:for-index="subidx" 
+            wx:key="index" src='{{ items }}' 
+            mode="aspectFill" 
+            class="imgduo-width"
+            >
+          </image>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view class="notice_btn2">
+    <button class="notice_btn2_btn" open-type="share" hover-class="notice_hover_btn" 
+    data-sharetxt="{{content.words}}" 
+    data-contentId="{{content.id}}" 
+    data-member_id="{{content.member_id}}" 
+    data-gdImages="{{content.image}}">
+      <image src="/packageA/assets/images/huodong-l.png"></image>
+    </button>
+    <button class="notice_btn2_btn" hover-class="notice_hover_btn" data-notice="{{notice}}"  data-contentId="{{content.id}}" data-activity_id="{{id}}"  bindtap="gotoMakephoto">
+      <image src="/packageA/assets/images/huodong-r.png"></image>
+    </button>
+  </view>
+</view>

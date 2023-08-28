@@ -1,0 +1,25 @@
+<view style="padding: 0 30rpx;">
+  <view class="filter-list-box">
+    <view class="filter-list-th">
+      <view style="width:102rpx;"></view>
+      <view style="flex:1;">用户名</view>
+      <view style="flex:1;">上限</view>
+      <view style="flex:1;">活跃度</view>
+      <view style="width:86rpx;"></view>
+    </view>
+      <block wx:for="{{filter_list}}" wx:key="index">
+        <view class="filter-list-tr" bindtap="gotobuypages" data-member_id="{{item.member_id}}" data-id="{{item.id}}" data-integral="{{item.integral}}" data-mobile="{{item.mobile}}" data-price="{{item.price}}">
+          <view class="filter-list-tr-image">
+            <image src="{{item.avatar}}"></image>
+          </view>
+          <view style="flex:1;" class="filter-list-tr-name">
+            <view>{{item.nickname}}</view>
+            <view style="color:#999;">附近的人</view>
+          </view>
+          <view style="flex:1;">{{item.integral}}</view>
+          <view style="flex:1;">{{item.activity}}</view>
+          <view style="width:86rpx;" class="cell__hd_box"></view>
+        </view>
+      </block>
+  </view>
+</view>

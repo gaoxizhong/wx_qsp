@@ -1,0 +1,82 @@
+<view class="swiper-container">
+  <swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+    <block>
+      <swiper-item>
+        <image src="{{book_info.images_medium}}" class="slide-image" mode="aspectFit" bindtap="saveImage" data-img="{{book_info.images_medium}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+ <view class="detail-box">
+  <view class="detail-book-name">{{book_info.book_name}}</view>
+  <view class="detail-discount-price" wx:if="{{!is_books}}">
+    <text class="discount-price">￥ {{book_info.discount_price}} </text>
+    <view class="book-grade">{{book_info.book_grade}} {{book_info.book_discount}}折</view>
+  </view>
+  <view class="detail-discount-price" wx:if="{{is_books}}">
+    <text class="discount-price1">{{book_info.integral_price}}环保积分 </text>
+  </view>
+  <view style="width:100%;height:20rpx; background:#f2f2f2;"></view>
+  <view class="book-info-detail">
+    <view><text class="info-detail-title">原价：</text>{{book_info.integral_price}}</view>
+    <view><text class="info-detail-title">作者：</text>{{book_info.author?book_info.author:'暂无'}}</view>
+    <view><text class="info-detail-title">出版社：</text>{{book_info.publisher?book_info.publisher:'暂无'}}</view>
+    <view><text class="info-detail-title">出版：</text>{{book_info.pubdate?book_info.pubdate:'暂无'}}</view>
+  </view>
+  <view style="width:100%;height:20rpx; background:#f2f2f2;"></view>
+
+  <view>
+    <view style="font-weight:700;padding-top:20rpx;">书籍简介</view>
+      <view style="padding:35rpx 20rpx;font-size:28rpx;" class="{{is_height?'height':'no_height'}}">
+        {{book_info.book_summary?book_info.book_summary:'暂无'}}
+      </view>
+      <view bindtap="see_quanbu" class="see-quanbu" wx:if="{{book_info.book_summary}}">{{is_height?'查看全部':'点击收起'}}</view>
+    <view>
+      <image 
+      wx:for="{{summary_image}}" 
+      wx:key="index"
+      src="{{item}}"
+       class="slide-image slide-image1"
+        mode="widthFix"
+         data-img="{{item}}"/>
+    </view>
+
+  </view>
+
+ </view>
+<view style="width:100%;height:92rpx;"></view>
+ <view class="btn-submit" wx:if="{{!is_books}}">
+  <view bindtap="subimt_buy" class="subimt-buy" wx:if="{{stock > 0}}">立即购买</view>
+  <view class="subimt-buy-no" wx:else>库存不足</view>
+ </view>
+ <!-- <view class="btn-submit-1" wx:if="{{is_books}}">
+  <view class="btn-left">
+    <view bindtap="goToindex">
+      <image src="/images/jixu.png"></image>
+      <text>继续逛逛</text>
+    </view>
+    <view class="acrt" bindtap="goToAcrt">
+      <image src="/images/acrt.png"></image>
+      <text>购物车</text>
+      <view class="refr-icon flex-justitem-center">{{cart_number}}</view>
+    </view>
+  </view>
+  <view class="btn-right">
+    <view
+      bindtap="add_ShopCart"
+      data-index="{{key_name}}"
+      data-book_id="{{book_info.book_id}}"
+      data-stock="{{book_info.stock}}" 
+      data-name="{{book_info.name}}" 
+      data-library_name="{{book_info.library_name}}" 
+      data-integral_price="{{book_info.integral_price}}" 
+      data-images_medium="{{book_info.images_medium}}" 
+    class="subimt-buy" 
+    wx:if="{{stock > 0}}">加入购物车</view>
+    <view class="subimt-buy-no" wx:else>库存不足</view>
+  </view>
+ </view> -->
+
+<!-- 授权登录弹窗 -->
+<include src="/pages/module/login_mark/index.wxml" />

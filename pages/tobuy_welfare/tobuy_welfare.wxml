@@ -1,0 +1,211 @@
+  <wxs module="filters">
+var filters = {
+  toFix: function (value) {
+    return value.toFixed(2)
+  }
+}
+module.exports = {
+  toFix: filters.toFix
+}
+</wxs>
+
+<view>
+  <view class="edit-address" wx:if="{{obtainType >= 1 && !buyer_address}}" bind:tap="openEdit">
+    <view style="flex:1;padding-left:32rpx;" >
+      <text style="width: 80%;">请设置您的收货地址</text>
+    </view>
+    <image src="/images/icon_editcomment.png"/>
+  </view>
+  <image src="/images/address_line.png" style="height: 5rpx;width:100%" wx:if="{{obtainType >= 1 && !buyer_address}}"/>
+</view>
+
+<view wx:if="{{obtainType >= 1 && buyer_address}}">
+  <view class="change-address" bind:tap="openEdit">
+    <view>
+       <view class="name-phone">{{buyer_address.name+ '  '}}{{ '  '+buyer_address.phone}}</view>
+       <view class="address">买家地址：{{buyer_address.address}}</view>
+    </view>
+    <image src="/images/icon_editcomment.png"/>
+  </view>
+  <image src="/images/address_line.png" style="height: 5rpx;width:100%" wx:if="{{obtainType >= 1 && buyer_address}}" />
+</view>
+
+<view wx:if="{{obtainType == 1}}">
+  <view class="change-address ">
+    <view class="name-phone">联系方式：{{welfare.activityInfo.discount_phone+ '  '}}</view>
+    <view class="address">商家地址：{{welfare.activityInfo.discount_address}}</view>
+     <image src="/images/address.png" />
+  </view>
+  <image src="/images/address_line.png" style="height: 5rpx;width:100%" wx:if="{{obtainType  == 1}}" />
+
+</view>
+
+  <view class="divide" style="height:20rpx" wx:if="{{obtainType != ''}}"></view>
+  <view class="edit-info" wx:if="{{showEdit}}">
+    <view class="need-hbb">
+      <text>姓名</text>
+      <view>
+        <input type="text" value="{{buyer_name}}" placeholder="请输入姓名" bindinput="inputName"/>
+      </view>
+    </view>
+    <view class="need-hbb">
+      <text>联系方式</text>
+      <view>
+        <input type="digit" value="{{buyer_phone}}" placeholder="请输入联系方式" bindinput="inputPhone"/>
+      </view>
+    </view>
+    <view class="end-time">
+      <text>省市区</text>
+      <picker mode="region" value="{{buyer_ssq}}" start="2015-09-01" bindchange="chooseAddress">
+        <view>{{buyer_ssq ? buyer_ssq:'请选择省市区'}}</view>
+      </picker>
+    </view>
+    <view class="need-hbb">
+      <text>详细地址</text>
+      <view>
+        <input type="text" value="{{buyer_addressDetail}}" placeholder="请输入详细地址" bindinput="inputAddrDetail"/>
+      </view>
+    </view>
+    <button bind:tap="saveAddress">保存</button>
+  <view class="divide" style="height:20rpx"></view>
+
+  </view>
+<view class="good-info">
+  <image src="{{welfare.activityInfo.img[0]}}" />
+  <view class="good-title">{{welfare.activityInfo.title}}</view>
+  <view class="good-sum">
+    <view wx:if="{{!is_duizhang}}">￥{{welfare.activityInfo.total_price}} + {{welfare.activityInfo.hbb?welfare.activityInfo.hbb:'0'}}积分</view>
+    <view wx:if="{{is_duizhang}}">￥{{daze}} + {{welfare.activityInfo.hbb?welfare.activityInfo.hbb:'0'}}积分</view>
+
+    <!-- <view wx:if="{{welfare.activityInfo.total_price==0}}">￥{{welfare.activityInfo.discount_price}} + {{welfare.activityInfo.hbb?welfare.activityInfo.hbb:'0'}}积分</view> -->
+    <view>x {{welfare.pay_count}}</view>
+  </view>
+</view>
+<view class="divide" style="height:20rpx"></view>
+<view class="good-desc">
+  <view class="price-info-list header">
+      <text>配送方式</text>
+      <view class="sel color-64B">
+      <text style="vertical-align: middle;">{{deliverySel}}</text>
+      <image src="/images/{{deliveryFold == true ? 'up' : 'down'}}.png" 
+      style="height: 40rpx;width: 40rpx;vertical-align: middle;padding-left: 10rpx"
+      bindtap="deliveryfold"
+      ></image>
+      </view>
+  </view>
+  <radio-group class="radio-group" bindchange="obtainTypeChange" wx:if="{{!deliveryFold && !is_tuan}}">
+    <radio 
+      class="radio"  
+      wx:for="{{obtain_typeList}}"  
+      wx:for-item="item"
+      wx:key="item"
+      value="{{item}}" 
+      checked="{{obtainType == item}}"
+      >
+      {{item == 1 ? "到店自提":"邮寄方式"}}
+    </radio>
+  </radio-group>
+    <radio-group class="radio-group" bindchange="obtainTypeChange" wx:if="{{!deliveryFold && is_tuan == 1}}">
+    <radio 
+      class="radio"  
+      wx:for="{{obtain_typeList}}"  
+      wx:for-item="item"
+      wx:key="item"
+      value="{{item}}" 
+      checked="{{obtainType == item}}"
+      >
+      {{item == 1 ? "到店自提":"送货上门"}}
+    </radio>
+  </radio-group>
+  <view class="delivery" style="margin-left: 45rpx;" wx:if="{{obtainType == 2 && !deliveryFold}}">
+    <radio-group class="radio-group">
+    <block wx:for="{{delivery}}" wx:key="index">
+      <view class="list" style="background:{{currentDelivery == index ? 'rgb(178,217,154)' : ''}}">
+        <radio class="radio" 
+        data-id="{{item.id}}" 
+        data-index="{{index}}" 
+        data-checked="{{item.status}}"
+        data-name="{{item.name}}"
+        data-price="{{item.price}}"
+        data-showPrice="{{item.showPrice}}"
+        checked="{{currentDelivery == index}}" 
+        bindtap="deliveryListChange">
+          <text decode="true" class="name">{{item.name}}</text>
+        </radio>
+          <view 
+          class="settingPrice" 
+          >{{item.showPrice}}</view>
+        </view>
+        <block wx:if="{{item.id == 3 && currentDelivery == index}}">
+        
+        <view class="items" bindtap="logintest">
+          <text>上门时间</text>
+          <picker 
+            style='color:{{startDate == "请选择" ? "#b2b2b2":""}};' 
+            disabled="{{!member_id}}"
+            class='time-picker' 
+            mode="multiSelector" 
+            bindchange="bindStartMultiPickerChange" 
+            bindtap='pickerTap' 
+            bindcolumnchange="bindMultiPickerColumnChange" 
+            value="{{multiIndex}}" 
+            range="{{multiArray}}"
+            >
+            {{startDate}}
+          </picker>
+          <view class="min_icon">
+            <image src='/images/icon_mine_more.png' mode='widthFix'></image>
+          </view>
+        </view>
+        <view class="items" bindtap="logintestGoTo">
+          <text>废品类型</text>
+            <input placeholder='请选择' value='{{types}}' placeholder-style='color:#b2b2b2;' disabled></input>
+          <view class="min_icon">
+            <image src='/images/icon_mine_more.png' mode='widthFix'></image>
+          </view>
+        </view>
+        </block>
+      </block>
+    </radio-group> 
+    <view class="delivery_desc" bindtap="deliveryDesc">
+     <image src="/images/idea.png" /><text>详细了解商品送达方式</text>
+    </view>
+  </view>
+</view>
+<view class="divide" style="height:20rpx"></view>
+<view class="price-info-list price-info" style="padding: 15rpx;margin-top:5rpx">
+    <text>订单备注</text>
+    <input class="remark" placeholder="选填，填写订单的备注信息" value='{{remark}}' bindinput="inputRemark" maxlength="200"></input>
+</view>
+<view class="divide" style="height:20rpx"></view>
+<view class="price-info" style="padding: 15rpx;margin-top:5rpx">
+ 
+    <text>共{{welfare.pay_count}}件 小计：</text>
+    <text class="total-price" wx:if="{{!is_duizhang || is_duizhang == '0'}}">￥{{filters.toFix(pay_total_price + deliveryPrice)}}</text>
+    <text class="total-price" wx:if="{{is_duizhang == '1'}}">￥{{filters.toFix( daze + deliveryPrice)}}</text>
+
+    <!-- <text class="total-price" wx:else>￥{{filters.toFix(pay_discount_price + deliveryPrice)}} + {{(welfare.activityInfo.hbb *  welfare.pay_count)}}积分</text> -->
+</view>
+<view class="divide" style="height:100rpx"></view>
+<view class="bottom-buy"  wx:if="{{!is_duizhang || is_duizhang == '0'}}">
+  <view class="price">
+    <text>实付款 </text>
+    <text class="total-price">￥{{ filters.toFix(pay_total_price + deliveryPrice) }}</text>
+  </view>
+  <view class="to-buy" bind:tap="confirmBuy">提交订单</view>
+</view>
+
+<view class="bottom-buy" style="height: 128rpx;" wx:if="{{is_duizhang == '1'}}">
+  <view class="bottom-duiz-btn" bindtap="confirmBuy">提交订单</view>
+</view>
+<!--半屏弹出遮罩-->
+<view class='mask' wx:if="{{deliveryDesc}}" bindtap="deliveryDesc"></view>
+<view class='popups' wx:if="{{deliveryDesc}}">
+   <view style="padding:30rpx" class="main">
+      <view class="title">商品送达方式</view>
+      <view>1.<text class="tips">预约回收带上门</text>，即家中有废品的可以预约上门回收，回收师傅将商品带上门</view>
+      <view>2.<text class="tips">快递邮寄</text>，即同城呼叫快递将商品送至上门</view>
+      <view>3.<text class="tips">青山生态送货专员</text>，即青山生态分派专员将商品送至上门</view>
+      <button bindtap="deliveryDesc">我知道了</button>
+   </view>
+</view>

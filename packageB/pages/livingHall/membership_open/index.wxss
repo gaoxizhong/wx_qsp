@@ -1,0 +1,143 @@
+.page-title-box{
+  width: 100%;
+  height: 435rpx;
+  background-image: url(https://oss.qingshanpai.com/memberLife/hyqy-bg.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  box-sizing: border-box;
+  padding: 125rpx 100rpx 20rpx;
+}
+.pagetitle-info-box{
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+.pagetitle-info{
+  width: 100%;
+  height: auto;
+}
+.pagetitle-info>view{
+  padding-left: 22rpx;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #050505;
+  line-height: 38rpx;
+  position: relative;
+  margin: 10rpx 0;
+}
+.pagetitle-info>view::before{
+  content: '';
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  background: #C08A4B;
+  position: absolute;
+  top: 15rpx;
+  left: 0;
+}
+.pages-tab-box{
+  width: 100%;
+  height: auto;
+  padding: 46rpx 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+.pages-tab-box>view{
+  flex: 1;
+  background: #f6efd6;
+  font-size: 40rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #664630;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.pages-tab-box>view.pages-tab-1{
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.pages-tab-box>view.pages-tab-2{
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.pages-tab-box>view.active{
+  background: #efc288;
+}
+.pages-box{
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  padding-bottom: 30rpx;
+}
+/* ============================================== */
+.card-box{
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+}
+.cardbg-box{
+  width: 100%;
+  height: 278rpx;
+  box-sizing: border-box;
+  padding: 50rpx 20rpx 30rpx 40rpx;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cardbg-box.jc-cardbg-box{
+  background-image: url(https://oss.qingshanpai.com/memberLife/hy-jck-bg.png);
+
+}
+.cardbg-box.cw-cardbg-box{
+  background-image: url(https://oss.qingshanpai.com/memberLife/hy-cwk-bg.png);
+}
+.card-text{
+  width: 100%;
+  padding: 15rpx 20rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  color: #69685f;
+}
+.cardbg-box>view{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #664630;
+  font-size: 26rpx;
+}
+.cardbg-info-box{
+  flex: 1;
+}
+.cardbg-info-box1{
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  flex: 1;
+}
+.cardbg-box.cw-cardbg-box>view{
+  color:#F3CF9E;
+}
+
+.cardbg-info-box2{
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+}
+.hy-btn{
+  width: 130rpx;
+  height: 77rpx;
+  margin-right: 20rpx;
+}
+.cardbg-info-box2{
+  margin-top: 10rpx;
+}

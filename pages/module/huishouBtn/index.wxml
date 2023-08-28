@@ -1,0 +1,13 @@
+  <navigator hover-class='none' open-type='navigate' url="/pages/huishou/index/index">
+    <form report-submit bindsubmit='getFormId'>
+      <button form-type='submit' hover-class='none'>
+        <view class='pop_music huishou'
+              data-set="{{recovery_place.top}};{{recovery_place.left}}"
+              style="width:64px;height:64px"
+              catch:touchmove="keepMove"
+            >
+          <image mode='widthFix' class='audio x' src="http://oss.qingshanpai.com/huanbaobi/23916a6d4174c000d10ef8765429ee56.png"></image>
+        </view>
+      </button>
+    </form>
+  </navigator>

@@ -1,0 +1,7 @@
+<view class="setion-centent-box">
+  <include src="/packageA/pages/module/their_story/index.wxml" />
+</view>
+
+<view class="footer-btn" wx:if="{{open_active.status == 1 && open_active.my_record.length <= 0}}">
+  <view class="theirList-btm" bindtap="signActivityBtn">去参加</view>
+</view>

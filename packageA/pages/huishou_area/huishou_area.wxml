@@ -1,0 +1,108 @@
+<view class="page-view">
+
+  <view class="hbb-items">
+    <view class="item-title">便民驿站</view>
+    <view class="items-list-box" >
+      <view class="items-list" data-url="/pages/vegatablelist/vegatablelist?type=songcai" bindtap="goTofill_address">
+        <view class="images-view"><image src="/images/songcai_icon.png"></image></view>
+        <view class="list-name">送菜</view>
+      </view>
+      <view class="items-list" data-url="/pages/book_store/book_store?type=songshu" bindtap="goTofill_address">
+        <view class="images-view"><image src="/images/songshu_icon.png"></image></view>
+        <view class="list-name">送书</view>
+      </view>
+      <view class="items-list" data-url="/packageA/pages/bianmin/bianmin?type=banjia" bindtap="goTono">
+        <view class="images-view"><image src="/images/banjia_icon.png"></image></view>
+        <view class="list-name">搬家</view>
+      </view>
+      <view class="items-list" data-url="/packageA/pages/baojie/baojie?type=baojie" bindtap="goTono">
+        <view class="images-view"><image src="/images/baojie_icon.png"></image></view>
+        <view class="list-name">保洁</view>
+      </view>
+      
+    </view>
+  </view>
+
+  <view class="hbb-items">
+    <view class="item-title2"> <text>团周边</text> <view hover-class="hoveclas" bindtap="getlistdata">附近更多商品</view> </view>
+    <view class="items-list-box-2">
+      <view class="items-list-2" data-url="" bindtap="" wx:for="{{newlistData}}" wx:key="index">
+        <view class="images-view-2" 
+        bind:tap="goToActivity" 
+        data-business_id="{{item.business_id}}" 
+        data-discount_id="{{item.id}}" 
+        data-is_tuan="{{item.is_tuan}}"
+        >
+        <image src="{{item.img}}"></image></view>
+        <view class="list-name-2">{{item.title}}</view>
+        <view class="list-name-3" style="font-size:27rpx;">￥<text>{{item.tuan_price}}</text> <text style="font-size:24rpx;color:red;padding-left:6rpx;">{{item.tuan_num}}份团</text></view>
+        <view class="list-name-4">距离:<text style="color:red;">{{item.distance}}</text>Km</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="divide-bold"></view>
+<view class="cates">
+  <scroll-view class="cateslist" scroll-x="{{true}}" scroll-y="{{false}}">
+    <view class="cate-item"
+      wx:for="{{cate_list}}"
+      wx:for-index="index"
+      wx:for-item="item"
+      wx:key="index"
+      bindtap="getCateShop"
+      data-id="{{item.id}}"
+      style="font-size:{{cateSeleted == item.id ? '36rpx' : '32rpx'}};color: {{cateSeleted == item.id? '#EB404F':'#333'}}">
+      {{item.title}}
+    </view>
+  </scroll-view>
+</view>
+<view class="shoplist">
+  <view class="shop-item"
+    wx:for="{{shopList}}"
+    wx:for-index="index"
+    wx:for-item="item"
+    wx:key="index"
+    bind:tap="goToShop"
+    data-id="{{item.id}}"
+    >
+    <view class="shop-box">
+      <image src="{{item.avatar_url}}"/>
+      <view class="shop-detail">
+        <view class="shop-info">
+          <view class="shop-name" style="font-size:32rpx;font-weight:bold">{{item.name}}</view>
+          <view class="shop-usercoin">
+            <image src="http://oss.qingshanpai.com/banner/icon_usercoin.png" />
+            <text>{{item.to_shopping}}</text> 
+          </view>
+          <view class="shop-star">
+            <image 
+              src="/images/icon_star.png"
+              wx:for="{{item.businesses_grade}}"
+              wx:for-index="index"
+              wx:key="index"
+            />
+          </view>
+          <view class="shop-distance">{{(item.distance || item.distance == 0) ? item.distance + 'km' : '距离未知'}}</view>
+        </view>
+        <view class="shop-label">
+          <view wx:for="{{item.businesses_label}}"
+            wx:for-item="label"
+            wx:for-index="label_idx"
+            wx:key="label_idx">
+            {{label}}
+          </view>
+        </view>
+        <view class="shop-activity">
+          <image src="http://oss.qingshanpai.com/banner/icon_discount.png" wx:if="{{item.discount}}" />
+          <text>{{item.discount ? item.discount : '暂无活动'}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="divide-lighter"></view>
+  </view>
+</view>
+<view class='nulldata_wrap' wx:if="{{shopList.length == 0}}">
+  <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+  <view class='msg'>暂无数据</view>
+</view>

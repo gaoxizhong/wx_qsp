@@ -1,0 +1,51 @@
+<view class="logistics-box">
+  <view class="send-box">
+    <view class="send-box-left" bindtap="{{ res_info ? 'viewLogistics' : '' }}" data-in_stock="{{result.status}}" data-id="{{result.id}}" data-discount_order_tid="{{result.discount_order_tid}}">
+      <image src="http://oss.qingshanpai.com/banner/send-tu.png"></image>
+      <view class="result-info" wx:if="{{!res_info}}">暂无物流</view>
+      <view class="result-info" wx:if="{{res_info}}">{{res_info}}</view>
+    </view>
+    <view class="arrow">></view>
+  </view>
+  <view class="receive-box">
+    <view class="send-box-right">
+      <image src="http://oss.qingshanpai.com/banner/receive-tu.png"></image>
+      <view style="padding-left:30rpx;">
+        <view><text>{{result.obtain_name}}</text><text style="padding-left:14rpx;color:#949393;">{{result.obtain_phone}}</text></view>
+        <view>{{result.obtain_address}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="commodity-order-item">
+  <view class="order-shop-title">{{result.name}} <!-- <text style="color:#c2c2c2;">></text> --></view>
+  <view class="order-shop-content">
+    <view class="image-box"><image src="{{result.img}}"></image></view>
+    <view class="order-shop-info">
+      <view class="order-shop-info-title">{{result.title}}</view>
+      <view style="color:#e96907;">{{result.pay_money}}</view>
+    </view>
+    <view class="commodity-order-number">*{{result.pay_count}}</view>
+  </view>
+  <!-- <view class="order-button">
+    <button wx:if="{{result.status == '1'}}" hover-class="none" class="grayorg grayorgbg" bindtap="cancelOrder" data-index="{{index}}" data-id="{{result.id}}">取消订单</button>
+    <button wx:if="{{result.status == '1'}}" hover-class="none" class="redorg redorgbg" bindtap="payOrder" data-id="{{result.id}}">去支付</button>
+    <button wx:if="{{result.status >= '3'}}" hover-class="none" class="redorg redorgbg" bindtap="viewLogistics" data-in_stock="{{result.status}}" data-id="{{result.id}}" data-discount_order_tid="{{result.discount_order_tid}}">查看物流</button>
+    <button wx:if="{{result.status == '3'}}" hover-class="none" class="redorg redorgbg" bindtap="takeOrder" data-id="{{result.id}}" data-type="{{result.type}}">确认收货</button>
+  </view> -->
+  <!-- <view class="order-button" wx:if="{{type == 2}}">
+    <button wx:if="{{result.status == '2'}}" hover-class="none" class="redorg redorgbg"  bindtap="shipmentsOrder" data-order_type="ture" data-id="{{result.id}}" data-discount_order_tid="{{result.discount_order_tid}}" data-discount_id="{{result.discount_id}}">去发货</button>
+    <button wx:if="{{result.status >= '3'}}" hover-class="none" class="redorg redorgbg" bindtap="viewLogistics" data-in_stock="{{result.status}}" data-id="{{result.id}}" data-discount_order_tid="{{result.discount_order_tid}}">查看物流</button>
+  </view> -->
+</view>
+
+<view class="order-info-box">
+  <view class="order-info-title">订单信息</view>
+  <view class="order-info-list">
+    <view>订单编号 <text style="padding-left:40rpx;">{{result.discount_order_tid}}</text></view>
+    <view>下单时间 <text style="padding-left:40rpx;">{{result.create_time}}</text></view>
+    <view  bindtap="obtainCall" data-phone="{{type == '2'?result.obtain_phone:result.discount_phone}}">{{type == '2'?'联系买家':'联系商家'}} 
+    <text style="padding-left:40rpx;color:#4ec284;">{{type == '2'?result.obtain_phone:result.discount_phone}}</text></view>
+  </view>
+</view>

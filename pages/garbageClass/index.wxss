@@ -1,0 +1,128 @@
+.swiper-container {
+  width: 100%;
+  height: 200rpx;
+}
+.swiper-container .swiper {
+  height: 200rpx;
+}
+.swiper-container image {
+  width: 100%;
+  height: 200rpx;
+}
+.page-listbox{
+  padding: 0 34rpx;
+  height: auto;
+  margin-top: 26rpx;
+}
+.listbox-images{
+  width: 100%;
+  height: auto;
+  margin-top: 50rpx;
+  box-sizing: border-box;
+}
+.listbox-images>image{
+  width: 100%;
+}
+.listbox-view{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.listbox-view>view{
+  width: 25%;
+  height: 126rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.listbox-view>view image.images-1{
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 50%;
+  transition: all 0.2s linear;
+}
+.listbox-view>view image.images-2{
+  width: 36rpx;
+  height: 28rpx;
+  position: absolute;
+  bottom:-36rpx;
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+.maekp{
+  width: 100%;
+  height: auto;
+  padding: 18rpx 26rpx;
+  line-height: 1;
+  box-sizing: border-box;
+  text-align: right;
+  margin-top: 14rpx;
+}
+.maekp_btn{
+  width: auto;
+  height: auto;
+  font-size: 26rpx;
+  padding: 18rpx 24rpx;
+  text-align: center;
+  line-height: 1;
+  color: #fff;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-image: linear-gradient(to right, #4AC081 , #6cd67f)
+}
+.sale{
+  transform: scale(1.2);
+}
+.listbox-btn{
+  padding: 24rpx 34rpx;
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+
+}
+.footer-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #fff;
+  height: 80rpx;
+  border-radius: 20px;
+  background-image: linear-gradient(to right, #4AC081 , #6cd67f);
+}
+.footer-btn1{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-btn1>view{
+  /* width: 300rpx; */
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 20px;
+}
+.btn-left{
+  background: #4ac280;
+}
+.btn-right{
+  background: #ffb400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-right image{
+  width: 46rpx;
+  height: 39rpx;
+}

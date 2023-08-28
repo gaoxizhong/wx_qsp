@@ -1,0 +1,379 @@
+<view class="hdrt-box">
+  <view class="titleclass-box">
+		<view style="display: flex;align-items: center;font-size: 600;">
+			<image src="/packageA/assets/images/jyhs-icon-yf.png" mode="widthFix"></image>
+      <text>请选择回收类型</text>
+		</view>
+	</view>
+
+  <view class="tab-bar">
+
+    <view class="tab-bar-item {{order_type == '1'?'color-64B':'color-333'}}" data-order_type="1" bindtap="changeTabItem">
+      <text>旧衣回收</text>
+      <view class="bar-border bacg-64B"  wx:if="{{order_type == '1'}}"></view>
+    </view>
+    <view class="tab-bar-item {{order_type == '2'?'color-64B':'color-333'}}" data-order_type="2" bindtap="changeTabItem">
+      <text>书籍回收</text>
+      <view class="bar-border bacg-64B"  wx:if="{{order_type == '2'}}"></view>
+    </view>
+    <view class="tab-bar-item {{order_type == '3'?'color-64B':'color-333'}}" data-order_type="3" bindtap="changeTabItem">
+      <text>家电回收</text>
+      <view class="bar-border bacg-64B" wx:if="{{order_type == '3'}}"></view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{open_share == '1' && inv_member != member_id && order_type == '1'}}" class="personalInfo-box">{{inv_personalInfo.nickname}} 邀请您参与旧衣回收！</view>
+
+<view class="hdrt-box" style="margin-top: 20rpx;">
+  <view>
+    <view class="title1-box">
+      <view style="display: flex;align-items: center;">
+        <image src="/packageA/assets/images/jyhs-icon-lb.png" mode="widthFix"></image>
+        <text wx:if="{{ order_type == '1' || order_type == '2' }}" >回收每1Kg可获得15积分</text>
+        <text wx:if="{{order_type == '3' }}">旧家电现金收益以回收员上门评估为准，平台不参与打款！</text>
+      </view>
+      <view class="title1-right-box" wx:if="{{ order_type == '1' || order_type == '2' }}">{{count?count:0}}人正在参与</view>
+    </view>
+    <!-- 旧衣回收 -->
+    <view class="new-adbtn-box" wx:if="{{order_type == '1'}}">
+      <view>
+        <image src="https://oss.qingshanpai.com/icon/jyw-ic-sjyf.png" mode="widthFix"></image>
+        <text class="info-text">四季衣物</text>
+      </view>
+      <view>
+        <image src="https://oss.qingshanpai.com/icon/jyw-ic-glxx.png" mode="widthFix"></image>
+        <text class="info-text">各类鞋靴</text>
+      </view>
+      <view>
+        <image src="https://oss.qingshanpai.com/icon/jyw-ic-mz.png" mode="widthFix"></image>
+        <text class="info-text">帽子围巾</text>
+      </view>
+      <view>
+        <image src="https://oss.qingshanpai.com/icon/jyw-ic-cdbz.png" mode="widthFix"></image>
+        <text class="info-text">床单被罩</text>
+      </view>
+      <view>
+        <image src="https://oss.qingshanpai.com/icon/jyw-ic-xzjb.png" mode="widthFix"></image>
+        <text class="info-text">闲置旧包</text>
+      </view>
+      <view>
+        <image src="https://oss.qingshanpai.com/icon/jyw-ic-mrwj.png" mode="widthFix"></image>
+        <text class="info-text">毛绒玩具</text>
+      </view>
+    </view>
+    <!-- 旧图书 -->
+    <view class="new-adbtn-box" wx:if="{{order_type == '2'}}">
+      <view>
+        <image src="https://oss.qingshanpai.com/icon/jts-ic-wx.png" mode="widthFix"></image>
+        <text class="info-text">文学小说</text>
+      </view>
+      <view>
+        <image src="https://oss.qingshanpai.com/icon/jts-ic-rwsk.png" mode="widthFix"></image>
+        <text class="info-text">人文社科</text>
+      </view>
+      <view>
+        <image src="https://oss.qingshanpai.com/icon/jts-ic-shys.png" mode="widthFix"></image>
+        <text class="info-text">生活艺术</text>
+      </view>
+      <view>
+        <image src="https://oss.qingshanpai.com/icon/jts-ic-kxkp.png" mode="widthFix"></image>
+        <text class="info-text">科学科普</text>
+      </view>
+      <view>
+        <image src="https://oss.qingshanpai.com/icon/jts-ic-tshb.png" mode="widthFix"></image>
+        <text class="info-text">童书绘本</text>
+      </view>
+    </view>
+    <!-- 旧家电 -->
+    <view class="new-adbtn-box" wx:if="{{order_type == '3'}}">
+      <view>
+        <image src="https://oss.qingshanpai.com/icon/jjd-ic-xyj.png" mode="widthFix"></image>
+        <text class="info-text">洗衣机</text>
+      </view>
+      <view>
+        <image src="https://oss.qingshanpai.com/icon/jjd-ic-dbx.png" mode="widthFix"></image>
+        <text class="info-text">电冰箱</text>
+      </view>
+      <view>
+        <image src="https://oss.qingshanpai.com/icon/jjd-ic-kt.png" mode="widthFix"></image>
+        <text class="info-text">空调</text>
+      </view>
+      <view>
+        <image src="https://oss.qingshanpai.com/icon/jjd-ic-ds.png" mode="widthFix"></image>
+        <text class="info-text">电视</text>
+      </view>
+    </view>
+  </view>
+
+
+
+	<view class="title1-box" style="padding-bottom: 0;">
+		<view style="display: flex;align-items: center;"><image src="/packageA/assets/images/jyhs-icon-lc.png" mode="widthFix"></image>回收流程</view>
+		<view class="title1-right-box"></view>
+	</view>
+	<view class="icon-box">
+		<view>
+			<image src="/packageA/assets/images/ic_1.png" mode="widthFix"></image>填写预约
+		</view>
+		<view><image src="/packageA/assets/images/ic_2.png" mode="widthFix"></image>免费上门</view>
+		<view><image src="/packageA/assets/images/ic_3.png" mode="widthFix"></image>完成回收</view>
+		<view><image src="/packageA/assets/images/ic_4.png" mode="widthFix"></image>领取积分</view>
+	</view>
+</view>
+
+<view class="hdrt-box" style="margin-top: 20rpx;" wx:if="{{order_type == '3'}}">
+	<view class="titleclass-box">
+		<view style="display: flex;align-items: center;font-size: 600;">
+			<image src="/packageA/assets/images/jyhs-icon-yf.png" mode="widthFix"></image>
+      <text>请选择家电类型</text>
+		</view>
+	</view>
+	<view class="hd rt">
+		<view class="items" bindtap="changereCateId" wx:for="{{category_info}}"	wx:key='index' 	data-top_cate_id="{{item.id}}" data-index="{{index}}">
+			<view class="{{top_cate_id == item.id ? 'items-list-hove':''}} items-list">
+				<view>{{item.name}}</view>
+				<image src="/packageA/assets/images/jyhs-ic-ok.png" mode="widthFix" class="items-img-box" wx:if="{{top_cate_id == item.id}}"></image>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="hdrt-box" style="margin-top: 20rpx;">
+	<view class="titleclass-box">
+		<view style="display: flex;align-items: center;font-size: 600;">
+			<image src="/packageA/assets/images/jyhs-icon-yf.png" mode="widthFix"></image>
+      <text wx:if="{{order_type == '1'}}">请选择衣物重量</text>
+      <text wx:if="{{order_type == '2'}}">请选择书籍数量</text>
+      <text wx:if="{{order_type == '3'}}">请选择家电数量</text>
+		</view>
+		<view class="title1-right-box-class" wx:if="{{order_type == '1'}}"><text style="color: #ff0000;font-size: 38rpx;">* </text>满10kg及以上，免费上门。以实际称重为准</view>
+	</view>
+	<view class="hd rt">
+		<view class="items" bindtap="changere"
+			wx:for="{{newlists}}" 
+			wx:key='idx' 
+			wx:for-index='idx'  
+			wx:for-item="item" 
+			data-goods_id="{{item.id}}" 
+			data-curidx="{{idx}}" 
+			data-estimate_weight="{{item.estimate_weight}}">
+			<view class="{{goodid == item.id ? 'items-list-hove':''}} items-list">
+				<view>{{item.rand_name}}</view>
+				<!-- <view style="font-size: 24rpx;">约{{item.num}}件</view> -->
+				<image src="/packageA/assets/images/jyhs-ic-ok.png" mode="widthFix" class="items-img-box" wx:if="{{goodid == item.id}}"></image>
+			</view>
+		</view>
+	</view>
+</view>
+<view style="font-size: 28rpx;padding: 16rpx 20rpx; background: #fff;">预计获得：<text class='color-64B'>{{total?total:0}} 环保积分</text></view>
+
+
+<!-- 上门回收城市范围 -->
+<view class="hdrt-box" style="margin-top: 20rpx;">
+	<view class="title1-box">
+		<view style="display: flex;align-items: center;font-size: 600;"><image src="/packageA/assets/images/jyhs-icon-tb.png" mode="widthFix"></image>填写回收信息</view>
+		<view class="title1-right-box">上门回收城市范围 <image src="/packageA/assets/images/jyhs-icon-info.png" mode="widthFix" style="margin-left: 10rpx;margin-right: 0;"></image></view>
+	</view>
+	<view class="tips-box" bindtap="changer_address">
+		<view class="tips-title-box">
+			<view style="font-weight: 600;">回收地址</view>
+			<view wx:if="{{user_address == ''}}">回收地址的信息</view>
+			<view wx:else>{{garden}}{{user_street}}{{user_address}}</view>
+		</view>
+		<image src="/packageA/assets/images/my_more.png" mode="widthFix" class="tips-arrow-img"></image>
+	</view>
+
+	<view class="tips-box" style="margin-top: 30rpx;"  bindtap="changer_time">
+		<view class="tips-title-box">
+			<view style="font-weight: 600;">回收时间</view>
+      <view style="color: #333;" wx:if="{{selectDeta.order_date || selectDeta.order_start_time || selectDeta.order_end_time}}">
+        {{selectDeta.order_date}}<text> - </text>{{selectDeta.order_start_time}}<text wx:if="{{selectDeta.order_start_time && selectDeta.order_end_time}}"> 至 </text>{{selectDeta.order_end_time}}
+      </view>
+			<view style="color: #999;" wx:else>点击选择预约时间，取件时间</view>
+
+		</view>
+		<image src="/packageA/assets/images/my_more.png" mode="widthFix" class="tips-arrow-img"></image>
+	</view>
+</view>
+
+<view class="page-listbox listbox-btn">
+	<image src="https://oss.qingshanpai.com/icon/btnjyhs-icon-btn.png" mode="widthFix"  bindtap='savaData_btn'></image>
+	<view class="listbox-fxbtn" hover-class="hoverClass" bindtap="click_share" wx:if="{{open_share != '1' && order_type != '3'}}">
+		邀请好友参与
+		<view class="index-ic-sub">
+			<image src="/images/index/bg_tag_1.png"></image>
+			<text>+{{inv_cnt?inv_cnt:0}}</text>
+		</view>
+	</view>
+</view>
+
+<!-- 广告位 -->
+<view class="circle-adbox" wx:if="{{is_ad}}">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30" bindclose="adClose"></ad>
+</view>
+
+<view style="width: 100%;height: 140rpx;"></view>
+
+
+<!-- =====================  弹窗 ==================== -->
+
+<view class="add-pop-marsk" wx:if="{{changer_address_pop}}" bindtap="changer_address_marsk"></view>
+<view class="add-pop-box" wx:if="{{changer_address_pop}}">
+	<view class='tips'>
+		<view class="tot1">
+			<!-- <view class="name-phone">
+				<view style="padding-right: 20rpx;">
+					<view class="types-i" style="width:75rpx;text-align:left;">联系人</view>
+					<input class="types-input" value="{{user_name}}" placeholder="姓名" bindinput="user_name"></input>
+				</view>
+			</view> -->
+			<view class="garden-box">
+				<view class="types-i">联系人</view>
+				<input class="types-input" value="{{user_name}}" placeholder="如某先生、某女士" bindinput="user_name"></input>
+			</view>
+			<view class="garden-box">
+				<view class="types-i">手机号码</view>
+				<input class="types-input" value="{{user_phone}}" placeholder="手机号" bindinput="user_phone"></input>
+			</view>
+			<view class="garden-box">
+				<view class="types-i">所在地区</view>
+				<picker mode="region" style="flex:1;height:62rpx;" name="garden" value="{{garden}}" start="2015-09-01" bindchange="saveGarden">
+					<view class="shengshi">{{garden ? garden:'点击选择所在地址'}}</view>
+				</picker>
+			</view>
+			<view class="garden-box" style="margin-top: 20rpx;">
+				<view class="types-i">社区街道</view>
+				<input class="types-input" value="{{user_street}}" placeholder="街道（乡镇）" bindinput="user_street"></input>
+			</view>
+			<view class="garden-box" style="margin-top: 20rpx;">
+				<view class="types-i">详细地址</view>
+				<input class="types-input" value="{{user_address}}" placeholder="请填写至 *楼*单元*室" bindinput="user_address"></input>
+			</view>
+			<view class="garden-box">
+				<view class="types-i">订单备注</view>
+				<input class="types-input" value="{{remark}}" placeholder="填写备注" bindinput="remark"></input>
+			</view>
+		</view>
+	</view>
+	<view class="add-pop-btn">
+		<button hover-class='none' class="add-footer-btn" bindtap="changer_address_marsk">确认</button>
+	</view>
+</view>
+
+<view class="time-pop-marsk" wx:if="{{changer_time_pop}}" bindtap="changer_time_marsk"></view>
+<view class="time-pop-box" wx:if="{{changer_time_pop}}">
+	<view style="padding:0 10rpx;">
+		<view class="items">
+			<text>预约日期：</text>
+			<picker class="time-picker" mode="date" value="{{order_date}}" start="{{now_data}}" end="2099-12-12" bindchange="dataPicker">{{order_date ?order_date :'请选择'}}</picker>
+			<view class="min_icon">
+				<image mode="widthFix" src="/images/icon_mine_more.png"></image>
+			</view>
+		</view>
+		<view class="items">
+			<text>最早时间：</text>
+			<picker class="time-picker" mode="time" value="{{order_start_time}}" start="{{now_time}}" end="17:59" bindchange="starttimePicker">{{order_start_time?order_start_time:'请选择'}}</picker>
+			<view class="min_icon">
+				<image mode="widthFix" src="/images/icon_mine_more.png"></image>
+			</view>
+		</view>
+		<view class="items">
+			<text>最晚时间：</text>
+			<picker class="time-picker" mode="time" value="{{order_end_time}}" start="{{now_time}}" end="17:59" bindchange="endtimePicker">{{order_end_time?order_end_time:'请选择'}}</picker>
+			<view class="min_icon">
+				<image mode="widthFix" src="/images/icon_mine_more.png"></image>
+			</view>
+		</view>	
+	</view>
+	<view class="add-pop-btn">
+		<button hover-class='none' class="add-footer-btn" bindtap="changer_time_marsk">确认</button>
+	</view>
+</view>
+<!-- 做任务得积分弹窗 -->
+<include src="/pages/module/signTaskMask/index.wxml" />
+
+
+
+<!-- ====  身份弹层 ==== -->
+<view class="is-shareBox-marsk" bindtap="shareBox_marsk" wx:if="{{is_shareBox}}"></view>
+<view class="is-shareBox" wx:if="{{is_shareBox}}">
+	<view class="shareBox-title">选择您的身份</view>
+	<view class="weui-cells weui-cells_after-title">
+      <radio-group bindchange="radioChange">
+        <label class="weui-cell weui-check__label" wx:for="{{u_items}}" wx:key="index">
+          <view class="weui-cell__hd">
+            <radio value="{{item.value}}" checked="{{item.checked}}"/>
+          </view>
+          <view class="weui-cell__bd">{{item.name}}</view>
+        </label>
+      </radio-group>
+	</view>
+	<view class="shareBox-box">
+		<button open-type="share" class="shareBox-btn" wx:if="{{is_btn == '2'}}">确认分享</button>
+		<button class="shareBox-btn" bindtap="savaData" wx:if="{{is_btn == '1'}}">确认提交</button>
+	</view>
+</view>
+
+
+<!-- ====  志愿信息 弹窗 ==== -->
+
+<view wx:if="{{is_pop}}" class="is-pop-mark" catchtouchmove="myCatchTouch" bindtap="click_useinter"></view>
+<view wx:if="{{is_pop}}"  class="is-pop-box" catchtouchmove="myCatchTouch">
+  <view class="is-pop-listbox">
+    <view>
+      <view class="infoItem-title">志愿者信息</view>
+      <view class="items-list" bindtap="chooseExt" data-ext_id="{{ selectedExt.ext_id }}">
+        <view class="infoItem-list-box">
+          <image src="/packageA/assets/images/vol/vol-icon-grtx.png" mode="widthFix" class="index-list-img"></image>
+          <view class="list-titletext">
+            <view>
+              <text style="font-weight:600;font-size: 30rpx;">{{selectedExt.member_name}}</text>
+              <text style="padding-left: 10rpx;font-size: 28rpx;">{{selectedExt.vol_number}}</text>
+            </view>
+            <view style="font-size: 28rpx;color: #555555;">{{selectedExt.member_mobile}}</view>
+            <view style="font-size: 28rpx;color: #555555;">{{selectedExt.member_garden}}{{selectedExt.member_address}}</view>
+          </view>
+          <view class="list-top-sele">
+            <image src="/packageA/assets/images/my_more.png" mode="widthFix"></image>
+          </view>
+        </view>
+      </view>
+      <view class="infoPlate-box" wx:if="{{ !selectedExt }}">
+        <view bindtap="fixed_btn" class="infoPlate-Push-box">
+          <image src="/packageA/assets/images/vol/vol-icon-btn1.png" mode="widthFix"></image>
+          <view class="infoPlate-text" hover-class="hoverClass">+ 添加志愿者信息</view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{is_btn == '1'}}">
+      <view class="infoItem-title">上传图片</view>
+      <view class="photo-box">
+        <view class='photo' wx:for="{{photos}}" wx:key="index" data-index="{{index}}" data-url="{{item}}" bindtap='openPhoto'>
+          <image mode='aspectFill' src="{{item}}" mode='aspectFill'></image>
+        </view>
+        <view class="add-pic" bindtap="chooseImg" hover-class='none' wx:if="{{photos.length < 1}}" disabled="{{isDisabled}}">
+          <image mode='widthFix' src="/images/icon-addphoto.png" />
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+
+  <view class="newbtn-area" wx:if="{{ selectedExt }}">
+    <button wx:if="{{is_btn == '1'}}" class="selectedExt-btn" bindtap="savaData">确认提交</button>
+    <button open-type="share" class="selectedExt-btn" wx:if="{{is_btn == '2'}}">确定</button>
+		<button wx:if="{{is_btn == '2'}}" class="selectedExt-btn1" bindtap="click_look">查看邀请</button>
+  </view>
+</view>
+
+<view class="layer" wx:if="{{layer}}" bindtap='closePic'>
+  <view class="cover"></view>
+  <view class="con">
+    <image src='{{preview}}' mode="widthFix"></image>
+    <!-- <view class="txt" bindtap='delSerPic' wx:if="{{imgname}}">删除</view> -->
+    <view bindtap='delPic' class="txt" bindtap='delPic'>删除</view>
+  </view>
+</view>

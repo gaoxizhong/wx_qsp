@@ -1,0 +1,56 @@
+<!-- <view style="color:#cfcfcf;font-size:28rpx;text-align:center;">——— 此页面正在维护中 ———</view> -->
+<!-- <view class="tab-content">
+  <view class='lt'>
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='aspectFill'></image>
+  </view>
+  <view class='rt'>
+    <view>
+      <view class='txt'>舍雨夫<text style="color:{{true?'#4285f4':''}};">点赞</text>了你的发圈！</view>
+      <view class='con'>照片真的很漂亮，希望分享更多美图！照片真的很漂亮，希望分享更多美图！照片真的很漂亮，希望分享更多美图！</view>
+      <view class='time'>07:38</view>
+    </view>
+    <form report-submit bindsubmit='guanzhu' data-idx="{{index}}" data-id="{{item.member_id}}" data-business_id="{{currentTab == 1?'1':'0'}}">
+      <button form-type='submit' class='guz_btn in' hover-class='none'>回复</button>
+    </form>
+  </view>
+</view> -->
+
+<view class='nulldata_wrap' wx:if="{{lists.length <= 0}}">
+  <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+  <view class='msg'>暂无数据</view>
+</view>
+
+<view class="tab-content" wx:for="{{lists}}" wx:key="index" wx:if="{{isSxin == 1}}">
+  <view class='lt'>
+    <image src='{{item.home_avatar}}' mode='aspectFill'></image>
+  </view>
+  <view class='rt'>
+    <view>
+      <view class='txt'>{{item.home_nickname}}私信了{{item.other_nickname}}！</view>
+      <view class='con'>{{item.content}}</view>
+      <view class='time'>{{item.public_at}}</view>
+    </view>
+    <form report-submit bindsubmit='goChat' data-options="{{item}}" data-idx="{{index}}">
+      <button form-type='submit' class='guz_btn in' hover-class='none'>回复</button>
+    </form>
+  </view>
+</view>
+
+<view class="tab-content" wx:for="{{lists}}" wx:key="index" wx:if="{{isSxin == 2}}">
+  <view class='lt'>
+    <image src='{{item.avatar}}' mode='aspectFill'></image>
+  </view>
+  <view class='rt'>
+    <view>
+      <view class='txt'>{{item.nickname}}<text style="color:#4285f4;">{{item.is_comment == 1?'评论':'点赞'}}</text>了{{item.who}}的发圈！</view>
+      <view class='con'>{{item.content}}</view>
+      <view class='time'>{{item.created_at}}</view>
+    </view>
+  </view>
+</view>
+<!-- 回收按钮 -->
+<!-- <include src="/pages/module/huishouBtn/index.wxml" /> -->
+<comp id="comp"/>
+
+<!-- 返回按钮 -->
+<include src="/pages/module/backBtn/index.wxml" />

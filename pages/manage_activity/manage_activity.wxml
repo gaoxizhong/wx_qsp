@@ -1,0 +1,57 @@
+<view class="manage-activity" bind:tap="manage">{{manage_flag == 1 ? '进入管理' : '退出管理'}}</view>
+<view class="activity-list">
+  <view 
+    class="item"
+    wx:for="{{activityList}}"
+    wx:for-index="index"
+    wx:for-item="item"
+    wx:key="key"
+    >
+  <view 
+    bind:tap="checkboxChange" 
+    data-id="{{item.id}}" 
+    data-index="{{index}}" 
+    class="checkbtn">
+    <image wx:if="{{item.checked}}" src="/images/icon_sel_green.png" />
+  </view>
+  <view class="activity-info">
+    <view class="activity-title">
+      <text decode="true">&nbsp;活动{{index+1}}</text>
+      <text>{{item.create_time}}</text>
+    </view>
+    <view class="activity-desc">活动标题：{{item.title}}</view>
+    <view class="activity-time">活动时间：{{item.start_time}} -- {{item.end_time}}</view>
+    <view class="activity-price">
+      <text style="margin-right:36rpx">原价：{{item.price}}</text>
+      <text wx:if="{{total_price>0}}">兑换价：￥{{item.total_price}}元 + {{item.hbb}}积分</text>
+      <text  wx:else>兑换价：￥{{item.discount_price}}元 + {{item.hbb}}积分</text>
+    </view>
+    <view class="activity-describe">使用方式：{{item.obtain_type?item.obtain_type:'暂无使用方式'}}</view>
+    <view class="activity-describe" style="display:flex;width: 37%;margin-left: 62%;">
+      <button style="background: #ccc;" 
+      bindtap="stand" 
+      data-index="{{index}}" 
+      data-discountid="{{item.id}}" 
+      data-stand="2" 
+      wx:if="{{item.stand == 1}}">下架</button>
+      <button style="background: orange;" 
+      bindtap="stand" 
+      data-index="{{index}}" 
+      data-discountid="{{item.id}}" 
+      data-stand="1"
+      wx:else>上架</button>
+      <button style="background:#64B532" bindtap="edit" data-discountid="{{item.id}}">修改</button>
+    </view>
+  </view>
+  </view>
+</view>
+<view class="manage-btn">
+  <view 
+    bind:tap="bindActivity"
+    class="button"
+    style="background:{{manage_flag == 1 ? '#64B532' : '#F0745E'}}"
+    >
+    {{manage_flag == 1 ? '绑定' : '删除'}}
+  </view>
+</view>
+

@@ -1,0 +1,52 @@
+<form bindsubmit="gettxian" >
+  <view class="section">
+    <view class="section_box">
+      <view class="section_title">账户余额:</view>
+      <input value="{{jine}}" disabled/>
+    </view>
+    <view class="section_box">
+      <view class="section_title">可提现金额(元):</view>
+      <input name="money" value="{{money}}" disabled/>
+      <view class="mark_tishi" bindtap="mark_tishi">
+        <image src="/images/mark_image.png" class="mark_image"></image>
+      </view>
+    </view>
+    <view class="section_box">
+      <view class="section_title">输入本人姓名:</view>
+      <input name="name" placeholder="请输入真实姓名" value="{{name_value}}" bindinput="setName"/>
+    </view>
+  </view>
+  <button formType="submit" class="btn-area" hover-class='hover_color'>提现</button>
+</form>
+<!-- <view class="record_title">您共有50笔收款交易等待您的确认，确认后金额将进入您的钱包可用于提现！</view> -->
+<view class="record_title">已有{{done_p}}人完成交易</view>
+<block wx:for="{{record_data}}" wx:key="index">
+  <view class="record_item">
+      <!-- <image src="{{index%2 == 0 ? 'http://oss.qingshanpai.com/banner/record_item_1.png':'http://oss.qingshanpai.com/banner/record_item_2.png'}}" class="record_item_image"></image> -->
+    <view class="record_item_left">
+      <view>
+        <text style="color:#ee9249;">{{item.data.business_name}}</text> 正在收购您的积分，请尽快确认交易；
+        <view>积分单价：1元/积分</view>
+        <view>收购数量：小额随机</view>
+        <view style="font-size: 26rpx;color: #999;padding-top:10rpx;">截止交易时间： {{item.tab.time}}</view>
+      </view>
+    </view>
+    <view class="record_item_right">
+      <view class="item_right_look" hover-class="font_color" data-index="{{index}}" bindtap="confirm_coupons">确认交易</view>
+    </view>
+  </view>
+</block>
+<!-- 点击提现弹窗 -->
+<view class="mask-bg" wx:if="{{explanation}}" bindtap="explanation_bg"  catchtouchmove="catchtouchmove"></view>
+<view class="explanation-box" wx:if="{{explanation}}" >
+  <view class="explanation-box-bag"></view>
+  <view class="explanation-box-text">
+    <view style="font-size:32rpx;text-align: center;">提现说明</view>
+    <view class="box-text-list"><view>1、</view><text>根据微信提现要求，姓名与微信实名认证匹配，方可提现。</text></view>
+    <view class="box-text-list"><view>2、</view><text>提现金额将进入微信钱包，未完成微信实名认证，可能存在提现失败状况。</text></view>
+    <view class="box-text-list"><view>3、</view><text>非节假日期间，超过三个工作日，提现未成功，请联系客服。</text></view>
+    <view class="box-text-list"><view>4、</view><text>在【优惠券】选项内，有更多福利券送给您，请去查看。</text></view>
+  </view>
+  <view class="explanation-box-img"><image src="http://oss.qingshanpai.com/banner/hongbao.png"></image></view>
+  <view class="icon-quxiao-img" bindtap="explanation_bg"><image src="http://oss.qingshanpai.com/banner/icon-quxiao.png"></image></view>
+</view>

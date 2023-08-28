@@ -1,0 +1,141 @@
+page{
+  background: #f7f6f6;
+}
+.box-5{
+  width: 100%;
+  height: 324rpx;
+  border-radius: 6px;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 44rpx 48rpx 42rpx 55rpx;
+  box-shadow: 2rpx 2rpx 10rpx #e6e6e6;
+  display: flex;
+}
+.red-envel-box{
+  width: 180rpx;
+  height: 236rpx;
+  overflow: hidden;
+  position: relative;
+}
+.red-envel-box>image{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.red-envel-right{
+  flex: 1;
+  padding-left: 60rpx;
+  padding-top: 22rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.envel-right-title{
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.envel-right-desc{
+  font-size: 26rpx;
+  padding-top: 10rpx;
+  color: #6b6b6b;
+}
+.envel-5-btn{
+  width: 100%;
+  height: 68rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  background-image: linear-gradient(to right, #ffb62f ,#ff8a59);
+  border-radius: 6px;
+  color: #fff;
+}
+.envel-5-btn>image{
+  width: 34rpx;
+  height: 32rpx;
+}
+.envel-btn{
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 26rpx;
+  text-align: center;
+  background-image: linear-gradient(to right, #ffb62f ,#ff8a59);
+  border-radius: 6px;
+  color: #fff;
+}
+.envel-btn > image{
+  width: 22rpx;
+  height: 22rpx;
+}
+.winning-infor-box{
+  width: 100%;
+  padding: 26rpx 0;
+  padding-left: 6rpx;
+  background: #fff;
+  border-radius: 6px;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+.envel-list-box{
+  padding: 10rpx;
+  width: 100%; 
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-box-item{
+  width: 225rpx;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 26rpx 18rpx 18rpx 18rpx;
+  position: relative;
+  margin: 10rpx;
+}
+.list-item-image{
+  position: relative;
+  width: 100%;
+  height: 136rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list-item-image>image{
+  width: 104rpx;
+  height: 100%;
+}
+.list-item-tltle{
+  font-size: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14rpx 0;
+}
+.box-item-image{
+  width: 80rpx;
+  height: 32rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.movable-area movable-view.tan-image{
+  width: 124rpx;
+  height: 258rpx;
+  overflow: hidden;
+  pointer-events: auto;
+  right: 36rpx;
+  bottom: 120rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  left: auto;
+  top: auto;
+
+}
+.movable-area .tan-image>image{
+  width: 124rpx;
+  height: 124rpx;
+}

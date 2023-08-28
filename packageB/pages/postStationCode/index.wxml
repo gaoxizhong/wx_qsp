@@ -1,0 +1,66 @@
+<view>
+  <view class="codeList-box">
+
+    <view class="list-before" bindtap="goTodhjf">
+      <image src="/packageB/image/code-icon-s.png" mode="widthFix" class="index-list-img"></image>
+      <view class="popularActivity-list-titletext">
+        <view style="font-weight:600;">扫码换书</view>
+        <view style="color: #333;font-size: 30rpx;padding-top: 18rpx;">扫码书后条形码用积分换书</view>
+      </view>
+      <image src="/packageB/image/my_more.png" mode="widthFix" class="my-more"></image>
+    </view>
+
+    <view class="list-before" bindtap="goToShop">
+      <image src="/packageB/image/code-icon-l.png" mode="widthFix" class="index-list-img"></image>
+      <view class="popularActivity-list-titletext">
+        <view style="font-weight:600;">积分换好礼</view>
+        <view style="color: #333;font-size: 30rpx;padding-top: 18rpx;">查看礼品，点击兑换</view>
+      </view>
+      <image src="/packageB/image/my_more.png" mode="widthFix" class="my-more"></image>
+    </view>
+
+    <view class="list-before" bindtap="goToaxzs">
+      <image src="/packageB/image/code-icon-j.png" mode="widthFix" class="index-list-img"></image>
+      <view class="popularActivity-list-titletext">
+        <view style="font-weight:600;">废品换积分</view>
+        <view style="color: #333;font-size: 30rpx;padding-top: 18rpx;">查看礼品，点击兑换</view>
+      </view>
+      <image src="/packageB/image/my_more.png" mode="widthFix" class="my-more"></image>
+    </view>
+
+    <view class="list-before" bindtap="goToklhs">
+      <image src="/packageB/image/code-icon-q.png" mode="widthFix" class="index-list-img"></image>
+      <view class="popularActivity-list-titletext">
+        <view style="font-weight:600;">废品换钱</view>
+        <view style="color: #333;font-size: 30rpx;padding-top: 18rpx;">预约上门回收可回收物</view>
+      </view>
+      <image src="/packageB/image/my_more.png" mode="widthFix" class="my-more"></image>
+    </view>
+
+  </view>
+
+  <view class="dhjl-box">
+    <view class="dhjl-title">兑换记录</view>
+
+    <view class="dhjlList-box">
+      <block wx:for="{{beforeList}}" wx:key="index">
+        <view class="list-before" bindtap="goTodhjf">
+          <view class="dhjlList-list-titletext">
+            <view style="color: #333;font-size: 30rpx;">{{item.time}}</view>
+            <view class="beforeList-title">{{item.title}}</view>
+          </view>
+          <view class="{{item.type === '获取'?'dhjlList-jf':'dhjlList-cjf'}}">{{item.type === '获取'?'+':'-'}}{{item.integral}}积分</view>
+        </view>
+      </block>
+      <view wx:if="{{beforeList.length <= 0}}">
+        <view style="font-size: 30rpx;text-align: center;color: #b7b7b7;">暂无兑换记录...</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view style="width: 100%;height:120rpx;"></view>
+<view class="page-bottom-box">
+  <view class="page-qd-box" hover-class="hoverClass" bindtap="{{is_true?'':'goToSign'}}">{{is_true?'欢迎您常来驿站':'签到领5积分'}}</view>
+  <view class="page-zh-box"><text>环保账号: {{memberIdBank ? memberIdBank : '暂无账号'}}</text><text>环保积分: {{realAmount ? realAmount : '暂无积分'}}</text></view>
+</view>
+

@@ -1,0 +1,96 @@
+<!--pages/bianmin/bianmin.wxml-->
+<view>
+  <view class="page-title-box">
+    <image src="http://oss.qingshanpai.com/banner/che.png" mode="aspectFit"></image>
+  </view>
+  <view class="legend">
+    <text style="color:#333;font-size:36rpx;">中面</text>
+    <text>体积：3.5立方米</text>
+    <view class="norm">
+      <text style="font-weight:100;color:#333;font-size:30rpx;">费用标准</text>
+      <icon class="iconfont icon-bangzhu" bindtap="hlep_bangzhu"></icon>
+    </view>
+  </view>
+</view>
+<form bindsubmit="formReset">
+<view class="fill-adds-box">
+  <view class="fill-adds-list">
+    <view class="adds-list-title list-title1">搬出地址</view>
+    <view class="items-adds">
+      <picker mode="region" name="address_start" value="{{address_start}}" start="2015-09-01" bindchange="address_start" style="flex:1;background: #eeeeee;">
+        <view class="shengshi">{{address_start ? address_start:'请选择省市区'}}</view>
+      </picker>
+    </view>
+    <view class="list-title-input">
+      <view class="title1-input1"> <input type="text" name="detail_address_start" value="{{detail_address_start}}" bindinput="detail_address_start" placeholder="请输入搬出地址"></input> </view>
+      <view class="title1-input2"> <input type="number" name="floor_start" value="{{floor_start}}" bindinput="floor_start" placeholder="请输入楼层"></input> </view>
+    </view>
+  </view>
+
+  <view class="fill-adds-list">
+    <view class="adds-list-title list-title2">搬入地址</view>
+    <view class="items-adds">
+      <picker mode="region" name="address_end" value="{{address_end}}" start="2015-09-01" bindchange="address_end" style="flex:1;background: #eeeeee;">
+        <view class="shengshi">{{address_end ? address_end:'请选择省市区'}}</view>
+      </picker>
+    </view>
+     
+    <view class="list-title-input">
+      <view class="title2-input1"> <input type="text" name="detail_address_end" value="{{detail_address_end}}" bindinput="detail_address_end" placeholder="请输入搬入地址"></input> </view>
+      <view class="title2-input2"> <input type="number" name="floor_end" value="{{floor_end}}" bindinput="floor_end" placeholder="请输入楼层"></input> </view>
+    </view>
+  </view>
+
+  <view class="fill-adds-list">
+    <view class="adds-list-title">搬家时间</view>
+    <view class="items" bindtap="logintest">
+      <picker 
+        style='color:{{startDate == "请选择" ? "#b2b2b2":""}};background: #eeeeee;' 
+        disabled="{{!member_id}}" 
+        class='time-picker' 
+        mode="multiSelector" 
+        bindchange="bindStartMultiPickerChange" 
+        bindtap='pickerTap' 
+        bindcolumnchange="bindMultiPickerColumnChange" 
+        value="{{multiIndex}}" 
+        range="{{multiArray}}"
+        >
+        {{startDate}}
+      </picker>
+      <input placeholder='请选择' value='{{startDate}}' placeholder-style='color:#b2b2b2;' style='display:none;background: #eeeeee;' name="visited_at"></input>
+      <view class="min_icon">
+        <image src='/images/icon_mine_more.png' mode='widthFix'></image>
+      </view>
+    </view>
+  </view>
+  <view class="fill-adds-list">
+    <view class="adds-list-title">联系方式</view>
+    <view class="list-title-input" style="margin-top:12rpx;">
+      <view class="title3-input"> 
+        <input type="number" name="member_tel" value="{{member_tel}}" bindinput="member_tel" placeholder="请输入联系电话"></input> 
+      </view>
+    </view>
+  </view>
+</view>
+<button class="submit-btn" formType="submit">提交信息</button>
+</form>
+<view style="width:100%;height:100rpx;"></view>
+
+<!-- 弹窗 -->
+<view wx:if="{{tancheng}}" class="mark" bindtap="mark"></view>
+<view wx:if="{{tancheng}}" class="tanchang">
+  <view class="colse" bindtap="colse">X</view>
+  <view class="toll-box">
+    <view style="font-size:30rpx;color:#ff7b00;">基础路费</view>
+    <view><text>起步价 （5公里）</text>  <text>30元</text></view>
+    <view><text>超里程 （5公里以上）</text>  <text>+30元/公里</text></view>
+  </view>
+  <view class="toll-box">
+    <view style="font-size:30rpx;color:#ff7b00;">额外收费 （搬运）</view>
+    <view><text>基础费30元+层/15元</text></view>
+    <text style="height:auto; font-size:50rpx;color:#ff7b00;">+</text>
+    <view><text>大件基础费25元/件+3元/件/层</text></view>
+  </view>
+</view>
+
+

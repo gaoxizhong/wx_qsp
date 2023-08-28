@@ -1,0 +1,111 @@
+
+<view style="background:#fff;padding:20rpx; box-sizing:border-box;" wx:if="{{steps != '2'}}">
+  <view class="swiper-container">
+    <swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+      <block wx:for="{{top_img}}" wx:key="index">
+        <swiper-item bind:tap="goToFromImg" data-label="{{item.label}}" data-labelid="{{item.label_id}}">
+          <image src="{{item.image}}" class="slide-image" mode='aspectFill' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+<view class="title-box" wx:if="{{steps != '2'}}">
+  <view class="search">
+    <view class='select_box'>
+        <view class='select' catchtap='selectTap1' hover-class="huise" style="padding:16rpx 20rpx 16rpx 0;">
+          <text class='select_text' style="margin-right:10rpx;">排序</text>
+          <image class='select_img {{selectShow1&&"select_img_rotate"}}' src='/images/icon_down.png' background-size="contain"></image> 
+        </view>
+        <view class='option_box' style="height:{{selectShow1?'auto':'0rpx'}};">
+          <text class='option' wx:for='{{selectData1}}' wx:key='this' data-index='{{index}}' catchtap='optionTap1' bindtap="paixu">{{item}}</text>
+        </view>
+      </view>
+    <view class="box-input">
+      <view class='select_box'>
+        <view class='select' catchtap='selectTap' hover-class="huise">
+          <text class='select_text'>{{selectData[idx]}}</text>
+          <image class='select_img {{selectShow&&"select_img_rotate"}}' src='/images/icon_down.png' background-size="contain"></image> 
+        </view>
+        <view class='option_box' style="height:{{selectShow?'auto':'0rpx'}};">
+          <text class='option' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}        </text>
+        </view>
+      </view>
+      <input style="padding-left:8rpx;" placeholder="{{idx == 1? '输入馆名查找':'输入书名查找'}}" bindinput="searchLibrary" bindfocus="showLibraryList" value="{{library_name}}"/>
+      <view class="search-image-2" bindtap="getLibraryByConditon"> 搜索</view>
+    </view>
+  </view>
+    <scroll-view scroll-x="{{true}}" style="height: 80rpx;line-height:70rpx;">
+      <view class="bar-item {{areas_id == 0 ? 'color-64B' : 'color-333'}}" bind:tap="selectArea" data-id="0">附近({{libraryList.length}})</view>
+      <view 
+        class="bar-item {{areas_id == item.areas_id ? 'color-64B' : 'color-333'}}"
+        wx:for="{{area_library}}" 
+        wx:for-index="index" 
+        wx:for-item="item" 
+        wx:key="index"
+        data-id="{{item.areas_id}}"
+        bind:tap="selectArea"
+        >
+        {{item.area}}({{item.count}})
+      </view>
+    </scroll-view>
+</view>
+
+<view class="exchange-book" bindtap="exchange_book" wx:if="{{steps != '2'}}">
+  <view class="create-title">积分换书</view>
+</view>
+
+<view class="library-list" wx:if="{{showList}}" style="padding:{{steps == '2'?'30':''}}rpx;">
+  <scroll-view scroll-y="{{true}}">
+    <view 
+      class="list-item" 
+      wx:for="{{libraryList}}" 
+      wx:for-index="index" 
+      wx:for-item="item" 
+      wx:key="index" 
+      bind:tap="chooseLibrary"
+      data-id="{{item.id}}"
+      >
+      <view class="lt"  data-id="{{item.id}}" data-book_num="{{item.book_num}}" bind:tap="goToindex" >
+        <view class="name">{{item.library_name}}</view>
+        <text style="font-size:26rpx;">
+          <text style="background:#cfedc0;padding:4rpx 6rpx;">开放时间</text>
+          <text style="padding:4rpx 6rpx;">{{item.operational_hours?item.operational_hours: '暂无'}}</text> 
+        </text>
+        <text class="name-text"> 查看图书目录 >  </text>
+      </view>
+      <view class="rt">
+        <view class="right-cang">
+          <image src="/images/16.png"></image>
+          <text>藏书{{item.stock}}册</text> 
+        </view>
+        <view>距离{{item.distance}}km</view>
+      </view>
+    </view>
+    <view class='nulldata_wrap' wx:if="{{libraryList.length == 0 && !steps}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>暂无数据</view>
+    </view>
+    <view class='nulldata_wrap' wx:if="{{libraryList.length == 0 && steps == 2}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>物料已领完，请参加其它活动。</view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="is-mmk" wx:if="{{is_mmk}}" bindtap="is_mmk" catchtouchmove="aaa"></view>
+<view class="mmk-box" wx:if="{{is_mmk}}" catchtouchmove="aaa">
+  <view class="mmk-box-title">您是否在 {{is_name.library_name}}</view>
+  <view class="description">此功能用于在实体书店兑换书籍时使用</view>
+  <view class="box-btn">
+    <view class="box-btn-left" hover-class="btn-hove" data-id="{{no_name.id}}" data-library_id="{{no_name.id}}" data-library_number="{{no_name.number}}" bindtap="gotobuy1">否</view>
+    <view hover-class="btn-hove" data-library_id="{{is_name.id}}" data-library_number="{{is_name.number}}" bindtap="gotobuy">是</view>
+  </view>
+</view>
+
+<!-- 扫码得积分 -->
+<view wx:if="{{is_mark}}" class="is-mark" catchtouchmove="myCatchTouch"></view>
+<view wx:if="{{is_mark}}" class="mark-box" catchtouchmove="myCatchTouch">
+	<image src="http://oss.qingshanpai.com/banner/red-envelope.png" mode="widthFix"></image>
+	<view class="sub-btn" bindtap="rece_integral">立即领取</view>
+</view>

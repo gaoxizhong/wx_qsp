@@ -1,0 +1,70 @@
+page{
+  background: #f2f2f2;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+}
+.taskList-box{
+  width: 100%;
+  height: auto;
+}
+.taskList-box>view.taskList-items-box{
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 20rpx 20rpx;
+  background: #fff;
+  border-radius: 6px;
+  margin: 20rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+.list-items-image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.taskList-items-btnbox{
+  width: 148rpx;
+  height: 66rpx;
+  position: relative;
+}
+.taskList-items-btnbox>image{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+.items-text{
+  width: 100%;
+  height: 100%;
+  line-height: 66rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  border-radius: 20px;
+}
+.items-text1{
+  background: linear-gradient(90deg, #FF7000 0%, #FFAA00 100%);
+}
+.items-text2{
+  background: linear-gradient(90deg, #AAA9A9 0%, #C7C7C7 100%);
+}
+.taskList-items-info{
+  flex: 1;
+  padding-left: 14rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+}
+.items-info-title{
+  font-weight: bold;
+}
+.items-info-text{
+  color: #ff7500;
+}

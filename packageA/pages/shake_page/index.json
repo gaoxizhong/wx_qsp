@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "todayWelfare":"/component/today_welfare/today_welfare"
+  }
+}

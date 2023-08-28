@@ -1,0 +1,76 @@
+<import src="../../wxParse/wxParse.wxml" />
+<import src="/pages/module/authorize/index.wxml"></import>
+<template is="authorize" data="{{isAuthorize:isAuthorize}}"></template>
+<view class='detail' style="margin-bottom:{{article_id != '294'? '98rpx':'240rpx'}}">
+  <view class='detail_hd'>
+    <view class='tit'>{{detailData.data.title}}</view>
+    <view class='user'>
+      <!-- <image class='list_icon' src="{{detailData.data.avatar}}" mode='aspectFill'></image> -->
+      <view class='name'>{{detailData.data.author}}</view>
+      <view>{{detailData.data.time}}</view>
+      <view class='nums'>{{detailData.data.scan_count}}次浏览</view>
+    </view>
+  </view>
+  <!-- <video src="{{detailData.data.video}}" style='width:100%;margin:40rpx 0;' bindplay="videoPlay" bindpause="videoPause" wx:if="{{coolStatus &&detailData.data.video != ''}}"></video> -->
+  <view class='detail_con'>
+    <!-- <rich-text nodes="{{detailData.data.contentg}}"></rich-text> -->
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <view class="comment-list">
+    <view class="comment-title" id="comment-title">评论列表</view>
+    <view 
+      class="comment-item"
+      wx:for="{{comment}}"
+      wx:for-item="item"
+      wx:for-index="index"
+      wx:key="index"
+      >
+      <view class="item-head">
+        <view class="name-pic">
+          <image src="{{item.avatar}}" />
+          <text>{{item.nickname}}</text>
+        </view>
+        <view class="time">{{item.created_at}}</view>
+      </view>
+      <view class="item-content">{{item.comment}}</view>
+    </view>
+  </view>
+</view>
+<view class="to-comment" wx:if="{{ article_id != '294' }}">
+  <view class="commet-box" bind:tap="openComment">
+    <image src="/images/icon_editcomment.png" />
+    <text>写评论...</text>
+  </view>
+  <view class="comment-btns">
+    <button hover-class='none' bindtap="scrollToComment">
+      <image src='/images/icon_comment.png'></image>
+    </button>
+    <button hover-class='none' open-type="share" data-sharetxt="{{detailData.data.title}}" data-contentId="{{detailData.data.id}}">
+      <image src='/images/icon_relay.png'></image>
+    </button>
+    <button hover-class='none' class="{{detailData.data.laud_status == 1 ? 'active':''}}" data-curindex="{{idx}}" data-zxid="{{detailData.data.id}}" bindtap='like'>
+      <image src="/images/{{detailData.data.laud_status == 1 ? 'icon-praise-opt':'icon-praise'}}.png"></image>
+      <text>{{detailData.data.laud_count}}</text>
+    </button>
+  </view>
+</view>
+<view class="connect-btn" wx:else>
+  <button open-type="contact">联系青山生态客服</button>
+  <button bind:tap="openCall" data-phone="010-84672332">联系电话：010-84672332</button>
+</view>
+<!-- 弹层 -->
+<!-- 评论 -->
+<view class='pop-box' wx:if="{{pop1}}" catchtouchmove="myCatchTouch">
+  <view class='pop-bg' bindtap='popLock'></view>
+  <view class="addwx-wrap">
+    <input type='text' placeholder='发表评论' maxlength="-1" focus class='inp' bindinput='bindTextChange'></input>
+    <button hover-class='none' class="send-btn" bindtap='sendComment' style="background:#64B532;{{textVal!=''?'':'color:rgba(255,255,255,.5);'}}">
+      发送
+    </button>
+  </view>
+</view>
+<comp id="comp"/>
+
+
+<!-- 做任务得积分弹窗 -->
+<include src="/pages/module/signTaskMask/index.wxml" />

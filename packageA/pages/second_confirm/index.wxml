@@ -1,0 +1,35 @@
+<view class="second_confirm">
+  <view class="second_confirm_title">
+    <view class="second_confirm_title_text_1">将图书送达后，在图书馆200m内点击</view>
+    <view class="second_confirm_title_text_2"><text style=" color: #4ac280;">“确认送达”</text>按钮,如忘记点击，请联系客服。</view>
+  </view>
+  <view class="activity-imgs">
+    <image 
+      wx:for="{{img}}"
+      wx:for-item="item"
+      wx:for-index="index"
+      wx:key="index"
+      mode="aspectFill"
+      data-index="{{index}}"
+      src="{{item}}"
+      bindtap="openPhoto"/>
+    <view class="add-pic" bindtap="choosePic" wx:if="{{img.length < 9}}">
+      <image src="/images/icon-addphoto.png" mode="aspectFill"/>
+    </view>
+  </view>
+  <view class="image_title">为确保真实性，请上传图书馆送书照一张</view>
+
+  <view class="lianxi_btn_box">
+    <view class="btn_box_left" bindtap="relIdle_btn">确认送达</view>
+    <view class="lianxi_kefu_btn" catchtap="tel">联系客服</view>
+  </view>
+</view>
+
+<!-- 点击图片预览 -->
+<view class="layer" wx:if="{{showFull}}" bindtap='closePic'>
+  <view class="cover"></view>
+  <view class="con">
+    <image src='{{preview}}' mode="widthFix"></image>
+    <view bindtap='delPic' class="txt">删除</view>
+  </view>
+</view>

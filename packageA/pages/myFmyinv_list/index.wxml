@@ -1,0 +1,34 @@
+<view class="extInfoList-box">
+
+  <block wx:for="{{extInfoList}}" wx:key="index">
+    <view class="extInfoList-items" bindtap="gotodetail" data-invExt_id="{{item.inv_ext_id}}">
+      <view class="image-box">
+        <view class="iamge-box-left">
+          <image mode="widthFix" src="/packageA/assets/images/vol/vol-icon-grtx.png"></image>
+          <view class="name">
+            <view style="font-weight: 600;font-size: 30rpx;">志愿者姓名：{{item.inv_ext.member_name}}</view>
+            <view style="margin-top:4px;font-size:14px;color:#c1c1c1;">志愿者编号：{{item.inv_ext.vol_number}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="kapian-box">
+        <view>
+          <view>已完成</view>
+          <view style="margin-top:7px;">{{ item.list[3].count ? item.list[3].count : 0 }}</view>
+        </view>
+        <view>
+          <view>已下单</view>
+          <view style="margin-top:7px;">{{ item.list[1].count ? item.list[1].count : 0 }}</view>
+        </view>
+        <view>
+          <view>已取消</view>
+          <view style="margin-top:7px;">{{ item.list[10].count ? item.list[10].count : 0 }}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class='nulldata_wrap' wx:if="{{extInfoList.length == 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class="msg-1">请先邀请好友，好友下单成功后可查看信息</view>
+  </view>
+</view>

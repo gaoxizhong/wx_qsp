@@ -1,0 +1,140 @@
+<wxs module="filters">
+  var filters = {
+    toFix: function (value) {
+      return value.toFixed(2)
+    }
+  }
+  module.exports = {
+    toFix: filters.toFix
+  }
+</wxs>
+<view class="title-box">
+  <scroll-view scroll-x="{{true}}" style="height: 80rpx;line-height:80rpx;">
+    <view class="bar-item {{select_type == 1 ? 'sele-class' : ''}}" bind:tap="swichNav" data-current="1">Banner广告</view>
+    <view class="bar-item {{select_type == 2 ? 'sele-class' : ''}}" bind:tap="swichNav" data-current="2">置顶广告</view>
+    <view class="bar-item {{select_type == 3 ? 'sele-class' : ''}}" bind:tap="swichNav" data-current="3">内容广告</view>
+    <view class="bar-item {{select_type == 4 ? 'sele-class' : ''}}" bind:tap="swichNav" data-current="4">快速推广</view>
+    <view class="bar-item {{select_type == 5 ? 'sele-class' : ''}}" bind:tap="swichNav" data-current="5">持续推广</view>
+  </scroll-view>
+</view>
+<!-- <view class="promote-swich-box">
+  <view bindtap="swichNav" data-current='1' class="{{select_type == '1'? 'items-hover' :''}}">
+    快速推广
+  </view>
+  <view bindtap="swichNav" data-current='2' class="{{select_type == '2'? 'items-hover' :''}}"> 
+    持续推广 
+  </view>
+</view> -->
+<view style="width: 100%;height: 68rpx;"></view>
+<view class="goodinfo" wx:if="{{select_type == '1' || select_type == '2' || select_type == '3'}}">
+  <block wx:for="{{volunacti_list}}" wx:key="index">
+    <view class="good-item-view">
+      <view class="items-title-box">
+        <view class="items-title-img">
+          <image src="{{ item.member.avatar }}" mode="widthFix" class="avatar"></image>
+        </view>
+        <view class="items-title-text">
+          <view style="font-weight:600;">
+            <view class="nickname">{{item.member.nickname}}</view>
+          </view>
+          <view style="color:#bebebe;">{{item.start_time?item.start_time:'未开始'}}</view>
+        </view>
+        <view class="footer-view">
+          <view><text style="color:#918a8a;">状态：</text><text style="color:#ff0000;">{{item.status_str}}</text></view>
+        </view>
+      </view>
+      <view class='circle-jottings'>
+        <view>
+          <text style="padding-right:10rpx;">{{item.select.select_type}}：</text><text selectable='true'>{{select_type == 3 ? item.content : item.select.select_name}}</text> 
+        </view>
+        <view class="circle-img" wx:if="{{item.images.length > 0}}">
+          <image wx:for="{{item.images}}" wx:for-item="items" wx:key="index" src='{{items.url}}' mode="{{item.images.length > 1? 'aspectFill': 'widthFix'}}" class="{{item.images.length > 1? 'imgduo-width': 'imgyi-width'}}" 
+            >
+          </image>
+        </view>
+      </view>
+      <view class="footer-view" style="justify-content: flex-start;color:#918a8a;">
+        <text style="padding-right: 20px;">曝光量： <text style="color:#ff0000;">{{item.read_count}}</text>人次</text>
+        深度阅读:<text style="padding: 4rpx;color:#ff0000;">{{item.record_count}}</text>人
+      </view>
+      <view class="footer-view">
+        <text style="color:#918a8a;">
+          <text wx:if="{{select_type != '3'}}" style="padding-right: 20px;">曝光长度：<text style="padding:0 4rpx;color:#ff0000;">{{item.time}}</text></text>单次曝光{{item.baoguang }}元/人次
+        </text>
+      </view>
+      <view class="footer-view"><text style="color:#918a8a;">此条引流消费<text style="padding:0 4rpx;color:#ff0000;">{{item.money}}</text>元。</text></view>
+    </view>
+  </block>
+  <view class='nulldata_wrap' wx:if="{{!volunacti_list || volunacti_list.length <= 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg' style="color:#000;">数据读取中，请稍候</view>
+  </view>
+</view>
+
+<view wx:if="{{select_type == '4'}}" class="selectBox">
+  <block wx:for="{{items_info}}" wx:key="index">
+    <view class="block-items">
+      <view class="block-items-bottom select_type_title" wx:if="{{item.select_type}}">
+      {{item.select_type}}: {{item.select_name}}
+      </view>
+      <view class="block-items-text">
+        <view>
+          <view class="list-title-of">潜在客户</view>
+          <view class="data-info">{{item.count}}</view>
+        </view>
+        <view>
+          <view class="list-title-of">点击数量</view>
+          <view class="data-info">{{item.done}}</view>
+        </view>
+        <view>
+          <view class="list-title-of">服务通知</view>
+          <view class="data-info">{{item.notice}}</view>
+        </view>
+        <view>
+          <view class="list-title-of">广告费用</view>
+          <view class="data-info">{{ filters.toFix(item.done * 0.3) }}</view>
+        </view>
+        <view>
+          <view class="list-title-of">人均费用</view>
+          <view class="data-info">0.30元</view>
+        </view>
+      </view>
+      <view class="block-items-bottom" wx:if="{{item.over == 1}}">
+        发布时间： {{item.time_str}} <text style="color:#999;"> {{item.balance}}元余额已原路退回</text>
+      </view>
+      <view class="block-items-bottom" wx:else> 剩余推广时间：{{item.time?item.time:'0小时'}} </view>
+      <image src="http://oss.qingshanpai.com/banner/over_image.png" class="over_image" wx:if="{{item.over == 1}}"></image>
+    </view>
+  </block>
+  <view class='nulldata_wrap' wx:if="{{items_info.length <= 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg' style="color:#000;">数据读取中，请稍候</view>
+  </view>
+</view>
+
+<view wx-if="{{select_type == '5'}}" class="selectBox">
+  <view class="block-items2"  wx:if="{{useinter_info}}">
+    <view class="items2-view">
+      <text class="items2-view-title">剩余积分：</text><text class="items2-view-text">{{useinter_info.res}}</text>
+    </view>
+    <view class="items2-view">
+      <text class="items2-view-title">推广次数：</text><text class="items2-view-text">{{useinter_info.pop_count}}</text>
+    </view>
+    <view class="items2-view">
+      <text class="items2-view-title">内容访问：</text><text class="items2-view-text">{{useinter_info.shop_visit}}</text>
+    </view>
+    <view class="items2-view">
+      <view>
+        <text class="items2-view-title">消耗积分：</text><text class="items2-view-text"> {{useinter_info.consume_integral}} </text>
+      </view>
+      <view style="font-size:24rpx; color:#aaa;padding:6rpx 0;">*昨日消耗 <text class="items2-view-text">{{useinter_info.yes_consume_integral}} </text>积分，消耗积分包括弹窗推广和内容引流</view>
+    </view>
+    <view class="items2-view">
+      <text class="items2-view-title">预计剩余天数：</text><text class="items2-view-text">{{useinter_info.date}}</text>
+    </view>
+  </view>
+  <view class='nulldata_wrap' wx:if="{{!useinter_info}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg' style="color:#000;">数据读取中，请稍候</view>
+  </view>
+</view>

@@ -1,0 +1,573 @@
+page{
+  background: #F2F2F2;
+}
+.img-bg{
+  width: 100%;
+  height: 646rpx;
+  background-image: url(https://oss.qingshanpai.com/qhy/icon-qhy-bg.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding-top: 200rpx;
+  box-sizing: border-box;
+}
+.countdown-bgbox{
+  position: relative;
+  width: 652rpx;
+  height: 140rpx;
+  margin: 0 auto;
+  background-image: url(https://oss.qingshanpai.com/qhy/icon-qhy-djs.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.countdown-bgbox>view{
+  color: #fff;
+  font-size: 48rpx;
+  font-weight: bold;
+  letter-spacing: 26rpx;
+}
+
+.countdown-bgbox>view.countdown-day{
+  padding-left: 42rpx;
+}
+.countdown-bgbox>view.countdown-hr{
+  position: absolute;
+  left: 190rpx;
+}
+.countdown-bgbox>view.countdown-min{
+  position: absolute;
+  left: 350rpx;
+}
+.countdown-bgbox>view.countdown-sec{
+  position: absolute;
+  right: 42rpx;
+}
+
+
+.contentbox{
+  width: auto;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: -94rpx;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-sizing: border-box;
+  background: #fff;
+}
+.event-notification-box{
+  width: 100%;
+  height: 94rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.event-notification-box>image{
+  width: 272rpx;
+  height: 52rpx;
+}
+.f-infobox{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10rpx 54rpx;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  line-height: 42rpx;
+}
+.btn-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-box .image-b1{
+  width: 195rpx;
+  height: 90rpx;
+}
+.btn-box .image-b2{
+  width: 230rpx;
+  height: 90rpxz;
+}
+
+.idle-box{
+  width: auto;
+  border-radius: 8px;
+  background: #fff;
+  padding: 20rpx;
+  margin: 30rpx 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.idle-box>image{
+  width: 320rpx;
+  height: 140rpx;
+}
+.shop-box{
+  width: auto;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 10rpx;
+}
+.shoplist-box{
+  width: 100%;
+}
+.commodity-items {
+  position: relative;
+  height: auto;
+  margin: 30rpx 0;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.commodity-items:nth-of-type(1){
+  margin-top: 0;
+}
+.itemsImage {
+  width: 100%;
+  height: 334rpx;
+  position: relative;
+}
+.commodity-items-image {
+  width: 100%;
+  height: 334rpx;
+}
+.commodity-items-info-box {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.shop-itemsInfo-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.shop-itemsInfo-time {
+  width: 100%;
+  padding: 10rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #969696;
+}
+.shop-itemsInfo-price {
+  width: 100%;
+  padding: 4rpx 0;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10rpx;
+}
+.itemsInfo-time {
+  display: flex;
+  align-items: center;
+  line-height: initial;
+}
+.shop-itemsInfo-price-r {
+  display: flex;
+  align-items: center;
+}
+.shop-itemsInfo-price-r button {
+  width: 34rpx;
+  height: 34rpx;
+  position: relative;
+  margin: 0 18rpx;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shop-itemsInfo-price-r button image {
+  width: 34rpx;
+  height: 34rpx;
+}
+.market-signup-box{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+.market-signup-mark{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #33333360;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.market-signup-infobox{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  height: auto;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  padding: 30rpx 10rpx;
+  border-radius: 6px;
+}
+.hoverClass{
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+.tips {
+  padding: 0 20rpx;
+  position: relative;
+}
+.tot1 {
+  font-size: 30rpx;
+}
+.garden-box {
+  display: flex;
+  align-items: center;
+  margin: 14rpx 0;
+}
+.types-i {
+  margin: 18rpx 0;
+  font-size: 28rpx;
+  width: 135rpx;
+}
+.types-input {
+  flex: 1;
+  padding: 10rpx 0 10rpx 20rpx;
+  z-index: 0;
+  font-size: 28rpx;
+}
+.tips input {
+  padding: 10rpx 0 10rpx 10rpx;
+  background: #f2f2f263;
+  border-radius: 6px;
+  font-size: 28rpx;
+}
+
+.add-pop-btn {
+  padding: 20rpx 30rpx 0;
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-pop-btn>.add-footer-btn {
+  width: 360rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #fff;
+  height: 66rpx;
+  border-radius: 20px;
+  background-image: linear-gradient(to right, #4AC081 , #6cd67f);
+}
+.garden-box>button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #000;
+  margin: 0;
+  margin-left: 10rpx;
+  padding: 0 30rpx;
+  background: #f2f2f2;
+  border-radius: 20px;
+}
+.duihuan-btn{
+  border-radius: 20px;
+  background: #ff0000;
+  color: #fff;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rpx 30rpx;
+}
+.barrage-box1{
+  width: 100%;
+  padding: 20rpx 30rpx;
+  background: #FFF0EF;
+  box-sizing: border-box;
+}
+.barrage-box1>view{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #F95242;
+}
+.barrage-box1>view .item-r-t{
+  width: auto;
+}
+.barrage-box1>view .item-l-b{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.barrage-box1>view .item-l-name{
+  padding-left: 20rpx;
+}
+.barrage-box1>view .item-l-imgbox{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.barrage-box1>view .item-l-imgbox image{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* ====================滚动公告 ↓===========================*/
+.barrage-box{
+  width: 100%;
+  padding: 20rpx 30rpx;
+  background: #FFF0EF;
+  box-sizing: border-box;
+}
+.barrage-box .left{
+  width: 70%;
+  display: flex;
+}
+.barrage-box .left swiper{
+  width: 90%;
+  height: 50rpx;
+}
+.barrage-box .left swiper swiper-item{
+  width: 100%;
+  height: 100%;
+}
+.barrage-box .left swiper swiper-item view{
+  width: 100%;
+  color: #666;
+  font-size: 28rpx; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* ====================滚动公告 ↑===========================*/
+.market-gg-box{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+.market-gg-mark{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #33333360;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.market-gg-infobox{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  height: auto;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  padding: 30rpx 10rpx;
+  border-radius: 6px;
+}
+.tips-t{
+  padding: 10rpx 0;
+  display: flex;
+  color: #333;
+  font-size: 28rpx;
+}
+.tips-title{
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 10rpx;
+}
+
+/* ========== 社区大大集商品兑换弹窗  ↓========== */
+.communityInfo-box {
+  background: #fff;
+  padding: 30rpx 24rpx;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+  z-index: 99999;
+}
+.prompt-titie{
+  font-size: 30rpx;
+  color: #ff0000;
+}
+.myinfo-box{
+  margin-top: 30rpx;
+  font-size: 30rpx;
+}
+.number-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.number-box .num {
+  width: 300rpx;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.number-box .minuadd-box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 43rpx;
+  font-weight: 600;
+  color: #464646;
+  padding: 0 24rpx;
+}
+.number-box .num input {
+  width: 150rpx;
+  text-align: center;
+  margin: 0 20rpx;
+}
+
+
+
+.add-pop-btn {
+  padding: 20rpx 30rpx 0;
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add-pop-btn>.add-footer-btn {
+  width: 360rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #fff;
+  height: 66rpx;
+  border-radius: 20px;
+  background-image: linear-gradient(to right, #4AC081 , #6cd67f);
+}
+
+.tips {
+  position: relative;
+  margin-top: 30rpx;
+}
+.tot1 {
+  font-size: 30rpx;
+}
+.garden-box {
+  display: flex;
+  align-items: center;
+  margin: 20rpx 0;
+}
+.types-i {
+  margin: 18rpx 0;
+  font-size: 28rpx;
+  width: 135rpx;
+}
+.types-input {
+  flex: 1;
+  padding: 10rpx 0 10rpx 20rpx;
+  z-index: 0;
+  font-size: 28rpx;
+}
+.tips input {
+  padding: 10rpx 0 10rpx 10rpx;
+  background: #f2f2f2;
+  border-radius: 6px;
+  font-size: 28rpx;
+}
+.garden-box>button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #000;
+  margin: 0;
+  margin-left: 10rpx;
+  padding: 0 30rpx;
+  background: #f2f2f2;
+  border-radius: 20px;
+}
+.nohbb-box{
+  background: #ccc !important;
+  color: white !important;
+  width: 360rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  height: 66rpx;
+  border-radius: 20px;
+}
+.yjduihuan-btn{
+  width: 170rpx;
+  height: 54rpx;
+  border-radius: 20px;
+  background: #a8a8a8;
+  color: #fff;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shou-tu{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  opacity: 0.5;
+}
+.shou-tu image{
+  width: 280rpx;
+  height:180rpx;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* ========== 社区大大集商品兑换弹窗  ↑========== */

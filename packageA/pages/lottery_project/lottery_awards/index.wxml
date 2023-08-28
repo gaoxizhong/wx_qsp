@@ -1,0 +1,50 @@
+<view class="indexbg">
+  <image src="http://oss.qingshanpai.com/banner/indexbg_1.png"></image>
+</view>
+<view style="padding:20rpx 20rpx 0 20rpx">
+  <view class="box-5">
+    <view class="red-envel-box">
+      <image src="{{info_5data.thumb}}"></image>
+    </view>
+    <view class="red-envel-right">
+      <view>
+        <view class="envel-right-title">看看谁是今天手气王！</view>
+        <view class="envel-right-desc">邀请四名好友，立即开奖，发起人必中奖，可以挑战更大红包！</view>
+      </view>
+      <view class="envel-5-btn" data-red_id="{{info_5data.id}}" bindtap="gotolottery_detail" wx:if="{{info_5data.is_wan}}">
+        <image src="/packageA/image/aixin-tu.png"></image>
+        <text style="padding-left:8rpx;"> {{ info_5data.is_kaijiang ? '已开奖' :'已参与'}}</text> 
+      </view>
+      <view class="envel-5-btn" data-red_id="{{info_5data.id}}" bindtap="gotolottery_detail" wx:else>{{info_5data.integral}}积分抽奖</view>
+    </view>
+  </view>
+  <view class="winning-infor-box">
+    <text>5元以上红包，可以多名发起人同时邀请，谁邀请的人多，谁中奖概率就大！被邀请人中奖，邀请人分得一半红包！</text>
+  </view>
+</view>
+<view class="envel-list-box">
+  <block wx:for="{{ infoData }}" wx:key="index">
+    <view class="list-box-item">
+      <image src="http://oss.qingshanpai.com/banner/lock-icon.png" class="box-item-image" wx:if='{{!item.is_jiesuo}}'></image>
+      <view class="list-item-image">
+        <image src="{{item.thumb}}"></image>
+      </view>
+      <view class="list-item-tltle">
+        <text style="color:red;font-size:22rpx;" wx:if="{{item.is_wan}}">还需{{ item.is_kaijiang ? 0 : item.cha_people }}人开奖</text>
+        <text style="color:red;font-size:22rpx;" wx:else>满{{item.people}}人开奖</text>
+
+      </view>
+      <view class="envel-btn" data-red_id="{{item.id}}" bindtap="gotolottery_detail" wx:if="{{item.is_wan}}">
+        <image src="/packageA/image/aixin-tu.png"></image>
+        <text style="padding-left:6rpx;"> {{ item.is_kaijiang ? '已开奖' :'已参与'}}</text>
+      </view>
+      <view class="envel-btn" data-red_id="{{item.id}}" bindtap="{{item.is_jiesuo?'gotolottery_detail':'gotoa'}}" wx:else>{{item.integral}}积分抽奖</view>
+    </view>
+  </block>
+</view>
+<movable-area class="movable-area">
+  <movable-view direction="all" out-of-bounds='true' class="tan-image">
+    <image mode='widthFix' src="http://oss.qingshanpai.com/banner/earn-points.png" bindtap="goTobank"></image>
+    <image mode='widthFix' src="http://oss.qingshanpai.com/banner/results-btn.png" bindtap="goToresults"></image>
+  </movable-view>
+</movable-area> 

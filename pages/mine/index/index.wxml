@@ -1,0 +1,133 @@
+<view class="new-title">
+  <view class="image-box">
+    <view class="iamge-box-left">
+      <image mode="widthFix" src="{{personalInfo.avatar ? personalInfo.avatar : '/images/notlogin.jpg'}}" bindtap="{{ personalInfo.avatar ? 'gotoModifyInfo' : '' }}"/>
+      <view wx:if="{{personalInfo.nickname}}" class="name">
+        <view style="display: flex;align-items: center;">
+          <text style="font-weight: 600;">{{personalInfo.nickname}}</text>
+          <image bindtap="gotoModifyInfo" src="/images/bianji-1.png" class="image1"></image>
+        </view>
+        <view style="margin-top:8rpx;font-size:28rpx;color:#c1c1c1;">{{personalInfo.grade_text}}</view> 
+      </view>
+       <button 
+        class="login-button bacg-64B" 
+        type="primary" 
+        size="mini" 
+        bindtap="getUserProfile"
+        lang="zh_CN" 
+        wx:if="{{!member_id}}"
+        style="color:#fff;height:60rpx;margin-top: 30rpx;margin-left: 20rpx;display: flex;align-items: center;"> 
+        立即登录 
+      </button>
+    </view>
+  </view>
+  <view class="my-qianbao-box">
+    <image src="https://oss.qingshanpai.com/icon/mytitle-banner.png" class="my-qianbao-box-bg"></image>
+    <view class="my-qb-box">
+      <view class="my-qianbao">我的钱包</view>
+      <view class="gotoqianbao" bindtap="goToWallet">立即查看</view>
+    </view>
+
+  </view>
+</view>
+
+<view class="my-recycleidle">
+  <!-- <view class="my-recycleidle-title">
+    <image src="/images/my/my_ic_dd.png" class="my-ic-dd" mode="widthFix"></image>
+    <text>我的订单</text>
+  </view> -->
+  <view class="my-recleidle-type">
+    <view class="type-item" bindtap='goToIdle'>
+      <image src="http://oss.qingshanpai.com/icon/my-icon-wdxz1.png" mode="widthFix"></image>
+      <view>我的闲置</view>
+    </view>
+      <view class="type-item" bindtap="goToindex_personal" data-url="/packageA/pages/library/personal_index/personal_index?library_id=" data-library_id="{{library_id}}">
+      <image src="http://oss.qingshanpai.com/icon/my-icon-wdsd1.png" mode="widthFix"></image>
+      <view>我的书店</view>
+    </view>
+    <view class="type-item" bindtap='goToMyComment' data-url="/pages/mine/myContent/index?id={{member_id}}">
+      <image src="http://oss.qingshanpai.com/icon/my-icon-wddt1.png" mode="widthFix"></image>
+      <view>我的动态</view>
+    </view>
+    <!-- <view class="type-item" bindtap="jump_frog">
+      <image src="http://oss.qingshanpai.com/icon/my-icon-qwtg.png"  mode="widthFix"></image>
+      <view>青蛙推广</view>
+    </view> -->
+    <view class="type-item" bindtap='goToMyCoupon' data-url="/packageA/pages/myCouponList/index">
+      <image src="http://oss.qingshanpai.com/icon/my-icon-wdyhq1.png"  mode="widthFix"></image>
+      <view>我的优惠券</view>
+    </view>
+  </view>
+</view>
+
+<view class="my-function-list">
+  <view class="function-list-item" bindtap='clickspdd' data-url="/pages/myDicountOrder/myDicountOrder?type=1&status=">
+    <view class="function-list-item-left">
+      <image src="https://oss.qingshanpai.com/icon/my-ic-spdd1.png" mode="widthFix"></image>
+      <view style="padding-left:24rpx;">商品订单</view>
+    </view>
+    <view class="arrow"> 
+      <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+    </view>
+  </view>
+  <!-- <view class="function-list-item" bindtap="gotoidleorder">
+    <view class="function-list-item-left">
+      <image src="https://oss.qingshanpai.com/icon/my-ic-mdxz.png" mode="widthFix"></image>
+      <view style="padding-left:24rpx;">买的闲置</view>
+    </view>
+    <view class="arrow"><image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image></view>
+  </view>   -->
+ 
+  <view class="function-list-item"  bindtap="goToOrderPage" data-status="5">
+    <view class="function-list-item-left">
+      <image src="https://oss.qingshanpai.com/icon/my-ic-hsdd1.png" mode="widthFix"></image>
+      <view style="padding-left:24rpx;">回收订单</view>
+    </view>
+    <view class="arrow"><image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image></view>
+  </view>  
+  <view class="function-list-item" bindtap='gotolove_donate'>
+    <view class="function-list-item-left">
+      <image src="https://oss.qingshanpai.com/icon/my-ic-axzs1.png" mode="widthFix"></image>
+      <view style="padding-left:24rpx;">爱心赠送记录</view>
+    </view>
+    <view class="arrow"><image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image></view>
+  </view> 
+
+  <view class="function-list-item" bindtap='goToMyhy'>
+    <view class="function-list-item-left">
+      <image src="https://oss.qingshanpai.com/icon/my-ic-wdhy1.png" mode="widthFix"></image>
+      <view style="padding-left:24rpx;">我的好友</view>
+    </view>
+    <view class="arrow"><image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image></view>
+  </view> 
+
+  <view class="function-list-item" bindtap='jump_frog'>
+    <view class="function-list-item-left">
+      <image src="https://oss.qingshanpai.com/icon/my-ic-qwtg1.png" mode="widthFix"></image>
+      <view style="padding-left:24rpx;">青蛙推广</view>
+    </view>
+    <view class="arrow"><image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image></view>
+  </view> 
+</view>
+<view style="width:100%;height:50rpx;"></view>
+<!-- <view class="kefu-box">
+  <view class="kefu-box-btn">
+    <button class="kefu-box-item" open-type="contact">在线客服</button>
+    <view style="width:2rpx;height:100%;background:#f0eeee;"></view>
+    <button class="kefu-box-item" bind:tap="makeCall">电话客服</button>
+  </view>
+</view> -->
+
+<view class="isdd-mask-box" wx:if="{{is_dd}}" catchtap="clickIsdd_mask"></view>
+<view class="isdd-box" wx:if="{{is_dd}}">
+  <view class="isdd-title-box">请选择要查看的订单</view>
+  <view class="isdd-items-box" bindtap="gotoshopdd" data-url="/pages/merchantOrder/index?status=0&business_id={{business_info.id}}">
+    <image src="{{business_info.avatar}}"></image>
+    <text>{{business_info.name}}的订单</text>
+  </view>
+  <view class="isdd-items-bg"></view>
+  <view class="isdd-items-box" bindtap="gotoshopdd" data-url="/pages/myDicountOrder/myDicountOrder?type=1&status=">
+    <image src="{{personalInfo.avatar ? personalInfo.avatar : '/images/notlogin.jpg'}}"></image>
+    <text>{{personalInfo.nickname}}的订单</text>
+  </view>
+</view>

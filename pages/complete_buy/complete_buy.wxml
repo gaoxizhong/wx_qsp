@@ -1,0 +1,9 @@
+<view class="pic">
+  <image src="http://oss.qingshanpai.com/huanbaobi/a0239369d5e401a0859a27f856290924.png" />
+</view>
+<view class="success">订单支付成功</view>
+<view class="status">仓库正在为您备货中...</view>
+<view class="btns">
+  <button bind:tap="goToMyOrder">查看订单</button>
+  <button bind:tap="goToShop">返回商家</button>
+</view>

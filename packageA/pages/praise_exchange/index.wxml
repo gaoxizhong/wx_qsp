@@ -1,0 +1,46 @@
+<view class="wechat-title-box">
+  <view class="wechat-title-node">
+    <view class="title-node-left">
+      <image src="http://oss.qingshanpai.com/banner/praise-bg.png"></image>
+    </view>
+    <view class="title-node-right">
+      <view class="right-title">集赞换钱—传播美好</view>
+    </view>
+  </view>
+</view>
+<view class="introduce-box">
+  <view style='padding-top:20rpx;'>功能介绍</view>
+  <view class="introduce-text">
+    <view>发布、分享优秀的图片、文字内容，传播美好和正能量！收获的点赞，都可以换成钱！一个点赞，一分钱，一份心意，一份鼓励！</view>
+    <view class="instr-btn-box"><view class="instr-btn" bindtap="jizan_btn">去集赞</view></view> 
+  </view>
+</view>
+
+<view class="theycount-box">
+  <view class="theycount-box-info">
+    <view>
+      <view>昨日收获点赞数:</view>
+      <view class="number-box">{{result_yestoday}}</view>
+    </view>
+    <view>
+      <view>今日兑换(元):</view>
+      <view class="number-box">{{money_today}}</view>
+    </view>
+  </view>
+  <view class="conversion-btn" hover-class="hover-btn" bindtap="conversion_btn">转换金钱</view>
+</view>
+
+<view class="instructions-box">
+  <view class="instructions-padd">
+    <view style="align-items:flex-status;width: 100%;padding-top:8rpx;font-size: 26rpx;">截止目前收获的赞价值 {{result_today}}元，明日24：00之前可兑换</view>
+
+    <view style="display: flex;justify-content: space-between;margin-top:20rpx;">
+      <text>钱包余额: {{total_price}}元 （满1元即可提现）</text><text class="instr-btn" bindtap="gototixian">去提现</text>
+    </view>
+  </view>
+
+</view>
+
+<todayWelfare />
+
+<view style="width:100%;height:20px;"></view>

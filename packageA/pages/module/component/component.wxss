@@ -1,0 +1,171 @@
+/* index/component/component.wxss */
+.pop_music {
+  position: fixed;
+  bottom: 40rpx;
+  right: 40rpx;
+  line-height: 0;
+}
+
+.pop_music > image {
+  width: 116rpx;
+}
+
+.pop_music > image.x {
+  animation: headRotate 6s linear infinite;
+}
+
+.huishou {
+  bottom: 160rpx;
+}
+.gohome {
+  bottom: 280rpx;
+}
+.huishou > image {
+  width: 116rpx;
+}
+.animate-like {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: 999;
+}
+.animate-like .audio {
+  position: absolute;
+  /* top: 0;
+  left: 0; */
+}
+.show-animate1 {
+  animation: likeAnimate1 .6s ease-in;    
+}
+.show-animate2 {
+  animation: likeAnimate2 .6s ease-in;    
+}
+.show-animate3 {
+  animation: likeAnimate3 .6s ease-in;    
+}
+.show-animate4 {
+  animation: likeAnimate4 .6s ease-in;    
+}
+.show-animate5 {
+  animation: likeAnimate5 .6s ease-in;    
+}
+.show-animate6 {
+  animation: likeAnimate6 .6s ease-in;    
+}
+.show-animate7 {
+  animation: likeAnimate7 .6s ease-in;    
+}
+.show-animate8 {
+  animation: likeAnimate8 .6s ease-in;    
+}
+.show-animate9 {
+  animation: likeAnimate9 .6s ease-in;    
+}
+.show-animate10 {
+  animation: likeAnimate10 .6s ease-in;    
+}
+.animate-like > image {
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
+@keyframes likeAnimate1 {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  100% {
+    top: -200rpx;
+    left: 0rpx;
+  }
+}
+@keyframes likeAnimate2 {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  100% {
+    top: -150rpx;
+    left: -150rpx;
+  }
+}
+@keyframes likeAnimate3 {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  100% {
+    top: 0rpx;
+    left: -200rpx;
+  }
+}
+@keyframes likeAnimate4 {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  100% {
+    top: 150rpx;
+    left: -150rpx;
+  }
+}
+@keyframes likeAnimate5 {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  100% {
+    top: 200rpx;
+    left: 0rpx;
+  }
+}
+@keyframes likeAnimate6 {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  100% {
+    top: 150rpx;
+    left: 150rpx;
+  }
+}
+@keyframes likeAnimate7 {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  100% {
+    top: 0rpx;
+    left: 200rpx;
+  }
+}
+@keyframes likeAnimate8 {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  100% {
+    top: -150rpx;
+    left: 150rpx;
+  }
+}
+@keyframes likeAnimate9 {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  100% {
+    top: 200rpx;
+    left: 0rpx;
+  }
+}
+@keyframes likeAnimate10 {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  100% {
+    top: 200rpx;
+    left: 0rpx;
+  }
+}

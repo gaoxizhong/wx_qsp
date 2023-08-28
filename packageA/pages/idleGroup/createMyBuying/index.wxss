@@ -1,0 +1,97 @@
+page {
+  font-family: PingFangSC-Regular,PingFang SC;
+  font-weight: 400;
+  background-color: #fff;
+}
+.activity-desc {
+  padding: 30rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  height: 180rpx;
+  position: relative;
+}
+.activity-desc textarea {
+  font-size: 28rpx;
+  padding: 12rpx 18rpx;
+  height: 100%;
+  flex: 1;
+  border: 2rpx solid #f2f2f2;
+  border-radius: 8rpx;
+  margin-left: 0;
+}
+.activity-imgs {
+  padding: 24rpx 24rpx 24rpx 42rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.activity-imgs view.add-pic {
+  width: 200rpx;
+  height: 200rpx;
+  border: none;
+  background: none;
+  /* margin-top: 20rpx; */
+}
+.activity-imgs view image {
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+.activity-imgs view {
+  width: 124rpx;
+  height: 124rpx;
+  position: relative;
+  border: 2rpx solid #999;
+  border-radius: 12rpx;
+  background: #d1d1d1;
+}
+.activity-imgs image {
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 24rpx;
+  margin-top: 10rpx;
+}
+.discount-price {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 18rpx 24rpx;
+  border-bottom: 2rpx solid #eee;
+  font-size: 28rpx;
+}
+.add-title {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+.discount-price .discount-input {
+  flex: 1;
+}
+.discount-price input {
+  font-size: 28rpx;
+  padding-left: 30rpx;
+}
+.add-title image {
+  width: 48rpx;
+  height: 48rpx;
+}
+.add-title-text {
+  font-size: 32rpx;
+  padding-left: 20rpx;
+  font-weight: 600;
+}
+button.create-btn-box {
+  border-radius: none;
+  width: 484rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 30rpx;
+  margin: 60rpx auto;
+  text-align: center;
+  background: #f0914a;
+  border-radius: 20px;
+}

@@ -1,0 +1,37 @@
+<view class="indexbg"></view>
+<!-- 团友及闲置 -->
+<view class="myidle-box">
+  <view class="myidle-box-title">
+    <view class="myidle-title-l">
+      <view class="myidle-title-l-b"></view>
+      <text>圈友闲置</text>
+    </view>
+    <view class="myidle-title-r" hover-class="hoverClass" bindtap="goTotyList"><text>查看更多</text> > </view>
+  </view>
+  <view>
+    <view class="userList-box" wx:for="{{member_List}}" wx:key="index">
+      <view class="user-box">
+        <view class="user-items-avatar">
+          <image src="{{item.avatar}}"></image>
+        </view>
+        <view class="user-items-info">
+          <view class="user-leave-name">{{item.nickname}}</view>
+          <text style="display: inline-block;font-size:22rpx;color: #6b6b6b;">编辑于 {{item.idle_time}}</text>
+        </view>
+        <view class="user-items-sf">{{item.is_admin?'团主':'成员'}}</view>
+      </view>
+      <view class="goodinfo"> 
+        <view class="goToInfo" wx:for="{{item.idle_list}}" wx:for-item="items" wx:key="idx">
+          <view class="good-item-view" bindtap="goToActivity"  data-idle="{{items.id}}" data-curidx="{{idx}}" data-busnesid="{{items.member_id}}" >
+            <image src="{{items.img[0]}}" class="good-item-img"></image>
+            <view class="goodname">{{items.title}}</view>
+            <view class="goodprice">
+              <text class="goodprice-1">￥</text>
+              <text class="goodprice-2">{{items.total_price}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

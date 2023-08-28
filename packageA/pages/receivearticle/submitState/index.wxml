@@ -1,0 +1,14 @@
+<view class='state_wrap'>
+  <image src="/images/S1.jpg" />
+  <view class='txt' wx:if="{{aaa == '1'}}">
+    <view style="font-size:36rpx;">24小时内</view>
+    <view style="font-size:36rpx;">查看预估价格</view>
+  </view>
+  <view class='txt'wx:else>预约成功</view>
+
+  <form bindsubmit='getFormId' report-submit>
+    <view class='success-btn-list'>
+      <button form-type='submit' class="btn-lt" bind:tap="goToUseCoin">{{aaa == '1'?'我的估价>>':'查看预约信息 >>'}}  </button>
+    </view>
+  </form>
+</view>

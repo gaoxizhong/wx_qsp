@@ -1,0 +1,63 @@
+.swiper-container {
+  width: 100%;
+  height: 420rpx;
+}
+.swiper-container .swiper {
+  height: 420rpx;
+}
+.swiper-container image {
+  width: 100%;
+  height: 420rpx;
+}
+.price-info {
+  padding: 16rpx 0;
+  position: relative;
+}
+.price-info .info-title {
+  width: 100%;
+  padding: 0 32rpx;
+  font-size: 28rpx;
+  color: #6e6e6e;
+  box-sizing: border-box;
+  text-overflow: -o-ellipsis-lastline;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  align-content: center;
+}
+.price-info .now-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 30rpx;
+}
+.divide {
+  background-color: #F7F7F7;
+}
+.good-desc {
+  margin-bottom: 98rpx;
+  padding: 16rpx;
+}
+.good-desc .desc-title {
+  font-size: 30rpx;
+  text-align: center;
+  padding: 10rpx;
+  background: #ff9823;
+  border-radius: 20px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 28rpx;
+  width: 148rpx;
+}
+.price-info .origin-price {
+  font-size: 24rpx;
+  color: #b8b8b8;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10rpx 0;
+}
+.price-info .origin-price view {
+  margin: 0 28rpx 0 32rpx;
+  text-align: center;
+}

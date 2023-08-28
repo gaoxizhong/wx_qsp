@@ -1,0 +1,128 @@
+<view class="circle-info">
+  <view class="person-info flex-justitem-spacecent">
+    <view class="lt flex-justitem-startcent">
+      <image src="{{personalInfo.avatar}}" class="head-pic" />
+      <view>
+        <view class="name">
+          <text class="name">{{personalInfo.nickname}}</text>
+          <image src="/images/icon_renz.png" wx:if="{{wenzData[0].business_id != 0}}"/>
+        </view>
+        <text class="time">{{wenzData[0].public_at}}</text>
+      </view>
+    </view>
+    <view class="rt">
+      <!-- <button 
+        bind:tap="guanzhu"
+        data-id="{{wenzData[0].member_id}}"
+        data-business_id="{{wenzData[0].business_id}}"
+        style="border-color:{{wenzData[0].is_concern == 0 ? '#64B532' : '#999'}};color:{{wenzData[0].is_concern == 0 ? '#64B532' : '#999'}}"
+        >
+        {{wenzData[0].is_concern == 0 ? '关注' : '已关注'}}
+      </button> -->
+      <button wx:if="{{wenzData[0].business_id != 0}}" bind:tap="openCall" data-phone="{{personalInfo.phone}}">联系</button>
+    </view>
+  </view>
+  <view class="circle-content">
+    <view class='circle-jottings'>
+      <text selectable='true' class='{{showFull[idx].leng >= 200 && !showFull[idx].status ?"cool":""}}'>{{wenzData[0].words}}</text>
+      <view class='full_txt' bindtap='openFulltxt' wx:if='{{showFull[idx].leng >= 200}}' data-curidx="{{idx}}">{{!showFull[idx].status?'全文':'收起'}}</view>
+      <view class="circle-img" wx:if="{{wenzData[0].gdImages.length > 0}}">
+        <image 
+          wx:for="{{wenzData[0].gdImages}}" 
+          wx:for-item="items" 
+          wx:for-index="subidx" 
+          wx:key="index" src='{{items.url}}' 
+          data-subidx="{{subidx}}" 
+          data-curindex='0' 
+          bindtap="previewImage" 
+          mode="{{wenzData[0].gdImages.length > 1? 'aspectFill': 'widthFix'}}" 
+          class="{{wenzData[0].gdImages.length > 1? 'imgduo-width': 'imgyi-width'}}"
+          >
+        </image>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="circle-comment">
+  <view class="title flex-justitem-startcent">
+    <text>评论 </text>
+    <text style="font-size:30rpx;color:#999">{{commentListLength}}</text>
+  </view>
+  <view class="comment-list">
+    <view 
+      class="comment-item"
+      wx:for="{{commentList}}"
+      wx:for-index="index"
+      wx:for-item="item"
+      wx:key="index"
+      >
+      <view class="title">
+        <image src="{{item.commentMemberAvatar}}" />
+        <view class="commen-people">
+          <view class="commen-person flex-justitem-startcent">
+            <view 
+              style="color:#64B532" 
+              bind:tap="commentToComment" 
+              data-id="{{item.commentmemberId}}"
+              data-name="{{item.commentMemberNickname}}"
+              >
+              {{item.commentMemberNickname}}
+            </view>
+            <view>{{item.replayCommentMemberNickname ? ' 回复了 ' : '' }}</view>
+            <view 
+              style="color:#64B532" 
+              bind:tap="commentToComment" 
+              data-id="{{item.replayCommentMemberId}}"
+              data-name="{{item.replayCommentMemberNickname}}"
+              >
+              {{item.replayCommentMemberNickname ? item.replayCommentMemberNickname : ''}}
+            </view>
+          </view>
+          <view class="time">{{item.commentTime}}</view>
+        </view>
+      </view>
+      <view class="comment-info">
+        {{item.commentContent}}
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 广告位 -->
+<view class="circle-adbox" >
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>
+</view>
+
+<view style="width: 100%;height: 100rpx;"></view>
+
+
+
+<view class="to-comment flex-justitem-startcent">
+  <view class="commet-box" bind:tap="openComment">
+    <image src="/images/icon_editcomment.png" />
+    <text>写评论...</text>
+  </view>
+  <view class="comment-btns flex-justitem-spacecent">
+    <!-- <button hover-class='none' bindtap="scrollToComment">
+      <image src='/images/icon_comment.png'></image>
+    </button> -->
+    <button hover-class='none' open-type="share" data-sharetxt="{{personalInfo.content.words}}" data-contentId="{{personalInfo.content.id}}">
+      <image src='/images/icon_relay.png'></image>
+      <text>{{personalInfo.content.forward_count}}</text>
+    </button>
+    <button hover-class='none' class="{{personalInfo.content.laud_status == 1 ? 'active':''}}" data-curindex="{{idx}}" data-zxid="{{personalInfo.content.id}}" bindtap='like'>
+      <image src="/images/{{personalInfo.content.laud_status == 1 ? 'icon-praise-opt':'icon-praise'}}.png"></image>
+      <text>{{personalInfo.content.laud_count}}</text>
+    </button>
+  </view>
+</view>
+<view class='pop-box' wx:if="{{pop1}}" catchtouchmove="myCatchTouch">
+  <view class='pop-bg' bindtap='popLock'></view>
+  <view class="addwx-wrap">
+    <input type='text' placeholder='{{inpPlaceholder}}' maxlength="-1" focus class='inp' bindinput='bindTextChange'></input>
+    <button hover-class='none' class="send-btn" bindtap='sendComment' style="{{textVal!=''&& savaStatus?'' :'color:rgba(255,255,255,.5);'}}">
+      发送
+    </button>
+  </view>
+</view>
+
+

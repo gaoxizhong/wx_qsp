@@ -1,0 +1,87 @@
+<view class="todayLike-title-box">
+  <image src="https://oss.qingshanpai.com/sign/icon_today_bg.png" mode="widthFix" class="todayLike-title-bg"></image>
+  <view class="todayLike-title-info">
+    <view class="title-info-top">
+      <view class="titleInfo-title">
+        <view class="titleInfo-title-t">
+          <text>昨日收到的礼物</text>
+        </view>
+        <view class="titleInfo-num">{{my_giftinfo.yesterday_gift}}</view>
+      </view>
+      <view class="titleInfo-ljdh-box" bindtap="{{my_giftinfo.today_dh?'':'conversion_btn'}}">
+        <image src="/packageB/assets/images/sigin/icon_today_bgljdh.png" mode="widthFix"></image>
+        {{my_giftinfo.today_dh ?'已兑换':'立即兑换'}}
+      </view>
+      <view class="titleInfo-title">
+        <view class="titleInfo-title-t">
+          <text>可兑换环保积分</text>
+        </view>
+        <view class="titleInfo-num">{{my_giftinfo.yesterday_gift_i}}</view>
+      </view>
+    </view>
+
+    <view class="todayLike-bottom-ye">
+      <view>环保积分: {{my_giftinfo.real_amount}}</view>
+      <view bindtap="goToHisOrder">
+        <text>积分账单</text>
+        <image src="/packageB/assets/images/sigin/icon_today_bgmode.png" mode="widthFix" class="bgmode"></image>  
+      </view>
+    </view>
+  </view>
+</view>
+<view class="result-today">今日当前收到的礼物数: <text style="color: #ff0000;">{{my_giftinfo.today_gift}}</text></view>
+<!-- /* ==================================== 头部账户信息以上 ================================= */ -->
+<!-- ================== 列表头开始 =================== -->
+<view class="todayLike-list-box">
+  <block wx:for="{{my_giftinfo.my_gift}}" wx:key="index">
+    <view class="todayLike-listitems-box" wx:if="{{item.gift.length > 0}}">
+      <!-- 列表头部开始 -->
+      <view class="listitems-top-box">
+        <view class="toplw-listitems-box">
+          <block wx:for="{{item.gift}}" wx:for-item="l_item" wx:key="l_index">
+            <view class="listitems-lwlist">
+              <image src="https://oss.qingshanpai.com/gift/sign_gift_{{l_item.id}}.png" mode="widthFix" class="dzlw-listitems-lwimg"></image>
+              <view class="lw-num">x{{l_item.count}}</view>
+            </view>
+          </block>
+        </view>
+        <!-- <view class="add-icon-box">
+          <image src="/packageB/assets/images/sigin/icon_add_jl.png" mode="widthFix" class="add-icon"></image>
+          <text style="color: #6b6b6b;">0.8km</text>
+        </view> -->
+      </view>
+      <!-- 列表头部结束 -->
+      <!-- 中间数据开始 -->
+      <view class="cx-btn-box">
+        <view class="cxsj-l-box">
+          <text>合计:<text style="color:#fd2c4f;">{{item.gift_count}}个</text> 价值:<text style="color:#fd2c4f;">{{item.gift_i}}积分</text></text>
+        </view>
+        <view class="cxbtn-r-box">
+          <view class="listitems-cxbtn-hh" data-mid="{{item.member_content.member_id}}" data-id="{{item.member_content.id}}" data-index="{{index}}" bindtap="{{item.lauds_status?'':'signLike'}}">
+            <image src="/packageB/assets/images/sigin/{{item.lauds_status?'icon_jy_dz2':'icon_jy_dz1'}}.png" mode="widthFix" class="icon_today_hh"></image>
+            <text style="font-size: 15px;padding-left:6px;color: {{item.lauds_status?'#fd2c4f':'#333'}};">{{item.lauds_status?'已回赞':'回赞'}}</text>
+          </view>
+          <view class="dzlw-listitems-hzbox" data-index="{{index}}" data-id="{{item.member_content.id}}" data-content_uid="{{item.member_content.member_id}}" bindtap="clickisGift">
+            <image src="/packageB/assets/images/sigin/icon_today_listhghh.png" mode="widthFix"></image>
+          </view>
+        </view>
+      </view>
+      <!-- 中间数据结束 -->
+      <!-- 列表开始 -->
+      <view class="dzlw-list-box">
+        <view class="dzlw-listitems-box">
+          <image src="{{item.member.avatar}}" class="dzlw-listitems-avatar" data-id="{{item.member.id}}" bindtap="goOtherCircle"></image>
+          <view class="dzlw-listitems-nameinfo">
+            <view class="dzlw-listitems-name"> {{item.member.nickname}} <text>{{item.created_at}}</text></view>
+            <view style="margin-top: 8rpx;">{{item.member.nickname}}送了个礼物给你!</view>
+          </view>
+        </view>
+      </view>
+      <!-- 列表结束 -->
+    </view>
+  </block>
+</view>
+<!-- ================== 列表头开始 =================== -->
+ <!-- ============= 送个花花 弹窗 开始===========  -->
+ <giftList selt_id="{{selt_id}}" content_uid="{{content_uid}}" is_gift="{{is_gift}}" bindshow_poster="show_poster" />
+ <!-- ============= 送个花花 弹窗 结束===========  -->

@@ -1,0 +1,477 @@
+.main {
+  width: 100%;
+  height: 50%;
+}
+
+.addwx-wrap {
+  background: #f4f4f4;
+  padding: 24rpx;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  box-sizing: border-box;
+  transform: translate(-50%, 0);
+  display: flex;
+  align-items: center;
+}
+
+.addwx-wrap > view {
+  width: 100%;
+  color: #939398;
+}
+
+.addwx-wrap textarea {
+  font-size: 32rpx;
+  padding: 35rpx 35rpx 0 35rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.addwx-wrap .max-nums {
+  border-bottom: 2rpx solid #c9c9c9;
+  box-sizing: border-box;
+}
+
+.addwx-wrap .inp {
+  font-size: 28rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  height: 64rpx;
+  padding-left: 20rpx;
+  line-height: 64rpx;
+  flex: 1;
+}
+
+.addwx-wrap .send-btn {
+  background: #4285f4;
+  border-radius: 8rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 28rpx;
+  color: #fff;
+  display: block;
+  padding: 0 34rpx;
+  margin-left: 36rpx;
+}
+
+.addwx-wrap .send-btn image {
+  width: 16rpx;
+  vertical-align: top;
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.addwx-wrap .send-btn text {
+  font-size: 28rpx;
+  color: #999;
+  margin-left: 10rpx;
+  margin-right: 20rpx;
+}
+
+.scroll_view, .scroll_view_change {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 110rpx;
+}
+
+.scroll_view_change {
+  bottom: 220px;
+}
+
+.message {
+  width: 100%;
+  height: auto;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.time {
+  margin: 7px 0;
+  text-align: center;
+}
+
+.time text {
+  display: inline-block;
+  padding: 8rpx 20rpx;
+  font-size: 24rpx;
+  color: #fff;
+  line-height: 24rpx;
+  border-radius: 4rpx;
+  background-color: #cecece;
+}
+
+.user text {
+  margin: auto auto 4px 0;
+  font-size: 12px;
+  color: #dcdcdc;
+  display: block;
+}
+
+.avatar {
+  width: 62rpx;
+  height: 62rpx;
+  margin: 0 16rpx 0 0;
+  border-radius: 8rpx;
+  float: left;
+}
+
+.msg_new {
+  display: inline-block;
+  position: relative;
+  padding: 12rpx 20rpx;
+  width: 65%;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-align: left;
+  word-break: break-all;
+  background-color: #fff;
+  border-radius: 8rpx;
+}
+
+.msg {
+  display: inline-block;
+  position: relative;
+  padding: 12rpx 20rpx;
+  max-width: calc(60% - 40px);
+  font-size: 28rpx;
+  /* overflow: hidden; */
+  text-align: left;
+  word-break: break-all;
+  background-color: #ebebeb;
+  border-radius: 8rpx;
+}
+
+.msg::after {
+  content: "";
+  position: absolute;
+  left: -9rpx;
+  top: 18rpx;
+  width: 0;
+  height: 0;
+  border-right: 10rpx solid #ebebeb;
+  border-top: 8rpx solid transparent;
+  border-bottom: 8rpx solid transparent;
+}
+
+.sending {
+  position: absolute;
+  left: -42rpx;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 32rpx;
+}
+
+.msg text {
+  line-height: 1.5;
+}
+
+.self {
+  text-align: right;
+}
+
+.self .avatar {
+  float: right;
+  margin: 0 0 0 10px;
+}
+
+.self .user {
+  margin: auto 2px 4px auto;
+  font-size: 12px;
+  color: #dcdcdc;
+}
+.self .msg::after{
+  left: 0;
+}
+.self .msg::before {
+  content: "";
+  position: absolute;
+  right: -9rpx;
+  top: 18rpx;
+  width: 0;
+  height: 0;
+  border-left: 10rpx solid #ebebeb;
+  border-top: 8rpx solid transparent;
+  border-bottom: 8rpx solid transparent;
+}
+
+.room_bar {
+  width: 100%;
+  border-top: 1px solid #e1e1e1;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background-color: #f5f5f6;
+  padding: 20rpx 20rpx 20rpx;
+}
+
+.send_btn {
+  width: 160rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  font-size: 32rpx;
+  color: #fff;
+  padding: 0;
+  background-color: #3479f5;
+  text-align: center;
+  margin-left: 10rpx;
+  border-radius: 8rpx;
+}
+
+
+
+.room_bar form {
+  width: 100%;
+  padding: 0;
+  display: block;
+}
+
+.news {
+  height: 80rpx;
+  border: 1px solid #e1e1e1;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  padding-left: 8rpx;
+  flex: 1;
+  background: #fff;
+}
+
+.emoj {
+  width: 6.8%;
+  height: 60%;
+  margin-right: 10px;
+}
+
+.other_func {
+  width: 100%;
+  height: 30px;
+  float: left;
+
+}
+
+.other_func image {
+  width: 21px;
+  height: 20px;
+}
+
+.emoji_list {
+  margin-top: 30px;
+  width: 100%;
+  height: 145px;
+  background-color: #ddd;
+  padding-top: 10px;
+  padding-left: 3%;
+  display: none;
+}
+
+.showEmoji {
+  width: 100%;
+  padding: 20rpx 20rpx;
+  display: block;
+}
+
+.emoji_list image, .showEmoji image {
+  width: 26px;
+  height: 26px;
+  margin: 5px 2%;
+}
+
+.emoji {
+  width: 26px;
+  height: 26px;
+  margin: 0 0;
+}
+
+.emoji_item {
+  display: flex;
+  justify-content: space-around;
+  margin-right: 20px;
+}
+
+.template {
+  display: inline;
+}
+
+.template text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.open_emoji, .send_image, .open_camera, .v-record {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10rpx;
+}
+
+.open_emoji image, .send_image image, .open_camera image {
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.v-record {
+  margin-right: 15px;
+}
+
+.v-record .icon-record {
+  width: 9px;
+  height: 20px;
+}
+
+.icon-play {
+  width: 25px;
+  height: 25px;
+  margin: 0 10px;
+}
+
+.icon-mic {
+  width: 13px;
+  height: 25px;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-record .modal-body {
+  width: 164px;
+  height: 164px;
+  background-color: rgba(135, 152, 164, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+
+.modal-record .desc {
+  color: rgb(112, 126, 137);
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.modal-record .dot {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.f-row {
+  display: flex;
+  align-items: center;
+}
+
+.button_bar {
+  display: flex;
+  color: #777;
+  align-items: center;
+  margin-bottom: 20rpx;
+  flex-wrap: wrap;
+}
+
+.button_bar view {
+  border-radius: 40rpx;
+  border: 1px solid #eee;
+  font-size: 24rpx;
+  padding: 0 20rpx;
+  line-height: 56rpx;
+  height: 56rpx;
+  margin-left: 10rpx;
+  background: #fff;
+}
+
+.weixin_pop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 540rpx;
+  background: #fff;
+  box-shadow: 1px 6px 10px #e1e1e1;
+  margin-left: -270rpx;
+  border-radius: 10rpx;
+  padding: 50rpx 20rpx;
+  text-align: center;
+}
+
+.weixin_pop .btn_copy {
+  width: 280rpx;
+  margin: 60rpx auto 0;
+  border: 1px solid #62b900;
+  border-radius: 6rpx;
+  font-size: 32rpx;
+  padding: 8rpx 0;
+  color: #62b900;
+}
+
+.weixin_pop .btn_copy.dis {
+  background: #f1f1f1;
+  border: 1px solid #ddd;
+  color: #999;
+}
+
+.weixin_pop .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.addtext {
+  margin-top: 30rpx;
+  font-size: 24rpx;
+  color: #2f2f2f;
+}
+
+.opf {
+  display: flex;
+  border: 1px solid #f0f0f0;
+  border-radius: 10rpx;
+  height: 77rpx;
+  margin: 20rpx auto;
+  position: relative;
+  line-height: 75rpx;
+  padding-left: 100rpx;
+}
+
+.opf .left_img {
+  position: absolute;
+  top: 15rpx;
+  left: 20rpx;
+  height: 47rpx;
+  width: 47rpx;
+}
+
+.opf .right_img {
+  position: absolute;
+  top: 27rpx;
+  right: 20rpx;
+  height: 20rpx;
+  width: 12rpx;
+}
+
+.opf2 {
+  padding-left: 20rpx;
+}

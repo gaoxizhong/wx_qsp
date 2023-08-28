@@ -1,0 +1,45 @@
+@import "/pages/dicount_good/dicount_good.wxss";
+.noe-price-stock {
+  justify-content: flex-end;
+}
+.introduction_idle{
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 36rpx;
+}
+.introduction_idle .intr_idle_title{
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.intr_idle_title image {
+  width: 32rpx;
+  height: 32rpx;
+  text-align: center;
+}
+.intr_idle_title text {
+  font-size: 26rpx;
+  flex: 1;
+  margin-left: 16rpx;
+  color: #040404;
+}
+.intr_idle_btn{
+  width: auto;
+  padding: 0 20rpx;
+  font-size: 26rpx;
+  color: #64B532;
+}
+.to-buyto{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.to-buyto>view{
+  flex: 1;
+  width: 100%;
+}

@@ -1,0 +1,97 @@
+@import "/assets/css/myIdleHead.wxss";
+@import "/assets/css/idle.wxss";
+.myidle-box {
+  padding: 24rpx 20rpx;
+}
+.marsk1{
+  width: 100%;
+  height:100%;
+  background: #000;
+  opacity: 0.6;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+}
+.marsk1-box{
+  width: 80%;
+  height: auto;
+  background: #fff;
+  padding-top: 26rpx;
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 99999;
+  border-radius: 10px;
+  overflow: hidden;
+
+}
+.marsk1-title{
+  width: 100%;
+  padding: 8rpx 0;
+  text-align: center;
+  color: #333;
+  font-weight: 700;
+  font-size: 36rpx;
+}
+.mask1-info{
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+  padding: 0 40rpx;
+}
+.marsk1-btn{
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #dddddd;
+  padding: 10rpx 0;
+}
+.marsk1-btn .marsk1-btn-item{
+  width: 50%;
+  font-size: 34rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 88rpx;
+  border-right: 1px solid #dddddd;
+}
+.cj-group-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  color: #ff905f;
+}
+.cj-box {
+  font-size: 32rpx;
+  width: 36rpx;
+  height: 36rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff905f;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: 600;
+  color: #fff;
+  padding-bottom: 6rpx;
+  box-sizing: border-box;
+  margin-left: 10rpx;
+}
+.myidle-box-gd {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.cj-group-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  color: #ff905f;
+}

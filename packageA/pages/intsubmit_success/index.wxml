@@ -1,0 +1,4 @@
+
+<view class="buy_box">
+  <image src="http://oss.qingshanpai.com/banner/buy_sucess11.png" mode="widthFix" bindtap="btn_submit"></image>
+</view>

@@ -1,0 +1,216 @@
+{
+  "description": "项目配置文件。",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "disableUseStrict": false,
+    "minifyWXML": true,
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false,
+    "ignoreUploadUnusedFiles": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.27.2",
+  "appid": "wx583b7937bf0d81d3",
+  "projectname": "%E9%9D%92%E5%B1%B1%E6%B4%BE",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "环保银行",
+          "pathName": "pages/bank/bank",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "图书馆列表",
+          "pathName": "/packageA/pages/library/library",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 4,
+          "name": "我的",
+          "pathName": "pages/mine/index/index",
+          "query": "member_id=13&recover_id=59&identity_id=3&status=5",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "圈人数",
+          "pathName": "pages/circle_people/circle_people",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 7,
+          "name": "商家扫描演示入口",
+          "pathName": "packageA/pages/merchant_entrance/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "回收页面",
+          "pathName": "pages/garbageClass/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/myContent/index",
+          "pathName": "pages/mine/myContent/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "申请店铺",
+          "pathName": "pages/register/register",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "首页",
+          "pathName": "pages/index/index",
+          "query": "code_id=1&i=20",
+          "scene": null
+        },
+        {
+          "id": 9,
+          "name": "packageA/pages/book_points_class/index",
+          "pathName": "packageA/pages/book_points_class/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "挂售积分",
+          "pathName": "packageA/pages/inttran_receive/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 11,
+          "name": "活动详情页",
+          "pathName": "packageA/pages/home_page/volunacti_details/index",
+          "query": "id=4&name='爱心赠送'",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "服务详情",
+          "pathName": "packageA/pages/convenience_plate/plate_details/index",
+          "query": "id=4",
+          "scene": null
+        },
+        {
+          "id": 13,
+          "name": "pages/dicount_good/dicount_good",
+          "pathName": "pages/dicount_good/dicount_good",
+          "query": "business_id=421&discount_id=1551",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/walletChild/index",
+          "pathName": "pages/mine/walletChild/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的动态",
+          "pathName": "pages/mine/myContent/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "packageA/pages/home_page/convepat_page/index",
+          "pathName": "packageA/pages/home_page/convepat_page/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "packageA/pages/praise_exchange/index",
+          "pathName": "packageA/pages/praise_exchange/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "packageA/pages/praise_exchange/index",
+          "pathName": "packageA/pages/praise_exchange/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "packageA/pages/site_clock/index",
+          "pathName": "packageA/pages/site_clock/index",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

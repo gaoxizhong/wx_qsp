@@ -1,0 +1,22 @@
+<view class="bg-box"></view>
+<view class="my-info">
+  <view class="name-pic flex-column-space">
+    <image src="{{my_info.avatar}}" />
+    <view class="name">{{my_info.name}}</view>
+  </view>
+  <view class="my-rank flex-column-center"><text class="rank-num">我的排名</text><text
+      class="hbb-num color-64B">{{my_info.rank}}</text></view>
+  <view class="my-hbb flex-column-center"><text class="rank-num">我的环保财富</text><text
+      class="hbb-num color-64B">{{my_info.real_amount}}HBB</text></view>
+</view>
+<view class="rank-list">
+  <view class="rank-item flex-justitem-startcent" wx:for="{{lists}}" wx:for-item="item" wx:for-index="index"
+    wx:key="index">
+    <view class="item-rank">
+      <image src="/images/icon_rank{{index}}.png" wx:if="{{index< 3}}" /><text wx:if="{{index > 2}}">{{index+1}}</text>
+    </view>
+    <image src="{{item.avatar}}" />
+    <view class="item-name">{{item.name}}</view>
+    <view class="item-hbb">{{item.real_amount}}</view>
+  </view>
+</view>

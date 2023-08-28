@@ -1,0 +1,169 @@
+.Barrage-box {
+  width: 100%;
+  height: 600rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+view,text,scroll-view,swiper,button,form,input,textarea,label,navigator,image {
+  box-sizing: border-box;
+}
+.ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.displayGroup {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  margin: 0 -1rpx;
+}
+.dmGroup {
+  position: absolute;
+  top: 15rpx;
+  left: 100%;
+  z-index: 10;
+  animation-timing-function: linear;
+  animation-fill-mode: none;
+  transform: translateZ(0);
+  white-space: nowrap;
+  height: 76rpx;
+}
+.dmGroup.top,.dmGroup.top1 {
+  height: 76rpx;
+}
+.dmGroup.top2 {
+  height: 76rpx;
+  top: 135rpx;
+}
+.dmGroup.top3 {
+  height: 76rpx;
+  top: 260rpx;
+}
+.dmGroup.top4 {
+  height: 76rpx;
+  top: 380rpx;
+}
+.dmItem {
+  display: inline-flex;
+  margin-right: 60rpx;
+  white-space: nowrap;
+}
+.dmItem .dm {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  position: relative;
+  height: 76rpx;
+  line-height: 76rpx;
+  padding: 0 15rpx 0 5rpx;
+  background: rgba(255, 255, 255, 0.502);
+  border-radius: 20px;
+  overflow: hidden;
+  font-size: 26rpx;
+  color: #000;
+  box-shadow: 0 1px 1px #00000020;
+}
+.dmItem .avatarBox {
+  display: inline-block;
+  position: relative;
+  width: 64rpx;
+  height: 64rpx;
+  margin-right: 10rpx;
+}
+.dmItem .avatarBox .avatar {
+  width: 64rpx;
+  height: 64rpx;
+  border: 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.dmItem .dm .content {
+  display: inline-block;
+  max-width: 440rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  margin-right: 10rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+@keyframes dmAnimation2{ 
+  0% { transform: translateX(0); } 
+  100% { transform: translateX(-100%); } 
+}
+
+@keyframes dmAnimation{
+  from{ left: 100%; }
+  to{ left: -100%; }
+}
+
+/* ========================== 弹幕 ↑ ========================= */
+.kilometerItems-box {
+  box-sizing: border-box;
+  width: 100%;
+  z-index: 100;
+  background: #fff;
+  padding: 20rpx 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.kilometerItems-box>view {
+  width: 33.33333333%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+  margin: 30rpx 0;
+}
+.kilometerItems-box>view>image {
+  width: 104rpx;
+  height: 104rpx;
+}
+.info-text {
+  padding-top: 10rpx;
+}
+
+.add-wealth,.wealth-rank {
+  padding: 14rpx 10rpx 30rpx 10rpx;
+  box-sizing: border-box;
+  margin: 40rpx 30rpx;
+  box-shadow: 0 0 20rpx 0 #00000015;
+  border-radius: 8px;
+}
+.add-wealth .head-title, .wealth-rank .head-title {
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+}
+.my-more{
+  width: 48rpx;
+}
+.hbb-method .method-list {
+  white-space: nowrap;
+}
+.hbb-method .method-item {
+  display: inline-block;
+  width: 198rpx;
+  margin-right: 18rpx;
+  overflow: hidden;
+}
+.hbb-method .method-item image {
+  width: 198rpx;
+  height: 198rpx;
+  margin-bottom: 12rpx;
+  border-radius: 10px;
+}
+.hbb-method .method-item .method-title {
+  margin-bottom: 15rpx;
+  color: #000;
+  text-align: center;
+  font-size: 26rpx;
+}
+.hbb-method .method-item .method-info {
+  color: #999;
+  font-size: 26rpx;
+}

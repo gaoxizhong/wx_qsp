@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh":true,
+  "navigationBarTitleText": "青蛙推广",
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black"
+}

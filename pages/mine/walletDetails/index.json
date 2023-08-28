@@ -1,0 +1,8 @@
+{
+ "navigationBarBackgroundColor": "#fb8f37",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "查看明细",
+  "navigationStyle": "default",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

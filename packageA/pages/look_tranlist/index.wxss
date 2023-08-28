@@ -1,0 +1,137 @@
+.pagebox{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2rpx 30rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 0 0 20rpx 0 #00000015;
+}
+.pagebox>view{
+  margin: 22rpx 0;
+}
+.pagebox-title-left{
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+}
+.title-left-btn{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 46rpx;
+}
+.title-left-btn>view,.title-right-btn>view{
+  padding: 0 20rpx;
+  width: auto;
+  height: 46rpx;
+  font-size: 22rpx;
+  line-height: 46rpx;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 0 20rpx 0 #00000020;
+  border-radius: 20px;
+}
+.title-left-btn>view.highlight-item {
+  background: #4ac081;
+  color: #fff;
+}
+  
+.pagebox-title-right{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+}
+.title-text{
+  font-weight: 600;
+}
+.title-right-btn{
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.filter-list-box {
+  margin-top: 164rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.filter-list-th {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #000;
+}
+.filter-list-th>view,.filter-list-tr>view {
+  text-align: center;
+}
+.filter-list-tr {
+  width: 100%;
+  height: 106rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  color: #000;
+  margin: 14rpx 0;
+}
+.filter-list-tr-image {
+  width: 102rpx;
+  height: 102rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.filter-list-tr>view.filter-list-tr-name {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 0;
+}
+.filter-list-tr-image>image {
+  width: 100%;
+  height: 100%;
+}
+.is_address {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.is_marsk{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.6;
+  z-index: 9999;
+}
+.is_marskbox{
+  width: 596rpx;
+  height: 528rpx;
+  overflow: hidden;
+  border-radius: 8px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  z-index: 99999;
+}
+.is_marskbox>image{
+  width: 100%;
+  height: 100%;
+}
+  

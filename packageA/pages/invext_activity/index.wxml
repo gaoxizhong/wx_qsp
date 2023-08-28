@@ -1,0 +1,37 @@
+<view class="tab-bar">
+  <view bindtap="changeTabItem" class="tab-bar-item {{identify.status == '0'?'color-64B':'color-333'}}" data-status="0">
+    <text>全部</text>
+    <view class="bar-border bacg-64B" wx:if="{{identify.status == '0'}}"></view>
+  </view>
+  <view bindtap="changeTabItem" class="tab-bar-item {{identify.status == '3'?'color-64B':'color-333'}}" data-status="3">
+    <text>已完成</text>
+    <view class="bar-border bacg-64B" wx:if="{{identify.status == '3'}}"></view>
+  </view>
+  <view bindtap="changeTabItem" class="tab-bar-item {{identify.status == '1'?'color-64B':'color-333'}}" data-status="1">
+    <text>已下单</text>
+    <view class="bar-border bacg-64B" wx:if="{{identify.status == '1'}}"></view>
+  </view>
+  <view bindtap="changeTabItem" class="tab-bar-item {{identify.status == '10'?'color-64B':'color-333'}}" data-status="10">
+    <text>已取消</text>
+    <view class="bar-border bacg-64B" wx:if="{{identify.status == '10'}}"></view>
+  </view>
+</view>
+<view class="listBoxs">
+  <block wx:for="{{extInfoList}}" wx:key="index">
+    <view class="list-items">
+      <view class="avatarName-box">
+        <view class="item-titleinfo">
+          <image src="{{item.order.member.avatar}}"></image>
+          <view class="item-info-box">
+            <view>{{item.order.member.nickname}}</view>
+            <view style="margin-top: 12rpx;">{{item.order.created_at}}</view>
+          </view>
+        </view>
+        <view class="" wx:if="{{item.order_status == '1'}}">已下单</view>
+        <view class="item-nub-box" wx:if="{{item.order_status == '3'}}">已完成</view>
+        <view class="item-nub-box" wx:if="{{item.order_status == '10'}}">已取消</view>
+      </view>
+      <view class="number-box" wx:if="{{item.order.weight}}">实际重量: {{ item.order.weight }}</view>
+    </view>
+  </block>
+</view>

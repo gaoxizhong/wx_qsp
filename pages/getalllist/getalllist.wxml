@@ -1,0 +1,130 @@
+
+<view class="box-page-title">
+  <!-- 搜索 -->
+  <view class="sechs"  bindtap="clickSearch">
+    <input type="text" placeholder="输入闲置名查找...." value="{{sechs}}" bindinput="saveTitleName" disabled></input>
+    <view class="sech-btn" hover-class="sechover-btn" bindtap="clickSearch">
+      <image style="height: 40rpx;width: 40rpx;" src="/images/icon_search.png"></image>
+    </view>
+  </view>
+  <view class="kapian-box">
+    <view class="item-box" bindtap="relIdle_btn">
+      <image src="https://oss.qingshanpai.com/icon/idleRelease-icon.png"></image>
+      <view>发布闲置</view>
+    </view>
+    <view class="item-box" bindtap="myBuyingIndex">
+      <image src="https://oss.qingshanpai.com/icon/idleBuying-icon.png"></image>
+      <view>求购闲置</view>
+    </view>
+    <view class="item-box1" bindtap="{{mygrouplist.length <=0?'goTomycreate':'goTomyGroup'}}">
+      <image src="https://oss.qingshanpai.com/icon/idleCreateGroup-icon.png"></image>
+      <view>{{mygrouplist.length <=0?'创建闲圈':'闲置圈圈'}}</view>
+    </view>
+    <!-- <view bindtap="getmygroup">我的闲圈</view> -->
+
+    <view bindtap="goTomyidle" class="item-box">
+      <image src="https://oss.qingshanpai.com/icon/myIdle-icon.png"></image>
+      <view>我的闲置</view>
+    </view>
+  </view>
+</view>
+<view class="page-box">
+  <!-- 附近闲置圈 -->
+  <view class="myidle-box">
+    <view class="myidle-box-title">
+      <view class="myidle-title-l">
+        <view class="myidle-title-l-b"></view>
+        <text>附近闲置圈</text>
+      </view>
+      <view class="myidle-title-r" hover-class="hoverClass" bindtap="gotoFjGroupList"><text>查看更多</text> > </view>
+    </view>
+    <view class='nulldata_wrap' wx:if="{{nearGroupList.length<=0}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>暂无数据</view>
+    </view>
+    <view wx:else>
+      <view class="idleGroup-box" wx:for="{{nearGroupList}}" wx:key="index" data-id="{{item.id}}"  bindtap="goToGroupIndex">
+        <image src="{{item.group_image}}"></image>
+        <view class="idleGroup-item-info">
+          <view class="item-info-title">{{item.group_name}}</view>
+          <view class="item-info-add">{{item.garden?item.garden:''}}{{item.address?item.address:'暂无地址'}}</view>
+          <view class="item-info-fijin">附近{{item.member_count}}人在这里</view>
+        </view>
+        <view class="idleGroup-juli-box">
+          <view class="idleGroup-juli">{{item.distance?item.distance:'0'}}Km</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 附近闲友 -->
+  <view class="myidle-box1">
+    <view class="myidle-box-title">
+      <view class="myidle-title-l">
+        <view class="myidle-title-l-b"></view>
+        <text>附近闲友</text>
+      </view>
+      <view class="myidle-title-r" hover-class="hoverClass" bindtap="goToflxy"><text>查看更多</text> > </view>
+    </view>
+    <view class='nulldata_wrap' wx:if="{{fjxyList.length <=0}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>暂无数据</view>
+    </view>
+    <view wx:else>
+      <view class="idleGroupBuddy-items-box">
+        <view wx:for="{{fjxyList}}" wx:key="index">
+          <view class="items-list-box" data-id="{{item.id}}" bindtap="gotoxyIdle">
+            <image src="{{item.avatar}}" class="idleGroupBuddy-img"></image>
+            <view class="idleGroupBuddy-name">{{item.nickname}}</view>
+            <view class="idleGroupBuddy-juli">距离{{item.distance}}Km</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 附近闲置 -->
+  <view class="myidle-box1">
+    <view class="myidle-box-title">
+      <view class="myidle-title-l">
+        <view class="myidle-title-l-b"></view>
+        <text>附近闲置</text>
+      </view>
+      <view class="myidle-title-r" hover-class="hoverClass" bindtap="gotolottery"><text>查看更多</text> > </view>
+    </view>
+    <view>
+      <view class='nulldata_wrap' wx:if="{{wenzData.length <=0}}">
+        <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+        <view class='msg'>暂无数据</view>
+      </view>
+      <view class="goodinfo" wx:else>
+        <view class="goToInfo" wx:for="{{wenzData}}" wx:key="index">
+          <view class="good-item-view" bindtap="{{item.bal_count == 0?'':'goToActivity'}}"  data-idle="{{item.id}}" data-curidx="{{index}}" data-busnesid="{{item.member_id}}" >
+            <view class="shou-tu" wx:if="{{item.bal_count == 0}}">
+              <image src="http://oss.qingshanpai.com/banner/shouwan.png"></image>
+            </view>
+            <image src="{{item.img.url}}" class="good-item-img"></image>
+            <view class="goodname">{{item.title}}</view>
+            <view class="goodprice">
+              <text class="goodprice-1">￥</text>
+              <text class="goodprice-2">{{item.total_price}}</text>
+              <text style="color: #999;font-size: 22rpx;padding-left:10rpx;">原价: {{item.price}}元</text>
+            </view>
+
+            <view class="idle-avar-box">
+              <image src="{{item.avatar}}"></image>
+              <text>{{item.nickname}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="goodinfo-look-box" hover-class="hoverClass" bindtap="gotolottery"><text>查看更多</text> > </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 返回上一步 -->
+<include src="/pages/module/backto/index.wxml" />
+<!-- 授权登录弹窗 -->
+<!-- <include src="/pages/module/login_mark/index.wxml" /> -->
+<!-- 做任务得积分弹窗 -->
+<include src="/pages/module/signTaskMask/index.wxml" />

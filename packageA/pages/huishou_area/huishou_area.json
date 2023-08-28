@@ -1,0 +1,7 @@
+{   
+    "onReachBottomDistance": 50,
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "comp": "./../module/component/component"
+    }
+}

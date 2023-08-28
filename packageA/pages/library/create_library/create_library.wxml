@@ -1,0 +1,35 @@
+<view class="title-box">
+  <view class="title-img">
+    <image src='{{user_info.avatarUrl ? user_info.avatarUrl : "/images/notlogin.jpg"}}'></image>
+  </view>
+  <view class="box-form">
+    <view class="discount-price" style="justify-content:center;font-size:32rpx;">{{create_count}}</view>
+    <!-- <view class="discount-price">
+      <view class="price1"><text style="color:red;">*</text>店长姓名</view>
+      <view>
+        <input type="text" value="{{cre_name}}" placeholder="请输入店长姓名" bindinput="inputCrename"/>
+      </view>
+    </view> -->
+  </view>
+
+  <view class="create-btn" bind:tap="createActivity">立即创建</view>
+  <view class="xieyi-quan">
+    <view class="quan" bindtap="chooseLibrary">
+      <view class="{{checked == true ? 'quan-in': ''}}" ></view>
+    </view>
+    <view class="create-btn-text">已阅读并同意<text style="color:#4AC081;" bindtap="xieyi">邻居的书功能使用协议</text></view>
+  </view>
+</view>
+
+<view wx:if="{{is_xieyi}}" class="xieyi"> </view>
+<view wx:if="{{is_xieyi}}" class="xieyi-box">
+  <view class="xieyi-box-text">
+    <view style="color:#333;font-size:30rpx;padding:6rpx 0;font-weight: 700;">个人书店入驻须知</view> 
+    <view style="padding:6rpx 0;">1. 个人可在本版块免费建立个人书店，发布个人图书信息: 用于好友、邻居等之间的图书分享、流转、销售或各类团体活动。</view>  
+    <view style="padding:6rpx 0;">2. 个人图书有偿销售所得，会进入本平台“我的钱包”并可按平台规则提现。</view>  
+    <view style="padding:6rpx 0;">3. 禁止在本平台上传盗版，以及国家明令禁止的各类出版物。</view>  
+    <view style="padding:6rpx 0;">4. 平台将从个人图书交易中，收取平台费，每1元收取0.15元。</view>  
+
+  </view>
+  <view class="tongyi-btn" bindtap="tongyi">同意</view>
+</view>

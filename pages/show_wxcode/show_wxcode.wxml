@@ -1,0 +1,5 @@
+<view>
+  <image src="{{imagePath}}"/>
+  <text decode="{{true}}">{{desc}}</text>
+  <button bind:tap="turnToOrders">查看到账信息</button>
+</view>

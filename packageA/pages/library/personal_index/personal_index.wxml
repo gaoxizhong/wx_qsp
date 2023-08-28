@@ -1,0 +1,211 @@
+<view class="indexbg">
+  <image src="http://oss.qingshanpai.com/banner/indexbg_1.png"></image>
+</view>
+ 
+<view class="kapian-box">
+  <view class="kaipian-title-info">
+    <view class="lt">
+      <view class="name">{{library_name}}<image class="name-image" src="/images/15.png" bindtap="goTomodify" wx:if="{{mymember_id == member_id}}"></image></view>
+      <text style="font-size:26rpx;">
+        <text style="padding:4rpx 6rpx;">店长：</text>
+        <text style="padding:4rpx 6rpx;">{{ member_name ? member_name : '暂无' }}</text> 
+      </text>
+      <text class="name-text"> {{big_address + address}}  </text>
+    </view>
+    <view class="rt">
+      <view class="seemap">藏书{{book_num?book_num:0}}册</view>
+      <view class="rt-switchvalue"  wx:if="{{mymember_id == member_id}}">
+        <view class="switchvalue"> {{ switchvalue ? '密码已开启' : '密码已关闭' }}</view> 
+        <switch name="switch" color="#29c572" checked="{{ switchvalue }}" bindchange="switch1Change"/>
+      </view>
+      <view class="rt-switchvalue" wx:else>
+        <view class="switchvalue" style="color:{{ attention ? '#ff0000':'' }};"> {{ attention ? '已关注' : '关注Ta' }}</view> 
+        <switch name="switch" color="#29c572" checked="{{attention}}" bindchange="attentionChange"/>
+      </view>
+    </view>
+  </view>
+  <view class="title-bott" wx:if="{{mymember_id != member_id}}">
+    <view bindtap="open_image"><image src="http://oss.qingshanpai.com/banner/C_1.png"></image><text>购书攻略</text></view>
+    <view bindtap="goToIdle"><image src="http://oss.qingshanpai.com/banner/D_1.png"></image><text>闲置小铺</text></view>
+    <view bindtap="getRoadLine"><image src="http://oss.qingshanpai.com/banner/E_1.png"></image><text>查看地图</text></view>
+    <view bindtap="tel"><image src="http://oss.qingshanpai.com/banner/F_1.png"></image><text>联系店长</text></view>
+  </view>
+
+
+  <view class="title-bott" wx:if="{{mymember_id == member_id}}">
+    <!-- <view bindtap="goTomodify" wx:if="{{mymember_id == member_id}}"><image src="http://oss.qingshanpai.com/banner/B_1.png"></image><text>信息修改</text></view> -->
+    <view bindtap="show_toast"><image src="http://oss.qingshanpai.com/banner/C_2.png"></image><text>图书上架</text></view>
+    <view bindtap="gotodingdan"><image src="http://oss.qingshanpai.com/banner/D_2.png"></image><text>我的订单</text></view>
+    <view>
+      <button class="openimage" open-type="share">
+        <image src="http://oss.qingshanpai.com/banner/E_2.png"></image>
+      </button>
+      <text>分享好友</text>
+    </view>
+    <view bindtap="gotoMakephoto"><image src="http://oss.qingshanpai.com/banner/F_2.png"></image><text>生成海报</text></view>
+  </view>
+
+</view>
+  
+  <view class="sousuo-box">
+    <view class="input-box">
+      <input type="text" value="" placeholder="输入图书名称"  bindinput="searchLibrary" value="{{search_name}}"></input>
+    </view>
+    <view class="btn-box" catchtouchmove="aaa" bindtap="getLibraryByConditon">搜索</view>
+  </view>
+  
+
+<view class="list-box">
+  <view>
+    <view class="fangke" bindtap="goTo_fangke" wx:if="{{library_see_data.length > 0}}">
+      <view class="fangke-image">
+        <view class="image-list">
+          <view wx:for="{{library_see_data}}" wx:key="index" >
+            <image src="{{item.avatar}}"></image>
+          </view>
+        </view>
+        <view style="font-size:28rpx;">等{{library_see_num}}人次来过</view>
+      </view>
+      <view class="icon-right">
+        <image src="/images/my/my_more.png" mode="widthFix"></image>
+      </view>
+    </view>
+    <view class="fangke" style="color:#6a6a6a;" wx:else> 暂无访客...</view>
+  </view>
+  <view class="leave-box">
+    <view class="leave-message" bindtap="goTolist_detail" wx:if="{{library_content.length>0}}">查看全部 >> </view>
+    <view class="leave-title"> 
+      <text>店长公告({{content_num}})</text> 
+      <image class="release_img" mode="aspectFit" src="/images/release.png" bindtap="release_btn" wx:if="{{mymember_id == member_id}}"></image>
+    </view>
+    <block wx:if="{{library_content.length>0}}">
+      <view class="leave-items" wx:for="{{library_content}}" wx:key="index">
+        <view class="items-avatar">
+          <image src="{{item.member_photo?item.member_photo:'/images/notlogin.jpg'}}"></image>
+        </view>
+        <view class="items-info">
+          <view class="leave-name">{{item.member_name}}</view>
+          <text style="display: inline-block;font-size:23rpx;color: #6b6b6b;">{{item.create_time}}</text>
+          <view class="info-deac">{{item.content}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<view class="books-list"  wx:if="{{!bookinfolen}}">
+  <view wx:for="{{book_info}}" wx:for-item="item" wx:key="index">
+    <view class="nei">
+      <view class="top" bindtap="goTobookdetail" data-library_id="{{item.library_id}}" 
+    data-id="{{item.book_id}}" data-is_books="1">
+        <image src="{{item.images_medium}}" mode="aspectFill"></image>
+      </view>
+      <view class="bott">
+        <text class="bott-text-1">{{item.name?item.name:'暂无名称'}}</text>
+        <text class="bott-text-2">￥{{item.discount_price}}</text>
+      </view>
+      <view class="quan" bindtap="chooseLibrary" data-index="{{index}}" data-id="{{item.id}}" wx:if="{{item.stock > 0 && mymember_id != member_id}}">
+        <view class="{{item.checked == true ? 'quan-in': ''}}" ></view>
+        <!-- <icon size='16' type="{{item.checked == true? 'success_no_circle': ''}}"></icon> -->
+      </view>
+       <view class="quan1" bindtap="chooseLibrary1" data-index="{{index}}" data-library_id="{{item.library_id}}"  data-id="{{item.id}}" wx:if="{{mymember_id == member_id}}">
+        修改
+      </view>
+    </view>
+  </view>
+</view>
+  <view wx:else style="text-align:center;padding:40rpx 0;color:#888;">暂无图书， <text bindtap="goToIdle" style="color:#51c67f;">可以去逛逛Ta的闲置小铺</text></view>
+<!-- <view class="personal-box">
+  <view class="personal-info">
+    <view class="personal-info-lf">
+      <image src="{{info_img}}"></image>
+      <view class="info-tel" bindtap="tel">联系Ta</view>
+    </view>
+    <view class="personal-info-rg">
+
+      <view style="margin-top:20rpx;">
+        <view>{{library_name}}</view>
+        <view class="score">
+          <view><image src="/images/icon-star.png"></image></view>
+          <view style="width:{{grade}}%;"><image src="/images/icon-star-1.png"></image></view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+</view>
+-->
+
+<!-- 留言弹框 -->
+<view wx:if="{{is_leamsg}}" class="mrsk" bindtap="release_mrsk"></view>
+<view wx:if="{{is_leamsg}}" class="is-leamsg">
+  <view class="leamsg-title">留言：</view>
+  <view class="leamsg-text">
+    <textarea value="{{leamsg}}" placeholder="请留言..." bindinput="leamsg"></textarea>
+  </view>
+  <button class="leamsg_sub" bindtap="leamsg_sub">提交留言</button>
+</view>
+
+<!-- 信息修改弹框 -->
+<view wx:if="{{is_modify}}" class="mrsk" bindtap="modify_mrsk"></view>
+<view wx:if="{{is_modify}}" class="is-modify">
+    <view class="box-form">
+
+    <view class="discount-price">
+      <text>书馆名称:</text>
+      <view>
+        <input type="text" value="{{library_name}}" placeholder="请输入图书馆名称" bindinput="inputCrecount"/>
+      </view>
+    </view>
+
+    <view class="discount-price">
+      <text>馆长姓名:</text>
+      <view>
+        <input type="text" value="{{member_name}}" placeholder="请输入馆长姓名" bindinput="inputCrename"/>
+      </view>
+    </view>
+
+    <view class="discount-price">
+      <text>馆长电话:</text>
+      <view>
+        <input type="digit" value="{{phone}}" placeholder="请输入馆长电话" bindinput="inputCrephone"/>
+      </view>
+    </view>
+    <view class="discount-price">
+      <text>选择市区:</text>
+      <picker mode="region" value="{{big_address}}" start="2015-09-01" bindchange="chooseAddress" style="flex:1;padding:14rpx 20rpx;font-size: 28rpx;background: #ecececb5;">
+        <view style="color:{{big_address == '请选择省市区' ? '#777777':'#333'}};">{{big_address}}</view>
+      </picker>
+    </view>
+    <view class="discount-price">
+      <text>详细地址:</text>
+      <view>
+        <input type="text" value="{{address}}" placeholder="请输入输入图书馆地址" bindinput="inputCreaddress"/>
+      </view>
+    </view>
+    <view class="discount-price">
+      <text>店铺密码:</text>
+      <view>
+        <input type="text" value="{{library_password}}" placeholder="请输入书店密码" bindinput="inputpassword"/>
+      </view>
+    </view>
+  </view>
+  <button class="leamsg_sub" bindtap="createActivity">提交修改</button>
+</view>
+
+<!-- 可拖拽按钮 -->
+<view class='refresh flex-justitem-center' catchtap='refresh' catchtouchmove="buttonMove" bindtouchstart="buttonStart" bindtouchend="buttonEnd" style="top:{{ btnTop }}px;left:{{ btnLeft }}px">
+  <image src='http://oss.qingshanpai.com/banner/icon-buy.png' bindtap="goToAcrt" wx:if="{{mymember_id != member_id}}"></image>
+  <image mode='widthFix' src="http://oss.qingshanpai.com/banner/icon_gohome.png" bindtap="turnto"></image>
+</view>
+
+<!-- 如何得到他的书弹窗 -->
+<view class='pop-bg' wx:if="{{show_photo}}"  catchtouchmove="myCatchTouch"></view>
+<view class="makephoto1" wx:if="{{show_photo}}"  catchtouchmove="myCatchTouch"> 
+  <image src="{{photo_img}}" bindtap="previewImage" data-img="{{photo_img}}" class="photo-img" mode="aspectFit"></image>
+  <image src="/images/quxiao_1.png" class="photo-cancel" bindtap="open_image"></image>
+</view>
+
+<!-- 生成海报弹窗 --> 
+<include src="/pages/module/makephoto/index.wxml" />

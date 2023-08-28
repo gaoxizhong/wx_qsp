@@ -1,0 +1,115 @@
+<view class="brand-type">
+  <view class="brand-type-title">选择品类</view>
+  <view class="brand-item-box">
+    <view class="brand-items" bindtap="getsupeidx" data-index="1">
+      <view class="brand-image-view {{category == '1' ? 'sale' : ''}}" ><image src="/packageA/assets/images/bag.png"></image></view>
+      <text>包包</text>
+    </view>
+    <view class="brand-items" bindtap="getsupeidx" data-index="2">
+      <view class="brand-image-view  {{category == '2' ? 'sale' : ''}}"><image src="/packageA/assets/images/shoes.png"></image></view>
+      <text>鞋子</text>
+    </view>
+    <view class="brand-items" bindtap="getsupeidx" data-index="3">
+      <view class="brand-image-view {{category == '3' ? 'sale' : ''}}"><image src="/packageA/assets/images/clothes.png"></image></view>
+      <text>衣服</text>
+    </view>
+  </view>
+</view>   
+
+<view  class="brand-type">
+  <view class="brand-type-title">品牌型号</view>
+  <view class="brand-model">
+    <view class="brand-model-items">
+      <picker 
+        value="{{old_index}}" 
+        bindchange="bindPickerChange" 
+        range="{{oldNewarray}}" 
+        class="modify-btn"
+       >{{name ? name:'选择品牌名称'}}</picker>
+    </view>
+    <view class="brand-model-items">
+      <input type="text" value="{{model}}" placeholder="请输入品牌型号" bindinput="brand_model"></input>
+    </view>
+  </view>
+</view>
+
+<view  class="brand-type">
+  <view class="brand-type-title">商品信息</view>
+  <view class="brand-model">
+    <view class="brand-model-items">
+      <picker 
+        value="{{fineness_index}}" 
+        bindchange="bindPickernewold" 
+        range="{{info_newold}}" 
+        class="modify-btn"
+       >{{fineness ? fineness:'选择成色'}}</picker>
+    </view>
+    <view class="brand-model-items">
+      <picker 
+        value="{{purchase_year}}" 
+        bindchange="bindDateChange" 
+        start="2015-09-01" end="2055-09-01" 
+        class="modify-btn" 
+        mode = 'date'
+        fields ="year"
+       >{{purchase_year  ? purchase_year:'选择购买年份'}}</picker>
+    </view>
+  </view>
+  <view class="baoliu-info-box">
+    <view class="info-box-title">还保留着以下哪些？<text style="font-size:28rpx;color:#8a8a8a;font-weight:100;">(可多选，并与商品一起邮寄)</text></view>
+    <view class="chenge-item">
+      <block wx:for="{{info_data}}" wx:key="index">
+        <view class="chenge-items" bindtap="getchengetype" data-index='{{index}}'>
+          <view class="brand-image-view {{item.seled == true ? 'sale' :''}}"><image src="{{item.img}}"></image>
+          </view>
+          <text>{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<view class="brand-type">
+  <view class="info-box-title">上传图片<text style="font-size:28rpx;color:#8a8a8a;font-weight:100;">(至少三张，照片越多越好，估价越准确)</text></view>
+  <view class="brand-images">
+      <view class="add-image">
+        <image 
+          mode="aspectFill" 
+          wx:for="{{images}}"
+          wx:for-item="item_img"
+          wx:key="indx" 
+          data-index="{{indx}}"
+          src="{{item_img}}" 
+          />
+        <view class="add-pic" bind:tap="choosePic_tuan" data-index="{{index}}">
+          <image src="/packageA/assets/images/icon-addphoto.png" mode="aspectFill"/>
+        </view>
+      </view>
+  </view>
+</view>
+
+<view class="brand-type" style="margin-bottom:40rpx;" wx:if="{{brand_list.length > 0}}">
+  <view class="info-box-title">已添加商品</view>
+  <view  class="brand-yixuanlist">
+    <block wx:for="{{brand_list}}" wx:key="index">
+      <view class="brand-list-items">
+        <view>
+          <text>{{item.supe_name}}</text>
+          <text style="padding-left:20rpx;">{{item.name}}</text>
+        </view>
+        <view class="brand-items-delete" data-index="{{index}}" bindtap="listdetale">删除</view>
+      </view>
+    </block>
+  </view>
+</view>
+<view style="width:100%;height:240rpx;"></view>
+<view class="submit-box">
+  <view bindtap="gotojixuadd">继续添加</view>
+  <view bindtap="gotosubmit">立即估价</view>
+</view>
+<!-- <view class="layer" wx:if="{{showFull}}" bindtap='closePic'>
+  <view class="cover"></view>
+  <view class="con">
+    <image src='{{preview}}' mode="widthFix"></image>
+    <view bindtap='delPic' class="txt" bindtap='delPic'>删除</view>
+  </view>
+</view> -->

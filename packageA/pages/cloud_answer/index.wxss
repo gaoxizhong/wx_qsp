@@ -1,0 +1,158 @@
+page{
+  box-sizing: border-box;
+  padding:0 0 30rpx 0;
+}
+.announcement-box {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: #fff;
+}
+.announcement-info-left {
+  padding-top: 10rpx;
+  width: 84rpx;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.announcement-info {
+  flex: 1;
+  height: auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.announcement-info-left>image {
+  width: 36rpx;
+  height: 42rpx;
+  margin-right: 10rpx;
+}
+.scroll_box {
+  height: auto;
+  font-size: 26rpx;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  color: #666;
+}
+.info-text>text{
+  height: auto;
+  float: left;
+}
+.xue-box-title{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.xue-box-title image{
+  width: 310rpx;
+  height: 78rpx;
+}
+.xue-text-box{
+  padding: 20rpx 20rpx 30rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.is-pop-box {
+  width: 620rpx;
+  height: auto;
+  background: #fff;
+  border-radius: 6px;
+  padding: 12rpx 28rpx;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 9999;
+  box-sizing: border-box;
+}
+.is-pop-mark {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.4;
+  z-index: 9999;
+}
+.btn-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0 10px;
+}
+.section-info-title {
+  font-size: 32rpx;
+  color: #333;
+}
+.page-section-title {
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.weui-cell__bd {
+  margin: 14rpx 0;
+  background: #f0f0f0ec;
+}
+
+.shengshi {
+  font-size: 28rpx;
+  color: #adabab;
+  padding: 8rpx 6rpx;
+}
+.btn-area>button {
+  width: 248rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 20px;
+  background: #4ac081;
+  font-size: 30rpx;
+  color: #fff;
+  padding: 0 30rpx;
+}
+.weui-input{
+  font-size: 28rpx;
+  padding: 6rpx;
+}
+.xue-text-box>image{
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 23rpx 0;
+  position: relative;
+  box-shadow: 2rpx 4rpx 4px #00000020;
+}
+.valundetails-bott-box{
+  padding: 22rpx 45rpx;
+  background: #fff;
+  font-size: 28rpx;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+.footer-btn{
+  width: 454rpx;
+  height: 70rpx;
+  border-radius: 20px;
+  background: #4ac081;
+  color: #fff;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

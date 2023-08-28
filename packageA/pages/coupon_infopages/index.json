@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "couponList":"/component/coupon_list/coupon_list"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+
+}

@@ -1,0 +1,242 @@
+page {
+  box-sizing: border-box;
+  padding: 20rpx 0;
+  background: #fff;
+}
+.ts-box {
+  width: auto;
+  height: 110rpx;
+  font-size: 30rpx;
+  color: #e78f4a;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background: #fcf5dc;
+  border-radius: 8px;
+  overflow: hidden;
+  line-height: 1.2;
+  margin: 0 30rpx;
+}
+.info-titlebox{
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  margin: 30rpx;
+}
+.titlebox-image{
+  width: 190rpx;
+  height: 190rpx;
+  border-radius: 6px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.titlebox-image>image{
+  width: 100%;
+  height: 100%;
+}
+.info-name-box{
+  flex: 1;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+.info-name-t{
+  width: 100%;
+  height: 190rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 36rpx;
+  box-sizing: border-box;
+}
+.info-name-title{
+  width: 100%;
+  font-size: 30rpx;
+}
+.info-name-title>image{
+  width: 34rpx;
+}
+.info-name-icon{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.info-name-icon>text{
+  font-size: 28rpx;
+  padding: 0 10rpx;
+}
+.detail-box{
+  width: 100%;
+  height: auto;
+  margin-top: 12rpx;
+}
+.proDet-box,.graphicsDet-box{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10rpx 0;
+  margin-top: 20rpx;
+}
+.det-box-title{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.det-title-x{
+  width: 86rpx;
+  height: 1px;
+  background: #f0f0f0;
+}
+.det-title-t{
+  font-size: 32rpx;
+  padding: 0 20rpx;
+}
+.tab-box{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 10rpx;
+  display: flex;
+  align-items: center;
+}
+.tab-box>view{
+  font-size: 34rpx;
+  padding: 20rpx 0;
+  margin: 0 20rpx;
+  box-sizing: border-box;
+  color: #969696;
+  font-weight: bold;
+  position: relative;
+}
+.tab-box>view.active{
+  color: #000;
+}
+.tab-box>view.active::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 2px solid #ff5a00;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 10px;
+  z-index: 1;
+}
+.proDet-box-text{
+  width: auto;
+  height: auto;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border: 1px solid #f1f1f1;
+  overflow: hidden;
+  margin: 20rpx 30rpx;
+}
+.proDet-name-box{
+  width: 100%;
+  height: 96rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  font-weight: bold;
+  box-sizing: border-box;
+  background: #feedee;
+  padding: 0 18rpx;
+}
+.proDet-pric-num{
+  width: 200rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32rpx 0;
+  box-sizing: border-box;
+}
+.proDet-circuit-box{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5rpx 20rpx;
+}
+.proDet-circuit-title{
+  font-size: 30rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+.proDet-circuit-num{
+  padding: 10rpx 0;
+  box-sizing: border-box;
+  font-size: 30rpx;
+}
+.proDet-circuit-num>view{
+  padding: 10rpx 0;
+  display: flex;
+  font-size: 28rpx;
+}
+.graphicsDet-info-box{
+  width: 100%;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+}
+.graphicsDet-info-box>view{
+  padding: 10rpx 0;
+  display: flex;
+  font-size: 28rpx;
+}
+.graphicsDet-info-box>view.wxParse-p view,.proDet-circuit-num>view.wxParse-p view{
+  word-break: break-word;
+}
+.graphicsDet-info-box image{
+  width: 100%;
+}
+.footer-box{
+  width: 100%;
+  height: 128rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border-top: 1px solid #eeeeee;
+}
+.footer-r-box{
+  width: 204rpx;
+  height: 70rpx;
+  font-size: 28rpx;
+  border-radius: 20px;
+  background: #f1500a;
+  color: #fff;
+  text-align: center;
+  line-height: 70rpx;
+}
+.footer-l-box{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+}
+.footer-l-box .footer-l-p{
+  color: #eb6605;
+}
+.footer-l-ori{
+  font-size: 28rpx;
+  color: #656565;
+  padding-left: 10rpx;
+  box-sizing: border-box;
+}
+.discount-text{
+  padding: 2px 6px;
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
+  font-size: 24rpx;
+  display: inline-block;
+}
+.hoverClass{
+  opacity: 0.8;
+}
+

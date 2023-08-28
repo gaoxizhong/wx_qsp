@@ -1,0 +1,58 @@
+<view class="library-page-box">
+  <view class="page-box-list">
+    <image src="http://oss.qingshanpai.com/banner/buzhou_11.png"></image>
+    <view class="box-list-title">
+      <text>选择图书馆</text>
+      <text>提交信息</text>
+    </view>
+  </view>
+  <view class="page-box-list">
+    <image src="http://oss.qingshanpai.com/banner/buzhou_22.png"></image>
+    <view class="box-list-title">
+      <text>将图书送达</text>
+      <text>图书馆</text>
+    </view>
+  </view>
+  <view class="page-box-list">
+    <image src="http://oss.qingshanpai.com/banner/buzhou_33.png"></image>
+    <view class="box-list-title">
+      <text>图书送达后</text>
+      <text>点击"确认送达"</text>
+    </view>
+  </view>
+</view>
+<view class="explan">您可将适合二次阅读的书籍送往以下图书馆，送达完成后，您将获得环保积分，可再用于兑换书籍。</view>
+<view>
+  <view class="select-title">请选择送达图书馆</view>
+  <block wx:for="{{libraryList}}" wx:key="index">
+    <view class="list-item" data-id="{{item.id}}">
+      <view bindtap="goToindex" class="lt" data-id="{{item.id}}" data-index="{{index}}">
+        <view class="name">
+          <text>{{item.library_name}}</text>
+          <view class="name-image" catchtap="tel" data-tel="{{item.phone}}" m><image src="/packageA/image/book-point-tel.png"></image></view>
+        </view>
+        <text style="font-size:26rpx;padding-top: 8rpx;">
+          <text style="background:#cfedc0;padding:2px 3px;">开放时间</text>
+          <text style="padding:4rpx 6rpx;">{{item.operational_hours?item.operational_hours: '暂无'}}</text> 
+        </text>
+        <text class="name-text">地址<text style="padding-left:8rpx;">{{item.address}}</text>  </text>
+      </view>
+      <view class="rt">
+        <view class="right-cang" bindtap="getRoadLine" data-latitude="{{item.latitude}}" data-longitude="{{item.longitude}}" data-name="{{item.library_name}}" data-address="{{item.address}}">查看地图</view>
+        <view class="rt-juli">距离{{item.distance}}km</view>
+      </view>
+    </view>
+  </block>
+  <view class='nulldata_wrap' wx:if="{{libraryList.length == 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据</view>
+  </view>
+</view>
+
+<!-- <view class="is_dingdan_mrak" wx:if="{{is_dingdan}}"></view>
+<view wx:if="{{is_dingdan}}" class="is_dingdan_box">
+  <view>
+    <view>1</view>
+    <view>2</view>
+  </view>
+</view> -->

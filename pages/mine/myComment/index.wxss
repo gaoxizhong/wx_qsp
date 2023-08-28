@@ -1,0 +1,70 @@
+page {
+  font-weight: 400;
+}
+.comment-list {
+  padding: 10rpx 0 0 24rpx;
+}
+.comment-list .comment-item {
+  border-bottom: 2rpx solid #f2f2f2;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+.comment-list .comment-item image {
+  width: 94rpx;
+  height: 94rpx;
+  border-radius: 50%;
+  margin-right: 24rpx;
+  margin-top: 44rpx;
+}
+.comment-list .comment-item .comment-info {
+  flex: 1;
+  margin-top: 64rpx;
+  margin-bottom: 42rpx;
+  margin-right: 180rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.comment-list .comment-item .comment-info .name {
+  font-size: 34rpx;
+  color: #333333;
+  margin-bottom: 14rpx;
+}
+.comment-list .comment-item .comment-info .detail {
+  font-size: 32rpx;
+  color: #999999;
+  margin-bottom: 14rpx;
+}
+.comment-list .comment-item .comment-info .time {
+  color: #CDCDCD;
+  font-size: 24rpx;
+}
+.comment-list .comment-item .min-circle {
+  width: 160rpx;
+  height: 160rpx;
+  background-color: #F2F2F2;
+  position: absolute;
+  top: 50%;
+  right: 20rpx;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.comment-list .comment-item .min-circle text {
+  width: 160rpx;
+  font-size: 24rpx;
+  text-align: center;
+  color: #CDCDCD;
+  text-overflow: ellipsis; 
+  overflow:hidden;
+  position: absolute;
+}
+.comment-list .comment-item .min-circle image {
+  width: 160rpx;
+  height: 160rpx;
+  margin: 0;
+  border-radius: 0;
+}

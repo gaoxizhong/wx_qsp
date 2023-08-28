@@ -1,0 +1,54 @@
+  <view class='circle-box'>
+    <block wx:for="{{wenzData}}" wx:key="index" wx:for-index="idx">
+      <view class='circle-box1'>
+        <view class='circle-head'>
+          <!-- <button bindtap='goOtherCircle' hover-class='none'> -->
+          <button>
+            <image class='photo' src="{{item.member_info.avatar}}" style="border-radius:50%;width:94rpx;height:94rpx"></image>
+          </button>
+          <view>
+            <view class='name_box'>
+              <view class='name'>{{item.member_info.nickname}} </view>
+            </view>
+            <view class='time'>
+              <text style="margin-right:24rpx">{{item.created_at}}</text>
+              <!-- <text style="margin-right:20rpx;">{{item.distance?item.distance:0}} Km</text> -->
+            </view>
+          </view>
+        </view>
+        
+        <view class='circle-centent'>
+          <view class='circle-jottings'>
+            <view style="background: #f9f9f9;">
+              <text selectable='true' class='{{item.contents.length > 90 && !showFull[idx].status ?"cool":""}}'>{{item.contents}}</text> 
+            </view>
+            <view class='full_txt' bindtap='openFulltxt' wx:if='{{item.contents.length > 90}}' data-status="{{showFull[idx].status}}" data-curidx="{{idx}}">{{!showFull[idx].status?'全文':'收起'}}</view>
+            <view class="circle-img" wx:if="{{item.images_list.length > 0}}">
+              <image 
+                wx:for="{{item.images_list}}" 
+                wx:for-item="items" 
+                wx:for-index="subidx" 
+                wx:key="index" src='{{items}}' 
+                data-subidx="{{subidx}}" 
+                data-curindex="{{idx}}" 
+                data-images = "{{item.images_list}}" 
+                bindtap="previewImage1" 
+                mode="{{item.images_list.length > 1 ? 'aspectFill': 'widthFix'}}" 
+                class="{{item.images_list.length > 1? 'imgduo-width': 'imgyi-width'}}" 
+                >
+              </image>
+            </view>
+          </view>
+          <!-- 打卡点展示 -->
+          <view class="acitiv_1">
+            <text style="padding-left:4px;">{{item.community_market.market_name}}</text>
+          </view>
+
+        </view>
+      </view>
+    </block>
+    <view class='nulldata_wrap' wx:if="{{wenzData.length == 0}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>暂无数据</view>
+    </view>
+  </view>

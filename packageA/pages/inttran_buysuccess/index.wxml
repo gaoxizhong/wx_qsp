@@ -1,0 +1,6 @@
+<view class="module-box">
+  <!-- <view class="title-text" style="padding-top:20rpx;">积分支付成功</view> -->
+  <view class="title-text" style="padding-top:20rpx;">发送成功</view>
+  <view class="image-box"><image src="/packageA/image/S2.png"></image></view>
+  <view class="btn-submit" bindtap="btn_submit">完成</view>
+</view>

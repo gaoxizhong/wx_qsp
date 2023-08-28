@@ -1,0 +1,41 @@
+<block wx:for="{{buyintegral_list}}" wx:key="index" wx:if="{{buyintegral_list.length > 0}}">
+  <view class="list-item">
+    <view class="item-left">
+      <view style="font-size:30rpx;">{{item.created_at}}</view>
+      <view style="font-size:30rpx;">购买{{item.pay_integral}}环保积分</view>
+      <view style="color:#f89906;">{{item.pay_money}}元</view>
+    </view>
+    <view class="item-right" bindtap="view_usage" data-id="{{item.id}}">
+      <view>积分</view> 
+      <view>情况</view> 
+    </view>
+  </view>
+</block>
+<view class='nulldata_wrap'  wx:if="{{buyintegral_list.length == 0}}">
+	<image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+	<view class='msg' style="color:#000;">暂无数据</view>
+</view>
+<!-- 积分使用情况弹窗 -->
+
+<view wx:if="{{is_useinter}}" class="is-mark" catchtouchmove="myCatchTouch" bindtap="click_useinter"></view>
+<view wx:if="{{is_useinter}}"  class="is-useinter" style="text-align:center;padding:30rpx 0;" catchtouchmove="myCatchTouch">
+	<view class="zonge">总额（剩余）</view>
+	<view class="is-integral">{{useinter_info.res}}</view>
+	<view class="yester-consum">昨日消耗积分<text style="color:#d99211;">{{useinter_info.yes_consume_integral}}</text>环保积分</view>
+	<view style="color:#9f9f9f;font-size:30rpx;text-align:center;">消耗积分包括弹窗广告和店铺引流</view>
+	<view class="info-box">
+		<view>
+			<view style="font-weight:600;">弹窗次数</view>
+			<view class="digital">{{useinter_info.pop_count}}</view>
+		</view>
+		<view>
+			<view style="font-weight:600;">店铺访问</view>
+			<view class="digital">{{useinter_info.shop_visit}}</view>
+		</view>
+		<view>
+			<view style="font-weight:600;">消耗积分</view>
+			<view class="digital">{{useinter_info.consume_integral}}</view>
+		</view>
+	</view>
+	<view class="remaining">预计剩余天数：<text style="padding-left:10rpx;">{{useinter_info.date}}天</text></view>
+</view>

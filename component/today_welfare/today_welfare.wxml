@@ -1,0 +1,21 @@
+<view class="welfare-goods">
+  <view class="title">
+    <view class="title-box">
+      <view class="title-text">今日福利-超低价兑换</view>
+      <view class="change-welfare-good" bind:tap="changeWealfareGoods">
+        <image src="/images/icon_changenext.png" />
+        <text style="color:red;">换一组</text>
+      </view>
+    </view>
+    <text class="welfare-title">{{total_count}}人正在免费兑换，做环保得积分，快来兑换吧</text>
+  </view>
+  <view class="goodinfo">
+    <view class="good-item" wx:for="{{welfareGoodsList}}" wx:for-item="item" wx:key="index" bind:tap="goToInfo" data-id="{{item.id}}" data-discount_id="{{item.id}}" data-business_id="{{item.business_id}}">
+      <view class="good-item-view">
+        <image src="{{item.img}}" class="good-item-img"/>
+        <text class="goodname">{{item.title}}</text>
+        <text class="good-desc color-64B">￥ {{item.total_price}} + {{item.hbb}}积分 + {{item.buy_like}}集赞</text>
+      </view>
+    </view>
+  </view>
+</view>

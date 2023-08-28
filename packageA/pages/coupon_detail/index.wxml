@@ -1,0 +1,116 @@
+<wxs module="filters">
+  var filters = {
+    toFix: function (value) {
+      return value.toFixed(2)
+    }
+  }
+  module.exports = {
+    toFix: filters.toFix
+  }
+</wxs>
+
+<!-- ===========================  广告部分 以下 ============================= -->
+<include src="/packageA/pages/module/blindBox/index.wxml" />
+<!-- ===========================  广告部分 以上 ============================= -->
+
+
+
+<view wx:if="{{ !run_helped }}">
+
+<view class="swiper-container" style="margin-top: {{is_blindBox ? '30':'0'}}rpx;">
+  <swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+    <block wx:for="{{activityInfo.thumb}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" mode="aspectFit" bindtap="saveImage" data-img="{{item}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="price-info">
+  <view class="info-title">
+    <view class="info-title-let">{{activityInfo.name}} <text style="color:#999;font-weight:100;">(优惠券)</text></view>
+    <view class="noe-price-stock">
+      <text style="padding-left:8rpx;padding-right:16rpx;" wx:if="{{bal_count > 0 && !stock}}">剩余：{{bal_count}}</text>
+      <text style="padding-left:8rpx;padding-right:16rpx;" wx:if="{{stock}}">剩余：{{stock}}</text>
+      <text style="padding-left:8rpx;padding-right:16rpx;" wx:if="{{ bal_count <= 0 && !stock }}">库存不足</text>
+    </view>  
+  </view>
+  <view class="origin-price">
+    <view>
+      <text decode="true" style="text-decoration: line-through;">原价￥{{activityInfo.price}}&emsp;</text>
+      <text decode="true">劵后价￥{{activityInfo.current_price}}</text>
+    </view>
+  </view>
+  <view class="now-price">
+    <view class="now-price-z">
+      <view>
+        <text>优惠券价格：</text>
+        <text decode="true"> {{activityInfo.coupon_price}}元 + </text>
+        <text>{{activityInfo.coupon_integral}}环保积分</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="divide" style="height:34rpx"></view>
+<view class="good-desc">
+  <view class="buy-notice">
+    <view class="buy-notice-title">购买须知</view>
+    <view class="buy-end-time">使用截止时间：{{activityInfo.end_time}}</view>
+    <view class="buy-end-time">工作时间内予以兑换</view>
+  </view>
+  <view class="buy-notice">
+    <view class="buy-notice-title">商家说明</view>
+    <view class="buy-end-time">凭优惠券到店支付券后价格即可；{{activityInfo.sign?activityInfo.sign:' '}}</view>
+  </view>
+  <view class="buy-notice">
+    <view class="buy-notice-title">使用流程</view>
+    <view class="buy-end-time">
+      购买成功后,到店后出示订单给工作人员 （在我的--我的优惠券），工作人员点击订单按钮“核销"
+    </view>
+  </view>
+  <view style="height:30rpx"></view>
+</view>
+
+<view class="bottom-buy">
+  <view class="num">
+    <view class="minuadd-box" catch:tap="minusNum">-</view>
+    <input type="number" bindinput="inputValue" value="{{goodnum}}" />
+    <view class="minuadd-box" catch:tap="addNum">+</view>
+  </view>
+  <view class="to-buy1" bindtap="gotoshop">进入店铺</view>
+  <!--领取按钮-->
+  <view class="to-buy" bindtap="use_btn" wx:if="{{order_number}}">立即核销</view>
+  <view class="to-buy" bindtap="buyNow1" wx:elif="{{bal_count > 0}}">立即领取</view>
+  <view class="to-buy understock" wx:else>库存不足</view>
+</view>
+
+<!--好友助力送积分弹出遮罩-->
+<!-- <view class='mask' bindtap="deliveryDesc" wx:if="{{isHelp == 1 && title}}"></view>
+<view class='popups' wx:if="{{isHelp == 1  && title}}">
+  <view class="close" bindtap="closeHelp">
+    <image src="http://oss.qingshanpai.com/banner/close.png"></image>
+  </view>
+  <view class="integral">{{cfg.integral}}</view>
+  <image src="http://oss.qingshanpai.com/huanbaobi/52902c41ec16b958b7485b0c21620838.png"></image>
+  <button bindtap="help">立即助力</button>
+</view> -->
+<!-- 授权登录弹窗 -->
+<!-- <include src="/pages/module/login_mark/index.wxml" /> -->
+<!-- 返回上一步 -->
+<include src="/packageA/pages/module/backto/index.wxml" />
+<view class="is-infos-mark" wx:if="{{is_infos}}" bindtap="hidden_infos"></view>
+<view class="is-infos" wx:if="{{is_infos}}">
+  <view class="is-infos-title">为了更好的为您服务请您先填写您的信息</view>
+  <view class="is-infos-item">
+    <text>姓名：</text>
+    <input type="text" value="{{pay_name}}" bindinput="getpay_name"></input>
+  </view>
+  <view class="is-infos-item">
+    <text>电话：</text>
+    <input type="text" value="{{ pay_mobile}}" bindinput="getpay_mobile"></input>
+  </view>
+  <view class="is-infos-btn" bindtap="buyNow">确认</view>
+</view>
+
+
+</view>

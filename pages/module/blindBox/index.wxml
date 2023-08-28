@@ -1,0 +1,72 @@
+<!-- 进度条模块 -->
+<view class="is_progress_box" wx:if="{{is_progress}}">
+  <view class="djs-box">00 : 00 : 0{{djs_number}}</view>
+  <view class="is_progress_bar">
+    <!-- 进度条 -->
+    <view class="progress-box">
+      <!-- 图标定位 -->
+      <view class="tb-box" style= 'left:{{tb_leflt}}rpx;'> 
+        <image src="/images/icon_jdt_yq.png" mode="widthFix" class="tb-img-1"></image>
+        <image  src="/images/jdt-icon-mh.png" mode="widthFix" class="tb-img-2" wx:if="{{is_blindBox_1 || is_cxtg_1}}"></image>
+        <image  src="/images/icon_jdt_rmb.png" mode="widthFix" class="tb-img-2" wx:if="{{is_smallacqu_1}}"></image>
+        <image  src="/images/jdt-icon-xhb.png" mode="widthFix" class="tb-img-2" wx:if="{{is_taskShare_1}}"></image>
+      </view>
+      <progress percent="{{ bar_number }}" stroke-width="20" activeColor="#fbce00" backgroundColor="#fff" duration="" bindactiveend="activeend_jdt" border-radius="20" />
+    </view>
+  </view>
+  <view class="progress_btn_box">{{ bar_text }}</view>
+</view>
+<!-- 进度条模块 -->
+
+
+<!-- 持续推广部分 -->
+<view class="is-blindBox"  wx:if="{{is_cxtg}}">
+  <view class="is-blindBox-jg">收益<text style="font-size: 54rpx;padding-right: 10rpx;"> {{integral}}</text>积分</view>
+</view>
+<view class="is-blindBox-info" wx:if="{{is_cxtg}}">
+  <text>本次交易方向您郑重推荐商品</text>
+</view>
+<!-- 盲盒部分 -->
+<view class="is-blindBox" wx:if="{{is_blindBox}}">
+  <view class="is-blinBox-title" wx:if="{{is_tx}}">本次交易成功出售{{jiage}}积分</view>
+  <view class="is-blinBox-title" wx:else>本次拆盲盒获得</view>
+  <view class="is-blindBox-jg">收益<text style="font-size: 54rpx;padding-right: 10rpx;"> {{ jiage }}</text>元</view>
+  <view class="is-tx-title" wx:if="{{is_tx}}" style="width: 100%;padding-right: 10rpx;box-sizing: border-box;text-align: right;">
+    <text>积分余额{{realAmount}} 价值{{realAmount}}￥</text>
+  </view>
+</view>
+<view class="is-blindBox-info" wx:if="{{is_blindBox}}">
+  <text wx:if="{{ is_tx }}">本次交易方向您郑重推荐商品</text>
+  <text wx:else>本次盲盒由{{activityInfo.business_name?activityInfo.business_name:''}}赞助并推荐以下商品</text> 
+</view>
+<!-- 盲盒部分 -->
+<!-- 收购任务集赞部分 -->
+<view class="is-taskShare-box"  wx:if="{{is_taskShare}}">
+  <view class="is-taskShare-avatar" wx:if="{{is_taskShare_s}}">
+    <image src="{{run.member.avatar}}"></image>
+    <text style="padding-left: 12rpx;">{{run.member.nickname}}</text>
+  </view>
+  <view class="is-taskShare-text" wx:if="{{is_taskShare_s}}">请给我一个绿能量，帮助我完成{{run.quota}}环保积分兑换{{run.quota}}元任务！环保行为可变成一笔可用财富，你也来吧！</view>
+  <view class="is-taskShare-image" wx:if="{{is_taskShare_s}}">
+    <image src="https://oss.qingshanpai.com/icon/green-energy-bg.png" mode="aspectFit"></image>
+  </view>
+  <view class="is-taskShare-btn">
+    <view hover-class="hoverClass" bindtap="getcreatehelp" wx:if="{{is_taskShare_s}}">
+      <image src="https://oss.qingshanpai.com/icon/is-taskShare-jz.png"></image>
+      <text class="taskShare-btn-text">+{{run.help_count?run.help_count:'0'}}</text>
+    </view>
+    <view hover-class="hoverClass" bindtap="gototasklist">
+      <image src="https://oss.qingshanpai.com/icon/is-taskShare-btnc.png"></image>
+    </view>
+  </view>
+</view>
+<!-- 收购任务集赞部分 -->
+<!-- 小量收购部分 -->
+<view class="is-smallacqu-box" wx:if="{{is_smallacqu}}">
+  <view>你已经成功出售{{jiage}}积分,获得{{jiage}}元</view>
+  <view class="is-smallacqu-ye">
+    <text>可提现余额：{{money}}元</text>
+    <view class="is-smallacqu-btn" hover-class="hoverClass" bindtap="gettxian_btn">提现</view>
+  </view>
+</view>
+<!-- 小量收购部分 -->

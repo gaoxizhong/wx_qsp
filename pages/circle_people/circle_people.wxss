@@ -1,0 +1,207 @@
+page {
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+}
+.hd {
+  padding: 40rpx 0 56rpx;
+  text-align: center;
+  font-size: 34rpx;
+  background: #fff;
+  color: #4d4d4d;
+  font-weight: 700;
+}
+
+.hd image {
+  background: #d8d8d8;
+  width: 142rpx;
+  height: 142rpx;
+  border-radius: 100%;
+  margin: 0 auto 10rpx;
+}
+
+.form_data {
+  padding: 0rpx 40rpx;
+  background: #fff;
+  border-top: 20rpx solid #f7f7f7;
+}
+
+.form_data .form_item {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #1a1a1a;
+  height: 108rpx;
+  line-height: 108rpx;
+  border-bottom: 1px solid #efefef;
+}
+
+.form_data .form_item label {
+  width: 180rpx;
+  color: #a6a6a6;
+}
+
+.form_data .form_item input {
+  flex: 1;
+}
+
+.form_data .form_item button {
+  border: 1px solid #4378e6;
+  border-radius: 100px;
+  width: 158rpx;
+  height: 61rpx;
+  line-height: 61rpx;
+  font-size: 24rpx;
+  color: #4378e6;
+}
+
+.form_data .tips {
+  text-align: center;
+  font-size: 26rpx;
+  color: #a6a6a6;
+  padding: 140rpx 0 0;
+}
+
+.hetong_list .item {
+  padding: 34rpx 40rpx;
+  background: #fff;
+  font-size: 24rpx;
+  color: #a6a6a6;
+  line-height: normal;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-top: 20rpx solid #f7f7f7;
+}
+
+.hetong_list .item .lt .tit {
+  text-align: left;
+  font-size: 28rpx;
+  color: #1a1a1a;
+  margin-bottom: 10rpx;
+}
+
+.hetong_list .item .lt .cool {
+  background: #ebebeb;
+  border-radius: 4rpx;
+  padding: 2rpx 6rpx;
+  display: inline-block;
+  font-size: 22rpx;
+  color: #737373;
+  margin-right: 10rpx;
+}
+
+.tab-h {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #fff;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.tab-item {
+  text-align: center;
+  font-size: 28rpx;
+  color: #353535;
+  padding: 0 24rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  position: relative;
+  display: block;
+}
+
+.tab-item button {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 100rpx;
+  border-radius: 0;
+}
+
+.tab-item .nums {
+  font-size: 24rpx;
+  padding: 20rpx 0;
+}
+
+.tab-item.active button {
+  color: #29c572;
+}
+
+.tab-item.active:after {
+  content: "";
+  display: block;
+  height: 8rpx;
+  width: 46rpx;
+  background: #29c572;
+  border-radius: 4rpx;
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tab-content {
+  height: 168rpx;
+  line-height: 168rpx;
+  margin-left: 24rpx;
+  padding-right: 24rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #F2F2F2;
+}
+
+.tab-content .lt {
+  display: flex;
+  align-items: center;
+  margin-right: 14rpx;
+}
+
+.tab-content .lt image {
+  border-radius: 50%;
+  width: 94rpx;
+  height: 94rpx;
+}
+
+.tab-content .lt image.qy {
+  width: 144rpx;
+  height: 96rpx;  
+}
+
+.tab-content .rt {
+  flex: 1;
+  position: relative;
+
+}
+
+.tab-content .rt .txt {
+  font-size: 32rpx;
+  color: #1a1a1a;
+}
+.tab-content .rt form{
+   line-height: 100%;
+}
+.tab-content .rt .guz_btn {
+  width:107rpx;
+  height:48rpx;
+  line-height: 48rpx;
+  color: #64B532;
+  font-size: 24rpx;
+  border-radius:24rpx;
+  border:2rpx solid #64B532;
+}
+
+.tab-content .rt .guz_btn.in {
+  border: 1px solid #979797;
+  color: #979797;
+}
+.gohome {
+  bottom: 40rpx;
+}
+.rt .time {
+  position:absolute; 
+  bottom: 28rpx;
+  right: 8rpx;
+  font-size: 24rpx;
+  color: #aaa;
+  margin: 10rpx 0 0 0;
+  line-height: initial;
+}

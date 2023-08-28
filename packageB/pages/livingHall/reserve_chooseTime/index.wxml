@@ -1,0 +1,91 @@
+<!-- <view class="page-title">到店时间</view> -->
+<!-- <times beginTime="09:00:00" endTime="21:00:00" disableText="已结束" undisableText="可预约"/> -->
+<!-- 项目列表 -->
+<view>
+  <view class="add-box">
+    <view class="add-title">
+      <image src="/packageB/assets/images/livingHall/icon-fb-yt.png"></image>
+      <text class="add-title-text">请选择所属项目</text>
+    </view>
+    <view class="add-box1">
+      <view  class="add-box1-items">
+        <view class="scll-list-items">
+          <scroll-view scroll-x="true" class="box1-scroll">
+            <view class="box-scroll-method {{channel_sel == item.id ? 'active' : ''}}" wx:for="{{projectList}}" wx:key="index"data-index='{{index}}' data-id='{{item.id}}' bindtap="channel_sel">{{item.title}}</view>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="container">
+    <view class="add-title">
+      <image src="/packageB/assets/images/livingHall/icon-fb-yt.png"></image>
+      <text class="add-title-text">请选择到店时间</text>
+    </view>
+    <!-- 日期列表 -->
+    <scroll-view class="scroll-view_H b-t b-b" scroll-x>
+      <block wx:for="{{dateArr}}" wx:key="index">
+        <view class="flex-box {{index == dateActive?'borderb':''}}" data-id="{{item.id}}" data-index="{{index}}" data-item="{{item}}"bindtap="selectDateEvent">
+          <view class="date-box" style="color:{{index==dateActive?'#ff6000':'#333'}};">
+            <text class="fontw">{{item.week}}</text>
+            <text>{{item.date}}</text>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+    <!-- 时间选项 -->
+    <view class="time-box">
+      <block wx:for="{{timeArr}}" wx:key="index">
+        <view class="item">
+          <view class=" item-box {{item.disable?'disable':''}} {{index==timeActive?'active':''}}" style="color:{{item.isActive || index==timeActive ?'#ff6000':'#333'}};" data-index="{{index}}" data-item="{{item}}" bindtap="selectTimeEvent">
+            <text>{{item.schedule_start_t}}</text>
+            <text class="all">{{item.disable?disableText:undisableText}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="t-20"></view>
+  <view class="footer-box">
+    <view class="footer-box-title">预约信息</view>
+    <view class="footeritem-box">
+      <view class="footeritem-t">预约时间</view>
+      <view class="footeritem-r">{{orderDateTime}}</view>
+    </view>
+    <view class="footeritem-box">
+      <view class="footeritem-t">人数</view>
+      <view class="footeritem-r">
+        <view class="num">
+          <view class="minuadd-box" catchtap="minusNum">-</view>
+          <input type="number" bindinput="inputValue" value="{{goodnum}}" class="input"/>
+          <view class="minuadd-box" style="color: #ff6000;" catchtap="addNum">+</view>
+        </view>
+      </view>
+    </view>
+    <view class="footeritem-box">
+      <view class="footeritem-t">姓名</view>
+      <view class="footeritem-r">
+        <input type="text" placeholder="请填写姓名" bindinput="inputname" value="{{name}}" class="input"/>
+      </view>
+    </view>
+    <view class="footeritem-box">
+      <view class="footeritem-t">手机号</view>
+      <view class="footeritem-r">
+        <input type="number" placeholder="请填写手机号" bindinput="inputTel" value="{{tel}}" class="input"/>
+      </view>
+    </view>
+    <view class="footeritem-box">
+      <view class="footeritem-t">备注</view>
+      <view class="footeritem-r">
+        <input type="text" placeholder="请填写备注" bindinput="inputMark" value="{{mark}}" class="input"/>
+      </view>
+    </view>
+  </view>
+  <view class="t-20"></view>
+
+  <view class="footer-btn-box">
+    <view class="footer-btn" hover-class="hoverClass" bindtap="reserve_btn">立即预约</view>
+  </view>
+
+</view>

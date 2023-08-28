@@ -1,0 +1,157 @@
+<!-- 我的闲置上部分 -->
+
+<view class="myinfo-box">
+  <view class="myinfo-l-box">
+    <view class="userAvatarUrl-box"><image src="{{avatarUrl ? avatarUrl : '/images/notlogin.jpg'}}"></image></view>
+    <view class="nickName">
+      {{nickName}}<text> 的闲置</text>
+    </view>
+  </view>
+  <view class="myinfo-r-box">
+    <view class="myinfo-r-schb-box" bindtap="gotoMakephoto">生成海报</view>
+  </view>
+</view>
+
+
+<view class="btnlist-box">
+  <view class="btnlist-title-box">我的交易</view>
+  <view class="btnlist-info-box">
+    <view bindtap="gotoMyIdle">
+      <image src="https://oss.qingshanpai.com/icon/myidle-icon-wfbd.png" mode="widthFix"></image>
+      <text class="info-text">出售闲置</text>
+    </view>
+    <view  bindtap="myBuyingIndex">
+      <image src="https://oss.qingshanpai.com/icon/myidle-icon-wdqg.png" mode="widthFix"></image>
+      <text class="info-text">寻找闲置</text>
+    </view>
+    <view bindtap="goToMyIdleBaby">
+      <image src="https://oss.qingshanpai.com/icon/myidle-icon-wdbb.png" mode="widthFix"></image>
+      <text class="info-text">我的闲置</text>
+    </view>
+
+    <view bindtap="gotodingdan">
+      <image src="https://oss.qingshanpai.com/icon/myidle-icon-wmcqd.png" mode="widthFix"></image>
+      <text class="info-text">出售记录</text>
+    </view>
+    <view bindtap="gotodingdan1">
+      <image src="https://oss.qingshanpai.com/icon/myidle-icon-wmdd.png" mode="widthFix"></image>
+      <text class="info-text">买入记录</text>
+    </view>
+  </view>
+</view>
+
+
+<!-- <view class="kapian-box">
+  <view class="myidle-title-info">
+    <view class="nickName">
+      {{nickName}}<text> 的闲置</text>
+    </view>
+  </view>
+
+  <view class="title-bott" wx:if="{{shangjia_id == member_id}}">
+    <view bindtap="gotoMyIdle"><image src="http://oss.qingshanpai.com/banner/C_2.png"></image><text>我发布的</text></view>
+    <view bindtap="myBuyingIndex"><image src="http://oss.qingshanpai.com/banner/D_2.png"></image><text>我的求购</text></view>
+    <view bindtap="gotodingdan"><image src="http://oss.qingshanpai.com/banner/D_2.png"></image><text>我的订单</text></view>
+    <view bindtap="gotoMakephoto"><image src="http://oss.qingshanpai.com/banner/F_2.png"></image><text>生成海报</text></view>
+  </view>
+</view> -->
+
+<!-- 我发布的 -->
+<!-- <view class="myidle-box">
+  <view class="myidle-box-title">
+    <view class="myidle-title-l">
+      <view class="myidle-title-l-b"></view>
+      <text>我发布的</text>
+    </view>
+    <view class="cj-group-box" hover-class="hoverClass" data-is_sales="1" bindtap="myIdlerelease">
+      <text>发布闲置</text>
+      <view class="cj-box">+</view>
+    </view>
+  </view>
+  <view class='nulldata_wrap' wx:if="{{dataStatus}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据</view>
+  </view>
+  <view wx:else>
+    <view class="idleList-box-item" style='border-bottom:2rpx solid #F2F2F2;'>
+      <view class="shou-tu" style="background: none;" wx:if="{{wenzData[0].bal_count == 0}}">
+        <image src="http://oss.qingshanpai.com/banner/shouwan.png"></image>
+      </view>
+      <view class='circle'>
+        <view class='shop-centent'>
+          <view class='shop-centent-title' bind:tap="goToActivity" data-idle="{{wenzData[0].id}}">
+            <view class="shop-img">
+              <image src='{{wenzData[0].img.url}}' class="shop-img-width"></image>
+            </view>
+            <view class='shop-jottings'>
+              <view selectable='true' class='text cool'>{{wenzData[0].title}}</view>
+              <view class='time'>
+                {{wenzData[0].created_at}}
+                <text decode="true">&emsp;{{wenzData[0].idle_num}} 阅读</text>
+              </view>
+              <view class='circle-head' style="justify-content: space-between;">
+                <text style="font-size:20rpx;text-decoration: line-through;color:#010101;">原价 ￥{{wenzData[0].price}}</text>
+              </view>
+              <view class="discount">
+                <view class="discount-price"><text>折扣价：￥{{wenzData[0].total_price}}+{{wenzData[0].hbb}}积分</text></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="myidle-box-gd">
+      <view class="cj-group-box" hover-class="hoverClass" bindtap="gotoMyIdle"  wx:if="{{!dataStatus}}"><text>查看更多</text> > </view>
+    </view>
+  </view>
+
+
+</view> -->
+
+<!-- 附近闲置 -->
+<view class="myidle-box">
+  <view class="myidle-box-title">
+    <view class="myidle-title-l">
+      <view class="myidle-title-l-b"></view>
+      <text>附近闲置</text>
+    </view>
+    <view class="myidle-title-r" hover-class="hoverClass" bindtap="gotolottery"><text>查看更多</text> > </view>
+  </view>
+  <view>
+    <view class="goodinfo"> 
+      <view class="goToInfo" wx:for="{{idleList}}" wx:key="index">
+        <view class="good-item-view" bindtap="{{item.bal_count == 0?'':'goToActivity'}}"  data-idle="{{item.id}}" data-curidx="{{index}}" data-busnesid="{{item.member_id}}" >
+          <view class="shou-tu" wx:if="{{item.bal_count == 0}}">
+            <image src="http://oss.qingshanpai.com/banner/shouwan.png"></image>
+          </view>
+          <image src="{{item.img.url}}" class="good-item-img"></image>
+          <view class="goodname">{{item.title}}</view>
+          <view class="goodprice">
+            <text class="goodprice-1">￥</text>
+            <text class="goodprice-2">{{item.total_price}}</text>
+            <text style="color: #999;font-size: 22rpx;padding-left:10rpx;">原价: {{item.price}}元</text>
+          </view>
+
+          <view class="idle-avar-box">
+            <image src="{{item.avatar}}"></image>
+            <text>{{item.nickName}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+
+
+<!-- 授权登录弹窗 -->
+<include src="/pages/module/login_mark/index.wxml" />
+<!-- 生成海报弹窗 -->
+<include src="/pages/module/makephoto/index.wxml" />
+<!-- 返回上一步 -->
+<movable-area class="movable-area">
+  <movable-view direction="all" out-of-bounds='true' bindtap="turnto" class="movable-view">
+    <image mode='widthFix' src="http://oss.qingshanpai.com/banner/icon_gohome.png"></image>
+  </movable-view>
+</movable-area>

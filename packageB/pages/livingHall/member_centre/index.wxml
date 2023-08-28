@@ -1,0 +1,155 @@
+<view class="mmeberInfo-vox">
+  <view class="new-title">
+    <view class="icon-box">{{card.title}}</view>
+    <view class="new-title-tbox">
+      <view class="title-tbox-t">
+        <image class="photo-image" src="{{getmy_space.member.avatar?getmy_space.member.avatar:'/images/notlogin.jpg'}}"></image>
+      </view>
+      <view class="title-tbox-m">
+        <view class="tbox-m-name"><text style="flex: 1;">{{space.name?space.name:'暂无'}}</text><view class="m-name-btn"></view></view>
+        <view class="tbox-m-info">
+          <view class="m-info-zh">
+            <view class="m-info-hyzh">会员账号：{{space.member_id?space.member_id:'0'}}</view>
+            <view class="m-info-bdsj">绑定手机号：{{space.mobile?space.mobile:'0'}}</view>
+            <view class="m-info-yx">有效期至{{card.valid_time}}</view>
+          </view>
+          <view class="renewal-box" hover-class="hoverClass" bindtap="goToMemberPages">权益卡</view>
+        </view>
+      </view>
+    </view>
+    <view class="new-title-bbox flex-justitem-startcent">
+      <view>
+        <view class="income-text-title">账户余额</view>
+        <view class="income-text-nub">{{all_card_num}}</view>
+      </view>
+      <view data-url="/packageB/pages/livingHall/member_exchangeable/index" bindtap="click_mybalance" class="income-title-m">
+        
+        <view class="income-text-title">奖励金额</view>
+        <view class="income-text-nub">{{my_coin}}</view>
+      </view>
+      <view data-url="/packageB/pages/livingHall/member_withdrawPage/index" bindtap="click_mybalance">
+        <view class="income-text-title">提现金额</view>
+        <view class="income-text-nub">{{money?money:'0.00'}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 公告 -->
+<view class="bulletin-box">
+  <image src="/packageB/assets/images/livingHall/icon-hy-lb.png" mode="widthFix"></image>
+  <view style="flex: 1;padding: 0 16rpx 0 12rpx;box-sizing: border-box;">您当前有{{all_card_num?all_card_num:0}}元可用于项目体验！</view>
+  <view class="hyk-btn" data-url="/packageB/pages/livingHall/member_beused/index" bindtap="click_mybuy">去使用</view>
+</view>
+
+<!-- 会员权益 -->
+<view class="member-seeccon-box">
+  <view class="seeccon-title">会员权益</view>
+  <view class="seecconlist-box">
+    <view class="items-box" hover-class="hoverClass" data-url="/packageB/pages/livingHall/memberBenefits_todyLike/index" bindtap="memberBenefits">
+      <view>
+        <image src="/packageB/assets/images/livingHall/icon-hy-zjhz.png" class="items-img"></image>
+        <view class="items-text-box">
+          <view class="items-text-title">今日获赞({{today_count}})</view>
+          <view class="items-text-text">可兑换￥{{today_m}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="items-box" data-url="/packageB/pages/livingHall/memberBenefits_fx/index" bindtap="memberBenefits">
+      <view>
+        <image src="/packageB/assets/images/livingHall/icon-hy-fxsy.png" class="items-img"></image>
+        <view class="items-text-box">
+          <view class="items-text-title">分享收益({{no_exchange_sale}})</view>
+          <view class="items-text-text">可兑换￥{{sale_num}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="items-box" data-url="/packageB/pages/livingHall/memberBenefits_todysell/index" bindtap="memberBenefits">
+      <view>
+        <image src="/packageB/assets/images/livingHall/icon-hy-jrmc.png" class="items-img"></image>
+        <view class="items-text-box">
+          <view class="items-text-title">今日卖出({{today_sale}})</view>
+          <view class="items-text-text">今日收益￥{{today_money}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="items-box" data-url="/packageB/pages/livingHall/member_platformIndex/index" data-is_rt="1" bindtap="memberBenefits"> -->
+    <view class="items-box" data-url="/packageB/pages/livingHall/projectList/index" bindtap="memberBenefits">
+      <view>
+        <image src="/packageB/assets/images/livingHall/icon-hy-ptzs.png" class="items-img"></image>
+        <view class="items-text-box">
+          <view class="items-text-title">兑换项目</view>
+          <view class="items-text-text"> </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="t-20"></view>
+
+<!-- 我的 -->
+<view  class="member-seeccon-box">
+  <view class="seeccon-title">我的</view>
+  <view class="my-seeccon-box">
+    <view class="mys-items-box" bindtap="gotoPersonalHome">
+      <image src="/packageB/assets/images/livingHall/icon-hy-wfbd.png" mode="widthFix"></image>
+      <text>发布记录</text>
+    </view>
+    <view class="mys-items-box" data-url="/packageB/pages/livingHall/hxjHome/index" bindtap="click_my">
+      <image src="/packageB/assets/images/livingHall/icon-hy-wdly.png" mode="widthFix"></image>
+      <text>核销记录</text>
+    </view>
+    <view class="mys-items-box" bindtap="goToSell">
+      <image src="/packageB/assets/images/livingHall/icon-hy-wmcd.png" mode="widthFix"></image>
+      <text>出售记录</text>
+    </view>
+    <view class="mys-items-box" data-url="/packageB/pages/livingHall/itemRecord/index" bindtap="click_my">
+      <image src="/packageB/assets/images/livingHall/icon-hy-wyyd.png" mode="widthFix"></image>
+      <text>项目记录</text>
+    </view>
+    <view class="mys-items-box" data-url="/packageB/pages/livingHall/myAppointment/index" bindtap="click_my">
+      <image src="/packageB/assets/images/livingHall/icon-hy-wyyd.png" mode="widthFix"></image>
+      <text>其他记录</text>
+    </view>
+    <!-- <view class="mys-items-box" data-url="/packageB/pages/livingHall/member_myMessage/index" bindtap="click_my">
+      <image src="/packageB/assets/images/livingHall/icon-hy-wdly.png" mode="widthFix"></image>
+      <text>留言记录</text>
+    </view>
+    <view class="mys-items-box" data-url="/packageB/pages/livingHall/member_iLiked/index" bindtap="click_my">
+      <image src="/packageB/assets/images/livingHall/icon-hy-wzgd.png" mode="widthFix"></image>
+      <text>点赞记录</text>
+    </view> -->
+  </view>
+</view>
+
+<view class="t-20"></view>
+
+<view class="my-buybox">
+  <view class="seeccon-title">我买到的</view>
+  <view class="my-buybox-box" data-status="0" bindtap="click_mybuyBtn">
+    <view class="buybox-items-box">
+      <image src="/packageB/assets/images/livingHall/icon-hy-dfk.png" mode="widthFix"></image>
+      <text>待付款</text>
+    </view>
+    <view class="buybox-items-box" data-status="1" data-express_status='0' bindtap="click_mybuyBtn">
+      <image src="/packageB/assets/images/livingHall/icon-hy-dfh.png" mode="widthFix"></image>
+      <text>待发货</text>
+    </view>
+    <view class="buybox-items-box" data-status="1" data-express_status='1' bindtap="click_mybuyBtn">
+      <image src="/packageB/assets/images/livingHall/icon-hy-dsh.png" mode="widthFix"></image>
+      <text>待收货</text>
+    </view>
+    <!-- <view class="buybox-items-box" hover-class="hoverClass" data-url="/packageB/pages/livingHall/member_beused/index" bindtap="click_mybuy">
+      <image src="/packageB/assets/images/livingHall/icon-hy-dsy.png" mode="widthFix"></image>
+      <text>待使用</text>
+    </view> -->
+    <view class="buybox-items-box" data-status="2" bindtap="click_mybuyBtn">
+      <image src="/packageB/assets/images/livingHall/icon-hy-ywc.png" mode="widthFix"></image>
+      <text>已完成</text>
+    </view>
+  </view>
+</view>
+<view class="t-20"></view>
+<!-- <view class="otherOpen-box">
+  <view class="seeccon-title">其他会员开通的</view>
+</view> -->

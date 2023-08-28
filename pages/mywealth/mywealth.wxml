@@ -1,0 +1,81 @@
+<view>
+  <view class="item-content">
+    <view class="userinfo">
+      <view class="userid">
+        <text>对方账号</text>
+        <view class="input-user {{user_id?'color-64B':'color-BCBC'}}" style="width:60%;">
+          <input type="number" value="{{user_id}}" bindblur="setUserId" placeholder="请输入对方账号或者扫一扫"/>
+        </view>
+      </view>
+      <view class="username">
+        <text style="width:25%">对方用户名</text>
+        <view class="input-user {{user_name?'color-64B':'color-BCBC'}}" style="width:60%;">
+          <input value="{{user_name}}" bindblur="setUserName" placeholder="输入账号后自动获取" disabled="{{true}}"/>
+        </view>
+      </view>
+    </view>
+    <!-- <button class="scan_button" bind:tap="openCamera">扫一扫</button> -->
+    <view class="account-type">
+      <view data-index='1' class="{{is_tab == '1'?'active':''}}" bindtap="clickTab">申请积分</view>
+      <view data-index='2' class="{{is_tab == '2'?'active':''}}" bindtap="clickTab">支出积分</view>
+      <!-- <text style="width:35%">选择支出账号</text>
+      <view class="input-user  {{payOutType_index !== ''?'color-64B':'color-666'}}" style="width:auto;margin-right:18rpx;">
+        <picker bindchange="bindPickerChange" value="{{payOutType_index}}" range="{{payOutType}}" range-key="name">
+          <view>
+            {{payOutType_index === '' ? '选择支出账号': payOutType[payOutType_index].name}}
+          </view>
+        </picker>
+      </view>
+      <image src="/images/icon_load.png" style="width:24rpx;height:16rpx;" /> -->
+    </view>
+    <view class="userhbb-info">
+      <view class="account-num">
+        <text style="width:auto;">{{ is_tab == '1'?'申请积分数量:':'支出积分数量:'}}</text>
+        <view class="input-user {{dea_clount?'color-64B':'color-BCBC'}}">
+          <input type="digit" bindinput="setDealCount" placeholder="{{ is_tab == '1'?'输入积分':'输入积分'}}" value="{{deal_count}}"/>
+        </view>
+      </view>
+      <text class="order-remark-title">备注:</text>
+      <view class="order-remark">
+        <textarea type="number" bindinput="editRemark" placeholder="输入备注，20字以内" maxlength="20"/>
+      </view>
+    </view>
+    <view class="userhbb-info userhbb-info-box">
+      <view class="orderList-title" data-status="0" bindtap="getactivityInfo">
+        <text>查询申请积分列表</text>
+        <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+      </view>
+      
+      <view wx:if="{{is_shouOrder}}">
+        <view class="order-list">
+          <view  class="order-item" wx:for="{{showOrderList}}" wx:for-index="index" wx:key="index" wx:for-item="item">
+            <view class="order-info">
+              <text class="name">{{item.member_info.nickname}}</text>
+              <text class="time">{{item.created_at}}</text>
+              <text class="time">详情：索取积分 <text style="color: #4ac081;">+{{item.points_num}}</text></text>
+            </view>
+            <view class="hbb color-64B" data-id="{{item.id}}" data-index='{{index}}' data-status="2" bindtap="setStatus" wx:if="{{item.status == 1}}">确认</view>
+            <view class="hbb color-ff0000" data-id="{{item.id}}" data-index='{{index}}' data-status="3" bindtap="setStatus" wx:if="{{item.status == 1}}">拒绝</view>
+            <view class="hbb color-666" wx:if="{{item.status == 2}}">已支付</view>
+            <view class="hbb color-666" wx:if="{{item.status == 3}}">已拒绝</view>
+          </view>
+          <view class='nulldata_wrap' wx:if="{{showOrderList.length <= 0}}">
+            <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+            <view class='msg' style="color:#000;">暂无数据</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="userhbb-info userhbb-info-box">
+      <view class="orderList-title" bindtap="turnToOrders">
+        <text>查看积分账单</text>
+        <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+      </view>
+    </view>
+    <view style="width: 100%;height: 100rpx;"></view>
+    <button bindtap="readyToDeal" data-is_tab="{{is_tab}}" class="confirm-pay" hover-class='hover_color'>{{ is_tab == '1'?'确定申请':'确定支出'}}</button>
+  </view>
+</view>
+
+<!-- 返回上一步 -->
+<!-- <include src="/pages/module/backto/index.wxml" /> -->

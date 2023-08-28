@@ -1,0 +1,70 @@
+.color_red {
+  color: #FF0221 !important;
+}
+
+.color_blue {
+  color: #64B532 !important;
+}
+.state_wrap {
+  padding-top: 82rpx;
+  text-align: center;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+}
+.state_wrap image {
+  display: block;
+  width: 308rpx;
+  height: 308rpx;
+  margin: 0 auto;
+  margin-bottom: 40rpx;
+}
+
+.state_wrap .txt {
+  font-size: 36rpx;
+  color: #333;
+}
+
+.state_wrap .msg {
+  font-size: 26rpx;
+  color: #CDCDCD;
+  padding: 16rpx 64rpx;
+  display: block;
+}
+.success-btn-list {
+  margin-top: 82rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.success-btn-list button {
+  width:278rpx;
+  height:86rpx;
+  line-height: 86rpx;
+  color: #fff;
+  font-size: 30rpx;
+  background:#64B532;
+  border-radius:42rpx;
+  margin: 0;
+}
+.success-btn-list .btn-rt {
+  color: #333;
+  background:none;
+  border: 2rpx solid #64B532;
+  margin-left: 30rpx;
+}
+.bottom-text {
+  height: 48rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 40rpx;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #64B532;
+  font-size: 32rpx;
+}
+.bottom-text image {
+  width: 42rpx;
+  height: 42rpx;
+}

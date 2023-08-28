@@ -1,0 +1,72 @@
+.deliery-mask{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.6;
+  z-index: 100;
+}
+.deliery-box{
+  width: 78%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 30rpx;
+  background: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 101;
+  border-radius: 6px;
+}
+.deliery-title{
+  font-size: 30rpx;
+  color: #aeaeae;
+}
+.garden-box {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10rpx 0;
+}
+.types-i {
+  font-weight: 600;
+  margin: 12rpx 0;
+  font-size: 28rpx;
+}
+.types-input {
+  flex: 1;
+  padding: 10rpx 0 10rpx 20rpx;
+  z-index: 0;
+  font-size: 28rpx;
+  background: #eaeaea;
+}
+.shengshi {
+  padding: 10rpx 0 10rpx 20rpx;
+  font-size: 28rpx;
+  color: #333232;
+  background: #eaeaea;
+}
+.delivery-box{
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
+  padding: 12rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.delivery-btn{
+  width: 218rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background: #4ac081;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 28rpx;
+}

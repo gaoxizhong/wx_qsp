@@ -1,0 +1,41 @@
+.page-box{
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.box-ident{
+  width: 100%;
+  height: auto;
+  font-size: 32rpx;
+}
+.box-ident image{
+  width: 100%;
+  height: auto;
+  padding: 8rpx 0;
+}
+/* 可拖动按钮返回按钮 */
+.refresh {
+  width: 116rpx;
+  height: 116rpx;
+  position: fixed;
+  z-index: 200;
+  border-radius: 50%;
+  /* overflow: hidden; */
+}
+ 
+.refresh image {
+  width: 116rpx;
+  height:116rpx;
+  background-color: transparent;
+}
+.refr-icon{
+  width: auto;
+  height: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  font-size: 20rpx;
+  position: absolute;
+  top: -22rpx;
+  right: -16rpx;
+  padding: 6rpx 14rpx;
+}

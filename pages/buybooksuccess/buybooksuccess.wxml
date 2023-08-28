@@ -1,0 +1,20 @@
+<view class="image">
+  <image src="/images/S1.jpg" />
+</view>
+<view class="success">成功支付{{point}}积分</view>
+<view class="order-show">
+  <view class="books">
+    <text style="margin-right:36rpx">订单信息</text>
+    <view class="order-detail">
+      <text wx:for="{{books}}" wx:key="index" wx:for-index="index" wx:for-item="item">{{item.book_name}} x 1</text>
+    </view>
+  </view>
+  <view class="library">
+    <text style="margin-right:36rpx">书籍馆区</text>
+    <view>{{library_name}}</view>
+  </view>
+</view>
+<view class="tips">温馨提示：由工作人员点击确认后即可带走图书</view>
+<view style="text-align:center;margin-top:80rpx" bind:tap="showmp3">
+  <image src="http://oss.qingshanpai.com/huanbaobi/f84073f7dcdea54f413adddd14833031.png" style="width:200rpx;height:200rpx;"/>
+</view>

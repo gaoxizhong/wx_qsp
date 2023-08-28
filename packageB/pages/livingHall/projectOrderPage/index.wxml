@@ -1,0 +1,95 @@
+<!-- <view class="ts-box">
+  到店前请与商户确认营业时间和是否需要核酸证明并预约，进店请佩戴口罩。
+</view> -->
+<view class="addpage-box">
+  <view class="address-box" bindtap="openEdit" wx:if="{{!contact_name}}">
+    <view class="address-info-box">
+      <text>请设置您的信息</text>
+    </view>
+    <image src="/images/icon_editcomment.png" class="address-icon"/>
+  </view>
+  <view class="address-box" bind:tap="openEdit" wx:else>
+    <view class="address-info-box">
+      <view class="name-phone">{{contact_name+ '  '}}{{contact_phone}}</view>
+      <view class="address">地址信息：{{contact_area}}</view>
+    </view>
+    <image src="/images/icon_editcomment.png" class="address-icon"/>
+  </view>
+  <image src="/images/address_line.png" style="height: 5rpx;width:100%" />
+</view>
+
+<view class="info-titlebox">
+  <view class="titlebox-image">
+    <image src="{{project.image_array[0]}}"></image>
+  </view>
+  <view class="info-name-box">
+    <view class="info-name-t">
+      <view class="info-name-title">
+        <image src="/packageB/assets/images/livingHall/icon-aixin.png" mode="widthFix"></image>
+        青山生态生活馆
+      </view>
+      <view class="info-name-icon">{{ project.title }}</view>
+    </view>
+    <view style="font-size: 28rpx;"> ￥{{ project.price }} <text style="padding-left: 10rpx;"> x 1</text></view>
+  </view>
+</view>
+<view class="t-20"></view>
+
+<!-- <view class="hyk-box">
+  <view style="width:auto;color: #333;">会员卡：</view>
+  <view style="flex:1;text-align:right;color: #bcbcbd;" wx:if="{{ is_member }}">暂无可使用的会员卡次数</view>
+  <view style="color: {{ c_name?'#000':'#4ac081' }} " wx:else bindtap="useMember">{{ c_name ? c_name + '一次':'去使用' }}</view>
+</view> -->
+<view class="hyk-box1">
+
+  <view class="ksy-titlebox">
+    <view style="display: flex;align-items: center;">可兑换余额 <image class="tbox-img" mode="widthFix" src="/images/mark_image.png"  bindtap="openIllustrate"></image></view>
+    <view><text style="color: #afafaf;margin-right: 10rpx;">可兑换余额:</text>{{my_coin}}</view>
+  </view>
+  <view class="zy-box"><text style="color: #ff0000;font-size: 32rpx;">*</text>每次最高抵扣20元</view>
+  <view class="discount-price">
+    <text>是否使用余额抵扣？</text>
+    <view class="m-swview-box">
+      <switch name="switch" color="#29c572" checked="{{switchvalue}}" bindtap="switch1Change"/>
+      <view class="switchvalue"> {{switchvalue ? '抵扣' : '不抵扣' }}</view> 
+    </view>
+  </view>
+</view> 
+
+<view class="t-20"></view>
+
+
+
+
+
+<view style="width: 100%;height: 130rpx;"></view>
+
+<!-- ========= 购买 ========= -->
+<view class="footer-box">
+  <view class="footer-l-box">
+    <view class="footer-l-p">
+      <text>￥</text><text style="font-size: 50rpx;font-weight: 600;">{{price}}</text>
+    </view>
+    <!-- <view class="footer-l-ori">
+      <view class="discount-text">已优惠 {{yhj}}</view>
+      <view>原价￥{{project.project_price}}</view>
+    </view> -->
+  </view>
+  <view class="footer-r-box" hover-class="hoverClass" bindtap="create_order">购买</view>
+</view>
+
+
+
+<view class="illustrate-box" catchtouchmove="catchtouchmove" wx:if="{{is_illustrate}}">
+  <view class="illustrate-pop" catchtouchmove="catchtouchmove" bindtap="infoTextBtn"></view>
+  <view class="illustrate-infobox">
+    <view class="illustrate-title-box">
+      <view>可兑换余额</view>
+      <view class="close" bindtap="infoTextBtn">X</view>
+    </view>
+    <view class="infoText-box">
+      可兑换余额为本人作品获赞的收益和分享好友购买平台项目及其他人作品获得的收益。可用来抵现兑换项目或抵现加金钱兑换，不可提现。
+    </view>
+    <view class="infoText-btn" bindtap="infoTextBtn">我知道了</view>
+  </view>
+</view>

@@ -1,0 +1,40 @@
+<view class="swiper-container">
+	<swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+		<block wx:for="{{goodInfo.img}}" wx:key="index">
+			<swiper-item>
+				<image src="{{item}}" class="slide-image" data-img="{{item}}" />
+			</swiper-item>
+		</block>
+	</swiper>
+</view>
+<view class="good-info">
+	<view class="good-title bacg-64B">{{goodInfo.title}}</view>
+	<view class="goood-stock">库存数量：{{goodInfo.bal_count}}</view>
+</view>
+<view class="divide" style="height:34rpx"></view>
+<view class="price-info">
+	<view class="origin-price">
+		<view>原 价</view><text style="text-decoration:line-through;">￥{{goodInfo.price}}</text>
+	</view>
+	<view class="now-price">
+		<view class="bacg-64B">兑换价</view><text>{{goodInfo.total_price}}元 + {{goodInfo.hbb}}环保积分</text>
+	</view>
+</view>
+<view class="divide" style="height:34rpx"></view>
+<view class="introduction">
+	<view class="bacg-64B">青山生态</view><text>此福利由青山生态或公益商家提供和支持</text>
+</view>
+<view class="divide" style="height:22rpx"></view>
+<view class="good-desc">
+	<view class="desc-title">商品详情：</view>
+	<view class="desc-info">{{goodInfo.desc}}</view>
+</view>
+<view class="bottom-buy">
+	<view class="price">{{(goodInfo.total_price)*goodnum}}元 + {{(goodInfo.hbb)*goodnum}}环保积分</view>
+	<view class="num">
+		<image src="/images/icon_lt_minus.png" catch:tap="minusNum" />
+    <input type="number" bindinput="inputValue" value="{{goodnum}}" />
+		<image src="/images/icon_rt_add.png" catch:tap="addNum" />
+	</view>
+	<view class="to-buy bacg-64B" hover-class="hover_color" bind:tap="confirmBuy">兑换</view>
+</view>

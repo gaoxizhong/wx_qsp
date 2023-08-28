@@ -1,0 +1,227 @@
+page{
+  padding: 30rpx;
+  background: #eaeaea;
+  box-sizing: border-box;
+}
+.brand-type{
+  padding: 15rpx 0;
+}
+.brand-item-box{
+  margin: 15rpx 0;
+  padding: 15rpx 0;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 6px;
+}
+.brand-type-title{
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #000;
+}
+.brand-item-box>view.brand-items{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+.brand-image-view{
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.brand-image-view>image{
+  width: 100%;
+  height: 100%;
+}
+.brand-items>text{
+ padding-top: 10rpx;
+ font-size: 28rpx;
+}
+.sale.brand-image-view{
+  border:4rpx solid #0dc96e;
+}
+.brand-model{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15rpx 0;
+}
+.brand-model>view{
+  width: 330rpx;
+  height: 62rpx;
+  line-height: 62rpx;
+  text-align: center;
+  background: #fff;
+  font-size: 26rpx;
+  border-radius: 6px;
+}
+.brand-model-items>input{
+  text-align: center;
+  height: 100%;
+}
+.baoliu-info-box{
+  background: #fff;
+  margin-top: 15rpx;
+  border-radius: 6px;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.info-box-title{
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #000;
+}
+.chenge-item{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.chenge-items{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.chenge-items>text{
+  font-size: 28rpx;
+  margin-top: 6rpx;
+}
+.brand-images{
+  margin-top: 15rpx;
+  padding: 20rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.add-image {
+  flex: 1;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 8rpx;
+}
+.add-image>image {
+  width: 130rpx;
+  height: 130rpx;
+  margin-right: 24rpx;
+}
+.add-image view.add-pic {
+  width: 114rpx;
+  height: 114rpx;
+  position: relative;
+  border: 2rpx solid #999;
+  border-radius: 12rpx;
+  background: #d1d1d1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add-image view.add-pic image {
+  width: 64rpx;
+  height: 64rpx;
+}
+.brand-yixuanlist{
+  margin-top: 15rpx;
+  padding: 20rpx 20rpx;
+  background: #fff;
+}
+.brand-list-items{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 26rpx;
+  margin: 20rpx 0;
+} 
+.brand-items-delete{
+  width: 114rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 24rpx;
+  background: #4bc381;
+  color: #fff;
+  border-radius: 20px;
+}
+.submit-box{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40rpx 30rpx 60rpx 30rpx;
+  font-size: 28rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  background: #eaeaea;
+}
+.submit-box>view{
+  width: 320rpx;
+  height: 80rpx;
+  background:#4bc381;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 10px;
+}
+.layer {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+}
+  
+.layer .cover {
+width: 100%;
+height: 100%;
+position: fixed;
+left: 0;
+top: 0;
+z-index: 3;
+background: #333;
+}
+.layer .con {
+position: relative;
+height: 100vh;
+z-index: 4;
+text-align: center;
+font-size: 36rpx;
+}
+.layer .con image {
+position: absolute;
+top: 44%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.layer .con .txt {
+width: 120rpx;
+height: 120rpx;
+line-height: 120rpx;
+font-size: 30rpx;
+border-radius: 50%;
+position: fixed;
+left: 50%;
+bottom: 160rpx;
+text-align: center;
+background: #f33;
+color: #fff;
+transform: translate(-50%, 0);
+}
+  

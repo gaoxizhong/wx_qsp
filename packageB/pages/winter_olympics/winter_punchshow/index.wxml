@@ -1,0 +1,12 @@
+<view class="list-box">
+  <view class="winterPunch-title-box">
+    <image src="https://oss.qingshanpai.com/icon/winter-punch-bg.jpg" mode="widthFix"></image>
+  </view>
+  <include src="/packageB/pages/module/circle/index.wxml" />
+</view>
+
+<!-- 多图点击轮播展示弹窗 -->
+<include src="/pages/module/swipershop/index.wxml" />
+
+<!-- 返回上一步 -->
+<include src="/pages/module/backto/index.wxml" />

@@ -1,0 +1,17 @@
+<view class="indexbg"></view>
+<view class="kapian-box">
+  <view class="myidle-title-info">
+    <view class="userAvatarUrl-box"><image src="{{avatarUrl ? avatarUrl : '/images/notlogin.jpg'}}"></image></view>
+    <view class="nickName">
+      {{nickName}}<text> 的闲置</text>
+    </view>
+  </view>
+
+  <view class="title-bott" wx:if="{{shangjia_id == member_id}}">
+    <view bindtap="gotoMyIdle"><image src="http://oss.qingshanpai.com/banner/C_2.png"></image><text>我发布的</text></view>
+    <view bindtap="myBuyingIndex"><image src="http://oss.qingshanpai.com/banner/D_2.png"></image><text>我的求购</text></view>
+    <!-- <view bindtap="goToMygroupIndex"><image src="http://oss.qingshanpai.com/banner/D_2.png"></image><text>我的闲圈</text></view> -->
+    <view bindtap="gotodingdan"><image src="http://oss.qingshanpai.com/banner/D_2.png"></image><text>我的订单</text></view>
+    <view bindtap="gotoMakephoto"><image src="http://oss.qingshanpai.com/banner/F_2.png"></image><text>生成海报</text></view>
+  </view>
+</view>

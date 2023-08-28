@@ -1,0 +1,93 @@
+<view class="tab-h1" style="padding-top:20rpx;background:#eaeaea;">
+  <form report-submit class="tab-item1 {{currentTab==0 ? 'active-1' : ''}}" data-current="0" bindsubmit="swichNav">
+    <button hover-class='none' form-type='submit' style=" border:none;">我卖出的</button>
+  </form>
+  <form report-submit class="tab-item2 {{currentTab==2 ? 'active-1' :''}}" data-current="2" bindsubmit="swichNav" >
+    <button hover-class='none' form-type='submit' style="border:none;">买的闲置</button>
+  </form>
+</view>
+<!-- 商品订单 -->
+<view>
+  <view class="tab-bar">
+    <view class="tab-bar-item {{status == ''?'color-64B':'color-333'}}" data-status="" bindtap="changeTabItem">
+      <text>全部</text>
+      <view class="bar-border bacg-64B" wx:if="{{status == ''}}"></view>
+    </view>
+    <view class="tab-bar-item {{status == '1'?'color-64B':'color-333'}}" data-status="1" bindtap="changeTabItem">
+      <text>待付款</text>
+      <view class="bar-border bacg-64B" wx:if="{{status == '1'}}"></view>
+    </view>
+    <view class="tab-bar-item {{status == '2'?'color-64B':'color-333'}}" data-status="2" bindtap="changeTabItem">
+      <text>待发货</text>
+      <view class="bar-border bacg-64B" wx:if="{{status == '2'}}"></view>
+    </view>
+    <view class="tab-bar-item {{status == '3'?'color-64B':'color-333'}}" data-status="3" bindtap="changeTabItem">
+      <text>待收货</text>
+      <view class="bar-border bacg-64B" wx:if="{{status == '3'}}"></view>
+    </view>
+    <view class="tab-bar-item {{status == '4'?'color-64B':'color-333'}}" data-status="4" bindtap="changeTabItem">
+      <text>已完成</text>
+      <view class="bar-border bacg-64B" wx:if="{{status == '4'}}"></view>
+    </view>
+  </view>
+  <view class="order-list-box">
+    <view class="commodity-order-box">
+      <view class="commodity-order-item" wx:for="{{orderlists}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+        <view class="order-shop-title">
+          <view>{{item.name?item.name:item.obtain_name}}</view>
+          <view style="color:#e96907;font-weight:100;">{{item.status_text}}</view>
+        </view>
+        <view class="order-shop-content" bindtap="{{item.type == 'library' || item.type == 'book' || item.type == 'guan_zhang' ? '' : 'gotocommdetail'}}" data-id="{{item.id}}" data-discount_order_tid="{{item.discount_order_tid}}">
+          <view class="image-box">
+            <image src="{{item.img}}"></image>
+          </view>
+          <view class="order-shop-info">
+            <view class="order-shop-info-title">{{item.title}}</view>
+            <view style="color:#e96907;">{{item.pay_money}}</view>
+            <view style="color:#4ac081;">{{item.remark?item.remark:""}}</view>
+          </view>
+          <view class="commodity-order-number">*{{item.pay_count}}</view>
+        </view>
+        <!-- 下方按钮 -->
+        <view wx:if="{{currentTab == '0'}}">
+          <view class="yonghu_maijia" wx:if="{{item.type == 'guan_zhang'}}">
+            <view>买家：</view>
+            <image src="{{item.pay_member_avatar}}" class="yonghu_maijia_image"></image>
+            <view style="padding-left:20rpx;">{{item.pay_member_nickname}}</view>
+          </view>
+          <view class="order-button" wx:if="{{item.order_type != 'tuan'}}">
+            <button wx:if="{{item.status == '2'}}" hover-class="none" bindtap="shipmentsOrder" data-order_type="ture" data-id="{{item.id}}" data-discount_order_tid="{{item.discount_order_tid}}" data-discount_id="{{item.discount_id}}">去发货</button>
+            <button wx:if="{{item.status >= '3' && item.order_type != 'tuan'}}" hover-class="none" bindtap="viewLogistics" data-in_stock="{{item.status}}" data-id="{{item.id}}" data-discount_order_tid="{{item.discount_order_tid}}">查看物流</button>
+          </view>
+        </view>
+        <!-- 我买的闲置的按钮 -->
+        <view wx:if="{{currentTab == '2'}}">
+          <view class="order-button">
+            <button wx:if="{{item.status > '1'}}" bindtap="obtainCall" data-phone="{{item.discount_phone}}">联系卖家</button>
+            <button wx:if="{{item.status == '1'}}" hover-class="none" class="cancelbg" bindtap="cancelOrder" data-index="{{index}}" data-id="{{item.id}}">取消订单</button>
+            <button wx:if="{{item.status == '1'}}" hover-class="none" bindtap="payOrder" data-id="{{item.id}}">去支付</button>
+            <button wx:if="{{item.status >= '3'}}" hover-class="none" bindtap="viewLogistics" data-in_stock="{{item.status}}" data-id="{{item.id}}" data-discount_order_tid="{{item.discount_order_tid}}">查看物流</button>
+            <button wx:if="{{item.status == '3'}}" hover-class="none" bindtap="takeOrder" data-id="{{item.id}}" data-type="{{item.type}}">确认收货</button>
+            <button wx:if="{{item.order_type == 'tuan' && item.status != '1'}}" hover-class="none" data-id="{{item.id}}" data-index="{{index}}" data-discount_id="{{item.discount_id}}" data-business_id="{{item.business_id}}" data-img="{{item.img}}" data-order_type="{{item.order_type}}" data-need_num="{{item.need_num}}" data-tuan_order_id="{{item.tuan_order_id}}" open-type="share">分享给好友</button>
+          </view>
+        </view>
+      </view>
+
+
+      <view class='nulldata_wrap' wx:if="{{orderlists.length == 0}}">
+        <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+        <view class='msg'>暂无数据</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 活动标题弹窗 -->
+<view class="is-title" wx:if="{{is_title}}" bindtap="no_istitle"></view>
+<view class="title-box" wx:if="{{is_title}}">
+  <block>
+    <view wx:for="{{title_text}}" wx:key="index" class="title-box-text">
+      <text>{{index+1}}、</text><text>{{item}}</text>
+    </view>
+  </block>
+  <image src="/images/icon-chacha.png" class="photo-cancel" bindtap="open_image"></image>
+</view>

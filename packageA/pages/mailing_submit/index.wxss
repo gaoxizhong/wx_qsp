@@ -1,0 +1,42 @@
+.state_wrap {
+  padding-top: 82rpx;
+  text-align: center;
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+}
+.state_wrap image {
+  display: block;
+  width: 208rpx;
+  height: 208rpx;
+  margin: 0 auto;
+  margin-bottom: 40rpx;
+}
+
+.state_wrap .txt {
+  font-size: 36rpx;
+  color: #333;
+}
+
+.state_wrap .msg {
+  font-size: 26rpx;
+  color: #CDCDCD;
+  padding: 16rpx 64rpx;
+  display: block;
+}
+.success-btn-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60rpx;
+}
+.btn-lt{
+  width: 50%;
+  border-radius: 20px;
+  background: #5ecf92;
+  display: flex;
+  padding: 22rpx 0;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+}

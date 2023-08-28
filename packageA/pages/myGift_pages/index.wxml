@@ -1,0 +1,20 @@
+<view class="my-title">我的兑换订单</view>
+
+<view>
+  <block wx:for="{{exchangeList}}" wx:key="index">
+    <view class="items-box">
+      <view class="l-items">
+        <view class="l-items-img">
+          <image src="{{item.topic_gift.image}}"></image>
+        </view>
+        <view class="l-items-info">
+          <view class="l-items-info-title">
+            {{item.topic_gift.name}}
+          </view>
+          <view class="good-desc">价值：{{item.i}}积分</view>
+        </view>
+      </view>
+      <view class="r-items {{item.status == 2 ? 'no_bg':'is_bg' }}" data-index="{{index}}" data-id="{{item.id}}" bindtap="{{item.status == 2 ? '':'write_btn'}}">{{item.status == 1 ? '核销':'已核销'}}</view>
+    </view>
+  </block>
+</view>

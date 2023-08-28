@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "完善信息",
+  "navigationBarBackgroundColor": "#ffbd6d",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {}
+}

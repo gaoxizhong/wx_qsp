@@ -1,0 +1,76 @@
+<view class="today_benefit" wx:if="{{ member_id }}">
+  <view class="benefit_box_title flex-justitem-spacecent">
+    <image class="benefit_bg" src='http://oss.qingshanpai.com/banner/earnintegbg.jpg'></image>
+    <view class="box_title_integral">
+      <view>当前积分</view>
+      <view style="padding:10rpx 0;">{{real_amount}}</view>
+    </view>
+    <view class="earn-integral-btn" data-is_task="1" bindtap="goTotask" hover-class='hover_color'>去赚积分</view>
+  </view>
+</view>
+<view wx:if="{{ member_id }}">
+  <view class='nulldata_wrap' wx:if="{{dataStatus}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据</view>
+  </view>
+  <view class="box-list" wx:else>
+    <block wx:for="{{listData}}" wx:key="idx" wx:for-index="index">
+      <view class="box-list-module" style="height:{{ is_circle == 1?520 : 576 }}rpx;">
+        <view class="list-module-item">
+
+          <view class="circle_grade_bg flex-column-space"  wx:if="{{ item.welfare_quan_grade }}">
+            <image src="/images/lv_{{item.grade}}.png"></image>
+          </view>
+          <view class="circle_grade_bg flex-column-space" wx:if="{{item.open_type == 'recover'}}">
+            <image src="/images/recycle_1.png"></image>
+          </view>
+          <view class="mark" wx:if="{{ item.is_open == 1 && is_circle == 1}}" bindtap="goTocircle" ></view>
+          <view class="mark-box" wx:if="{{ item.is_open == 1 && is_circle == 1}}" bindtap="goTocircle">
+            <image src="/images/icon-suo.png"></image>
+          </view>
+          <view class="mark" wx:if="{{ item.is_open == 1 && !is_circle }}" bindtap="goTopoint" ></view>
+          <view class="mark-box" wx:if="{{ item.is_open == 1 && !is_circle }}" bindtap="goTopoint">
+            <image src="/images/icon-suo.png"></image>
+          </view>
+          <view class="mark" wx:if="{{item.open_type == 'recover'}}" bindtap="goToHuishou" ></view>
+          <view class="mark-box" wx:if="{{item.open_type == 'recover'}}" bindtap="goToHuishou">
+            <image src="/images/icon-suo.png"></image>
+          </view>
+          <view class="list-module-img" 
+              bind:tap="goToActivity"
+              data-is_wrlfare="1"
+              data-id="{{item.id}}"
+              data-curidx="{{index}}" 
+              data-open_type="{{open_type}}" 
+              data-business_id="{{item.business_id}}"
+              data-copy_business="{{item.copy_business}}">
+            <image src="{{item.img}}"></image>
+          </view>
+          <view class="box-list-text">
+            <view class="list-text-title">
+              <view>{{item.title}}</view>
+              <view class="text-title-img" wx:if="{{is_circle != 1 }}">
+                <button hover-class='none' open-type="share" data-sharetxt="{{item.title}}" data-gdImages="{{item.img}}" data-id="{{item.id}}" data-is_wrlfare="1">
+                  <image src="/images/circle-share.png"></image>
+                </button>
+              </view>
+            </view>
+            <view class="flex-justitem-spacecent" style="padding:10rpx 0;position: absolute;bottom: 60rpx;"> 
+              <text class="title-sum">￥{{item.total_price}}+{{item.hbb}} 积分</text>
+            </view>
+            <!-- <view class="flex-justitem-startcent postion-box">
+                <view class="fuzhi" wx:if="{{!is_circle && personalInfo.business_type == '2' && personalInfo.business_id != item.business_id && item.discount_id != '0' &&item.is_copy == '2' && !item.copy_member}}">
+                  <view class="flex-justitem-center" bindtap="copy" data-contentid="{{item.content_id}}" data-id="{{item.id}}">
+                      <view wx:if="{{item.commission > 0}}"> 赚{{item.commission}}元</view>
+                      <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;{{configData.copy_text}}</text>
+                  </view>
+              </view>
+            </view> -->
+          </view>
+        </view>
+
+      </view>
+    </block>
+  </view>
+</view>
+

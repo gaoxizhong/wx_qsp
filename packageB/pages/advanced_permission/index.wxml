@@ -1,0 +1,35 @@
+<view class="ad-perm-box">
+  <image src="https://oss.qingshanpai.com/icon/adperm-bg.png"></image>
+</view>
+<view class="authorize-box box-items" bindtap="gotoAuthorizeShare">
+  <image src="https://oss.qingshanpai.com/icon/adperm-icon-sqkd.png" mode="widthFix"></image>
+  <view class="box-items-t">
+    <view class="box-items-title"><text class="box-items-title-1">授权开店</text></view>
+    <view class="box-items-text">分享分店店长,授权开店,分享店长</view>
+  </view>
+</view>
+
+
+<view class="transfer-amount-box box-items" bindtap="gotoTransferAmount">
+  <image src="https://oss.qingshanpai.com/icon/adperm-icon-zzje.png" mode="widthFix"></image>
+  <view class="box-items-t">
+    <view class="box-items-title"><text class="box-items-title-2">转账金额</text></view>
+    <view class="box-items-text">分享分店店长,授权开店,分享店长</view>
+  </view>
+</view>
+
+<view class="box-items"  bindtap="gotoTransferIntegral">
+  <image src="https://oss.qingshanpai.com/icon/adperm-icon-zzjf.png" mode="widthFix"></image>
+  <view class="box-items-t">
+    <view class="box-items-title"><text class="box-items-title-3">转账积分</text></view>
+    <view class="box-items-text">分享分店店长,授权开店,分享店长</view>
+  </view>
+</view>
+
+<view class="box-items" bindtap="goToBranchState">
+  <image src="https://oss.qingshanpai.com/icon/adperm-icon-fdzt.png" mode="widthFix"></image>
+  <view class="box-items-t">
+    <view class="box-items-title"><text class="box-items-title-4">各分店状态</text></view>
+    <view class="box-items-text">分享分店店长,授权开店,分享店长</view>
+  </view>
+</view>

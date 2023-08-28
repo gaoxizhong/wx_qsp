@@ -1,0 +1,61 @@
+<form bindsubmit="createActivity">
+  <view class="activity-desc">
+    <!-- <text>描述</text> -->
+    <textarea 
+      placeholder="描述您想求购的商品、品牌..."
+      placeholder-style="color:#999;"
+      bindinput="inputDesc"
+      value="{{release_text}}"
+      maxlength="{{400}}"
+    >
+    </textarea>
+  </view>
+  <view class="activity-imgs">
+    <image 
+      wx:for="{{img}}"
+      wx:for-item="item"
+      wx:for-index="index"
+      wx:key="index"
+      mode="aspectFill"
+      data-index="{{index}}"
+      src="{{item}}"
+      bindtap="openPhoto"/>
+    <view class="add-pic" bind:tap="choosePic" wx:if="{{img.length < 9}}">
+      <image src="https://oss.qingshanpai.com/banner/idle-addphoto.png" mode="aspectFill"/>
+    </view>
+  </view>
+  <view style="padding:10rpx 50rpx;font-size: 26rpx;color:#999;">非必填项</view>
+
+  <view class="discount-price">
+    <view class="add-title">
+      <image src="/images/idle-add3.png"></image>
+      <text class="add-title-text">联系人</text>
+    </view>
+    <view class="discount-input">
+      <input type="text" value="{{release_name}}" placeholder="姓名" bindinput="inputBalDiscname"/>
+    </view>
+  </view>
+  <view class="discount-price">
+    <view class="add-title">
+      <image src="/images/idle-add4.png"></image>
+      <text class="add-title-text">联系方式</text>
+    </view>
+    <view class="discount-input">
+      <input type="digit" value="{{release_phone}}" placeholder="电话" bindinput="inputPhone"/>
+    </view>
+  </view>
+
+  <button  class="create-btn-box" hover-class="btn-hover-class" formType="submit">确定发布</button>
+</form>
+
+
+
+<view class="layer" wx:if="{{showFull}}" bindtap='closePic'>
+  <view class="cover"></view>
+  <view class="con">
+    <image src='{{preview}}' mode="widthFix"></image>
+    <view bindtap='delPic' class="txt" bindtap='delPic'>删除</view>
+  </view>
+</view>
+
+

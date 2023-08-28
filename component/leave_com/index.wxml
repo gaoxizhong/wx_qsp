@@ -1,0 +1,24 @@
+<view class="leave-com-box">
+  <view class="leave-message" bindtap="goTolist_detail" wx:if="{{leavecom_list.member_name}}">查看全部 >> </view>
+  <view class="leave-title"> 
+    <text>{{title_text}}</text> 
+    <view class="leave-fabu-btn" bindtap="release_btn">
+      <text>发布留言</text>
+      <image src="/images/c802+.png"></image>
+    </view>
+  </view>
+  <block wx:if="{{is_you}}">
+    <view class="leave-items">
+      <view class="items-avatar">
+        <image src="{{leavecom_list.member_photo?leavecom_list.member_photo:'/images/notlogin.jpg'}}" mode="widthFix"></image>
+      </view>
+      <view class="items-info">
+        <view class="items-info-box">
+          <view class="leave-name" wx:if="{{leavecom_list.member_name}}">{{leavecom_list.member_name}}</view>
+          <text style="display: inline-block;font-size:28rpx;color: #6b6b6b;">{{leavecom_list.created_at?leavecom_list.created_at:'暂无留言'}}</text>
+        </view>
+        <view class="info-deac" bindtap="goTolist_detail">{{leavecom_list.content}}</view>
+      </view>
+    </view>
+  </block>
+</view>

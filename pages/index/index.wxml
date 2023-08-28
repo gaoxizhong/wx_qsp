@@ -1,0 +1,150 @@
+<view class="indexbg-1">
+  <image src="https://oss.qingshanpai.com/index/index-ic-o.gif" mode="widthFix" class="anms-o"></image>
+  <image src="https://oss.qingshanpai.com/index/index-ic-yun2.gif" mode="widthFix" class="anms-yun2"></image>
+  <image src="https://oss.qingshanpai.com/index/index-ic-xfc.gif" mode="widthFix" class="anms-xfc"></image>
+  <image src="https://oss.qingshanpai.com/index/index-ic-dfc.gif" mode="widthFix" class="anms-dfc"></image>
+  <image src="https://oss.qingshanpai.com/index/anms-yang2.gif" mode="widthFix" class="anms-yang1"></image>
+  <image src="https://oss.qingshanpai.com/index/anms-yang3.gif" mode="widthFix" class="anms-yang3"></image>
+  <image src="https://oss.qingshanpai.com/index/index-bg-title.png" mode="widthFix" class="index-bg-title"></image>
+
+  <view class="indexbg-box">
+    <view class="indexbg-box-1"></view>
+    <view>8000</view>
+    <view style="font-size: 28rpx;">今日目标</view>
+  </view>
+  <view class="indexbg-btn-box" hover-class="hoverClass" data-page="/packageA/pages/home_page/wechatmove_page/index" bindtap="goToclassactical">步数换积分</view>
+  <image src="https://oss.qingshanpai.com/index/index-icon-ppbg.gif" class="paopao-img" wx:if="{{is_paopao}}"></image>
+
+  <!-- 低碳生活馆按钮 -->
+  <!-- <view class="livingHall-box">
+    <view hover-class="hoverClass" bindtap="clickLiving">低碳生活馆</view>
+    <view hover-class="hoverClass" bindtap="clickSx">扫码核销</view>
+  </view> -->
+  <!-- 低碳生活馆按钮 -->
+
+</view>
+ <!-- 签到按钮 -->
+ <view class="new-adbtn-box signbox">
+  <view bindtap="{{is_true?'goTobank':'goToSign'}}">
+    <view class="index-ic-sub">
+      <image src="/images/index/bg_tag_1.png" mode="widthFix"></image>
+      <text>+5</text>
+    </view>
+    <image src="/images/index/index_ic_qd.png"></image>
+    <!-- <text class="info-text">{{is_true?'签到交友':'签到'}}</text> -->
+  </view>
+</view>
+<view class="new-adbtn-box">
+  <view bindtap="clickLiving">
+    <!-- <view class="index-ic-sub1">
+      <text>{{browse_is_index_count}}</text>
+    </view> -->
+    <image src="https://oss.qingshanpai.com/index/index_ic_sgf.png"></image>
+    <text class="info-text">手工坊</text>
+  </view>
+
+  <block wx:for="{{indexTopList}}" wx:key="index">
+    <view bindtap="goToclassactical" data-page="{{item.url}}" wx:if="{{index < 3}}">
+      <view class="index-ic-sub">
+        <image src="{{item.subscript}}" mode="widthFix"></image>
+        <text>+{{item.num}}</text>
+      </view>
+      <image src="{{item.img}}"></image>
+      <text class="info-text">{{item.name}}</text>
+    </view>
+  </block>
+  <view bindtap="is_click">
+    <view class="index-ic-sub1">
+      <text>{{browse_is_index_count}}</text>
+    </view>
+    <image src="{{is_click?'https://oss.qingshanpai.com/index/index_ic_sfyq1.gif':'https://oss.qingshanpai.com/index/index_ic_sfyq.gif'}}"></image>
+    <text class="info-text">释放氧气</text>
+  </view>
+  <block wx:for="{{indexTopList}}" wx:key="index">
+    <view bindtap="goToclassactical" data-page="{{item.url}}" wx:if="{{index >= 3}}">
+      <view class="index-ic-sub">
+        <image src="{{item.subscript}}" mode="widthFix"></image>
+        <text>+{{item.num}}</text>
+      </view>
+      <image src="{{item.img}}"></image>
+      <text class="info-text">{{item.name}}</text>
+    </view>
+  </block>
+</view>
+
+
+
+<!-- 社区活动 -->
+<view class="greenPoints-box">
+  <view class="greenPoints-titlebox">
+    <image src="/images/index/index_ic_hbjfdh.png" mode="widthFix"></image>
+    <view class="titlebox-text">低碳社区</view>
+  </view>
+  <view class="greenPoints-btnbox">
+    <scroll-view class="method-list" scroll-x="true">
+      <view class="greenPoints-items-box items-2" wx:for="{{communityInfoList}}" wx:key="index" data-id="{{item.id}}" bindtap="goTosq">
+        <image src="{{item.icon_url}}"></image>
+      </view>
+      <view class="greenPoints-items-box items-2" bindtap="goToCreate">
+        <image src="https://oss.qingshanpai.com/index/icon-sqdtsq.png" mode=""/>
+      </view>
+		</scroll-view>
+  </view>
+</view>
+<!-- 广告    -->
+<ad-custom unit-id="adunit-888ed239ad8713ad"></ad-custom>
+<!-- 广告    -->
+
+<!-- 热门活动 -->
+<view class="popularActivity-box">
+  <view class="greenPoints-titlebox">
+    <image src="/images/index/index_ic_rmhd.png" mode="widthFix"></image>
+    <view class="titlebox-text">热门活动</view>
+  </view>
+  <view class="popularActivity-list-box">
+
+
+
+    <block wx:for="{{pa_list}}" wx:key="index">
+      <view class="{{index != ( pa_list.length - 1 ) ? 'list-before' : '' }}"  data-page="{{item.url}}" bindtap="goToclassactical">
+        <image src="{{item.img}}" mode="widthFix" class="index-list-img"></image>
+        <view class="popularActivity-list-titletext">
+          <view style="font-weight:600;color: #11182b;">{{item.title}}</view>
+          <view style="color: #b7b7b7;font-size: 24rpx;">{{item.subtitle}}</view>
+          <view style="color: #b7b7b7;font-size: 24rpx;" wx:if="{{item.subtitle1}}">{{item.subtitle1}}</view>
+        </view>
+        <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+      </view>
+    </block>
+    <!-- <view class="list-before"  data-page="/packageB/pages/postStationCode/index?l_id=9&b_id=421" bindtap="goToclassactical">
+      <image src="https://oss.qingshanpai.com/index/index_ic_rxdb.png" mode="widthFix" class="index-list-img"></image>
+      <view class="popularActivity-list-titletext">
+        <view style="font-weight:600;">1</view>
+        <view style="color: #b7b7b7;font-size: 24rpx;">2</view>
+      </view>
+      <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+    </view> -->
+  </view>
+</view>
+
+<!-- <view class="remind-box" wx:if="{{is_remind}}">
+  点击...添加到我的小程序，微信首页下拉快速访问
+</view> -->
+<view class="remind-box" wx:if="{{is_remind}}">
+  <view class="remind-left">点击 <image src="/images/sangedian.png" mode="widthFix"/> 添加到【我的小程序】，使用更方便<image src="/images/mianxingdianjitubiao.png" mode="widthFix"/></view>
+  <view style="font-size: 34rpx;padding: 10px;" bindtap="click_remind">x</view>
+</view>
+<!-- 自动挂积分 -->
+<!-- <include src="/pages/module/deal_integral/index.wxml" /> -->
+<!-- 扫码得积分 -->
+<include src="/pages/module/rece_integral/index.wxml" />
+<!-- 授权登录弹窗 -->
+<!-- <include src="/pages/module/login_mark/index.wxml" /> -->
+
+<!-- 信息广告弹窗 -->
+<include src="/pages/module/ad_preview/index.wxml" />
+
+
+
+
+

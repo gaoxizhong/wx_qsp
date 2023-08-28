@@ -1,0 +1,22 @@
+<view class="banner-box">
+  <image src="https://oss.qingshanpai.com/icon/topic_bg.png"></image>
+</view>
+<!-- 项目列表开始 -->
+<view class="goodinfo">
+  <view class="good-item" wx:for="{{projectList}}" wx:key="index" bindtap="gotovolunac_details" data-id="{{item.id}}">
+    <view class="good-item-view">
+      <image src="{{item.image}}" data-imgindex="{{index}}" class="good-item-img"></image>
+      <view class="title-box">
+        <view class="goodname"> 
+          <text class="goodname-text">{{item.title}}</text>
+        </view>
+        <view class="good-desc">{{item.s_title?item.s_title:'暂无'}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='nulldata_wrap' wx:if="{{projectList.length <= 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据...</view>
+  </view>
+</view>
+<!-- 项目列表结束 -->

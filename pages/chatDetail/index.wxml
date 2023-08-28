@@ -1,0 +1,41 @@
+<!-- <view style="color:#cfcfcf;font-size:28rpx;text-align:center;">——— 此页面正努力开发中...敬请期待 ———</view> -->
+<view class="main">
+  <scroll-view class="scroll_view" scroll-into-view="{{toView}}" scrollY="true">
+    <view class="message" id="uid_{{index}}" wx:for="{{allContentList}}" wx:key="{{index}}">
+      <view class="self" wx:if="{{item.is_my}}">
+        <image class="avatar" src="{{memberInfo.card_logo?memberInfo.card_logo:user.avatarUrl}}"></image>
+        <view class="msg">
+          <view class='arr'></view>
+          <image mode='widthFix' src='/images/loading.gif' class='sending' wx:if="{{item.sendStatus}}"></image>
+          <view>
+            <view class="template">
+              <text class="new_txt_my">{{item.is_my.text}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{item.is_ai}}">
+        <image class="avatar" src="{{item.card_logo}}" mode='aspectFill'></image>
+        <view class="msg">
+          <view>
+            <view class="template">
+              <text wx:if="{{item.text}}">{{item.text}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <form reportSubmit bindsubmit="from_send">
+    <view class="addwx-wrap">
+      <input type='text' placeholder='说点什么吧..' value="{{inputValue}}" class='inp' bindinput='bindKeyInput'></input>
+      <button hover-class='none' formType="submit" class="send-btn" style="{{inputValue!=''&& is_chating?'' :'color:rgba(255,255,255,.5);'}}">
+        发送
+      </button>
+    </view>
+  </form>
+</view>
+
+<!-- 回收按钮 -->
+<!-- <include src="/pages/module/huishouBtn/index.wxml" /> -->
+<comp id="comp"/>

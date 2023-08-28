@@ -1,0 +1,55 @@
+<view class="citve-box" style="padding: 30rpx;">
+    <view bindtap="swichNav" data-current='1' class="{{select_type == '1'? 'items-hover' :''}}">
+    <image src="http://oss.qingshanpai.com/banner/promote_goods_btn.png"></image>
+  </view>
+  <view bindtap="swichNav" data-current='2' class="{{select_type == '2'? 'items-hover' :''}}"> 
+    <image src="http://oss.qingshanpai.com/banner/promote_coupons_btn.png"></image>
+  </view>
+</view>
+<view style="width:100%;height:186rpx;"></view>
+
+<view class="circle-box" wx:if="{{select_type == '1'}}">
+  <view class='nulldata_wrap' wx:if="{{shopData.length <= 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg' style="color:#000;">暂无商品</view>
+  </view>
+  <block wx:for="{{shopData}}" wx:key="index">
+    <view class="commodity-items {{ item.chend ? 'select-items' : ''}}" bindtap="select_shopdata" data-business_id="{{item.business_id}}" data-discount_id="{{item.discount_id}}" data-index="{{index}}">
+      <view class='circle' style="padding:30rpx 20rpx;">
+        <view class='shop-centent'>
+          <view class='shop-centent-title'>
+            <view class="shop-img">
+              <image class="shop-img-width" src="{{ item.image }}"></image>
+            </view>
+            <view class='shop-jottings'>
+              <view selectable='true' class='text'>{{item.title}}</view>
+              <view class='circle-head' style="justify-content: space-between;">
+                <text style="font-size:20rpx;text-decoration: line-through;">原价 ￥{{item.price}}</text>
+                <!-- <view class='time'>
+                  {{item.created_at}}
+                  <text decode="true"></text>
+                </view> -->
+              </view>
+              <view class="discount">
+                <view class="discount-price">
+                  <text>折扣价：￥{{item.total_price}}+{{item.hbb?item.hbb:'0.00'}}积分</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<view wx:if="{{select_type == '2'}}">
+  <view class='nulldata_wrap' wx:if="{{coupon_list.length <= 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg' style="color:#000;">暂无优惠券</view>
+  </view>
+  <couponList coupon_list="{{coupon_list}}" bindselect_items="select_items" />
+</view>
+<view style="width:100%;height:110rpx;"></view>
+<view class="bottom-submit-box">
+  <view bindtap="confirm_send">确认</view>
+</view>

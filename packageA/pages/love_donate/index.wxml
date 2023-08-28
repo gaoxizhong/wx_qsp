@@ -1,0 +1,57 @@
+<!-- 爱心赠送 -->
+  <view 
+    class="order-item"
+    wx:for="{{listData}}"
+    wx:for-item="item"
+    wx:for-index="index"
+    wx:key="index"
+    >
+    <view class='img_box' data-id="{{item.id}}" data-index="{{index}}" bindtap="delCircle">
+      <image src='/images/icon_fun_del.png' mode='widthFix' style='margin:0 0 0 8rpx;'></image>
+    </view>
+    <view class="order-detail">
+      <view class="order-time">
+        <text>下单日期：</text>
+        <text>{{item.created_at}}</text>
+      </view>
+      <view class="order-appoint-time">
+        <text>联系人：</text>
+        <text>{{item.contact_name?item.contact_name:'暂无'}}</text>
+      </view>
+      <view class="order-appoint-time">
+        <text>联系电话：</text>
+        <text>{{item.contact_phone?item.contact_phone:'暂无'}}</text>
+      </view>
+      <view class="order-appoint-time">
+        <text>所在区域：</text>
+        <text>{{item.garden?item.garden:'暂无'}}</text>
+      </view>
+      <view class="order-appoint-time">
+        <text>详细地址：</text>
+        <text>{{item.address}}</text>
+      </view>
+      <view class="order-sum">
+        <text>环保积分：</text>
+        <text class="color-64B">{{item.sum_money}}环保积分</text>
+      </view>
+      <view class="order-info">
+        <text>订单详情：</text>
+        <text>{{item.orderInfo ? item.orderInfo : '暂无'}}</text>
+      </view>
+    </view>
+    <view class="order-button" wx:if="{{item.status == 1}}">
+      <button 
+        style="border-color: #FF0000;color:#FF0000" 
+        data-id="{{item.id}}" 
+        data-status='1' 
+        data-integral_book='{{item.integral}}'
+        data-txt="确定取消吗？"
+        bind:tap="savaData1" 
+        >取消
+      </button>
+    </view>
+  </view>
+  <view class='nulldata_wrap' wx:if="{{listData.length <= 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无订单</view>
+  </view>

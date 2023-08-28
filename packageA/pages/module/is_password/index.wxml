@@ -1,0 +1,11 @@
+
+<!-- 密码弹框 -->
+<view class='cover' wx:if="{{isShowConfirm}}" bindtap="isShowConfirm" catchtouchmove="myCatchTouch"></view>
+<block wx:if="{{isShowConfirm}}">
+  <view class="toast-box">
+    <form bindsubmit="judge_linbarrnum">
+      <input placeholder="{{is_shops == 1?'需要输入店铺密码':'请输入书店密码'}}" placeholder-style='color:#FFFFFF;' class="input-num" name='library_bianma' value="{{library_bianma}}"></input>
+      <button class="t-b" form-type="submit">确认</button>
+    </form>
+  </view>
+</block>

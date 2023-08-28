@@ -1,0 +1,31 @@
+page {
+  font-family:PingFangSC-Regular,PingFang SC;
+  font-weight:400;
+}
+image {
+  margin: 0 auto;
+  margin-top: 158rpx;
+  margin-bottom: 34rpx;
+  width: 348rpx;
+  height: 348rpx;
+  display: block;
+}
+text {
+  text-align: center;
+  color: #666;
+  font-size: 28rpx;
+  margin-bottom: 58rpx;
+  display: block;
+}
+button {
+  width:304rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  /* background:rgba(100,181,50,1); */
+  background-image: linear-gradient(to right, #4AC081 , #6cd67f);
+  border-radius:40rpx;
+  font-size: 36rpx;
+  color: #fff;
+}
+
+

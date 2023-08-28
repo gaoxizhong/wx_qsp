@@ -1,0 +1,96 @@
+<view class="shelf-defult">
+  <view class="shelf-defult-title">上架默认</view>
+  <view class="select-box">
+    <view>
+      <text>{{cc}}</text>
+      <picker bindchange="bindChange_shelfdisc" value="{{discount_inx}}" range="{{discount_array}}" class="shelf-picker">
+         <image src="http://oss.qingshanpai.com/banner/shelf_edit.png" class="shelf-edit"></image>
+      </picker>
+    </view>
+    <view>
+      <text>{{dd}}</text>
+      <picker bindchange="bindChange_shelffine" value="{{inx}}" range="{{oldNewarray}}" class="shelf-picker">
+         <image src="http://oss.qingshanpai.com/banner/shelf_edit.png" class="shelf-edit"></image>
+      </picker>
+    </view>
+  </view>
+</view>
+<view class="all">
+   <scroll-view scroll-y="true" style="height: 100%;">
+      <view class="content" wx:for ="{{book_list}}"  wx:for-item="item" wx:key="index">
+        <view class="cancel" bindtap="cancel" data-index="{{index}}" data-book_id="{{item.book_id}}">
+          <image src="/images/icon-chacha.png"></image>
+        </view>
+        <view class="content-top">
+          <view class="left">
+            <image src="{{item.book_image}}"></image>
+          </view>
+          <view class="right">
+            <text class="book-name">{{item.book_name?item.book_name:'暂无名称'}}</text>
+            <text class="book-author">{{item.book_author?item.book_author:'暂无作者'}}</text> 
+            <view class="book-prace">
+               ￥ <input class="centent-int1" type="digit" data-index="{{index}}" value="{{item.book_price}}" placeholder="请输入价格" bindinput="setbookprice" placeholder-style="text-align:right;font-size:24rpx;"></input>
+            </view>
+          </view>
+        </view>
+        <view class="content-butt">
+
+          <view class="content-butt-list">
+            <view class="butt-list-title">最高可卖</view>
+            <view class="list-title-right">
+              <text>{{item.book_discount}}折 </text>
+              <text>￥{{item.discount_price}}</text>
+              <picker bindchange="binddiscountChange" data-book_price="{{item.book_price}}" data-index="{{index}}" data-book_id="{{item.book_id}}" value="{{discount_inx}}" range="{{discount_array}}" class="modify-btn">
+                修改
+              </picker>
+            </view>
+          </view>
+          <view class="content-butt-list">
+            <view class="butt-list-title">新旧程度</view>
+            <view class="list-title-right">
+              <text style="padding-left:22rpx;color:{{item.book_grade ? '#4AC081':'#d2d2d2'}};">{{item.book_grade ? item.book_grade:'请选择新旧程度'}}</text>
+              <picker bindchange="bindPickerChange" data-index="{{index}}" data-book_id="{{item.book_id}}" value="{{inx}}" range="{{oldNewarray}}" class="modify-btn">
+                选择
+              </picker>
+            </view>
+          </view>
+          <view class="content-butt-list">
+            <view class="butt-list-title">图书数量</view>
+            <view class="list-title-right centent-int1">
+              <input value="{{item.stock}}" type="number" data-index="{{index}}" bindinput="name_stock" placeholder="选填" placeholder-style="text-align:right;font-size:24rpx;" style="width:100%;height:100%;text-align:center;"></input>
+            </view>
+          </view>
+          <view class="content-butt-list">
+            <view class="butt-list-title">内容简介</view>
+            <view class="list-title-right centent-int">
+              <input value="{{item.summary}}" data-index="{{index}}" bindinput="name_rido" placeholder="选填" placeholder-style="text-align:right;" style="width:100%;height:100%;"></input>
+            </view>
+          </view>
+          <view class="content-butt-list">
+            <view class="butt-list-title">添加图片</view>
+            <view class="add-image">
+              <image 
+                mode="aspectFill" 
+                wx:for="{{item.summary_image}}"
+                wx:for-item="item_img"
+                wx:for-index="indx"
+                src="{{item_img}}" 
+                />
+              <view class="add-pic" bind:tap="choosePic_tuan" data-index="{{index}}" wx:if="{{item.summary_image.length< 3}}">
+                <image src="/images/icon-addphoto.png" mode="aspectFill"/>
+              </view>
+            </view>
+          </view>
+
+          
+        </view>
+
+      </view> 
+      <view style="width:100%;height:140rpx;"></view>
+    </scroll-view>
+    <view class="btn-sao">
+      <button bindtap="saoyisao">继续扫码</button>
+      <button bindtap="submit" data-type="add">确认上架</button>
+    </view>
+
+</view>

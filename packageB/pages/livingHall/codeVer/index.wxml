@@ -1,0 +1,86 @@
+<view class="pagecode-1" wx:if="{{ member_id != beusedList[0].member_id }}">
+  <form bindsubmit="judge_linbarrnum">
+    <view class="pagecode-1-box">
+      <view>会员手机号:</view>
+      <input placeholder="开通会员卡时登记的手机号"  class="input-num" name='mobile' value="{{mobile}}"></input>
+    </view>
+    <button class="t-b" form-type="submit">确认</button>
+  </form>
+</view>
+
+
+<view class="hyk-box1" wx:if="{{beusedList.length > 0}}">
+  <view class="ksy-titlebox">
+    <view style="display: flex;align-items: center;">可兑换余额</view>
+    <view><text style="color: #afafaf;margin-right: 10rpx;">可兑换余额:</text>{{my_coin}}</view>
+  </view>
+  <view class="zy-box"><text style="color: #ff0000;font-size: 32rpx;">*</text>每天最高抵扣20元</view>
+  <view class="discount-price">
+    <text>填写需要抵扣的钱数：</text>
+    <view class="m-swview-box">
+      <input type="number" value="{{num_coin}}" bindinput="inputnumCoin" />
+      <text>元</text>
+      <!-- <view class="switchvalue"> {{switchvalue ? '抵扣' : '不抵扣' }}</view>  -->
+    </view>
+  </view>
+</view> 
+
+
+
+
+
+
+<view class="page-listbox">
+  <view class="beusedList-box">
+    <block wx:for="{{beusedList}}" wx:key="index">
+      <view class="beused-items-box">
+        <view class="beused-items-tbox">
+          <view class="photo-title-box">
+            <text>{{ item.official_data.card_detail.title?item.official_data.card_detail.title:item.official_data.card_detail.card_type_text }}</text>
+          </view>
+        </view>
+        <view class="beused-items-infobox">
+          <view class="items-infobox-left">
+            <view>剩余金额: {{item.card.valid_num}} 元</view>
+            <view>失效时间: {{item.card.valid_time}}</view>
+          </view>
+        </view>
+        <view class="items-infobox-left">{{item.official_data.card_detail.notice?item.official_data.card_detail.notice:'暂无说明...'}}</view>
+        <view class="items-btnbox">
+          <view class="num" wx:if="{{is_member != '1'}}">
+            <view class="minuadd-box" data-c_id="{{item.card.id}}" data-o_id="{{item.id}}"  catchtap="minusNum">-</view>
+            <input type="number" data-index="{{index}}" data-c_id="{{item.card.id}}" data-o_id="{{item.id}}" bindinput="inputValue" value="{{ item.goodnum }}" class="input"/>
+            <view class="minuadd-box" style="color: #ff0000;" data-c_id="{{item.card.id}}" data-o_id="{{item.id}}" catchtap="addNum">+</view>
+          </view>
+          <view class="items-btnbox1" data-c_id="{{item.card.id}}" data-type="{{item.card.type}}" bindtap="userMember" wx:if="{{is_member == '1'}}">确认使用</view>
+          <view class="items-btnbox1" hover-class="hoverClass" data-c_id="{{item.card.id}}" data-o_id="{{item.id}}"  data-m_id="{{item.member_id}}" bindtap="clickQx" wx:else>核销</view>
+        </view>
+      </view>
+    </block>
+    <view class="nobeusedList" wx:if="{{beusedList.length == 0}}">暂无会员卡信息...</view>
+  </view>
+</view>
+<!-- 提交手机号确认信息弹窗 -->
+
+<view catchtouchmove="myCatchTouch" class="cover" wx:if="{{isShowConfirm}}"></view>
+<view class="toast-box" wx:if="{{isShowConfirm}}">
+  <view class="items-name">姓名：哈哈哈</view>
+  <view class="items-name">昵称：啦啦啦</view>
+  <view class="clickQr" bindtap="clickQr">确认</view>
+</view>
+
+<view catchtouchmove="myCatchTouch" class="is_tcover" bindtap="clickCover" wx:if="{{is_t}}"></view>
+<view class="is_ttoast-box" wx:if="{{is_t}}">
+  <form bindsubmit="judge_t">
+    <view class="items-box">
+      <view class="items-box-n">姓名：</view>
+      <input placeholder="核销人姓名" name='use_name' value="{{ use_name }}"></input>
+    </view>
+    <view class="items-box">
+      <view class="items-box-n">手机号：</view>
+      <input placeholder="核销人手机号" name='use_mobile' value="{{ use_mobile }}"></input>
+    </view>
+    <button class="clickQr" form-type="submit">确认</button>
+  </form>
+</view>
+

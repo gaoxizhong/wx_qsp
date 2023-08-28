@@ -1,0 +1,272 @@
+/* pages/library/addbook/addbook.wxss */
+page{
+  background: #dde1dd;
+}
+.shelf-defult{
+  width: 100%;
+  padding: 12rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: #fff;
+}
+.select-box{
+  flex: 1;
+}
+.select-box>view{
+  width: auto;
+  height: 60rpx;
+  padding: 0 14rpx;
+  border-radius: 6px;
+  background: #c3e6d3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20rpx;
+}
+.select-box>view image.shelf-edit{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+  margin-top: 0;
+}
+.shelf-picker{
+  padding-top: 8rpx;
+}
+.shelf-defult-title{
+  font-size: 32rpx;
+  font-weight: 600;
+  width: 30%;
+  text-align: left;
+}
+.select-box{
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.all{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  width: 100%;
+  height: 100%;
+  margin-top: 85rpx;
+}
+.content{
+  height: auto;
+  margin: 20rpx 15rpx;
+  border-bottom: 2rpx solid #aaa;
+  background: #fff;
+  border-radius: 8px;
+  padding-left: 26rpx;
+  padding-bottom: 10rpx;
+  position: relative;
+}
+.content-top{
+  display: flex;
+  flex-direction: row;
+}
+image{
+  margin-top:4%;
+  width: 124rpx;
+  height:144rpx;
+}
+.left{
+   display: flex;
+    flex-direction: row;
+    width: 124rpx;
+    height: auto;
+    margin-top: 25rpx;   
+}
+.right{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  font-size: 26rpx;
+  color: #090909;
+  font-family: PingFang-SC-Regular;
+  margin-top: 45rpx;
+  margin-left: 34rpx;
+  padding-right: 30rpx;
+  overflow: hidden;
+}
+text{
+ padding: 1px;
+}
+.line{
+width:95%;
+height:5rpx;
+background:#aaa;
+}
+.quan {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  border: 1rpx solid #333;
+  position: relative;
+  top: 18rpx;
+  left: 17rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  
+}
+.quan-in {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: #64b532;
+}
+.btn-sao{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed; 
+  bottom: 0;
+  font-size: 40rpx;
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+}
+button{
+  width: 38%;
+  height:80rpx;
+  line-height: 80rpx;
+  background-image: linear-gradient(to right, #4AC081 , #6cd67f);
+  font-family: PingFang-SC-Regular;
+  color: #FFFFFF;
+  border-radius: 40px;
+
+}
+.book-name{
+  color: #090909;
+  font-size: 30rpx;
+   overflow:hidden; /*超出的文本隐藏 */
+  text-overflow:ellipsis; /*溢出用省略号显示*/
+  white-space:nowrap; /*溢出不换行*/
+}
+.book-author{
+  color: #9a9a9a;
+}
+.content-butt{
+  padding-right: 42rpx;
+  margin-top: 12rpx;
+}
+.content-butt .content-butt-list{
+  padding: 11rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-title-right{
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+.list-title-right text{
+  color: #4AC081;
+  font-size: 26rpx;
+  padding: 6rpx 20rpx;
+}
+.butt-list-title{
+  font-size: 28rpx;
+}
+.modify-btn{
+  padding: 6rpx 18rpx;
+  background: #f19249;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  border-radius: 4px;
+}
+.add-image{
+  flex: 1;
+  display: flex;
+  
+}
+.centent-int{
+  flex: 1;
+  height: 56rpx;
+  background: #dcdcdc;
+  margin-left: 30rpx;
+  padding:0 20rpx;
+  border-radius: 5px;
+}
+.centent-int1{
+  width: 140rpx;
+  height: 56rpx;
+  background: #dcdcdc;
+  margin-left: 30rpx;
+  padding:0 20rpx;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 26rpx;
+}
+.centent-int input{
+  font-size: 25rpx;
+}
+.book-prace{
+  text-align: right;
+  padding-right: 10px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+}
+.centent-int textarea{
+  font-size: 25rpx;
+  height: 300rpx;
+}
+.cancel{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 2rpx;
+  right: 2rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cancel image{
+  width: 44rpx;
+  height: 44rpx;
+}
+.add-image {
+  flex: 1;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 24rpx;
+}
+.add-image>image {
+  width: 130rpx;
+  height: 130rpx;
+  margin-right: 24rpx;
+}
+.add-image view.add-pic {
+  width: 114rpx;
+  height: 114rpx;
+  position: relative;
+  border: 2rpx solid #999;
+  border-radius: 12rpx;
+  background: #d1d1d1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  .add-image view.add-pic image {
+    width: 64rpx;
+    height: 64rpx;
+  }
+  

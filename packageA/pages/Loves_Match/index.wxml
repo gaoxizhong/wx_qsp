@@ -1,0 +1,7 @@
+<view class="list-box">
+  <view class="list-items">
+    <view bindtap="gotolottery" data-url="/packageA/pages/apenny_shopPub/index" class="list-items-1">
+      <image src="http://oss.qingshanpai.com/banner/apenny_welfare.png"></image>
+    </view>
+  </view>
+</view>

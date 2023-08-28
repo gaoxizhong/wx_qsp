@@ -1,0 +1,57 @@
+
+<form bindsubmit='savaData' report-submit>
+  <view class="mine_nav">
+    <view>
+      <view class="items">
+        <text><i style="color:red">*</i>展厅名称</text>
+        <input placeholder='请输入完整姓名' placeholder-style='color:#b2b2b2;' name="contact_name" value="{{contact_name}}"></input>
+      </view>
+      <!-- <view class="items">
+        <text>展厅简介</text>
+        <input placeholder='请输入简介信息' placeholder-style='color:#b2b2b2;' name="contact_profile" value="{{contact_profile}}"></input>
+      </view> -->
+      <view class="items">
+        <text>联系电话</text>
+        <input placeholder='手机或固话' placeholder-style='color:#b2b2b2;' name="contact_phone" value="{{contact_phone}}"></input>
+      </view>
+      <view class="items">
+        <text>所在地区</text>
+        <picker mode="region" style="flex:1;height:60rpx;line-height: 60rpx;padding-left: 30rpx;" name="garden" value="{{garden}}" start="" bindchange="saveGarden">
+          <view class="shengshi" style="color:{{garden == ''? '#b2b2b2' : '#000'}}">{{ garden ? garden:'请选择' }}</view>
+        </picker>
+      </view>
+      <view class="items" style="align-items:start;">
+        <text>联系地址</text>
+        <input placeholder='请输入详细地址' placeholder-style='color:#b2b2b2;' name="contact_area" value="{{contact_area}}"></input>        
+      </view>
+      <view class="items">
+        <text>请输入密码</text>
+        <input placeholder='请输入新的店铺密码' placeholder-style='color:#b2b2b2;' name="shop_password" value="{{shop_password}}"></input>
+      </view>
+    </view>
+  </view>
+
+<view class="v-pics">
+  <view class="v-head">
+    <span>展厅头像</span>
+    <view class='photo'>
+      <image mode='scaleToFill' src="{{v_head}}"></image>
+      <button class='btn-addphoto' bindtap='chooseHead' hover-class='none' style="opacity:{{v_head &&  v_head!='' ? 0 : 1}}">
+        <image mode='widthFix' src='/images/icon-addphoto.png'></image>
+      </button>
+    </view>
+    <text class="xiu-text">点击图片修改</text>
+  </view>
+  <view class="v-back">
+    <span>展厅背景</span>
+    <view class='photo'>
+      <image mode='scaleToFill' src="{{v_back}}"></image>
+      <button class='btn-addphoto' bindtap='chooseBack' hover-class='none' style="opacity:{{v_back && v_back!='' ? 0 : 1}}">
+        <image mode='widthFix' src='/images/icon-addphoto.png'></image>
+      </button>
+    </view>
+    <text class="xiu-text">点击图片修改</text>
+  </view>
+</view>
+<button form-type='submit' hover-class='hover_color' class="send-apply">确认修改</button>
+</form>

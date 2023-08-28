@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "我的求购",
+  "navigationBarBackgroundColor": "#ffbd6d",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {}
+}

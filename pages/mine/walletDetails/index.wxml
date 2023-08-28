@@ -1,0 +1,35 @@
+<view class="order-list-box">
+  <view class="commodity-order-box">
+
+    <block wx:for="{{beusedList}}" wx:key="index">
+      <view class="commodity-order-item">
+        <view class="order-shop-title">
+          <view>{{item.work.member.nickname}}</view>
+          <!-- <view style="font-size:24rpx;font-weight:100;color: #e96907;" wx:if="{{item.status == 1 && item.express_status == 0 }}">未发货</view>
+          <view style="font-size:24rpx;font-weight:100;color: #e96907;" wx:if="{{item.status == 1 && item.express_status == 1 }}">已发货</view>
+          <view style="font-size:24rpx;font-weight:100;color: #e96907;" wx:if="{{item.status == 1 && item.express_status == 2 }}">已到货</view> -->
+        </view>
+        <view style="font-size:24rpx;font-weight:100;color: #999;">订单编号: {{item.order_num}}</view>
+        <view class="order-shop-content" data-id="{{item.work_id}}" bindtap="goTogoodsDetails">
+          <view class="image-box">
+            <image src="{{ item.work.image_array[0] }}"></image>
+          </view>
+          <view class="order-shop-info">
+            <view class="order-shop-info-title">{{item.work.title}}</view>
+            <view style="color:#e96907;">￥{{item.total_price}}</view>
+          </view>
+          <view class="commodity-order-number">*1</view>
+        </view>
+        <view>
+          <!-- <view class="order-button" wx:if="{{ item.status == '1' }}">
+            <button hover-class="none" bindtap="shipmentsOrder" class="redorg redorgbg" data-work_id="{{item.work_id}}" data-id="{{item.id}}" wx:if="{{ item.express_status == 0 && dealType == 'sell'}}">去发货</button>
+          </view> -->
+        </view>
+      </view>
+    </block>
+    <view class='nulldata_wrap' wx:if="{{beusedList.length == 0}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>暂无数据...</view>
+    </view>
+  </view>
+</view>

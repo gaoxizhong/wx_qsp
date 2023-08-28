@@ -1,0 +1,117 @@
+  <wxs module="filters">
+var filters = {
+  toFix: function (value) {
+    return value.toFixed(2)
+  }
+}
+module.exports = {
+  toFix: filters.toFix
+}
+</wxs>
+
+<view>
+  <view class="edit-address" wx:if="{{ resdata == 0 }}" bind:tap="openEdit">
+    <view style="flex:1;padding-left:32rpx;" >
+      <text style="width: 80%;">请设置您的收货地址</text>
+    </view>
+    <image src="/images/icon_editcomment.png"/>
+  </view>
+  <image src="/images/address_line.png" style="height: 5rpx;width:100%" wx:if="{{obtainType >= 1 && !buyer_address}}"/>
+</view>
+
+<view wx:if="{{ resdata == 1 }}">
+  <view class="change-address" bind:tap="openEdit">
+    <view>
+       <view class="name-phone">{{contact_name+ '  '}}{{ '  '+contact_phone}}</view>
+       <view class="address">买家地址：{{garden}} {{address}}</view>
+    </view>
+    <image src="/images/icon_editcomment.png"/>
+  </view>
+  <image src="/images/address_line.png" style="height: 5rpx;width:100%" wx:if="{{obtainType >= 1 && buyer_address}}" />
+</view>
+  <view class="edit-info" wx:if="{{showEdit}}">
+    <view class="need-hbb">
+      <text>姓名</text>
+      <view>
+        <input type="text" value="{{contact_name}}" placeholder="请输入姓名" bindinput="inputName"/>
+      </view>
+    </view>
+    <view class="need-hbb">
+      <text>联系方式</text>
+      <view>
+        <input type="digit" value="{{contact_phone}}" placeholder="请输入联系方式" bindinput="inputPhone"/>
+      </view>
+    </view>
+    <view class="end-time">
+      <text>省市区</text>
+      <picker mode="region" value="{{garden}}" start="2015-09-01" bindchange="chooseAddress">
+        <view>{{garden ? garden:'请选择省市区'}}</view>
+      </picker>
+    </view>
+    <view class="need-hbb">
+      <text>详细地址</text>
+      <view>
+        <input type="text" value="{{address}}" placeholder="请输入详细地址" bindinput="inputAddrDetail"/>
+      </view>
+    </view>
+    <button bind:tap="saveAddress">保存</button>
+    <view class="divide" style="height:20rpx"></view>
+  </view>
+  <view class="good-info">
+    <image src="{{welfare.activityInfo.image}}" />
+    <view class="good-title">{{welfare.activityInfo.goods_name}}</view>
+    <view class="good-sum">
+      <view>￥{{welfare.activityInfo.goods_price}} + {{welfare.activityInfo.goods_integral}}积分</view>
+      <view>x {{welfare.pay_count}}</view>
+    </view>
+  </view>
+  <view class="divide" style="height:20rpx"></view>
+  <view class="good-desc">
+    <view class="price-info-list header">
+      <text>配送方式</text>
+      <view class="sel color-64B">
+        <text style="vertical-align: middle;">送货上门</text>
+      </view>
+    </view>
+</view>
+
+<view class="divide" style="height:20rpx"></view>
+<view class="good-desc">
+  <view class="price-info-list header">
+    <text>预约时间</text>
+    <view class="sel color-64B" style="flex:1;padding-left:30rpx;">
+                <picker 
+            style='color:{{startDate == "请选择" ? "#b2b2b2":""}};' 
+            disabled="{{!member_id}}"
+            class='time-picker' 
+            mode="multiSelector" 
+            bindchange="bindStartMultiPickerChange" 
+            bindtap='pickerTap' 
+            bindcolumnchange="bindMultiPickerColumnChange" 
+            value="{{multiIndex}}" 
+            range="{{multiArray}}"
+            >
+            {{startDate}}
+          </picker>
+    </view>
+  </view>
+</view>
+<view class="divide" style="height:20rpx"></view>
+<view class="price-info-list price-info" style="padding: 15rpx;margin-top:5rpx">
+    <text>订单备注</text>
+    <input class="remark" placeholder="选填，填写订单的备注信息" value='{{orderRemark}}' bindinput="inputRemark" maxlength="200"></input>
+</view>
+<view class="divide" style="height:20rpx"></view>
+<view class="price-info" style="padding: 15rpx;margin-top:5rpx">
+ 
+    <text>共{{welfare.pay_count}}件 小计：</text>
+    <text class="total-price">￥{{pay_total_price}} + {{(welfare.activityInfo.goods_integral *  welfare.pay_count)}}积分</text>
+</view>
+<view class="divide" style="height:100rpx"></view>
+<view class="bottom-buy">
+  <view class="price">
+    <text>实付款 </text>
+    <text class="total-price">￥{{ pay_total_price }} + {{(welfare.activityInfo.goods_integral *  welfare.pay_count)}}积分</text>
+  </view>
+  <view class="to-buy" bindtap="confirmBuy">提交支付</view>
+</view>

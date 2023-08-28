@@ -1,0 +1,30 @@
+<block wx:for="{{getdatalist}}" wx:key="index">
+  <view class="datalist-items">
+    <view class="items-title">订单创建时间： <text style="padding-left:30rpx;">{{item.created_at}}</text></view>
+    <view class="items-info">
+      <view class="items-info-top">
+        <view class="info-imges-box"><image src="{{item.img}}"></image></view>
+        <view class="info-right-info">
+          <view class="chubu" style="background:#ff0000;" wx:if="{{item.chubu === '已实际估价'}}">{{item.chubu}}</view>
+          <view class="chubu" style="background:{{item.chubu === '已初步估价'?'#3c8dbc':''}};" wx:else>{{item.chubu}}</view>
+          <view class="pinlei"> 
+            <view class="pinlei-list">品类：{{item.category}}</view> 
+            <view style="color:#49c383;">X{{item.num}}</view>
+          </view>
+          <view class="pinpai">品牌：{{item.name}}</view>
+        </view>
+      </view>
+      <view class="items-info-bottom">
+        <view class="info-bottom1-btn" data-id="{{item.id}}" bindtap="{{item.yuyue == '预约上门'?'gotoaddress':''}}" wx:if="{{!item.yuyue == ''}}">{{item.yuyue}}</view>
+        <view class="info-bottom-btn" data-id="{{item.id}}" bindtap="gotodetails">查看详情</view>
+      </view>
+    </view>
+  </view>
+</block>
+<view style="width:100%;height:140rpx;"></view>
+<view class="addlistdata" bindtap="addlistdata">+<text style="padding-left:12rpx;">预约估价</text></view>
+
+<view class="tel" bindtap="tel">
+  <image src="/packageA/assets/images/tel.png"></image>
+  <text>联系客服</text>
+</view>

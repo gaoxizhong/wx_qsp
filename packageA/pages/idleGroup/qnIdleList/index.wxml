@@ -1,0 +1,32 @@
+<view class="indexbg"></view>
+<!-- 圈内闲置 -->
+<view class="myidle-box">
+  <view class="myidle-box-title">
+    <view class="myidle-title-l">
+      <view class="myidle-title-l-b"></view>
+      <text>圈内闲置</text>
+    </view>
+  </view>
+  <view>
+    <view class="goodinfo"> 
+      <view class="goToInfo" wx:for="{{wenzData}}" wx:key="index">
+        <view class="good-item-view" bindtap="{{item.bal_count == 0?'':'goToActivity'}}"  data-idle="{{item.id}}" data-curidx="{{index}}" data-busnesid="{{item.member_id}}" >
+          <view class="shou-tu" wx:if="{{item.bal_count == 0}}">
+            <image src="http://oss.qingshanpai.com/banner/shouwan.png"></image>
+          </view>
+          <image src="{{item.img.url}}" class="good-item-img"></image>
+          <view class="goodname">{{item.desc}}</view>
+          <view class="goodprice">
+            <text class="goodprice-1">￥</text>
+            <text class="goodprice-2">{{item.total_price}}</text>
+          </view>
+          <view class="idle-avar-box">
+              <image src="{{item.avatar}}"></image>
+              <text>{{item.nickname}}</text>
+            </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

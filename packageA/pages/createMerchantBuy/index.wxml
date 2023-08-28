@@ -1,0 +1,163 @@
+<view class="createMerchantBuy-instruction-box">
+  <view class="announcement-info-left">
+    <image src="/packageA/image/volunacti-hron.png" mode="widthFix"></image>
+  </view>
+  <view class="announcement-info">
+    <text>0.3元触达一人，每触达一人，平台奖励0.3积分</text>
+  </view>
+</view>
+
+<view class="createMerchantBuy-ChooseAmount-box">
+  <view class="chooseAmount-title-box">
+    <image src="/packageA/assets/images/jfjydt/ic_jfdh.jpg" mode="widthFix" class="chooseAmount-title-img"></image>
+    <view class="chooseAmount-title-text">选择投入金额</view>
+  </view>
+  <view class="chooseAmount-items-box">
+    <block wx:for="{{ chooseAmountList }}" wx:key="index">
+      <view>
+        <view class="chooseIemsList {{select_money == index ? 'selectMoney':''}}" data-index="{{index}}" bindtap="select_money">
+          <view style="text-align: center;">{{ item.money }}元</view>
+          <image src="{{select_money == index ? 'http://oss.qingshanpai.com/icon/jifenduihuan.gif' :'http://oss.qingshanpai.com/icon/ic_jfdh_norma.png'}}" mode="widthFix" class="chooseIemsList-img"></image>
+          <view style="text-align: center;">{{ item.people }}人</view>
+        </view>
+      </view>
+    </block>
+
+    <!-- <view>
+      <view class="chooseIemsList {{select_money == 4 ? 'selectMoney':''}}"  data-index="4" bindtap="select_money">
+        <input class="chooseIemsList-input" type="number" value="{{inputMoney}}" bindinput="inputMoney" placeholder="输入投入金额"/>
+      </view>
+    </view> -->
+
+  </view>
+</view>
+
+<!-- 选择商品优惠券 -->
+<view class="module-box">
+  <view class="select-box" wx:if="{{!select_type_moving}}">
+    <image bindtap="gotosele" src="/packageA/assets/images/select_b.png"></image>
+    <text style="padding-top:8px;font-size: 11px;">选择商品/优惠券</text>
+  </view>
+  <view class='circle' style="padding:30rpx 20rpx;" wx:elif="{{select_type_moving == 1}}">
+      <view class='shop-centent'>
+        <view class='shop-centent-title'>
+          <view class="shop-img">
+            <image class="shop-img-width" src="{{ sele_info_moving.image }}"></image>
+          </view>
+          <view class='shop-jottings'>
+            <view selectable='true' class='text'>{{sele_info_moving.title}}</view>
+            <view class='circle-head' style="justify-content: space-between;">
+              <text style="font-size:20rpx;text-decoration: line-through;">原价 ￥{{sele_info_moving.price}}</text>
+            </view>
+            <view class="discount">
+              <view class="discount-price">
+                <text>折扣价：￥{{sele_info_moving.total_price}}+{{sele_info_moving.hbb?sele_info_moving.hbb:'0.00'}}积分</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+  </view>
+  <view class="coupon-list-items" wx:elif="{{select_type_moving == 2}}">
+    <view class="sheng-bg">
+        <image src="/images/sheng-bg.png"></image>
+      </view>
+    <view class="listitems-le">
+      <view class="listitems-le-title">凭此券 享优惠</view>
+      <view class="calendar-box">
+        <view class="calendar-con"><text style="font-size:28rpx;">￥</text>{{sele_info_moving.youhui}}</view>
+      </view>
+      <view class="shops-name" wx:if="{{is_mycoupon == '1'}}">{{sele_info_moving.b_name}}</view>
+      <view class="shops-name" wx:else>{{sele_info_moving.business_name?sele_info_moving.business_name: sele_info_moving.title}}</view>
+    </view>
+    <view class="listitems-ri">
+      <view class="listitems-rititle-box">
+        <view class="coupon-title">{{sele_info_moving.name}} 优惠券</view>
+      </view>
+      <view class="ri-price-curr"><text>原价： {{sele_info_moving.price}}</text><text style="padding-left:12rpx;">劵后价： {{sele_info_moving.current_price}}</text></view>
+      <view class="coupon-view">支付：￥{{sele_info_moving.coupon_price}} + {{sele_info_moving.coupon_integral}}积分 获取本券</view>
+      <view class="start-end-time">{{sele_info_moving.start_time}} - {{sele_info_moving.end_time}}内有效。</view>
+    </view>
+  </view>
+
+  <view class="again-box" wx:if="{{select_type_moving}}">
+    <view class="again-btn" hover-class="hoverclass" bindtap="gotosele">重新选择商品</view>
+  </view>
+</view>
+
+
+
+
+
+<!-- 选择天数 -->
+
+<view class="chooseDays-box">
+  <view class="chooseAmount-title-box">
+    <image src="/packageA/assets/images/jfjydt/ic_jfdh.jpg" mode="widthFix" class="chooseAmount-title-img"></image>
+    <view class="chooseAmount-title-text">选择天数</view>
+  </view>
+  <view class="daysItems-box">
+    <block wx:for="{{ daysItems }}" wx:key="index">
+      <view class="select-time {{is_time == index?'sele-hover':''}}" data-index="{{index}}" bindtap="select_time">
+        <image src="/packageA/assets/images/jfjydt/ic_jfdh_s.png" wx:if="{{is_time == index}}" class="select-time-img" mode="widthFix"></image>
+        {{item.name}}
+      </view>
+    </block>
+  </view>
+</view>
+
+<!-- 展示位置、开始推送 弹窗 -->
+<view class="location-box" wx:if="{{is_location}}">
+  <view class="location-box1">
+    <!-- 导航nav按钮 -->
+    <view class="location-nav-box">
+      <view class="nav-items-box {{navItems_active == item.id? 'after':''}}" wx:for="{{navItems}}" wx:key="index" data-id="{{item.id}}" bindtap="navItems">
+        <image src="{{navItems_active == item.id? item.image2:item.image1}}" mode="heightFix"></image>
+        <text class="{{navItems_active == item.id? 'hoverClass':''}}">{{item.name}}</text>
+      </view>
+    </view>
+    <!-- 店铺位置 -->
+    <view class="address-box">
+      <view class="address-title">店铺地址:</view>
+      <view class="address-text">{{exhibitAddress}}</view>
+    </view>
+    <!-- 筛选 -->
+    <view class="filter-box" bindtap="filterDis">
+      <view class="filter-image-box"><image src="/packageA/assets/images/fastPromote/fastPromote_sx.png" mode="widthFix" class="image-box-l"></image></view>
+      <view class="filter-box-c">筛选模式: <text style="padding-left: 20rpx;">附近 <text style="padding-left: 20rpx;font-weight: 600;">{{distname}}</text> </text></view>
+      <view class="filter-image-box"><image src="/packageA/assets/images/fastPromote/fastPromote_dn.png" mode="widthFix" class="image-box-r"></image></view>
+    </view>
+    <!-- 发布按钮 -->
+    <view class="infoPlate-box">
+      <view class="infoPlate-Push-box" hover-class="hoverclass" bindtap="fixed_btn">
+        <image src="/packageA/assets/images/jfjydt/jfdh_bt_zn.png" mode="widthFix"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 选择公里 -->
+<view class="kilometerItems-box" wx:if="{{is_kilometerItems}}">
+  <view class="kilometerItems-box1">
+    <!-- 筛选 -->
+    <view class="filter-box">
+      <view class="filter-image-box"><image src="/packageA/assets/images/fastPromote/fastPromote_sx.png" mode="widthFix" class="image-box-l"></image></view>
+      <view class="filter-box-c">筛选模式: <text style="padding-left: 20rpx;">附近 <text style="padding-left: 20rpx;font-weight: 600;">{{distname}}</text> </text></view>
+      <view class="filter-image-box"><image src="/packageA/assets/images/fastPromote/fastPromote_dn.png" mode="widthFix" class="image-box-r"></image></view>
+    </view>
+    <!-- 公里按钮 -->
+    <view class="list-box-items">
+      <block wx:for="{{distance_list}}" wx:key="index">
+        <view class="distance-item {{is_dist == index?'highlight-item':''}} " data-dist="{{item.dist}}" data-index="{{index}}" bindtap="select_dist" wx:if="{{index != 0}}">
+          {{item.name}}
+          <image src="/packageA/assets/images/fastPromote/fastPromote_active.png" wx:if="{{ is_dist == index }}" mode="widthFix" class="sel-image"></image>
+        </view>
+      </block>
+    </view>
+
+    <view class="distance-btn-box">
+      <view class="dist-btn" hover-class="hoverclass" bindtap="distBtn">确定</view>
+    </view>
+  </view>
+</view>
+

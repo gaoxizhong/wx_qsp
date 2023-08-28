@@ -1,0 +1,189 @@
+page{
+  background: #fff;
+  padding: 26rpx 20rpx;
+  box-sizing: border-box;
+}
+.datalist-items{
+  background: #eaeaea;
+  font-size: 28rpx;
+  border-radius: 6px;
+  padding: 10rpx 34rpx 20rpx 10rpx;
+  margin: 12rpx 0;
+  position: relative;
+}
+
+.items-info{
+  padding: 20rpx 0 20rpx 15rpx;
+}
+.items-info-top{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.info-imges-box{
+  width: 146rpx;
+  height: 146rpx;
+  overflow: hidden;
+}
+.info-imges-box>image{
+  width: 100%;
+  height: 100%;
+}
+.info-right-info{
+  height: 100%;
+  padding-left: 38rpx;
+  flex: 1;
+
+}
+.pinlei{
+  display: flex;
+  align-items: center;
+  margin-top: 18rpx;
+
+}
+.chubu{
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #fff;
+  background:#49c383;
+  border-radius: 6px;
+  display: inline;
+  padding: 4rpx 8rpx;
+}
+.pinpai{
+  margin-top: 12rpx;
+  width: 70%;
+  overflow:hidden; /*超出的文本隐藏*/
+  text-overflow:ellipsis; /*溢出用省略号显示*/
+  white-space:nowrap; /*溢出不换行*/
+}
+.items-info-bottom{
+  padding-top: 20rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.info-bottom-btn{
+  width: 120rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+  font-size: 26rpx;
+  border: 3rpx solid #49c383;
+  text-align: center;
+  border-radius: 20px;
+  margin-left: 22rpx;
+  box-sizing: border-box;
+}
+.info-bottom1-btn{
+  width: 120rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+  font-size: 26rpx;
+  background:#49c383;
+  color: #fff;
+  text-align: center;
+  border-radius: 20px;
+  margin-left: 22rpx;
+}
+.pinlei-list{
+  color: #49c383;
+  overflow:hidden; /*超出的文本隐藏*/
+  text-overflow:ellipsis; /*溢出用省略号显示*/
+  white-space:nowrap; /*溢出不换行*/
+  display: flex;
+  align-items: center;
+}
+.pinlei-list>image{
+  margin-left: 16rpx;
+  width: 42rpx;
+  height: 42rpx;
+}
+.Prelprice{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  font-size: 26rpx;
+  position: absolute;
+  top: 24rpx;
+  right: 20rpx;
+}
+.btn-sub{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 38rpx 60rpx;
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+}
+.btn-box{
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  width: 100%;
+  border-radius: 10px;
+  background: #4bc381;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.popss-box{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.mark-info{
+  width: 468rpx;
+  height: 522rpx;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 9999;
+  box-sizing: border-box;
+  padding: 30rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.mark-bg{
+  height: 100%;
+  width: 100%;
+  background: #000;
+  opacity: 0.6;
+  z-index: 9999;
+}
+.mark-info-price{
+  font-size: 44rpx;
+  font-weight: 600;
+  color: #fb7914;
+  text-align: center;
+  padding: 34rpx 0 0 0;
+}
+.mark-info-legend{
+  padding: 10rpx 0 20rpx 0rpx;
+  font-size: 32rpx;
+  text-align: center;
+}
+.chakan{
+  text-align: center;
+  font-size: 28rpx;
+  color: #4d4d4d;
+  margin-top: 100rpx;
+}
+.queding{
+  width: 234rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #4bc381;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 20px;
+  margin-top: 10%;
+}

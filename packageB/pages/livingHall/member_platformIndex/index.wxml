@@ -1,0 +1,58 @@
+<view class="seeccon-box">
+  <view class="seeccon-box-title">优惠券</view>
+  <view class="seeccon-r" bindtap="gotoList">查看全部 <image src="/packageB/assets/images/livingHall/icon-jt.png" mode="widthFix"></image></view>
+</view>
+
+<view class="useList-box">
+  <block wx:for="{{voucher}}" wx:key="index">
+    <view class="items-box">
+      <view class="items-t-box">
+        <view class="items-t-l">
+          <view class="items-price">
+            <text style="font-size: 40rpx;">￥</text>
+            <text>{{item.total_value}}</text>
+          </view>
+          <view class="items-title-box">
+            <view class="items-title-1">{{item.total_value}}元商品任意购券</view>
+            <view class="items-title-t">即将于06月4日 23:23过期</view>
+          </view>
+        </view>
+        <view class="items-t-r">立即使用</view>
+      </view>
+      <view class="items-b-box">使用须知：请在店铺购买指定商品下单时使用</view>
+    </view>
+  </block>
+  <view class='nulldata_wrap' wx:if="{{voucher.length == 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据...</view>
+  </view>
+</view>
+
+<view class="seeccon-box" style="margin-top: 30rpx;">
+  <view class="seeccon-box-title">可兑换商品</view>
+  <view class="seeccon-r" bindtap="">查看全部 <image src="/packageB/assets/images/livingHall/icon-jt.png" mode="widthFix"></image></view>
+</view>
+
+<view class="commodity-box">
+  <block wx:for="{{commodityList}}" wx:key="index">
+    <view class="commodity-items-box">
+      <view class="commodity-items">
+        <image src="" class="items-image"></image>
+        <view class="items-info-box">
+          <view class="items-info-t">宫崎骏龙猫钥匙扣女</view>
+          <view class="items-info-p">
+            <view class="items-p-l">
+              <view class="items-p-l-price"><text style="font-size: 26rpx;">￥</text>250</view>
+              <view class="items-p-l-ys">已售134件</view>
+            </view>
+            <view class="items-info-p-t">购买</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class='nulldata_wrap' wx:if="{{commodityList.length == 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据...</view>
+  </view>
+</view>

@@ -1,0 +1,42 @@
+  <wxs module="filters">
+var filters = {
+  toFix: function (value) {
+    return value.toFixed(2)
+  }
+}
+module.exports = {
+  toFix: filters.toFix
+}
+</wxs>
+
+<view class="good-info">
+  <image src="{{toBuyWel_goods.activityInfo.goods_image[0]}}" />
+  <view style="flex:1;" class="goods-info-box">
+    <view class="good-title">{{toBuyWel_goods.activityInfo.goods_name}}</view>
+    <view class="good-sum">
+      <view>￥{{toBuyWel_goods.activityInfo.goods_discount_price}} + {{toBuyWel_goods.activityInfo.goods_integral?toBuyWel_goods.activityInfo.goods_integral:'0'}}积分</view>
+      <view>x {{toBuyWel_goods.pay_count}}</view>
+    </view>
+  </view>
+
+</view>
+<view class="divide" style="height:20rpx"></view>
+<view class="price-info-list price-info" style="padding: 15rpx;margin-top:5rpx">
+    <text>订单备注</text>
+    <input class="remark" placeholder="选填，填写订单的备注信息" value='{{remark}}' bindinput="inputRemark" maxlength="200"></input>
+</view>
+<view class="divide" style="height:20rpx"></view>
+<view class="price-info" style="padding: 15rpx;margin-top:5rpx">
+ 
+    <text>共{{toBuyWel_goods.pay_count}}件 小计：</text>
+    <text class="total-price">￥{{ pay_total_price }} + {{(toBuyWel_goods.activityInfo.goods_integral *  toBuyWel_goods.pay_count)}}积分</text>
+
+</view>
+<view class="divide" style="height:100rpx"></view>
+<view class="bottom-buy">
+  <view class="price">
+    <text>实付款 </text>
+    <text class="total-price">￥{{ pay_total_price }} + {{(toBuyWel_goods.activityInfo.goods_integral *  toBuyWel_goods.pay_count)}}积分</text>
+  </view>
+  <view class="to-buy" bind:tap="confirmBuy">提交订单</view>
+</view>

@@ -1,0 +1,9 @@
+{
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "comp": "./../../module/component/component",
+    "postercar": "/component/poster_car/index",
+    "leaveCom": "/component/leave_com/index"
+  }
+}

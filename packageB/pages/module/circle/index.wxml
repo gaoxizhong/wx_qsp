@@ -1,0 +1,51 @@
+  <view class='circle-box'>
+    <block wx:for="{{wenzData}}" wx:key="index" wx:for-index="idx">
+      <view class='circle-box1'>
+        <view class='circle-head'>
+          <!-- <button bindtap='goOtherCircle' hover-class='none'> -->
+          <button>
+            <image class='photo' src="{{item.member.avatar}}" style="border-radius:50%;width:94rpx;height:94rpx"></image>
+          </button>
+          <view>
+            <view class='name_box'>
+              <view class='name'>{{item.member.nickname}} </view>
+            </view>
+            <view class='time'>
+              <text style="margin-right:24rpx">{{item.created_at}}</text>
+              <!-- <text style="margin-right:20rpx;">{{item.distance?item.distance:0}} Km</text> -->
+            </view>
+          </view>
+        </view>
+        
+        <view class='circle-centent'>
+          <view class='circle-jottings'>
+            <view style="background: #f9f9f9;">
+              <text selectable='true' class='{{item.content.length > 90 && !showFull[idx].status ?"cool":""}}'>{{item.content}}</text> 
+            </view>
+            <view class='full_txt' bindtap='openFulltxt' wx:if='{{item.content.length > 90}}' data-status="{{showFull[idx].status}}" data-curidx="{{idx}}">{{!showFull[idx].status?'全文':'收起'}}</view>
+            <view class="circle-img" wx:if="{{item.image.length > 0}}">
+              <image 
+                wx:for="{{item.image}}" 
+                wx:for-item="items" 
+                wx:for-index="subidx" 
+                wx:key="index" src='{{items}}' 
+                data-subidx="{{subidx}}" 
+                data-curindex="{{idx}}" 
+                data-images = "{{item.image}}" 
+                bindtap="previewImage1" 
+                mode="{{item.image.length > 1 ? 'aspectFill': 'widthFix'}}" 
+                class="{{item.image.length > 1? 'imgduo-width': 'imgyi-width'}}" 
+                >
+              </image>
+            </view>
+          </view>
+          <!-- 打卡点展示 -->
+          <view class="acitiv_1">
+            <image mode="widthFix" src="/packageB/assets/images/address.png"></image>
+            <text style="padding-left:4px;">{{item.bysite.name}} ( {{item.bysite.feature}} )</text>
+          </view>
+
+        </view>
+      </view>
+    </block>
+  </view>

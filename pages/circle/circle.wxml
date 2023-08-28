@@ -1,0 +1,39 @@
+<view style="background:#fff;padding:20rpx; box-sizing:border-box;">
+  <view class="swiper-container1">
+    <swiper class='swiper' autoplay="true" circular="true" interval="2000">
+      <block wx:for="{{banner_img}}" wx:key="index">
+        <swiper-item bind:tap="goToFromImg" data-index="{{index}}" data-id="{{item.id}}" data-select_id="{{item.select_id}}" data-select_type="{{item.select_type}}">
+          <view class="swiperitem-box">
+            <view class="swiperitem-l">
+              <image src="{{ item.select.image[0] }}" class="swiperitem-l-image" mode='aspectFill' />
+            </view>
+            <view class="swiperitem-r">
+              <view class="swiperitem-r-title">{{item.select.select.title}}</view>
+              <view class="swiperitem-r-y">原价 <text style="text-decoration:line-through;">￥{{item.select.select.price}}</text></view>
+              <view class="discount-price">
+                <text>折扣价 ￥{{ item.select.select.total_price }}+{{item.select.select.hbb?item.select.select.hbb:'0.00'}}积分</text>
+              </view>
+              <view class="qg-box">立即抢购</view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+<scroll-view class="circle-list" scroll-x="{{true}}">
+  <view class="circle-item {{item.id == cateid ? 'color-64B' : 'color-333'}}" wx:for="{{cateList}}" wx:for-item="item" wx:for-index="index" wx:key="index" data-cateid="{{item.id}}" data-catetype='{{item.type}}' bind:tap="selCateId">
+    {{item.title}}
+  </view>
+</scroll-view>
+<include src="/pages/module/circle/index.wxml" />
+<!-- 生成海报弹窗 -->
+<include src="/pages/module/makephoto/index.wxml" />
+<!-- 多图点击轮播展示弹窗 -->
+ <include src="/pages/module/circleshop/index.wxml" />
+ <!-- 授权登录弹窗 -->
+<!-- <include src="/pages/module/login_mark/index.wxml" /> -->
+<!-- 信息广告弹窗 -->
+<include src="/pages/module/ad_preview/index.wxml" />
+
+

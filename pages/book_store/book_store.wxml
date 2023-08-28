@@ -1,0 +1,117 @@
+<view class="{{is_type !='songshu'?'box-page-title':''}}">
+  <view class="swiper-container">
+    <swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+      <block wx:for="{{top_img}}" wx:key="index">
+        <swiper-item bind:tap="goToFromImg" data-label="{{item.label}}" data-labelid="{{item.label_id}}">
+          <image src="{{item.image}}" class="slide-image" mode='aspectFill' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+<view style="height:200rpx;width:100%;"></view>
+
+<!-- 书换积分模块 -->
+<view>
+  <view class="page1">
+    <view class="info_name items"style="align-items: start;">
+      <text>地址信息：</text>
+      <view  bindtap="info_name_gai" class="name_phone_addres" wx:if="{{contact_name == '' && contact_phone == ''&& address == ''}}">
+        <view style="color:#b2b2b2;">点击添加新地址</view>
+      </view>
+      <view class="name_phone_addres"  bindtap="info_name_gai" wx:else>
+        <view><text style="color:#3b3b3b;">{{contact_name}}</text><text style="padding-left:28rpx;">{{contact_phone}}</text></view>
+        <view>{{garden}} {{address}} </view>
+      </view>
+    </view>
+    <view class="items" bindtap="logintest">
+      <text>预约时间：</text>
+      <picker 
+        style='color:{{startDate == "请选择" ? "#b2b2b2":""}};' 
+        disabled="{{!member_id}}" 
+        class='time-picker' 
+        mode="multiSelector" 
+        bindchange="bindStartMultiPickerChange" 
+        bindtap='pickerTap' 
+        bindcolumnchange="bindMultiPickerColumnChange" 
+        value="{{multiIndex}}" 
+        range="{{multiArray}}"
+        >
+        {{startDate}}
+      </picker>
+      <input placeholder='请选择' value='{{startDate}}' placeholder-style='color:#b2b2b2;' style='display:none;' name="visited_at"></input>
+      <view class="min_icon">
+        <image src='/images/icon_mine_more.png' mode='widthFix'></image>
+      </view>
+    </view>
+    <view class="items" >
+      <text>请选择积分获取方式</text>
+    </view>
+    <view class="fangshi">
+      <view class=" {{currentTab1==1?'hove':''}}" data-index="1" bindtap="get_fangshi">方式一</view>
+      <view class=" {{currentTab1==2?'hove':''}}" data-index="2" bindtap="get_fangshi">方式二</view>
+    </view>
+    <view class="fangshi-one fangshi-one-1" wx:if="{{qqq && currentTab1 == 1 }}">
+      <view class="fangshi-text">按图书数量得积分，10环保积分/本。</view>
+      <view>
+        <input placeholder='请输入图书数量' type="number" minl bindinput="book_num" bindblur="book_num_min" value="{{search_info1}}"></input>
+      </view>
+    </view>
+    <view class="fangshi-one fangshi-one-2" wx:if="{{!qqq && currentTab1 == 2 }}">
+      <view class="fangshi-text"><text><text style="color:red">教材/教辅类，5积分/本</text>，其他图书按价格兑换积分，比例1：1。</text></view>
+      <view>
+        <input placeholder='请输入图书价格' type="digit" bindinput="book_cost" value="{{search_info2}}"></input>
+        <input placeholder='请输入图书数量' type="digit" bindinput="book_cost1" value="{{search_info3}}"></input>
+      </view>
+    </view>
+    <view class="items" style="padding-bottom:6rpx;">
+      <text>预计收获环保积分：</text>
+      <text class="color-64B">{{get_integral}}</text>
+    </view>
+    <view class="note">*每个用户每日可下单一次,环保积分总额将于回收完成之后到账</view>
+    <view class="garden-box">
+      <view class="types-i">订单备注</view>
+      <input style="background: #eaeaea;margin-left:20rpx;" class="types-input" value="{{remark}}" placeholder="" bindinput="remark"></input>
+    </view>
+    <view style="width:100%;height:100rpx;"></view>
+  </view>
+  <view class="release-btn" bindtap="relIdle_btn" hover-class='hover_color'>提交预约</view>
+</view>
+
+
+<view class="mask" wx:if="{{information}}" bindtap="mask1" catchtouchmove="myCatchTouch"></view>
+<view class="recycle-mark" wx:if="{{information}}" catchtouchmove="myCatchTouch">
+  <view class="items" bindtap="logintest">
+    <text>联系人:</text>
+    <input placeholder='请输入完整姓名' placeholder-style='color:#b2b2b2;' bindinput="contact_name" name="contact_name" value="{{contact_name}}" disabled="{{!member_id}}"></input>
+  </view>
+  <view class="items" bindtap="logintest">
+    <text>联系电话:</text>
+    <input placeholder='手机或固话' placeholder-style='color:#b2b2b2;' name="contact_phone" value="{{contact_phone}}" bindinput="contact_phone"  disabled="{{!member_id}}"></input>
+  </view>
+  <view class="items">
+  <text>省市区:</text>
+  <picker mode="region" name="garden" value="{{garden}}" start="2015-09-01" bindchange="saveGarden">
+    <view class="shengshi">{{garden ? garden:'请选择省市区'}}</view>
+  </picker>
+</view>
+  <view class="items" style="align-items:start;" bindtap="logintest">
+    <text>详细地址:</text>
+    <textarea wx:if="{{!showRecover}}" placeholder='例：**街道**小区**号楼**室' placeholder-style='color:#b2b2b2;' fixed="true" name="address" value="{{address}}" disabled="{{!member_id}}" bindinput="saveAddress"></textarea>
+  </view>
+  <view class="queding" hover-class="quedinghove" bindtap="queding">确定</view>
+</view>
+<!-- 信息预览弹窗 -->
+<include src="/pages/module/ad_preview/index.wxml" />
+
+
+
+
+
+
+
+
+
+
+
+

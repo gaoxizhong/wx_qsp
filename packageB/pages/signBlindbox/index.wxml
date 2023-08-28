@@ -1,0 +1,143 @@
+<wxs module="filters">
+  var filters = {
+    toFix: function (value) {
+      return value.toFixed(2)
+    }
+  }
+  module.exports = {
+    toFix: filters.toFix
+  }
+</wxs>
+<view class="signBlindbox-box">
+  <image src="https://oss.qingshanpai.com/sign/sign_icon_dmh.png" mode="widthFix" class="signBlindbox-dmh"></image>
+  <view class="signBlindbox-btn-box" bindtap="clickBlindboxBtn">
+    <image src="/packageB/assets/images/sigin/sign_icon_btnbg.png" mode="widthFix" class="signBlindbox-btn"></image>
+    拆盲盒
+  </view>
+  <view class="signBlindbox-title">待拆盲盒X{{record_num}}</view>
+</view>
+<!-- ====================== 拆盲盒动画 开始 ======================-->
+<view class="openBlindbox-box" wx:if="{{is_progress || is_blindBox}}">
+  <!-- 进度条模块 -->
+  <view class="is_progress_box" wx:if="{{is_progress}}">
+    <view class="djs-box">00 : 00 : 0{{djs_number}}</view>
+    <view class="is_progress_bar">
+      <view class="progress-box">
+        <progress percent="{{ bar_number }}" stroke-width="24" activeColor="#fc7e0a" backgroundColor="#fff" duration="" bindactiveend="activeend_jdt" border-radius="20" />
+      </view>
+    </view>
+    <view class="progress_btn_box">{{ bar_text }}</view>
+  </view>
+  <!-- 进度条模块 -->
+  <!-- 盲盒部分 -->
+  <view class="is-blindBox" wx:if="{{is_blindBox}}">
+    <view class="is-blinBox-title">本次盲盒获得收益</view>
+    <view class="is-blindBox-jg"><text> {{ jiage }}</text>元</view>
+    <view class="is-blindBox-info">
+      <text>本次盲盒由{{business_name?business_name:''}}赞助并推荐以下商品</text> 
+    </view>
+  </view>
+  <!-- 盲盒部分 -->
+</view>
+
+<!-- ====================== 拆盲盒动画 结束 ======================-->
+
+<!-- ======================  广告部分 开始 ================== -->
+  <!-- ====================== 拆盲盒 广告部分 开始================ -->
+    <!-- ======= 商品部分 开始====== -->
+  <view wx:if="{{is_blindBox}}">
+    <view class="swiper-container">
+      <swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+        <block wx:for="{{shopInfo.img}}" wx:key="index">
+          <swiper-item>
+            <image src="{{item}}" class="slide-image" mode="aspectFit" bindtap="saveImage" data-img="{{item}}" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="price-info">
+      <view class="origin-price">
+        <view class="parice-text-box">
+          <text class="parice-text">￥{{shopInfo.price}}</text><text class="hbb-text">+{{shopInfo.hbb}}环保积分</text>
+        </view>
+        <view class="jg-bg-box">优惠后价格：￥{{shopInfo.total_price}}</view>
+      </view>
+
+      <view class="info-title">
+        {{shopInfo.title}}    
+      </view>
+
+      <view class="now-price">
+        <view class="noe-price-stock">
+          <text style="padding-left:16rpx;" wx:if="{{shopInfo.bal_count > 0}}">剩余：{{shopInfo.bal_count}}</text>
+          <text style="padding-left:40rpx;" wx:else>库存不足</text>
+        </view>
+      </view>
+    </view>
+    <view class="divide" style="height:34rpx" ></view>
+    <view class="introduction" >
+      <image src="/images/icon-liwu.png"></image>
+      <!-- <text>{{shopInfo.info}}</text> -->
+      <text>{{business_name}}</text>
+    </view>
+    <view class="divide" style="height:22rpx"></view>
+    <view class="good-desc">
+      <view style="color: #9C9A9A;font-size: 28rpx;width:100%;height:auto;" bindlongtap="textPaste" data-content="{{shopInfo.desc}}">{{shopInfo.desc?shopInfo.desc:'暂无商品详情'}}</view>
+      <view class="desc-imageList">
+        <image src="{{item}}" mode="widthFix" wx:for="{{shopInfo.img}}" wx:key="index"></image>
+      </view>
+      <view style="height:30rpx"></view>
+    </view>
+    <view class="bottom-buy1">
+      <view class="num">
+        <view class="minuadd-box" catch:tap="minusNum">-</view>
+        <input type="number" bindinput="inputValue" value="{{goodnum}}" />
+        <view class="minuadd-box" catch:tap="addNum">+</view>
+      </view>
+      <view class="goTo-shop-box" bindtap="gotoshop" data-business_id="{{shopInfo.business_id}}">
+        <view class="is-dian"></view>
+        <image src="/images/shop/shop-detail-icon.png" class="goToshop-image"></image>
+        <text>进店逛逛</text>
+      </view>
+      <view class="to-buy-box" style="justify-content:{{shopInfo.bal_count > 0?'flex-end':'center'}};">
+        <view class="tobuy-box-n" bind:tap="buyNow" wx:if="{{shopInfo.bal_count > 0}}">
+          立即购买 立减￥{{filters.toFix(shopInfo.price - shopInfo.total_price)}}
+        </view>
+        <view class="tobuy-box-n understock" wx:else>库存不足</view>
+      </view>
+    </view>
+
+  </view>
+  <!-- ======= 商品部分 结束====== -->
+  <!-- ====================== 拆盲盒 广告部分 结束================ -->
+  <!-- ====================== banner 广告部分 开始================ -->
+  <view class="signBlindbox-advertise-box" wx:else>
+
+    <view class="signBlindbox-bannerAdv-box">
+      <view style="background:#fff;padding:10rpx;box-sizing:border-box;">
+        <view class="swiper-container1">
+          <swiper class='swiper' autoplay="true" circular="true" interval="1500">
+            <block wx:for="{{banner_img}}" wx:key="index">
+              <swiper-item bind:tap="goToFromImg1" data-index="{{index}}" data-id="{{item.id}}" data-select_id="{{item.select_id}}" data-select_type="{{item.select_type}}">
+                <view class="swiperitem-box">
+                  <view class="swiperitem-l">
+                    <image src="{{ item.select.image[0] }}" class="swiperitem-l-image" mode='aspectFill' />
+                  </view>
+                  <view class="swiperitem-r">
+                    <view class="swiperitem-r-title">{{item.select.select.title}}</view>
+                    <view class="swiperitem-r-y">原价 <text style="text-decoration:line-through;">￥{{item.select.select.price}}</text></view>
+                    <view class="discount-price">
+                      <text>折扣价 ￥{{ item.select.select.total_price }}+{{item.select.select.hbb?item.select.select.hbb:'0.00'}}积分</text>
+                    </view>
+                    <view class="qg-box">立即抢购</view>
+                  </view>
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- ====================== banner 广告部分 结束================ -->
+<!-- ======================  广告部分 结束 ================== -->

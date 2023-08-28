@@ -1,0 +1,88 @@
+  <form bindsubmit='savaData' report-submit>
+    <view class="mine_nav">
+      <view>
+        <view class="info_name items"style="align-items: start;">
+          <text>地址信息：</text>
+          <view  bindtap="info_name_gai" class="name_phone_addres" wx:if="{{contact_name == '' && contact_phone == ''&& address == ''}}">
+            <view style="color:#b2b2b2;">添加新地址</view>
+          </view>
+          <view class="name_phone_addres"  bindtap="info_name_gai" wx:else>
+            <view><text style="color:#3b3b3b;">{{contact_name}}</text><text style="padding-left:28rpx;">{{contact_phone}}</text></view>
+            <view>{{garden}} {{address}} </view>
+          </view>
+        </view>
+      </view>
+      <view class="divide-bold"></view>
+
+      <view>
+        <view class="items">
+          <text>预约时间：</text>
+          <view bindtap="gotostartDatename" class="person_select" style="color:{{selectDeta?'#333': '#b2b2b2'}};"> {{selectDeta?selectDeta:'请选择预约时间'}}</view>
+          <input placeholder='请选择' value='{{selectDeta}}' placeholder-style='color:#b2b2b2;' style='display:none;' name="visited_at"></input>
+          <view class="min_icon">
+            <image src='/images/icon_mine_more.png' mode='widthFix'></image>
+          </view>
+        </view>
+        <view class="items">
+          <text>预约专员：</text>
+          <view bindtap="getRecoverStaff" class="person_select" style="color:{{selectedRecover.name?'#333': '#b2b2b2'}};">{{selectedRecover.name?selectedRecover.name:'请选择回收专员'}}</view>
+          <view class="min_icon">
+          <image src='/images/icon_mine_more.png' mode='widthFix'></image>
+          </view>
+        </view>
+
+        <view class="items">
+          <text>预约重量：</text>
+          <view style="flex:1;" class="person_select">
+            <view style="width:auto;font-size: 28rpx;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">{{types_a}}</view>
+          </view>
+        </view>
+
+        <view class="items" style="padding: 30rpx 0;">
+          <text>订单备注：</text>
+          <input placeholder='请输入备注信息' placeholder-style='color:#b2b2b2;' name="remark" disabled="{{!member_id}}" style="font-size: 30rpx;"></input>
+        </view>
+
+      </view>
+      <view class="divide-bold"></view>
+    </view>
+
+    <!-- 承德打卡活动 -->
+    <include src="/pages/module/chengde_huodong/index.wxml" />
+    <view class='btn-send'>
+      <button form-type='submit' hover-class='hover_color' disabled="{{!member_id}}">
+        提交预约
+      </button>
+    </view>
+  </form>
+
+  <view style="width:100%;height:150rpx;"></view>
+  <!-- 信息预览弹窗 -->
+  <!-- <include src="/pages/module/ad_preview/index.wxml" /> -->
+  <!-- 个人信息弹窗 -->
+  <view class="mask" wx:if="{{information}}" bindtap="mask1" catchtouchmove="myCatchTouch"></view>
+  <view class="recycle-mark" wx:if="{{information}}" catchtouchmove="myCatchTouch">
+    <view class="items">
+      <text>联系人:</text>
+      <input placeholder='请输入完整姓名' placeholder-style='color:#b2b2b2;' bindinput="contact_name" name="contact_name" value="{{contact_name}}" disabled="{{!member_id}}"></input>
+    </view>
+    <view class="items">
+      <text>联系电话:</text>
+      <input placeholder='手机或固话' placeholder-style='color:#b2b2b2;' name="contact_phone" value="{{contact_phone}}" bindinput="contact_phone"  disabled="{{!member_id}}"></input>
+    </view>
+    <view class="items">
+      <text>省市区:</text>
+      <picker mode="multiSelector" name="garden" value="{{multiIndex}}" range="{{cityArray}}" bindchange="saveGarden">
+        <view class="shengshi">{{garden ? garden:'请选择省市区'}}</view>
+      </picker>
+    </view>
+    <view class="items" style="align-items:start;">
+      <text>详细地址:</text>
+      <textarea wx:if="{{!showRecover}}" placeholder='例：**街道**小区**号楼**室' placeholder-style='color:#b2b2b2;font-size:28rpx;' fixed="true" name="address" value="{{address}}" disabled="{{!member_id}}" bindinput="saveAddress"></textarea>
+    </view>
+    <view class="queding" hover-class="quedinghove" bindtap="queding">确定</view>
+  </view>
+  <!-- 个人信息弹窗结束 -->
+
+  
+  

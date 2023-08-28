@@ -1,0 +1,60 @@
+<view class="bg-box">
+  <image src="https://huanbaobi.qingshanpai.com/banner/banner/banner1620608821_38486_.png"></image>
+</view>
+<view class="group-explain-box">
+  <view class="group-explain-head">创建闲置圈能得到什么？</view>
+  <view class="group-explain-exhibit">
+    <view>
+      <view class="text-items">1、 闲置圈圈每增加一个人，创建人得到50环保积分奖励！</view>
+      <view class="text-items">2、 好邻居，好闲置！好“闲”交好友！</view>
+      <view class="text-items">3、 做“造物主”，给闲置赋予新生命！</view>
+      <view class="text-items">4、 更多好处，赶紧去探索吧！</view>
+    </view>
+  </view>
+</view>
+
+<!-- 选择类型 -->
+<view class="group-type-box">
+    <view class="add-box1">
+      <view  class="add-box1-items">
+        <view class="add-box1-title">选择类型:</view>
+        <view class="scll-list-items">
+          <scroll-view scroll-x="true" class="box1-scroll">
+            <view class="box-scroll-method {{appendix_sel == item.id ? 'active' : ''}}" wx:for="{{appendixList}}" wx:key="index" data-id='{{item.id}}' bindtap="appendix_sel">{{item.name}}</view>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+</view>
+
+<view class="create-btn-box">
+  <view hover-class="hoverClass" bindtap="createMyGroup">创建闲置圈圈</view>
+</view>
+<!-- 附近闲置圈 -->
+<view class="myidle-box">
+  <view class="myidle-box-title">
+    <view class="myidle-title-l">
+      <view class="myidle-title-l-b"></view>
+      <text>附近闲置圈</text>
+    </view>
+    <view class="myidle-title-r" hover-class="hoverClass" bindtap="gotoFjGroupList"><text>查看更多</text> > </view>
+  </view>
+  <view class='nulldata_wrap' wx:if="{{nearGroupList.length <=0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据</view>
+  </view>
+  <view wx:else>
+    <view class="idleGroup-box" wx:for="{{nearGroupList}}" wx:key="index"  data-id="{{item.id}}" bindtap="goToGroupIndex">
+      <image src="{{item.group_image}}"></image>
+      <view class="idleGroup-item-info">
+        <view class="item-info-title">{{item.group_name}}</view>
+        <view class="item-info-add">{{item.garden?item.garden:''}}{{item.address?item.address:'暂无地址'}}</view>
+        <view class="item-info-fijin">附近{{item.member_count}}人在这里</view>
+      </view>
+      <view class="idleGroup-juli-box">
+        <view class="idleGroup-juli">{{item.distance?item.distance:'0'}}Km</view>
+      </view>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,77 @@
+<view class="swiper-container">
+  <swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+    <block >
+      <swiper-item>
+        <image src="{{img}}" class="slide-image" mode="aspectFit" bindtap="saveImage" data-img="{{img}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="price-info">
+  <view class="info-title">
+    {{title}}    
+  </view>
+  <!-- <view class="origin-price" wx:if="{{ type != 2 }}"> -->
+  <view class="origin-price">
+  </view>
+  <view class="now-price">
+    <view class="now-price-z">
+      <view class="price-z-title">兑换价</view>
+      <view>
+        <text style="font-size:22rpx;">￥</text>{{total_price}}+{{hbb}}<text style="font-size:22rpx;"> 环保积分</text>
+      </view>
+    </view>
+    <view class="noe-price-stock">
+      <text>{{bought}}已售</text>
+      <text style="padding-left:16rpx;" wx:if="{{bal_count > 0}}">剩余：{{bal_count}}</text>
+      <text style="padding-left:16rpx;" wx:else>库存不足</text>
+    </view>
+
+  </view>
+</view>
+<view class="divide" style="height:34rpx"></view>
+<view class="introduction">
+  <image src="/images/icon-liwu.png"></image>
+  <text>此商品由青山生态提供支持</text>
+</view>
+<view class="divide" style="height:22rpx"></view>
+<view class="good-desc">
+  <view class="desc-title">商品详情</view>
+  <view style="color: #9C9A9A;font-size: 28rpx;width:100%;height:auto;" bindlongtap="textPaste" data-content="{{desc}}">{{desc}}</view>
+  <view style="height:30rpx"></view>
+</view>
+
+<view class="bottom-buy">
+  <view class="num">
+    <image src="/images/icon_lt_minus.png" catch:tap="minusNum"/>
+    <input type="number" bindinput="inputValue" value="{{goodnum}}" />
+    <image src="/images/icon_rt_add.png" catch:tap="addNum"/>
+  </view>
+  <button class="to-buy" wx:if="{{member_id}}" data-is_songcai="1" data-gdImages="{{img}}" data-vegetable_id="{{vegetable_id}}" data-sharetxt="{{title}}" open-type="share" style="background:rgb(253,130,50)">分享好友</button>
+  <!--库存不足按钮-->
+  <view class="to-buy" style="width:{{member_id ? '35%' : '60%'}}" data-is_idle="{{is_idle}}" bind:tap="buyNow" wx:if="{{bal_count > 0}}">立即购买</view>
+  <view class="to-buy understock" wx:else>库存不足</view>
+</view>
+
+
+<view class='pop-box' wx:if="{{pop2}}" catchtouchmove="myCatchTouch">
+  <view class='pop-bg'></view>
+  <view class='pop-main' style='padding:20rpx 80rpx 40rpx;box-sizing: border-box;'>
+    <view class='pop-title'>微信登录</view>
+    <view class='pop-content'>
+      <view class='pop-text-img'>
+        <text>青山生态小程序需要您登录后才能获取更多信息</text>
+        <image mode='widthFix' src='/images/icon-sq.png' style='width:105rpx;margin:20rpx auto 0;display:block;'></image>
+      </view>
+    </view>
+    <view style="display:flex">
+      <button type="default" size="mini" style="width:48%;font-size:28rpx;height:90rpx;line-height:90rpx" bindtap='cancelLogin' > 取消登录 </button>
+      <button type="primary" size="mini" style="width:48%;font-size:28rpx;height:90rpx;line-height:90rpx;background:#29c572;" bindgetuserinfo="getUserInfo" lang="zh_CN" open-type="getUserInfo"> 立即登录 </button>
+    </view>
+  </view>
+</view>
+  <!-- 返回上一步 -->
+  <include src="/packageA/pages/module/backto/index.wxml" />
+
+
+

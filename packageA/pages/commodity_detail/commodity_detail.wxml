@@ -1,0 +1,76 @@
+<view class="swiper-container">
+  <swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+    <block wx:for="{{img}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" mode="aspectFit" bindtap="saveImage" data-img="{{item}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="price-info">
+  <view class="info-title">
+    {{title}}     
+  </view>
+  <view class="origin-price" wx:if="{{ type != 2 }}">
+    <view><text decode="true">原&emsp;价</text></view>
+    <text style="text-decoration:line-through;">￥{{price}}</text>
+  </view>
+  <view class="now-price">
+    <view class="now-price-z">
+      <view class="price-z-title">兑换价</view>
+      <view>
+        <text style="font-size:22rpx;">￥</text>{{total_price}}+{{hbb}}<text style="font-size:22rpx;"> 环保积分</text>
+      </view>
+    </view>
+    <view class="noe-price-stock">
+      <text wx:if="{{bal_count > 0}}">剩余：{{bal_count}}</text>
+      <text wx:else>库存不足</text>
+    </view>
+
+  </view>
+</view>
+<view class="divide" style="height:22rpx"></view>
+<view class="good-desc">
+  <view class="desc-title">商品详情</view>
+  <view style="color: #9C9A9A;font-size: 28rpx;width:100%;height:auto;" data-content="{{desc}}">{{desc}}</view>
+  <view style="height:30rpx"></view>
+</view>
+
+<view class="bottom-buy" wx:if="{{ is_daimai != 1 }}">
+  <view class="num">
+    <image src="/images/icon_lt_minus.png" catch:tap="minusNum"/>
+    <input type="number" bindinput="inputValue" value="{{goodnum}}" />
+    <image src="/images/icon_rt_add.png" catch:tap="addNum"/>
+  </view>
+  <!-- <button class="to-buy" wx:if="{{member_id || memberid}}" open-type="share" style="background:rgb(253,130,50)">好友助力</button> -->
+  <!--库存不足按钮-->
+  <view class="to-buy" bind:tap="buyNow" wx:if="{{bal_count > 0}}">立即购买</view>
+  <view class="to-buy understock" wx:else>库存不足</view>
+</view>
+
+<!--好友助力送积分弹出遮罩-->
+<view class='mask' bindtap="deliveryDesc" wx:if="{{isHelp == 1 && title}}"></view>
+<view class='popups' wx:if="{{isHelp == 1  && title}}">
+  <view class="close" bindtap="closeHelp">
+    <image src="http://oss.qingshanpai.com/banner/close.png"></image>
+  </view>
+  <view class="integral">{{cfg.integral}}</view>
+  <image src="http://oss.qingshanpai.com/huanbaobi/52902c41ec16b958b7485b0c21620838.png"></image>
+  <button bindtap="help">立即助力</button>
+</view>
+<!--弹窗-->
+<view class="modal-hide" bindtap="hideModal" wx:if="{{showModel}}"></view>
+<view class="modal-dialog" wx:if="{{showModel}}">
+  <view class="modal-title">积分不足提示</view>
+  <view class="modal-content">
+    <view class="modal-input">
+       您的可用积分不足，转发好友助力可以得更多积分哦~
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="hideModal" data-status="cancel">取消</view>
+    <button class="btn-confirm" data-status="confirm" open-type="share">好友助力</button>
+  </view>
+</view>
+  <!-- 返回上一步 -->
+  <include src="/packageA/pages/module/backto/index.wxml" />

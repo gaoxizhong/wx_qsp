@@ -1,0 +1,70 @@
+<view class="poster-view-box">
+  <swiper class='swiper' bindchange="moveServerProSwiper" data-id="{{index}}" circular="true" current="{{swiper_index}}" previous-margin="40rpx" next-margin="40rpx">
+    <block wx:for="{{preview_pream.banner_img}}" wx:key="index">
+      <swiper-item  class="is_secl">
+        <view class="swiper-item-view {{index == swiper_index?'scaleY-1':'scaleY-2'}}" >
+          <image src="{{item}}" mode='scaleToFill'/>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="volundetails-box">
+  <view class="volundetails-box1">
+    <view class="volundetails-info">
+      <view class="info-name">{{preview_pream.member_name}}</view>
+      <view class="items_detail_activity">
+        <view class="items_list_image"><image src="/packageA/assets/images/list_time.png" style="width:26rpx;height:26rpx;"/></view>
+        <text>{{preview_pream.member_time}}</text>
+      </view>
+      <view class="items_detail_activity">
+        <view class="items_list_image"><image src="/packageA/assets/images/list_add.png" style="width:24rpx;height:34rpx;"/></view>
+        <text>{{preview_pream.member_garden + preview_pream.member_address }}</text>
+      </view>
+      <view class="info-text">
+        {{preview_pream.info_details}}
+      </view>
+
+      <view class="discuss_box">
+        <view class="discuss_title">评论</view>
+        暂无
+      </view>
+    </view>
+  </view>
+</view>
+<view style="width:100%;height:210rpx;"></view>
+<view class="valundetails-bott-box">
+  <view bindtap="bottom_btn">
+    <view class="bott-box-icon">
+      <image src="../../../assets/images/valun_bott_1.png"></image>
+    </view>
+    <view class="bott-box-title">电话</view>
+  </view>
+  <view class="bott_arrow">
+    <image src="../../../assets/images/bott_arrow.png"></image>
+  </view>
+  <view bindtap="bottom_btn">
+    <view class="bott-box-icon">
+      <image src="../../../assets/images/valun_bott_2.png"></image>
+    </view>
+    <view class="bott-box-title">导航</view>
+  </view>
+  <view class="bott_arrow">
+    <image src="../../../assets/images/bott_arrow.png"></image>
+  </view>
+  <view bindtap="bottom_btn">
+    <view class="bott-box-icon">
+      <image src="../../../assets/images/valun_bott_3.png"></image>
+    </view>
+    <view class="bott-box-title">评论</view>
+  </view>
+  <view class="bott_arrow">
+    <image src="../../../assets/images/bott_arrow.png"></image>
+  </view>
+  <view bindtap="bottom_btn">
+    <button class="bott-box-icon">
+      <image src="../../../assets/images/valun_bott_4.png"></image>
+    </button>
+    <view class="bott-box-title">转发</view>
+  </view>
+</view>

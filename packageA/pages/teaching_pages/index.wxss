@@ -1,0 +1,162 @@
+page{
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.title-box{
+  font-size: 28rpx;
+  color: #999;
+}
+.my-function-list {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+.function-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 105rpx;
+  font-size: 30rpx;
+  position: relative;
+  border: none;
+}
+.function-list-item::before {
+  content: '';
+  width: 100%;
+  height: 2px;
+  transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #dbdbdb;
+}
+.function-list-item-left {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 230rpx;
+}
+.arrow-input{
+  flex: 1;
+  height: 100%;
+}
+.arrow-input input{
+  width: 100%;
+  height: 100%;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
+.submit-btn{
+  width: 462rpx;
+  text-align: center;
+  height: 78rpx;
+  line-height: 78rpx;
+  border-radius: 20px;
+  font-size: 28rpx;
+  background: #4ac081;
+  color: #fff;
+  margin: 0 auto;
+  position: fixed;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+}
+.zhushi-text{
+  font-size: 28rpx;
+  color: #ff0000;
+}
+.shengshi{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.items-list {
+  width: 100%;
+  height: auto;
+  position: relative;
+  box-sizing: border-box;
+}
+.infoItem-list-box {
+  margin: 20rpx 0;
+  padding: 20rpx 16rpx;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 2px #00000020;
+}
+.index-list-img {
+  width: 76rpx;
+  border-radius: 50%;
+}
+.list-titletext {
+  flex: 1;
+  padding-left: 20rpx;
+  font-size: 30rpx;
+}
+.list-top-sele {
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list-top-sele>image {
+  width: 100%;
+}
+.newbtn-area {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+}
+.newbtn-area>button {
+  line-height: 1;
+  width: 450rpx;
+  border-radius: 20px;
+  background: #4ac081;
+  font-size: 30rpx;
+  color: #fff;
+  padding: 20rpx 30rpx;
+}
+.infoPlate-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 40rpx 0;
+}
+.infoPlate-Push-box {
+  width: 442rpx;
+  height: 112rpx;
+  position: relative;
+}
+.infoPlate-Push-box>image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.infoPlate-text {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 32rpx;
+  padding-top: 24rpx;
+  box-sizing: border-box;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
+.hoverClass{
+  opacity: 0.8;
+}

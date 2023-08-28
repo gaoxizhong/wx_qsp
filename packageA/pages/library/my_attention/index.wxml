@@ -1,0 +1,86 @@
+  
+  <!-- <view class="sousuo-box">
+    <view class="input-box">
+      <input type="text" value="" placeholder="输入图书名称"  bindinput="searchLibrary" value="{{library_name}}"></input>
+    </view>
+    <view class="btn-box" catchtouchmove="aaa" bindtap="getLibraryByConditon">搜索</view>
+  </view> -->
+  
+  <view style="padding: 20rpx 20rpx;">
+    <!-- <view class="class_box"> 
+      <view class="create-library" bindtap="goToindex_personal" wx:if="{{my_library}}" data-library_id="{{my_library.id}}">
+        <view class="create-title">查看我的书店</view>
+        <view class="desc-text">查看我的专属书店，你的邻居可看到、购买你的图书。</view>
+      </view>
+      <view class="create-library" bindtap="goTocreate" wx:if="{{!my_library}}">
+        <view class="create-title">创建你的书店</view>
+        <view class="desc-text">创建你的专属书店，你的邻居可看到、购买你的图书。</view>
+      </view>
+      <view class="my-attention">我的关注</view>
+      <view class="my-group" bindtap="getmygroup">我的团组</view>
+    </view> -->
+     <view class="library-list1">
+      <scroll-view scroll-y="{{true}}">
+        <view 
+          class="list-item" 
+          wx:for="{{library_member_List}}" 
+          wx:for-index="index" 
+          wx:for-item="item" 
+          wx:key="index" 
+          data-id="{{item.id}}" 
+          data-is_password="{{item.is_password}}" 
+          data-library_id="{{item.id}}" data-book_num="{{item.book_num}}" bind:tap="goToindex_personal" 
+          >
+          <view class="lt">
+            <view class="lt-left">
+              <view class="lt-image">
+                <image src='{{item.library_img}}'></image>
+              </view>
+              <view class="lt-text">
+                <view class="name">{{item.library_name}}</view>
+                <text style="font-size:26rpx;">馆长：{{item.member_name?item.member_name: '暂无'}}</text>
+              </view>
+            </view>
+            <view class="lt-right">
+              <view class="right-cang" style="margin-bottom:10rpx;" wx:if="{{item.stock > 0}}">
+                <image src="/images/16.png"></image>
+                <text>藏书{{item.stock}}册</text> 
+              </view>
+              <view style="margin-bottom:10rpx;color:#4AC08B;" wx:if="{{item.stock <= 0}}">暂无图书</view>
+
+              <view>距离{{item.distance}}KM</view>
+            </view>
+          </view>
+          <!-- <view class="rt">
+            <view class="score" wx:for="{{item.books}}" wx:key="idx" wx:for-item="items">
+              <view class="rt-image-box"><image src="{{items.images_medium}}"></image></view>
+              <view class="rt-title-box">
+                <text class="rt-title-text">{{items.book_name}}</text>
+                <text class="rt-title-bg">
+                  <text class="btn-bg">折后价</text>
+                  <text class="btn-jiage">￥{{items.discount_price}}</text>
+                </text>
+              </view>
+            </view>
+          </view> -->
+        </view>
+
+
+        <view class='nulldata_wrap' wx:if="{{libraryList.length == 0}}">
+          <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+          <view class='msg'>暂无数据</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+<!-- 密码弹框 -->
+<view class='cover' wx:if="{{isShowConfirm}}" bindtap="isShowConfirm" catchtouchmove="myCatchTouch"></view>
+<block wx:if="{{isShowConfirm}}">
+  <view class="toast-box">
+    <form bindsubmit="judge_linbarrnum">
+      <input placeholder="请输入书店密码" placeholder-style='color:#FFFFFF;' class="input-num" name='library_bianma' value="{{library_bianma}}"></input>
+      <button class="t-b" form-type="submit">确认</button>
+    </form>
+  </view>
+</block>

@@ -1,0 +1,120 @@
+<!-- 我的闲置上部分 -->
+<!-- <include src="/pages/module/myIdleHead/index.wxml" /> -->
+<view class="indexbg"></view>
+<!-- 我的求购 -->
+<view class="myidle-box">
+  <view class="myidle-box-title">
+    <view class="myidle-title-l">
+      <view class="myidle-title-l-b"></view>
+      <text>我的求购</text>
+    </view>
+    <view class="cj-group-box" hover-class="hoverClass" data-is_sales="1" bindtap="createMyBuying">
+      <text>发布求购</text>
+      <view class="cj-box">+</view>
+    </view>
+  </view>
+  <view class='nulldata_wrap' wx:if="{{dataStatus}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据</view>
+  </view>
+  <view wx:else>
+    <view class="myBuying-box" wx:for="{{myfull_listdata}}" wx:key="index">
+      <view class="myBuying-list-t-box">
+        <view class="myBuying-list-t-l">
+          <image src="{{item.avatar}}" class="myBuying-list-userAvatarUrl"></image>
+          <view class="myBuying-list-t-info">
+            <view class="myBuying-list-nickName">{{item.nickname}}</view>
+            <view class="myBuying-list-time">{{item.created_at}}</view>
+          </view>
+        </view>
+        <view class="myBuying-list-t-r">
+          <view bindtap="delt_btn" data-id="{{item.id}}" wx:if="{{member_id == item.member_id}}">删除</view>
+        </view>
+      </view>
+      <view class="myBuying-list-title">
+          {{item.introduce}}
+        </view>
+      <view class="myBuying-list-img-box">
+        <view class="myBuying-image-box" wx:if="{{item.img || item.img.length > 0}}">
+          <view wx:for="{{item.img}}" wx:key="idx" wx:for-item="items">
+            <image src="{{items}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="myidle-box-gd">
+      <view class="cj-group-box" hover-class="hoverClass" bindtap="goToqgList"  wx:if="{{myfull_listdata.length>0}}"><text>查看更多</text> > </view>
+    </view>
+  </view>
+</view>
+
+<!-- 附近求购 -->
+<view class="myidle-box">
+  <view class="myidle-box-title">
+    <view class="myidle-title-l">
+      <view class="myidle-title-l-b"></view>
+      <text>附近求购</text>
+    </view>
+    <view class="myidle-title-r" hover-class="hoverClass" bindtap="goToFjQgList"><text>查看更多</text> > </view>
+  </view>
+  <view>
+    <view class="myBuying-box" wx:for="{{full_listdata}}" wx:key="index">
+      <view wx:if="{{member_id != item.member_id}}">
+        <view class="myBuying-list-t-box">
+          <view class="myBuying-list-t-l">
+            <image class="myBuying-list-userAvatarUrl" src="{{item.avatar}}"></image>
+            <view class="myBuying-list-t-info">
+              <view class="myBuying-list-nickName">{{item.nickname}}</view>
+              <view class="myBuying-list-time">{{item.created_at}}</view>
+            </view>
+          </view>
+          <view class="myBuying-list-t-r">
+            <view data-mobile='{{item.mobile}}' data-id="{{item.id}}" bindtap="getinfo_phone" >联系他</view>
+          </view>
+        </view>
+        <view class="myBuying-list-img-box">
+          <view class="myBuying-list-title">{{item.introduce}}</view>
+          <view class="myBuying-image-box" wx:if="{{item.img || item.img.length > 0}}">
+            <view wx:for="{{item.img}}" wx:key="idx" wx:for-item="items">
+              <image src="{{items}}"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+</view>
+
+
+
+<!-- 授权登录弹窗 -->
+<include src="/pages/module/login_mark/index.wxml" />
+<!-- 生成海报弹窗 -->
+<include src="/pages/module/makephoto/index.wxml" />
+<!-- 点击联系查看弹窗 -->
+
+<view class="marsk1" wx:if='{{marsk1}}'></view>
+<view class="marsk1-box" wx:if='{{marsk1}}'>
+  <view class="marsk1-title">个人信息</view>
+  <view class="mask1-info">
+    <view class="marsk1-name">姓名：{{marsk_name}}</view>
+    <view class="marsk1-tel">电话：{{marsk_tel}}</view>
+  </view>
+  <view class="marsk1-btn">
+    <view class="marsk1-btn-item left-btn" bindtap="left_btn">关闭</view>
+    <view class="marsk1-btn-item right-btn" bindtap='tel'>拨打电话</view>
+  </view>
+</view>
+
+
+<!-- 返回上一步 -->
+<movable-area class="movable-area">
+  <movable-view direction="all" out-of-bounds='true' bindtap="turnto" class="movable-view">
+    <image mode='widthFix' src="http://oss.qingshanpai.com/banner/icon_gohome.png"></image>
+  </movable-view>
+</movable-area>
+
+
+

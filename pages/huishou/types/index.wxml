@@ -1,0 +1,109 @@
+<view class="hdrt-box">
+	<view class="title1-box">
+		<view style="display: flex;align-items: center;"><image src="/packageA/assets/images/jyhs-icon-lc.png" mode="widthFix"></image>请选择可回收类型及数量</view>
+		<view class="title1-right-box"></view>
+	</view>
+	<view class="cate lt">
+		<view class="cate-item" wx:for="{{cateList}}" wx:for-index="index" wx:for-item="item" wx:key="index" bind:tap="changeCate" data-cateid="{{item.id}}" data-catename="{{item.name}}" data-cion_price="{{item.cion_price}}" data-integral_price="{{item.integral_price}}" data-money_price="{{item.money_price}}">
+			<view class="cate-name1">
+				<image class="imagurl" src="{{item.imageUrl}}"></image>
+				<image class="cate-name1-image" src="/images/sele-0.png" wx:if="{{sel_cate_id == item.id}}"></image>
+			</view>
+			<view class="cate-name">{{item.name}}</view>
+			<image class="lt-image" src="/images/super-1.png" wx:if="{{sel_cate_id == item.id}}"></image>
+		</view>
+	</view>
+	<view class="hd rt">
+		<view class="items" bind:tap="changere" wx:for="{{newlists}}" wx:key='idx' wx:for-index='idx' wx:for-item="item" data-goodid="{{item.id}}" data-goodtypeid="{{item.goodstype_id}}" data-curidx="{{idx}}">
+			<view class="{{goodid == item.id && sel_type==1 ? 'items-list-hove':''}} items-list">
+				{{item.min}}{{item.type}} - {{item.max}}{{item.type}}
+				<image src="/packageA/assets/images/jyhs-ic-ok.png" mode="widthFix" class="items-img-box" wx:if="{{goodid == item.id && sel_type==1}}"></image>
+			</view>
+		</view>
+		<view class="items" bindtap="getsel_type" wx:for="{{cateList}}" wx:if="{{sel_cate_id == item.id}}" wx:for-index="index" wx:key="index">
+			<input 
+				class="{{sel_cate_id == item.id && sel_type_input==1 ? 'items-list-hove':''}}"
+				type="number" 
+				pattern="[0-9]*" 
+				name='text'
+				data-cateid="{{item.id}}" 
+				data-curidx="{{index}}"  
+				data-name="{{item.name}}"  
+				data-unit="{{item.unit}}"  
+				data-cion_price = "{{item.cion_price}}"
+				data-integral_price = "{{item.integral_price}}"
+				data-money_price = "{{item.money_price}}"
+				value="{{numbers}}"
+				bindinput="save_input_num"
+				placeholder="手动输入（只输数字）" 
+				bindblur="blur_input_num"
+			>
+			</input>
+		</view>
+	</view>
+
+	<!-- <view class="shop-list" wx:if="{{sel_cate_id == 65}}">
+		<view class="list-ele">电器名称：</view>
+		<input type="text" placeholder="请填写电器名称..." value="{{elect}}" bindinput="set_elect" class="set_elect"></input>
+	</view> -->
+
+	<view class="shop-list">
+		<view class="title1-box" style="padding: 0;">
+			<view style="display: flex;align-items: center;">已选中：</view>
+			<view class="title1-right-box"></view>
+		</view>
+		<view class="shop-list-item" wx:for='{{ selected_goods }}' wx:key='index'>
+			<view>{{ item.name }} : {{ item.good_num }} {{ item.type }}</view>
+			<view class="btn-shanchu" bindtap="delet_list" data-id="{{item.id}}" data-goodstype_id='{{item.goodstype_id}}' data-index="{{index}}">删除</view>
+		</view>
+	</view>
+</view>
+
+<view class="divide-bold"></view>
+
+<view class="hdrt-box">
+	<view class="title1-box">
+		<view style="display: flex;align-items: center;"><image src="/packageA/assets/images/jyhs-icon-jl.png" mode="widthFix"></image>预计获得环保奖励</view>
+		<view class="title1-right-box"></view>
+	</view>
+	<view class='tot' wx:if="{{payStatus == 3}}">预计环保分：
+	<text class='color-64B'>{{total?total:0.00}}</text>
+</view>
+<view class='tot' wx:elif="{{payStatus == 2}}">预计环保币：
+	<text class='color-64B'>{{total?total:0.00}}</text>
+</view>
+<view class='tot' wx:elif="{{payStatus == 4}}">预计人民币：
+	<text class='color_red'>¥ {{total?total:0.00}}</text>
+</view>
+<!-- <view class='bd'>
+	<view class='items'>
+		<form report-submit bindsubmit='tapPay' data-id="{{item.id}}" data-curidx="{{index}}" wx:for="{{payItems}}" wx:key="index">
+			<button form-type='submit' hover-class='none'>
+				<view>
+					<view wx:if="{{item.checked}}" class='icon_box'>
+						<icon type="success_no_circle" size="16"></icon>
+					</view>
+				</view>
+				<image src='{{item.src}}'></image>
+			</button>
+			<view class="icon_box_text">{{item.name}}</view>
+		</form>
+	</view>
+	<view class='tips'>暖心提醒：环保奖励信息有少量出入，具体以现场回收人员测量为准！</view>
+</view> -->
+  <view class="view-tis">注：上门回收，采用积分结算。您积攒的可回收物，价值达到100积分（及以上）时，可以上门收取。积分可用于兑换本小程序平台福利，也可参与特定线下活动。</view>
+
+</view>
+
+
+<view style="width:100%;height:140rpx;"></view>
+
+
+
+<view class='btn-send'>
+	<form report-submit bindsubmit='savaData'>
+		<button form-type='submit' hover-class='hover_color'>
+			下一步
+		</button>
+	</form>
+</view>

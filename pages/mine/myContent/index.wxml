@@ -1,0 +1,114 @@
+<view class="box-rectanglebg">
+  <view class="rectanglebg">
+    <image src="http://oss.qingshanpai.com/banner/rectangle-bg1.png"></image>
+  </view>
+  <view class="rectan-title-info">
+    <view class="rectan-dynamic">
+      <view class="header">
+        <image src="{{members.avatar ? members.avatar : '/images/notlogin.jpg'}}" mode="aspecFill"></image>
+      </view>
+      <view class="info">
+        <text>{{members.nickname}}</text>
+        <view class="grade">{{members.grade}}</view>
+      </view>
+      <view class="rectan-share-box" >
+        <button class="rectan-shareimage" open-type="share" data-nickname="{{members.nickname}}" data-earnings="1" hover-class="aaa">
+          <image src="/images/rectan-shareim.png"></image>
+        </button>
+        <view class="rectan-bian-text" bindtap="gotoper_data" wx:if="{{view_member_id == member_id}}">编辑个人资料</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="kapian-rect-box">
+
+  <view class="kapian-rect-bott ">
+    <view>
+      <view>{{contents}}</view>
+      <text class="info-text">动态</text>
+    </view>
+    <view bindtap="{{ view_member_id == member_id ? 'gotolieks' : ''}}">
+      <view>{{result}}</view>
+      <text class="info-text">点赞</text>
+    </view>
+    <view>
+      <view>{{follow}}</view>
+      <text class="info-text">访问量</text>
+    </view>
+  </view>
+</view>
+
+<view class="b-view">
+  <view class="inner-layer">
+    <view class="b-view-box">
+      <view class="items-view" bindtap="goToindex_personal">
+        <image src="http://oss.qingshanpai.com/banner/rect-mybooks.png" mode="widthFix"></image>
+        <view class="items-view-text">{{view_member_id == member_id?'我的书店':'Ta的书店'}}</view>
+      </view>
+      <view class="items-view" bindtap="goToShop">
+        <image src="http://oss.qingshanpai.com/banner/rect-my-shops.png" mode="widthFix"></image>
+        <view class="items-view-text">{{view_member_id == member_id?'我的店铺':'Ta的店铺'}}</view>
+      </view>
+      
+      <view class="items-view" bindtap="{{view_member_id == member_id?'goTomyidle':'gotoxyIdle'}}">
+        <image src="http://oss.qingshanpai.com/banner/rect-my-idle.png" mode="widthFix"></image>
+        <view class="items-view-text">{{view_member_id == member_id?'我的闲置':'Ta的闲置'}}</view>
+      </view>
+      <view class="items-view" bindtap="goToPublish" wx:if="{{view_member_id  == member_id}}">
+        <image src="http://oss.qingshanpai.com/banner/rect-my-faquan.png" mode="widthFix"></image>
+        <view class="items-view-text">发个动态</view>
+      </view>
+      <view class="items-view" bindtap="guanzhu" wx:if="{{view_member_id != member_id}}">
+        <image src="{{is_true?'http://oss.qingshanpai.com/banner/love-solid.png':'http://oss.qingshanpai.com/banner/love-hollow.png'}}" mode="widthFix"></image>
+        <view class="items-view-text">{{is_true?'已关注':'关注Ta'}}</view>
+      </view>
+      <view class="items-view" bindtap="gotoMakephoto" wx:if="{{view_member_id == member_id}}">
+        <image src="http://oss.qingshanpai.com/banner/rect-my-haibaos.png" mode="widthFix"></image>
+        <view class="items-view-text">生成海报</view>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<!-- 留言 -->
+<leaveCom id='leave_com' is_you="{{is_you}}" leavecom_list="{{leavecom_list}}" data-title_text="留言区" bindgoTolist_detail="goTolist_detail" bindrelease_btn="release_btn"/>
+
+<include src="/pages/module/circle/index.wxml" />
+<!-- 弹层 -->
+  <view class="is_popess" wx:if="{{pop3}}" bindtap="is_popess"></view>
+  <!-- 评论 -->
+  <view class='pop-box' wx:if="{{pop1}}" catchtouchmove="myCatchTouch">
+    <view class='pop-bg' bindtap='popLock'></view>
+    <view class="addwx-wrap">
+      <input type='text' placeholder='{{inpPlaceholder}}' maxlength="-1" focus class='inp' bindinput='bindTextChange'></input>
+      <button hover-class='none' class="send-btn" bindtap='sendComment' style="{{textVal!=''&& savaStatus?'' :'color:rgba(255,255,255,.5);'}}">
+        发送
+      </button>
+    </view>
+  </view>
+<comp id="comp"/>
+  <!-- 返回上一步 -->
+<include src="/pages/module/backto/index.wxml" />
+<!-- 生成海报弹窗 -->
+<include src="/pages/module/makephoto/index.wxml" />
+<!-- 点击图片预览轮播 -->
+<include src="/pages/module/circleshop/index.wxml" />
+<!-- 扫码得积分 -->
+<include src="/pages/module/rece_integral/index.wxml" />
+<!-- 自动挂积分 -->
+<!-- <include src="/pages/module/deal_integral/index.wxml" /> -->
+<!-- 获取海报轮播子组件 -->
+<postercar id="postercar" swiper_index="{{swiper_index}}" poster_tabs="{{poster_tabs}}" is_poster="{{is_poster}}" bindque_btn="que_btn"/>
+<!-- 留言弹框 -->
+<view wx:if="{{is_leamsg}}" class="mrsk" bindtap="release_mrsk"></view>
+<view wx:if="{{is_leamsg}}" class="is-leamsg">
+  <view class="leamsg-title">留言：</view>
+  <view class="leamsg-text">
+    <textarea value="{{leamsg}}" placeholder="请留言..." bindinput="leamsg"></textarea>
+  </view>
+  <button class="leamsg_sub" bindtap="leamsg_sub">提交留言</button>
+</view>
+
+<!-- 信息广告弹窗 -->
+<include src="/pages/module/ad_preview/index.wxml" />

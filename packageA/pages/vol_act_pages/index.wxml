@@ -1,0 +1,102 @@
+
+<!-- 进度条模块 -->
+<view class="is_progress_box" wx:if="{{is_progress}}">
+  <view class="djs-box">00 : 00 : 0{{djs_number}}</view>
+  <view class="is_progress_bar">
+    <!-- 进度条 -->
+    <view class="progress-box">
+      <!-- 图标定位 -->
+      <view class="tb-box" style= 'left:{{tb_leflt}}rpx;'> 
+        <image src="/images/icon_jdt_yq.png" mode="widthFix" class="tb-img-1"></image>
+        <image  src="/images/jdt-icon-dmz.png" mode="widthFix" class="tb-img-2"></image>
+      </view>
+      <progress percent="{{ bar_number }}" stroke-width="24" activeColor="#fbce00" backgroundColor="#fff" duration="" bindactiveend="activeend_jdt" border-radius="20" />
+    </view>
+  </view>
+  <view class="progress_btn_box">{{ bar_text }}</view>
+</view>
+<!-- 进度条模块 -->
+
+<view wx:if="{{is_zyhd_box}}">
+  <view class="page-title" wx:if="{{is_zyhd}}">
+    <text style="color:#ff0000;">{{dynamic.nickname}}</text>正在参加环保志愿活动，以个人力量促进社会进步、和谐，宣扬、践行志愿精神，请为志愿者点赞！
+  </view>
+  <view class="dynamic-info-box" wx:if="{{is_zyhd}}">
+    <view class="">{{dynamic.words}}</view>
+    <view class="circle-img">
+      <image src="{{item.url}}" mode="aspectFill" class="imgduo-width" wx:for="{{dynamic.gdImages}}" wx:key="index"></image>
+    </view>
+  </view>
+  <view class="love-bottom-btn">
+    <view class="btn-view" 
+      bindtap="like"
+      data-business_id="{{dynamic.business_id}}"
+      data-select_id="{{dynamic.referral_traffic.select_id}}"
+      data-select_type="{{dynamic.referral_traffic.select_type}}" 
+      data-traffic_id="{{dynamic.referral_traffic.id}}" 
+      data-zxid="{{dynamic.id}}" 
+      data-mid="{{dynamic.member_id}}" 
+      data-source="{{dynamic.source}}" 
+      hover-class='hover_color'>
+      <image src="/packageA/assets/images/vtc-z.png"></image>
+      <text style="padding-left:20rpx;">点赞 + {{dynamic.laud_count?dynamic.laud_count:'0'}}</text>
+    </view>
+    <view class="btn-view-r" data-activity_id='{{dynamic.activity_id}}' bindtap="gotoApplyFor">去参加</view>
+  </view>
+</view>
+<!-- 旧衣回收展位 开始 -->
+<view class="jyhs-page-box1" bindtap="goToclassactical">
+  <image src="https://oss.qingshanpai.com/icon/jyhs-page-img.png" mode="widthFix"></image>
+</view>
+<!-- 旧衣回收展位 结束 -->
+<!-- 广告位 -->
+<view class="circle-adbox" wx:if="{{is_ad}}">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30" bindclose="adClose"></ad>
+</view>
+
+<view style="background:#fff;padding:20rpx; box-sizing:border-box;margin-top: 20rpx;" wx:if="{{banner_img.length > 0}}">
+  <view class="swiper-container1">
+    <swiper class='swiper' autoplay="true" circular="true" interval="1500">
+      <block wx:for="{{banner_img}}" wx:key="index">
+        <swiper-item bind:tap="goToFromImg" data-index="{{index}}" data-id="{{item.id}}" data-select_id="{{item.select_id}}" data-select_type="{{item.select_type}}">
+          <view class="swiperitem-box">
+            <view class="swiperitem-l">
+              <image src="{{ item.select.image[0] }}" class="swiperitem-l-image" mode='aspectFill' />
+            </view>
+            <view class="swiperitem-r">
+              <view class="swiperitem-r-title">{{item.select.select.title}}</view>
+              <view class="swiperitem-r-y">原价 <text style="text-decoration:line-through;">￥{{item.select.select.price}}</text></view>
+              <view class="discount-price">
+                <text>折扣价 ￥{{ item.select.select.total_price }}+{{item.select.select.hbb?item.select.select.hbb:'0.00'}}积分</text>
+              </view>
+              <view class="qg-box">立即抢购</view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+
+<view class="title-box1">
+  <image src="/packageA/assets/images/vtc-t.png"></image>
+</view>
+
+<view class="goodinfo">
+  <view class="good-item" wx:for="{{volunacti_list[click_sele]}}" wx:key="index" bindtap="gotovolunac_details"  data-id="{{item.id}}" data-name="{{item.title}}">
+    <view class="good-item-view">
+      <image src="{{item.icon}}" data-imgindex="{{index}}" class="good-item-img"></image>
+      <view class="title-box">
+        <view class="goodname"> 
+          <image class="goodname-image" src="/packageA/image/volunacti-{{ click_sele !=4 ? click_sele : item.tags }}.png" ></image>
+          <text class="goodname-text">{{item.title}}</text>
+        </view>
+        <view class="good-desc">{{item.subtitle?item.subtitle:'暂无'}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 信息广告弹窗 -->
+<include src="/pages/module/ad_preview/index.wxml" />

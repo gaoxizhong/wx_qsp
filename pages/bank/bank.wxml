@@ -1,0 +1,326 @@
+<view class="integral-transaction" style="padding-bottom: 0;">
+	<view class="transac-img" >
+		<image src="http://oss.qingshanpai.com/banner/deal-banner2.png"></image>
+	</view>
+</view>
+<!-- 个人账户开始 -->
+<view class="bac-box" style="padding: 0;">
+	<view class="bac-box-title flex-column-space">
+		<view class="box-title-number">
+			<view class="box-title-number-lf">
+				<view class="number-lf-image">
+					<image src="{{m_avatar?m_avatar:'/images/notlogin.jpg'}}"></image>
+				</view>
+				<view class="number-lf-info">
+					<view class="m_name">
+						<text>{{m_name ? m_name : '未知'}}</text>
+						<view class="qianbi-box"  wx:if="{{member_id}}">
+							<image bindtap="gotoper_data" src="/images/bianji-1.png" class="image1"></image>
+						</view>
+						<!-- <text class="qianbi-box-text">完善资料，获得收益</text> -->
+					</view>
+					<view style="font-size:24rpx;margin-top: 10rpx;">{{memberBankTitle}}：{{memberIdBank ? memberIdBank : '暂无账号'}}</view>
+				</view>
+			</view>
+			<!-- <view class="box-title-number-rg" bindtap="goToWallet">
+				提现
+			<view class="xiaoxi" wx:if="{{is_type == 1}}"></view>
+			</view> -->
+			<view class="box-title-number-rg" bindtap="goToHisOrder">积分账单</view>
+		</view>
+		<view class="box-title-income flex-justitem-startcent">
+			<view>
+				<view class="income-text-nub">{{realAmount ? realAmount : '暂无积分'}}</view>
+				<view class="income-text-title"><image src="/images/jfjydt/ic_hbjf.png" class="income-text-img"></image><text style="padding-left: 8rpx;">环保积分</text></view>
+			</view>
+			<view>
+				<view class="income-text-nub">{{jf ? jf : '0'}}</view>
+				<view class="income-text-title"><image src="/images/jfjydt/ic_ys.png" class="income-text-img"></image><text style="padding-left: 8rpx;">已售</text></view>
+			</view>
+			<view>
+				<view class="income-text-nub">{{t_money ? t_money : '0.00'}}元</view>
+				<view class="income-text-title"><image src="/images/jfjydt/ic_hbjl.png" class="income-text-img"></image><text style="padding-left: 8rpx;">环保奖励</text></view>
+			</view>
+		</view>
+	</view>
+</view>
+<!-- 个人账户结束 -->
+<view class="bac-box" style="padding-top: 10px;">
+	<view class="bac-box-title bacList-box">
+		<view class="type-item" bindtap="goToScanCode">
+			<image src="/images/jfjydt/ic_zjf.png"></image>
+			<view>转积分</view>
+		</view>
+		<view class="type-item" bindtap="goToShowCode">
+			<image src="/images/jfjydt/ic_sjf.png"></image>
+			<view>收积分</view>
+		</view>
+		<view class="type-item" bindtap="goToaddintegral">
+			<image src="/images/jfjydt/ic_zhjf.png"></image>
+			<view>赚积分</view>
+		</view>
+		<view class="type-item" bindtap="goToWallet">
+			<image src="/images/jfjydt/ic_tx.png"></image>
+			<view>提现</view>
+		</view>
+	</view>
+</view>
+<!-- 环保积分兑换 -->
+<view class="greenPoints-box">
+  <view class="greenPoints-titlebox">
+    <image src="/images/index/index_ic_hbjfdh.png" mode="widthFix"></image>
+    <view class="titlebox-text">环保积分兑换</view>
+  </view>
+  <view class="greenPoints-btnbox">
+    <view>
+      <view class="greenPoints-items-box items-1" data-page="/pages/bank/bank" bindtap="greenPoints_click">
+        <image src="/images/index/index_ic_jfhq.png" mode="widthFix"></image>
+        <view style="margin-top: 10rpx;">积分换钱</view>
+      </view>
+    </view>
+    <view>
+      <view class="greenPoints-items-box items-2" data-page="/packageA/pages/library/library/library" bindtap="goToclassactical">
+        <image src="/images/index/index_ic_jfhs.png" mode="widthFix"></image>
+        <view style="margin-top: 10rpx;">积分换书</view>
+      </view>
+    </view>
+    <view>
+      <view class="greenPoints-items-box items-3" data-page="/packageA/pages/my_coupon/index" bindtap="goToclassactical">
+        <image src="/images/index/index_ic_jfhyhj.png" mode="widthFix"></image>
+        <view style="margin-top: 10rpx;">积分换优惠</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 收购列表模块 -->
+<view class="integral-transaction">
+
+	<view class="acquisition-module-box">
+		<view style="padding: 14rpx 0;">
+			<view class="citveBox-items-title">以下企业正在收购积分</view>
+		</view>
+		<view class="being-conduct-box" wx:if="{{ my_record }}" bindtap="gotosgtask">
+			<image src="http://oss.qingshanpai.com/banner/jfdh-look-bg.png" class="being-conduct-bg"></image>
+			<view class="being-conduct-view">你有一个任务正在进行	</view>
+		</view>
+	</view>
+	<!-- 收购积分列表 -->
+	<view class="acquisitionList-box">
+		<view class="zwsj-box" wx:if="{{acquisitionList.length <= 0}}">
+			<image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+			<text>附近暂无企业收购积分...</text>
+		</view>
+		<block wx:for="{{acquisitionList}}" wx:key="index">
+			<view class="acquisitionList-items-box">
+				<view class="acquisitionList-items-t">
+					<image src="{{item.business.avatar}}" class="acList-l-avatar"></image>
+					<view class="acList-items-l-box">
+						<view class="acList-l-view">
+							<view class="acList-l-title">{{item.business.name}}</view>
+							<view class="acList-l-ac"><text>收购积分：</text> {{item.quota}}</view>
+							<view class="acList-l-ac"><text>已购积分：</text> {{ item.buy_i?item.buy_i:'0.00' }}</view>
+							<view class="acList-l-bj">报价： <text style="color: #f9442e;"><text style="font-size: 24rpx;">￥</text>1.00</text>/积分</view>
+						</view>
+					</view>
+					<view class="acList-items-r-box" wx:if="{{item.is_tsbtn}}">
+						<view class="acList-r-btn1" hover-class="hoverClass" data-index="{{index}}" bindtap="clickIscsbtn" hover-class="hoverClass">
+							<image class="acList-r-btn-img" src="http://oss.qingshanpai.com/icon/bank_jybtn.png" mode="widthFix"></image>
+						</view>
+					</view>
+					<view class="acList-items-r-box" wx:else>
+						<view class="acList-r-btn" hover-class="hoverClass" data-business_id='{{item.business_id}}' data-id='{{item.id}}' data-select_id="{{item.select_id}}"  data-select_type="{{item.select_type}}" bindtap="smallAcquisition">
+							<image src="/images/jfjydt/bt_xlsg.png" class="acList-r-btn-img"></image>
+							<text class="acList-r-btn-text">小量出售</text>
+						</view>
+						<view class="acList-r-btn" hover-class="hoverClass" data-index="{{index}}" bindtap="getDlAcquisition">
+							<image src="/images/jfjydt/bt_dlsg.png" class="acList-r-btn-img"></image>
+							<text class="acList-r-btn-text">大量出售</text>
+						</view>
+					</view>
+
+				</view>
+				<view class="userList-box">
+					<view class="userList-number-img">
+						<block wx:for="{{item.record}}" wx:for-item="items" wx:for-index="subidx" wx:key="index">
+							<view style="left:{{subidx*60}}rpx;" data-index="{{subidx}}"><image src="{{items.member.avatar}}"></image></view>
+						</block>
+					</view>
+					<view class="userList-text">等{{item.record_count}}人次交易</view>
+				</view>
+			</view>
+		</block>
+		<view class="checkMore-box" hover-class="hoverClass" bindtap="goToacquisitionList" wx:if="{{ acquisitionList.length>1 }}">更多积分回收企业</view>
+	</view>
+</view>
+
+
+
+<!-- 好友排名、附近排名 -->
+<view class="integral-transaction">
+	<view class="sellRank-img">
+		<image src="http://oss.qingshanpai.com/banner/bg_title_jf.png"></image>
+		<view class="sellRank-img-view">环保积分总额：{{ canUseGrandTotal }}</view>
+	</view>
+	<view class="sellRank-module-box">
+		<!-- 切换按钮 -->
+		<view class="sellRank-citveBox">
+			<view bindtap="sellRankNav" data-sellrank='0' class="sellRank-citveBox-items">
+				<view class="sellRank-citveBox-subtitle">
+					<image src="/images/jfjydt/ic_hyph_disbled.png"></image>
+					<text class=" {{sellRankTab == '0'? 'itemsHover' :''}}">好友排名</text>
+				</view>
+			</view>
+			<view bindtap="sellRankNav" data-sellrank='1' class="sellRank-citveBox-items">
+				<view class="sellRank-citveBox-subtitle">
+					<image src="/images/jfjydt/ic_map_disbled.png"></image>
+					<text class=" {{sellRankTab == '1'? 'itemsHover' :''}}">附近排名</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 好友排行 -->
+	<view class="sellRankList-box" wx:if="{{sellRankTab == '0'}}">
+		<!-- 我的排名 -->
+		<block wx:for="{{rank_items.my_friend}}" wx:key="index">
+			<view class="ranklist-items ranklist-items1" wx:if="{{item.is_mine}}">
+				<view class="rank-index"><text>{{item.rank}}</text></view>
+				<view class="rank-avatar">
+					<image src="{{item.member.avatar}}"></image>
+					<text style="color:#757474;padding-left: 14rpx;">{{item.member.nickname}}</text>
+				</view>
+				<view class="rank-money-box">
+					<view>积分交易</view>
+					<view>{{item.total?item.total:'0.00'}}元</view>
+				</view>
+			</view>
+		</block>
+
+		<block wx:for="{{rank_items.my_friend}}" wx:key="index">
+			<view class="ranklist-items ranklist-items2">
+				<view class="rank-index">
+					<image src="/images/jfjydt/ic_{{item.rank}}.png" wx:if="{{item.rank == 1 || item.rank == 2 || item.rank == 3}}"></image>
+          <text wx:else>{{item.rank}}</text>
+				</view>
+				<view class="rank-avatar">
+					<image src="{{item.member.avatar}}"></image>
+					<text style="color:#757474;padding-left: 14rpx;">{{item.member.nickname}}</text>
+				</view>
+				<view class="rank-money-box">
+					<view>积分交易</view>
+					<view>{{item.total?item.total:'0.00'}}元</view>
+				</view>
+			</view>
+		</block>
+		<view class="zwsj-box" wx:if="{{rank_items.my_friend.length <= 0}}">
+			<image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+			<text>暂无数据...</text>
+		</view>
+		<!-- <view class="checkMore-box" bindtap="goTosellRankList" wx:if="{{sellBuddyRankList.length > 0}}">查看更多</view> -->
+	</view>
+
+		<!-- 附近排行 -->
+	<view class="sellRankList-box" wx:if="{{sellRankTab == '1'}}">
+		<!-- 我的排名 -->
+		<block wx:for="{{rank_items.my_near}}" wx:key="index">
+			<view class="ranklist-items ranklist-items1" wx:if="{{item.is_mine}}">
+				<view class="rank-index"><text>{{item.rank}}</text></view>
+				<view class="rank-avatar">
+					<image src="{{item.member.avatar}}"></image>
+					<text style="color:#757474;padding-left: 14rpx;">{{item.member.nickname}}</text>
+				</view>
+				<view class="rank-money-box">
+					<view>积分交易</view>
+					<view>{{item.total?item.total:'0.00'}}元</view>
+				</view>
+			</view>
+		</block>
+		<block wx:for="{{rank_items.my_near}}" wx:key="index">
+			<view class="ranklist-items ranklist-items2">
+				<view class="rank-index">
+					<image src="/images/jfjydt/ic_{{item.rank}}.png" wx:if="{{item.rank == 1 || item.rank == 2 || item.rank == 3}}"></image>
+          <text wx:else>{{item.rank}}</text>
+				</view>
+				<view class="rank-avatar">
+					<image src="{{item.member.avatar}}"></image>
+					<text style="color:#757474;padding-left: 14rpx;">{{item.member.nickname}}</text>
+				</view>
+				<view class="rank-money-box">
+					<view>积分交易</view>
+					<view>{{item.total?item.total:'0.00'}}元</view>
+				</view>
+			</view>
+		</block>
+		<view class="zwsj-box" wx:if="{{rank_items.my_near.length <= 0}}">
+			<image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+			<text>暂无数据...</text>
+		</view>
+		<!-- <view class="checkMore-box" bindtap="goTosellRankList"  wx:if="{{rank_items.my_near.length > 0}}">查看更多</view> -->
+	</view>
+
+</view>
+<!-- 全国环保积分总额 -->
+<!-- <view class="country-wealth"> {{ canUseGrandTotalTitle }}：{{ canUseGrandTotal }}</view> -->
+
+ <!-- 赚取积分弹窗 -->
+<view class="task-mask" wx:if="{{taskHidden}}" catchtouchmove="myCatchTouch"></view>
+<view class="task-module" wx:if="{{taskHidden}}">
+	<image class="tast-icon-title" src="http://oss.qingshanpai.com/banner/task_title.png"></image>
+	<image class="task-module-icon" bindtap="guanbi_task" src="http://oss.qingshanpai.com/banner/close.png"></image>
+	<view class="items-box">
+		<view class="items-box-list flex-justitem-spacecent" wx:for="{{more_integral}}" wx:key="idx">
+			<image class="list-image" src="/images/task_{{item.id}}.png"></image>
+			<view class="list-text">
+				<view style="font-size:30rpx;margin-bottom:8rpx;">{{item.name}} ( {{(item.do_num - item.limit_num) >= 0 ? item.limit_num : item.do_num}}/{{item.limit_num}} )</view>
+				<view style="font-size:26rpx;">{{item.content}}</view>
+			</view>
+			<view class="list-btn flex-column-space">
+				<view class="list-btn-icon flex-justitem-spacecent">
+					<image src="/images/task_gold.png"></image><text style="font-size:32rpx;line-height:1;">+{{item.one_integral}}</text>
+				</view>
+				<view class="list-btn-bind" style="background:{{ (item.do_num - 0)< (item.limit_num - 0) ? '#fff45c' : '#B5B5B5' }};color:{{ (item.do_num - 0)< (item.limit_num - 0) ? '#f19149' : '#fff' }};" bindtap="{{ (item.do_num - 0)< (item.limit_num - 0) ? 'goTotask' : '' }}" data-url="{{item.to_url}}" data-jifen="{{item.one_integral}}" data-type="{{item.type}}" data-task_id="{{item.id}}">{{ (item.limit_num - item.do_num) > 0 ? '去完成' : '已完成'}}</view>
+			</view>
+		</view>
+	</view>
+</view>
+<!-- 扫码得积分 -->
+<include src="/pages/module/rece_integral/index.wxml" />
+<!-- 投放广告弹窗 -->
+<include src="/pages/module/is_put/index.wxml" />
+<!-- 积分使用情况弹窗 -->
+<include src="/pages/module/is_useinter/index.wxml" />
+<!-- 信息预览弹窗 -->
+<include src="/pages/module/is_yulian/index.wxml" />
+<!-- 信息广告弹窗 -->
+<include src="/pages/module/ad_preview/index.wxml" />
+<view class="songjifen_mark" wx:if="{{ is_jf }}"></view>
+<view class="songjifen_box" wx:if="{{ is_jf }}" bindtap="gotojifenjiaoyi">
+	<image src="http://oss.qingshanpai.com/banner/57037c2819bb86b073003f792f64ee1.png" mode="widthFix"></image>
+</view>
+
+
+<!-- 出售积分规则按钮 -->
+<movable-area class="movable-area">
+  <movable-view direction="all" out-of-bounds='true' bindtap="ck_illustrate" class="movable-view">
+    <image mode='widthFix' src="http://oss.qingshanpai.com/icon/bank_cssm.png" style="width: 97rpx;"></image>
+  </movable-view>
+</movable-area>
+
+<!-- 出售积分规则弹窗 -->
+<view class="mask-bg" wx:if="{{explanation}}" bindtap="explanation_bg"></view>
+<view class="explanation-box" wx:if="{{explanation}}">
+	<view class="explanation-box-text">
+		<view style="font-size:16px;text-align: center;">出售说明</view>
+		<view class="box-text-list">
+			<view>1、</view>
+			<text>交易不设上限，积分指导价1元/积分；</text>
+		</view>
+		<view class="box-text-list">
+			<view>2、</view>
+			<text>按照与交易企业约定完成指定任务，完成交易；</text>
+		</view>
+	</view>
+</view>
+
+
+
+

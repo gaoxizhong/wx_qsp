@@ -1,0 +1,93 @@
+<view class="popularActivity-box">
+
+  <view class="popularActivity-list-box">
+
+    <view bindtap="goToPostersShow" class="list-before">
+      <image src="https://oss.qingshanpai.com/communityFunction/dtyz-hbjs.png" mode="widthFix" class="index-list-img"></image>
+      <view class="popularActivity-list-titletext">
+        <view style="font-weight:600;">低碳绿城</view>
+        <view class="list-snbtext">低碳改变世界，绿城与您共建美好家园!</view>
+      </view>
+      <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+    </view>
+
+    <view bindtap="gotorecyclePlate" class="list-before">
+      <image src="https://oss.qingshanpai.com/communityFunction/dtyz-jyhs.png" mode="widthFix" class="index-list-img"></image>
+      <view class="popularActivity-list-titletext">
+        <view style="font-weight:600;">旧衣回收</view>
+        <view class="list-snbtext">绿色循环，低碳有爱、有温度！</view>
+      </view>
+      <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+    </view>
+
+    <view bindtap="goTousecoin" class="list-before">
+      <image src="https://oss.qingshanpai.com/communityFunction/dtyz-hbfl.png" mode="widthFix" class="index-list-img"></image>
+      <view class="popularActivity-list-titletext">
+        <view style="font-weight:600;">低碳福利</view>
+        <view class="list-snbtext">超低价兑换</view>
+      </view>
+      <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+    </view>
+
+    <view bindtap="goTobank" class="list-before">
+      <image src="https://oss.qingshanpai.com/communityFunction/dtyz-wdhbjf.png" mode="widthFix" class="index-list-img"></image>
+      <view class="popularActivity-list-titletext">
+        <view style="font-weight:600;">社区书屋</view>
+        <view class="list-snbtext">免费领书，循环阅读。</view>
+      </view>
+      <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+    </view>
+
+  </view>
+
+  <view class="footer-box">
+    <image src="https://oss.qingshanpai.com/communityFunction/dtyz-btn.png" hover-class="hoverClass" class="footer-btn" bindtap="tel" data-mobile="010-63426100"></image>
+    <image src="https://oss.qingshanpai.com/communityFunction/dtyz-ft.png" class="footer-ingbox"></image>
+  </view>
+  
+</view>
+
+<!-- 个人账户开始 -->
+<view class="bac-box" style="padding: 0;">
+	<view class="bac-box-title flex-column-space">
+		<view class="box-title-number">
+			<view class="box-title-number-lf">
+				<view class="number-lf-image">
+					<image src="{{m_avatar?m_avatar:'/images/notlogin.jpg'}}"></image>
+				</view>
+				<view class="number-lf-info">
+					<view class="m_name">
+						<text>{{m_name ? m_name : '未知'}}</text>
+					</view>
+					<view style="font-size:24rpx;margin-top: 10rpx;">{{memberBankTitle}}：{{memberIdBank ? memberIdBank : '暂无账号'}}</view>
+				</view>
+			</view>
+			<view class="box-title-number-rg" bindtap="goToHisOrder">积分账单</view>
+		</view>
+		<view class="box-title-income flex-justitem-startcent">
+			<view>
+				<image src="/packageB/assets/images/icon-sy.png" class="income-text-img"></image>
+				<view class="income-text-title">
+					<text>环保积分</text>
+					<view class="income-text-nub">{{realAmount ? realAmount : '暂无积分'}}</view>
+				</view>
+			</view>
+			<view bindtap="goToFootprint">
+				<image src="/packageB/assets/images/icon-jy.png" class="income-text-img"></image>
+				<view class="income-text-title">
+					<text>我的订单</text>
+					<view class="income-text-nub"></view>
+				</view>
+			</view>
+			<view bindtap="goToyhq">
+				<image src="/packageB/assets/images/icon-jb.png" class="income-text-img"></image>
+				<view class="income-text-title">
+					<text>卡包</text>
+					<view class="income-text-nub"></view>
+				</view>
+			</view>
+
+		</view>
+	</view>
+</view>
+<!-- 个人账户结束 -->

@@ -1,0 +1,264 @@
+<wxs module="filters">
+var filters = {
+  toFix: function (value) {
+    return value.toFixed(2)
+  }
+}
+module.exports = {
+  toFix: filters.toFix
+}
+</wxs>
+<view class="tab-h">
+  <form report-submit class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindsubmit="swichNav">
+    <button hover-class='none' form-type='submit'>单类商品</button>
+  </form>
+  <!-- <form report-submit class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindsubmit="swichNav">
+    <button hover-class='none' form-type='submit'>团购商品</button>
+  </form> -->
+  <form report-submit class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindsubmit="swichNav">
+    <button hover-class='none' form-type='submit'>优惠券</button>
+  </form>
+</view>
+
+<view style="margin-top:100rpx;">
+<!-- 单类商品 -->
+  <view wx:if="{{qwe && currentTab==0}}">
+    <view class="need-hbb">
+      <text style="padding-left:20rpx;">标题</text>
+      <view style="flex:1;padding-left:30rpx;">
+        <input 
+          type="text" 
+          value="{{title}}" 
+          placeholder="请输入商品标题" 
+          bindinput="inputTitle"
+          maxlength="20"
+        />
+      </view>
+    </view>
+
+
+    <view class="activity-imgs">
+      <image 
+        wx:for="{{img}}"
+        wx:for-item="item"
+        wx:for-index="index"
+        wx:key="index"
+        mode="aspectFill"
+        data-index="{{index}}"
+        src="{{item}}"
+        bind:tap="openPhoto"/>
+      <view class="add-pic" bind:tap="choosePic" wx:if="{{img.length < 9}}">
+        <image src="/images/icon-addphoto.png" mode="aspectFill"/>
+      </view>
+    </view>
+    <view class="title-price">
+      <text class="title-left">商品价格</text>
+      <view class="title-right" bindtap='goToFix'>
+        <text class="title-toFix">{{ total_price }} </text>
+        <image src="/images/right.png"></image>
+      </view>
+    </view>
+    <view class="activity-details">
+      <view class="discount-price">
+        <text>活动库存</text>
+        <view>
+          <input type="digit" value="{{bal_count}}" placeholder="0" bindinput="inputBalCount"/>
+        </view>
+      </view>
+      <view class="discount-price">
+        <text>间隔天数</text>
+        <view>
+          <input type="digit" value="{{limit_day}}" placeholder="输入间隔天数" bindinput="inputLimitDays"/>
+        </view>
+      </view>
+      <view class="discount-price">
+        <text>限购件数</text>
+        <view>
+          <input type="digit" value="{{limit_num}}" placeholder="输入间隔天数内限购件数" bindinput="inputLimitNum"/>
+        </view>
+      </view>
+      <view class="discount-price">
+        <text style="padding-left:20rpx;">联系人</text>
+        <view>
+          <input type="text" value="{{discount_name}}" placeholder="姓名" bindinput="inputBalDiscname"/>
+        </view>
+      </view>
+      <view class="start-time discount-price">
+        <text>开始时间</text>
+        <picker mode="date" value="{{start_time}}" start="{{start_time}}" bindchange="bindStartTime">
+          <text>{{start_time?start_time:'请选择开始时间'}}</text>
+        </picker>
+      </view>
+      <view class="end-time discount-price">
+        <text>结束时间</text>
+        <picker mode="date" value="{{end_time}}" end="2099-12-31" bindchange="bindEndTime">
+          <text>{{end_time?end_time:'请选择结束时间'}}</text>
+        </picker>
+      </view>
+      <view class="discount-price">
+        <text>取货方式</text>
+        <checkbox-group class="checkbox-group discount-price" bindchange="obtainListChange">
+          <checkbox class="checkbox" value="1" checked="{{otp == 1 || showCheck}}">到店自提</checkbox>
+          <checkbox class="checkbox" value="2" checked="{{otp == 2 || showCheck}}" wx:if="{{activityType == 1}}">付费邮寄</checkbox>
+        </checkbox-group>
+      </view>
+      <view class="delivery" wx:if="{{fufeiShow}}">
+        <checkbox-group class="checkbox-group">
+          <view wx:for="{{delivery}}" style="display:flex">
+            <checkbox class="checkbox" 
+            data-id="{{item.id}}" 
+            data-checked="{{item.status}}" 
+            checked="{{item.status}}" 
+            bindtap="deliveryListChange">
+              <text decode="true">{{item.name}}</text>
+            </checkbox>
+            <view 
+            class="settingPrice" 
+            bindtap="setDeliveryPriceShow" 
+            data-id="{{item.id}}"
+            data-price="{{item.price}}"
+            >{{item.showPrice}}</view>
+          </view>
+        </checkbox-group>
+      </view>
+      <view class="discount-price" wx:if="{{zitiShow}}">
+        <text>取货地址</text>
+        <view>
+          <input type="text" value="{{address}}" placeholder="取货地址" bindinput="inputAddress"/>
+        </view>
+      </view>  
+      <view class="discount-price" wx:if="{{zitiShow}}">
+          <text>联系方式</text>
+        <view>
+          <input type="digit" value="{{phone}}" placeholder="联系电话" bindinput="inputPhone"/>
+        </view>
+
+
+      </view>
+
+      <view class="discount-price">
+        <text>社区大集</text>
+        <view class="m-swview-box">
+          <switch name="switch" color="#29c572" checked="{{switchvalue}}" bindtap="switch1Change"/>
+          <view class="switchvalue"> {{switchvalue ? '参与' : '不参与' }}</view> 
+        </view>
+      </view>
+    </view>
+    
+
+    <!-- <view class="activity-desc">
+      <text class="need-hbb-text">店长留言</text>
+      <textarea 
+        placeholder="例:我是店老板，新店开业！送您一张优惠券，诚邀您到店体验！谢谢，祝您工作顺利、生活愉快！"
+        placeholder-style="color:#999;font-size:28rpx"
+        bindinput="shop_message"
+        value="{{shop_message}}"
+        maxlength="{{400}}"
+        >
+      </textarea>
+    </view> -->
+    <view class="activity-desc">
+      <text style="width:120rpx;">描述</text>
+      <textarea 
+        placeholder="活动详情，请描述您的活动"
+        placeholder-style="color:#999;font-size:28rpx"
+        bindinput="inputDesc"
+        value="{{desc}}"
+        maxlength="{{400}}"
+        >
+      </textarea>
+      <view class="font-num">{{desc.length}}/400</view>
+    </view>
+    <view style="height:140rpx;"></view>
+    <view class="create-btn" bindtap="createActivity">{{discount_id ? '保存' : '确定发布'}}</view>
+    <view class="layer" wx:if="{{showFull}}" bindtap='closePic'>
+      <view class="cover"></view>
+      <view class="con">
+        <image src='{{preview}}' mode="widthFix"></image>
+        <view bindtap='delPic' class="txt" bindtap='delPic'>删除</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 发布优惠券 -->
+  <view wx:if="{{currentTab == 2}}">
+    <include src="/pages/module/release_coupon/index.wxml" />
+  </view>
+
+</view>
+
+
+<!--设置费用弹出层-->
+<modal hidden="{{setDeliveryPrice}}" title="设置费用" confirm-text="确定" cancel-text="取消" bindcancel="setDeliveryPriceHide" bindconfirm="setDeliveryPrice">
+   <input type='text' placeholder="请输入费用金额" auto-focus bindinput="currentDeliveryPrice" value="{{currentDeliveryPrice}}" />  
+</modal>
+<!-- 价格弹窗 -->
+<view class='pop-bg' bindtap="popLock" wx:if="{{showEditBox}}"></view>
+<view class="edit-box" wx:if="{{showEditBox}}">
+  <form bindsubmit="submitModify">
+
+    <view class="discount-price" wx:if="{{activityType == 1}}">
+      <text class="discount-price-title">商品原价</text>
+      <view class="discount-price-digit">
+        <input type="digit" value="{{price}}" placeholder="0.00" bindinput="inputPrice"/>
+      </view>
+      <text style=" color:#aaaaaa; font-size: 14px;margin-right:20rpx;">商品的标牌价格（优惠前）</text>
+    </view>
+
+    <view class="total-price discount-price">
+      <text class="discount-price-title">商品价格</text>
+      <view class="discount-price-digit">
+        <input type="digit" value="{{total_price}}" placeholder="0.00" bindinput="inputtotalPrice"/>
+      </view>
+      <text style=" color:#aaaaaa; font-size: 14px;">平台销售价格（含平台费）</text>
+    </view>
+
+    <view class="discount-price">
+      <text class="discount-price-title">卖家所得</text>
+      <view class="discount-price-digit"style=" color:#aaaaaa; font-size: 28rpx; display: flex;justify-content: space-between;flex: 1;">
+        <text style="color:#222;">{{ discount_price }} </text>
+        <text style="padding-right:60rpx;">成交后卖家所得</text>
+      </view>
+    </view>
+
+    <view class="discount-price">
+      <text class="discount-price-title">消耗积分</text>
+      <view>
+        <input type="digit" value="{{hbb}}" placeholder="建议一积分抵扣一元" bindinput="inputHbb"/>
+      </view>
+    </view>
+
+  <!-- <view class="discount-price copy">
+    <text class="discount-price-title">一键复制</text>
+    <radio-group class="radio-group discount-price" bindchange="activityCopyChange">
+      <radio class="radio" value="1" checked="{{copy == 1}}">不允许</radio>
+      <radio class="radio" value="2" checked="{{copy == 2}}">允许</radio>
+    </radio-group>
+  </view>
+  <view class="discount-price" wx:if="{{copy == 2}}">
+    <text class="discount-price-title" decode="{{true}}">&nbsp;&nbsp;&nbsp;奖励金</text>
+    <view class="discount-price-digit price-digit-input">
+      <input type="digit" value="{{commission}}" placeholder="0.00" bindinput="inputCommission"/>
+    </view>
+      <text style=" color:#aaaaaa; font-size: 14px;flex:1;">用于奖励分享并促成交易的分销员,此金额有买家出</text>
+  </view> -->
+
+    <view class="btn-area" bindtap="btnArea">
+      <button style="background:#f0914a;color:#fff;">确定</button>
+    </view>
+  </form>
+</view>
+
+
+ <!-- 输入密码弹窗 -->
+<view class='cover' wx:if="{{isShowConfirm}}" bindtap="isShowConfirm" catchtouchmove="myCatchTouch"></view>
+<block wx:if="{{isShowConfirm}}">
+  <view class="toast-box">
+    <form bindsubmit="judge_linbarrnum">
+      <input placeholder="请输入密码" placeholder-style='color:#FFFFFF;' class="input-num" name='password' value="{{password}}"></input>
+      <button class="t-b" form-type="submit">确认</button>
+    </form>
+  </view>
+</block>
+
+

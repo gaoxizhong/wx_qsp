@@ -1,0 +1,14 @@
+<view class="list-items">
+  <image src="https://oss.qingshanpai.com/qhy/0ec041.png"></image>
+</view>
+<view class="text-box">
+  <view class="text-t">日常可回收物-上门回收</view>
+  <view class="text-2">可回收，装袋里</view>
+  <view class="text-2">上门回收真便利</view>
+  <view class="text-2">换了积分有荣誉</view>
+  <view class="text-2">积分还能换福利</view>
+</view>
+
+<view class="btn-box">
+  <view class="btn-b" bindtap="gotoDs">呼叫回收</view>
+</view>

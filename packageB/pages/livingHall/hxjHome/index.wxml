@@ -1,0 +1,22 @@
+<view class="beusedList-box">
+  <block wx:for="{{ orderList }}" wx:key="index">
+    <view class="beused-items-box">
+      <view class="beused-items-tbox">
+        <view class="photo-title-box">
+          <text>{{ item.card.title?item.card.title:'暂无' }}</text>
+        </view>
+      </view>
+      <view class="beused-items-infobox">
+        <view class="items-infobox-left">
+          <view>核销金额: {{item.num}} 元</view>
+          <!-- <view style="margin-top: 12rpx;">可用余额抵扣: 0 元</view> -->
+          <view style="margin-top: 12rpx;">核销时间: {{item.created_at}}</view>
+          <view style="margin-top: 12rpx;" wx:if="{{item.use_name}}">核销人: {{item.use_name}}</view>
+          <view wx:if="{{item.use_mobile}}">核销人电话: {{item.use_mobile}}</view>
+        </view>
+      </view>
+      <view class="items-btnbox"></view>
+    </view>
+  </block>
+</view>
+<view class="nolist-box" wx:if="{{orderList.length == 0}}">暂无数据...</view>

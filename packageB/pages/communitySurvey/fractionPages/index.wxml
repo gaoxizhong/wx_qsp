@@ -1,0 +1,80 @@
+<view class="indexbg">
+  <image src="http://oss.qingshanpai.com/banner/indexbg_1.png"></image>
+</view>
+<view class="titleInfo-box">
+  <view class="image-box">
+    <view class="iamge-box-left">
+      <image mode='widthFix' src='{{member.avatar ? member.avatar : "/images/notlogin.jpg"}}'/>
+      <view class="name">
+        <view style="font-weight: 600;">{{member.nickname}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="kapian-box">
+    <view class="kapian-1">已完成<text style="color:#ff0000;">{{title}}</text>答题分值为:</view>
+    <view class="kapian-2">{{num}}<text>分</text></view>
+  </view>
+</view>
+<!-- 承诺书信息展示 -->
+<view class="xue-box" wx:if="{{is_promise}}">
+  <view class="xue-text-box">
+    <image src="{{promise}}" mode="widthFix"></image>
+  </view>
+<view class="promiseInfo-box">
+    <form catchsubmit="formSubmit">
+      <view class="page-section">
+        <view class="page-section-title">承诺人:</view>
+        <view class="weui-cells weui-cells_after-title">
+          <text>{{name}}</text>
+          <!-- <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input class="weui-input" type="text" value="{{name}}" name="name" placeholder="请填写姓名" disabled="disabled"/>
+            </view>
+          </view> -->
+        </view>
+      </view>
+       <!--  <view class="page-section">
+        <view class="section-info-title">请输入您的信息</view>
+        <view wx:if="{{need_name}}">
+          <view class="page-section-title">姓名</view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__bd">
+                <input class="weui-input" type="text" value="{{name}}" name="name" placeholder="请填写志愿者姓名" />
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view wx:if="{{need_mobile}}">
+          <view class="page-section-title">联系方式</view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__bd">
+                <input class="weui-input" type="number" value="{{mobile}}" name="mobile" placeholder="请留下联系电话" />
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view wx:if="{{need_area}}">
+          <view class="page-section-title">社区选择</view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__bd">
+                <picker mode='selector' bindchange="bindPickerChange" value="{{area_index}}" range="{{ area_list }}">
+                  <input class="weui-input" type="text" value="{{area}}" name="area" placeholder="请选择"  disabled="disabled"/>
+                </picker>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>-->
+      <view class="btn-area">
+        <button form-type="submit">确认</button>
+      </view>
+    </form>
+  </view> 
+</view>
+
+<view class="footer-btn" bindtap="showInfo" wx:if="{{ need_promise }}">承诺书</view>

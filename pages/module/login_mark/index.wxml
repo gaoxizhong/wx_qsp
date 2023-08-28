@@ -1,0 +1,17 @@
+<view class='pop-box' wx:if="{{pop2}}" catchtouchmove="myCatchTouch">
+  <view class='pop-bg'></view>
+  <view class='pop-main' style='padding:20rpx 80rpx 40rpx;box-sizing: border-box;'>
+    <view class='pop-title'>微信登录</view>
+    <view class='pop-content'>
+      <view class='pop-text-img'>
+        <text>青山生态小程序需要您登录后才能获取更多信息</text>
+        <image mode='widthFix' src='/images/icon-sq.png' style='width:105rpx;margin:20rpx auto 0;display:block;'></image>
+      </view>
+    </view>
+    <view style="display:flex">
+      <button type="default" size="mini" style="width:48%;font-size:28rpx;height:90rpx;line-height:90rpx" bindtap='cancelLogin' > 取消登录 </button>
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" type="primary" size="mini" style="width:48%;font-size:28rpx;height:90rpx;line-height:90rpx;background:#29c572;" lang="zh_CN"> 立即登录 </button>
+      <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo" type="primary" size="mini" style="width:48%;font-size:28rpx;height:90rpx;line-height:90rpx;background:#29c572;"  lang="zh_CN"> 立即登录 </button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,13 @@
+.buy_box{
+  width: 690rpx;
+  height: auto;
+  border-radius: 8rpx;
+  overflow: hidden;
+  margin: 30rpx auto;
+  box-shadow: 0 0 20rpx 0 #00000020;
+
+}
+.buy_box>image{
+  width: 690rpx;
+  height: auto;
+}

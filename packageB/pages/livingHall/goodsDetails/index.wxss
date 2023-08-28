@@ -1,0 +1,336 @@
+page {
+  box-sizing: border-box;
+}
+.home-info-box {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+}
+.lifeimg-box {
+  width: 100%;
+  height: 398rpx;
+  position: relative;
+}
+.lifeimg-box .swiper {
+  height: 100%;
+}
+.lifeimg-box .swiper image {
+  width: 100%;
+  height: 100%;
+}
+.lifeimg-infobtn-box {
+  width: 100%;
+  box-sizing: border-box;
+  height: 144rpx;
+  padding: 20rpx 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.lifeimg-infobtn-box-l {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.lifeimg-infobtn-box-r {
+  width: 98rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lifeimg-photo-box {
+  width: 102rpx;
+  height: 102rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #fff;
+}
+.lifeimg-name-title {
+  flex: 1;
+  padding-left: 14rpx;
+  font-size: 26rpx;
+}
+.lifeimg-photo-box>image {
+  width: 100%;
+  height: 100%;
+}
+.lifeimg-n-t {
+  color: #fff;
+}
+.lifeimg-n-btn {
+  width: 134rpx;
+  height: 52rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  padding: 0 12rpx;
+  border-radius: 20px;
+  background: #ffffffad;
+  margin-top: 10rpx;
+}
+.lifeimg-infobtn-box-r>.type-item {
+  width: auto;
+  height: 100%;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  color: #fff;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+.lifeimg-infobtn-box-r>.type-item image {
+  width: 48rpx;
+}
+.infoList-box {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+.infoList-items-box {
+  padding: 20rpx 0;
+  border-radius: 6px;
+  background: #fff;
+  overflow: hidden;
+  height: auto;
+}
+.infoList-items-imagebox {
+  width: 100%;
+  height: auto;
+}
+.infoList-items-imagebox .swiper {
+  width: 100%;
+  height: 412rpx;
+}
+.infoList-items-imagebox .swiper image {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+.infoList-items-title {
+  width: 100%;
+  font-size: 28rpx;
+  overflow: hidden;
+  padding:20rpx;
+  box-sizing: border-box;
+}
+.infoList-items-time {
+  padding: 0 20rpx 10rpx;
+  font-size: 22rpx;
+  color: #707070;
+}
+.infoList-items-pirce {
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  color: #f54c0a;
+  font-weight: bold;
+}
+
+
+
+
+.infoList-items-btnbox {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 20rpx;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+}
+
+.infoList-items-iconbox {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+}
+.infoList-items-btn {
+  width: 142rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 20px;
+  background: #f4510b;
+}
+.infoList-items-iconbox>.iconbox-btn {
+  padding: 0 12rpx;
+  box-sizing: border-box;
+  line-height: 1;
+  font-size: 24rpx;
+  margin: 0;
+}
+.infoList-items-iconbox>.iconbox-btn .infoList-items-iconi {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+}
+.infoList-items-iconbox>.iconbox-btn .infoList-items-icont {
+  margin-top: 10rpx;
+  color: #7e7e7e;
+  text-align: center;
+}
+.infoList-items-iconbox>.iconbox-btn .infoList-items-iconi image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.infoList-items-iconbox>.iconbox-btn .infoList-items-iconi text {
+  padding-left: 2rpx;
+}
+.good-desc {
+  margin-bottom: 98rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+.good-desc .good-descText{
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  color: #333;
+  font-size: 30rpx;
+  width:100%;
+  height:auto;
+}
+.desc-imageList {
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  width: 100%;
+}
+.desc-imageList>image {
+  margin: 20rpx 0;
+  width: 100%;
+}
+.addwx-wrap {
+  background: #fff;
+  padding: 24rpx;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  box-sizing: border-box;
+  transform: translate(-50%, 0);
+  z-index: 99999;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.addwx-wrap .inp {
+  font-size: 28rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  height: 64rpx;
+  padding-left: 20rpx;
+  line-height: 64rpx;
+  flex: 1;
+}
+.addwx-wrap .send-btn {
+  background: #f45004;
+  border-radius: 8rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 28rpx;
+  color: #fff;
+  display: block;
+  padding: 0 34rpx;
+  margin-left: 36rpx;
+}
+
+.addwx-btnbox{
+  display: flex;
+  align-items: center;
+  padding: 10rpx 10rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #f4f4f4;
+  margin-top: 20rpx;
+}
+.addwx-contentbox{
+  background: #fff;
+  max-height: 400rpx;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.addwx-contentbox-title{
+  width: 100%;
+  padding-bottom: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.addwx-contentbox-title .addwx-title-dian{
+  font-size: 40rpx;
+  padding: 0 10rpx;
+}
+.comment-item {
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #F2F2F2;
+}
+.comment-list .comment-item:last-child {
+  border-bottom: none;
+}
+.comment-item .title {
+  font-size: 32rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+.comment-item .comment-info {
+  padding-left: 80rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+.comment-item .title image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin-right: 15rpx;
+}
+.comment-item .title .commen-people {
+  margin-bottom: 10rpx;
+  flex: 1;
+}
+.flex-justitem-startcent {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.comment-item .title .time {
+  font-size: 24rpx;
+  color: #999;
+}
+.swiper-shop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 9999;
+}
+.swiper-shop .swiper {
+  width: 100%;
+  height: 60%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.swiper-shop image {
+  width: 100%;
+  height: 100%;
+}

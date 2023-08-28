@@ -1,0 +1,50 @@
+<view class="integral-transaction">
+	<view class="acquisition-module-box" wx:if="{{ my_record }}">
+		<view class="being-conduct-box" bindtap="gotosgtask">
+			<image src="http://oss.qingshanpai.com/banner/jfdh-look-bg.png" class="being-conduct-bg"></image>
+			<view class="being-conduct-view">你有一个任务正在进行	</view>
+		</view>
+	</view>
+	<!-- 收购积分 -->
+	<view class="acquisitionList-box">
+		<block wx:for="{{acquisitionList}}" wx:key="index">
+			<view class="acquisitionList-items-box">
+				<view class="acquisitionList-items-t">
+					<image src="{{item.business.avatar}}" class="acList-l-avatar"></image>
+					<view class="acList-items-l-box">
+						<view class="acList-l-view">
+							<view class="acList-l-title">{{item.business.name}}</view>
+							<view class="acList-l-ac"><text>收购积分：</text> {{ item.quota }}</view>
+							<view class="acList-l-ac"><text>已购积分：</text> {{ item.buy_i?item.buy_i:'0.00' }}</view>
+							<view class="acList-l-bj">报价： <text style="color: #f9442e;"><text style="font-size: 24rpx;">￥</text>1.00</text>/积分</view>
+						</view>
+					</view>
+					<view class="acList-items-r-box" wx:if="{{item.is_tsbtn}}">
+						<view class="acList-r-btn1" data-index="{{index}}" bindtap="clickIscsbtn" hover-class="hoverClass">
+							<image class="acList-r-btn-img" src="http://oss.qingshanpai.com/icon/bank_jybtn.png" mode="widthFix"></image>
+						</view>
+					</view>
+					<view class="acList-items-r-box" wx:else>
+						<view class="acList-r-btn" hover-class="hoverClass" data-business_id='{{item.business_id}}' data-id='{{item.id}}' data-select_id="{{item.select_id}}"  data-select_type="{{item.select_type}}" bindtap="smallAcquisition">
+							<image src="/images/jfjydt/bt_xlsg.png" class="acList-r-btn-img"></image>
+							<text class="acList-r-btn-text">小量出售</text>
+						</view>
+						<view class="acList-r-btn" hover-class="hoverClass" data-index="{{index}}" bindtap="getDlAcquisition">
+							<image src="/images/jfjydt/bt_dlsg.png" class="acList-r-btn-img"></image>
+							<text class="acList-r-btn-text">大量出售</text>
+						</view>
+					</view>
+				</view>
+				<view class="userList-box">
+					<view class="userList-number-img">
+						<block wx:for="{{item.record}}" wx:for-item="items" wx:for-index="subidx" wx:key="index">
+							<view style="left:{{subidx*60}}rpx;" data-index="{{subidx}}"><image src="{{items.member.avatar}}"></image></view>
+						</block>
+					</view>
+					<view class="userList-text">等{{item.record_count}}人次交易</view>
+				</view>
+			</view>
+    </block>
+		<view style="font-size:28rpx; text-align:center;color: #b2b2b2;" wx:if="{{acquisitionList.length <= 0}}">加载中，请稍候...</view>
+	</view>
+</view>

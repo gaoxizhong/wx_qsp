@@ -1,0 +1,10 @@
+<view class="page-box">
+  <view class="box-ident" wx:for='{{ident}}' wx:key="index">
+    <image src="{{item.thumb}}" mode="widthFix"></image>
+    <text style="padding:8rpx 16rpx;">{{item.introduce ? item.introduce :'此图片无描述'}}</text>
+  </view>
+</view>
+<!-- 可拖拽按钮 -->
+<view class='refresh flex-justitem-center' catchtap='refresh' catchtouchmove="buttonMove" bindtouchstart="buttonStart" bindtouchend="buttonEnd" style="top:{{ btnTop }}px;left:{{ btnLeft }}px">
+  <image src='http://oss.qingshanpai.com/banner/icon_gohome.png' bindtap="turnto"></image>
+</view>

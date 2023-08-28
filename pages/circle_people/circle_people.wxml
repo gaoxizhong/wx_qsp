@@ -1,0 +1,72 @@
+<view>
+  <view class="tab-h flex-justitem-spacecent">
+    <form report-submit class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindsubmit="swichNav">
+      <button hover-class='none' form-type='submit'>
+        今日新增
+      </button>
+    </form>
+    <form report-submit class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindsubmit="swichNav">
+      <button hover-class='none' form-type='submit'>
+        环保圈人数
+      </button>
+    </form>
+    <form report-submit class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindsubmit="swichNav">
+      <button hover-class='none' form-type='submit'>
+        影响范围
+      </button>
+    </form>
+  </view>
+
+  <swiper current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
+    <swiper-item wx:for="{{[1,2,3]}}" wx:key="index">
+      <scroll-view scroll-y="true" style='height:100%;'>
+          <!-- 暂无数据时显示模块 -->
+        <view class='nulldata_wrap' wx:if="{{lists.length <= 0}}">
+          <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+          <view class='msg'>暂无增加</view>
+        </view>
+        <!-- 循环遍历展示页面 -->
+        <view class="tab-content flex-justitem-spacecent" wx:for="{{lists}}" wx:key="index">
+          <view class="lt" style="padding:0 28rpx;">
+              <text mode='aspectFill'>{{index+1}}</text>
+          </view>
+          <navigator class="lt" open-type="navigate" url="/pages/mine/myContent/index?is_who=1&id={{item.member_id}}" wx:if="{{currentTab == 0}}">
+            <view class="lt">
+              <image src='{{item.avatar}}' class="{{currentTab == 1?'qy':''}}" mode='aspectFill'></image>
+            </view>
+          </navigator>
+          <navigator 
+            class="lt" 
+            open-type="reLaunch" 
+            url="{{item.business_id!=0 ? '/pages/shop/shop?business_id='+item.business_id : '/pages/mine/myContent/index?is_who=1&id='+ item.member_id}}"  
+            wx:if="{{currentTab == 1}}"
+            >
+            
+            <view class="lt">
+              <image src='{{item.avatar}}' class="{{currentTab == 0?'qy':''}}" mode='aspectFill'></image>
+            </view>
+          </navigator>
+          <navigator 
+            class="lt" 
+            open-type="reLaunch" 
+            url="{{item.business_id!=0 ? '/pages/shop/shop?business_id='+item.business_id : '/pages/mine/myContent/index?is_who=1&id='+ item.member_id}}"  
+            wx:if="{{currentTab == 2}}"
+            >
+            
+            <view class="lt">
+              <image src='{{item.avatar}}' class="{{currentTab == 0?'qy':''}}" mode='aspectFill'></image>
+            </view>
+          </navigator>
+            <view class='rt flex-justitem-spacecent'>
+              <view style='max-width:320rpx;'>
+                <view class='txt ellipsis'>{{item.nickname}}</view>
+              </view>
+              <text class="time">{{item.created_time}}</text>
+            </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- 返回上一步 -->
+<include src="/pages/module/backto/index.wxml" />

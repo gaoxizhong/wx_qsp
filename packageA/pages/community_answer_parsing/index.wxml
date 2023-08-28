@@ -1,0 +1,25 @@
+<view class="answer-list-box">
+  <block wx:for="{{answerList}}" wx:key="index">
+    <view class="answer-items">
+      <view class="answer-items-title">
+        <text style="color:#ff0000;font-size: 32rpx;">*</text>{{index + 1}}、{{item.title}}
+        <text class="icon-fen">{{item.i}}分</text>
+      </view>
+      <view class="answer-options-box">
+        <radio-group bindchange="radioChange" data-id="{{item.id}}" data-index="{{index}}">
+          <block wx:for="{{item.data.option}}" wx:for-item="items" wx:key="idx">
+            <view class="options-list"><label><radio value="{{items.name}}"  checked="{{items.key ==  item.data.user_key}}"  disabled="disabled"/>{{ items.content }}</label></view>
+          </block>
+        </radio-group>
+      </view>
+
+      <view class="parsing-box">
+        <view class="parsing-box-1">
+          <view style="color:{{item.data.right == item.data.user_key?'#4ac081':'#ff0000'}};"> {{item.data.right == item.data.user_key?'回答正确':'回答错误'}}</view>
+          <view>+ {{item.data.right == item.data.user_key?item.i:'0'}}分</view>
+        </view>
+        <view class="parsing-box-2" wx:if="{{item.data.right != item.data.user_key}}"><text style="color:#4ac081;padding-right:10rpx;">正确答案：</text>{{item.data.option[(item.data.right-1)].content}}</view>
+      </view>
+    </view>
+  </block>
+</view>

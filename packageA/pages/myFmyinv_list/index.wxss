@@ -1,0 +1,50 @@
+page{
+  padding: 15rpx 30rpx;
+  box-sizing: border-box;
+}
+.extInfoList-items{
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 20rpx;
+  box-shadow: 0 0 4px 1px #a1a1a140;
+  background: #fff;
+  margin: 15rpx 0;
+}
+.kapian-box {
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+.kapian-box>view{
+  flex: 1;
+  text-align: center;
+}
+.image-box {
+  height: 118rpx;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+}
+.iamge-box-left image {
+  width: 78rpx;
+  height: 78rpx;
+  border-radius: 50%;
+}
+.iamge-box-left {
+  display: flex;
+  align-items: center;
+}
+.name{
+  padding-left:20rpx;
+}
+.noList-box{
+  width: 100%;
+  font-size: 28rpx;
+}

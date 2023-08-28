@@ -1,0 +1,37 @@
+<view class='g_con'>
+  <view class='topExpress'>
+    <view class='topExpress-left'>
+      <image src='/images/icon_bank_sel.png' style='width:60rpx;height:60rpx;border-radius:50%;'></image>
+    </view>
+    <view class='topExpress-right'>
+      <view class='topExpress-right-top' wx:if="{{shipperCode == 'YTO'}}">圆通快递</view>
+      <view class='topExpress-right-middle'>运单号：{{logisticCode}}</view>
+    </view>
+  </view>
+  <view class='nulldata_wrap' wx:if="{{dataStatus}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg' style="color: #666;">当前暂无快递信息，请稍后再查...</view>
+  </view>
+  <view class='expressRecord' wx:else>
+    <view class='noReach-online-top-close'></view>
+    <block wx:for='{{traces}}' wx:key='index'>
+      <view class='expressRecord-single-close'>
+        <view class='expressRecord-single-noReach-online-top-close'>
+          <view class='online-top-closing' wx:if="{{index == 0 }}"></view>
+          <view class='online-top-close' wx:else></view>
+          <view class='dot-closing' wx:if="{{index == 0 }}"></view>
+          <view class='dot-close' wx:else></view>
+          <view class='online-bottom'></view>
+        </view>
+        <view class='expressRecord-text'>
+          <view class='expressRecord-statusing' wx:if="{{index == 0 }}">{{ in_stock ? "已签收" : "运输中" }}</view>
+          <view class='expressRecord-status' wx:else></view>
+          <view class='expressRecord-status-address'>
+            <view>{{ item.AcceptStation }}</view>
+            <view> {{ item.AcceptTime }}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

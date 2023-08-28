@@ -1,0 +1,151 @@
+<!-- <view class="home-info-box">
+  <view class="lifeimg-box">
+    <swiper class='swiper' autoplay="true" circular="true" interval="2500">
+      <block wx:for="{{img}}" wx:key="index">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" mode="aspectFit" bindtap="saveImage" data-img="{{item}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <view class="lifeimg-infobtn-box">
+      <view class="lifeimg-infobtn-box-l">
+        <view class="lifeimg-photo-box">
+          <image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKN0iaIYwibC2icX6Pjvy6uNEhMZ8Wb2cw3n37oUfrAsof1HqRJE7xyticsZZdEBu3ibzdoUrH9jqgiaQGA/132"></image>
+        </view>
+        <view class="lifeimg-name-title">
+          <view class="lifeimg-n-t">阿鹿小姐的长胡子</view>
+          <view hover-class="hoverClass" class="lifeimg-n-btn" data-mid="22611" bindtap="">
+            <text style="margin: 0 6rpx;" bindtap="clickXg">修改信息</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="lifeimg-infobtn-box-r">
+        <button class="type-item" data-is_sharepage="1" open-type="share" hover-class="hoverClass">
+          <image src="/packageB/assets/images/livingHall/icon-zf.png" mode="widthFix"></image>
+          <text>0</text>
+        </button>
+      </view>
+    </view>
+  </view>
+</view> -->
+
+<view class="infoList-box">
+  <view class="infoList-items-box">
+    <view class="infoList-items-imagebox">
+      <!-- 图片信息 开始 -->
+      <swiper class='swiper' indicator-dots="true" indicator-active-color="rgb(253, 122, 0)" circular="true">
+        <block wx:for="{{ goodsInfo.image_array }}" wx:for-item="items" wx:key="ind">
+          <swiper-item>
+            <image src="{{ items }}" class="slide-image" mode="" data-images="{{goodsInfo.image_array}}" data-subidx="{{ind}}" bindtap="previewImage1"/>
+          </swiper-item>
+        </block>
+      </swiper>
+      <!-- 图片信息 结束 -->
+      <view class="infoList-items-title">{{goodsInfo.title}}</view>
+      <!-- <view class="infoList-items-time">{{goodsInfo.time}}</view> -->
+      <view class="infoList-items-pirce">￥{{goodsInfo.price}}</view>
+    </view>
+  </view>
+  <view class="t-20"></view>
+    <!-- 图文详情 开始 -->
+  <view class="good-desc">
+    <view class="good-descText">{{goodsInfo.detail?goodsInfo.detail:'暂无商品详情'}}</view>
+    <view class="desc-imageList">
+      <image src="{{item}}" mode="widthFix" wx:for="{{goodsInfo.image_array}}" wx:key="index"></image>
+    </view>
+    <view style="height:30rpx"></view>
+  </view>
+</view>
+<!-- 底部图标、按钮 开始 -->
+<view class="infoList-items-btnbox">
+  <view class="infoList-items-iconbox">
+    <view class="iconbox-btn" hover-class="hoverClss" bindtap="gotoPersonalHome">
+      <view class="infoList-items-iconi">
+        <image src="/packageB/assets/images/livingHall/icon-zp-bj.png" mode="widthFix"></image>
+      </view>
+      <view class="infoList-items-icont">主页</view>
+    </view>
+    <view class="iconbox-btn" hover-class="hoverClss" data-index="{{index}}" data-id="{{goodsInfo.id}}" bindtap="like">
+      <view class="infoList-items-iconi">
+        <image src="/packageB/assets/images/livingHall/icon-zp-dz.png" mode="widthFix"></image>
+        <text>{{goodsInfo.like_count}}</text>
+      </view>
+      <view class="infoList-items-icont">赞</view>
+    </view>
+    <view class="iconbox-btn" hover-class="hoverClss" bindtap="clickcomment">
+      <view class="infoList-items-iconi">
+        <image src="/packageB/assets/images/livingHall/icon-zp-bj.png" mode="widthFix"></image>
+        <text>{{goodsInfo.comment.length}}</text>
+      </view>
+      <view class="infoList-items-icont">留言</view>
+    </view>
+  </view>
+  
+  <view class="infoList-items-btn" hover-class="hoverClass" data-id="{{goodsInfo.id}}" bindtap="gotogoodsdetails" wx:if="{{goodsInfo.is_sale == 1}}">立即购买</view>
+  <view class="infoList-items-btn" hover-class="hoverClass" data-id="{{goodsInfo.project}}" bindtap="gotoxms" wx:if="{{goodsInfo.is_sale == 2}}">立即参与</view>
+</view>
+<!-- 底部图标、按钮 结束 -->
+
+
+
+
+
+
+<!-- =====================   弹窗  ================= -->
+<view class="cler-marsk" wx:if="{{is_cler}}" catchtap="cler_marsk"></view>
+<view class="cler-box" wx:if="{{is_cler}}">
+  <view class="cler-title">*确定删除吗？</view>
+  <view class="cler-btn-box">
+    <view catchtap="cler_marsk">取消</view>
+    <view class="cler-btn-r" hover-class="hoverClass" catchtap="submit_btn">确定</view>
+  </view>
+</view>
+
+
+<view class='pop-box' wx:if="{{pop1}}" catchtouchmove="myCatchTouch">
+  <view class='pop-bg' bindtap='popLock'></view>
+  <view class="addwx-wrap">
+    <view class="addwx-contentbox">
+      <view class="addwx-contentbox-title">留言 <text class="addwx-title-dian">·</text>{{goodsInfo.comment.length}}</view>
+      <view class="comment-list">
+        <view class="comment-item" wx:for="{{goodsInfo.comment}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+          <view class="title">
+            <image src="{{item.member.avatar}}" />
+            <view class="commen-people">
+              <view class="commen-person flex-justitem-startcent">
+                <view>
+                  {{item.member.nickname}}
+                </view>
+              </view>
+              <view class="time">{{item.created_at}}</view>
+            </view>
+          </view>
+          <view class="comment-info">
+            {{item.content}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="addwx-btnbox">
+      <input type='text' placeholder='{{inpPlaceholder}}' maxlength="-1" focus class='inp' bindinput='bindTextChange'></input>
+      <button hover-class='none' class="send-btn" bindtap='sendComment' style="{{textVal!=''&& savaStatus?'' :'color:rgba(255,255,255,.5);'}}">
+        发送
+      </button>
+    </view>
+
+  </view>
+</view>
+
+
+<!--  banner图  -->
+<view class="swiper-shop" wx:if="{{swiper_shop}}">
+  <swiper class='swiper' current="{{swiper_index}}">
+    <block wx:for="{{top_img}}" wx:key="index">
+      <swiper-item bindtap="close_swiper">
+        <image src="{{item}}" class="slide-image" mode='aspectFill' data-img="{{item}}" bindlongpress="handleLongPress"/>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

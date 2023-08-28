@@ -1,0 +1,17 @@
+<!-- 授权登录弹窗 -->
+<!-- <include src="/pages/module/login_mark/index.wxml" /> -->
+<!-- <view class="userUrl-view">
+  <view class="userUrl-img-box">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+</view> -->
+<view class="info-box">
+  <view class="infotitle-box">授权登录</view>
+  <!-- <view class="info-text-1">申请获取一下权限</view> -->
+  <view class="info-text-2">点击立即登录即同意使用微信账号授权注册登录小程序！</view>
+</view>
+
+<view class="footer-btn-box">
+  <button type="primary" size="mini" class="getUserProfile-btn" lang="zh_CN" bindtap="getUserProfile"> 立即登录 </button>
+  <button type="default" size="mini" class="cancelLogin-btn" bindtap='cancelLogin' > 取消登录 </button>
+</view>

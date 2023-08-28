@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "可兑换余额",
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#ffe4bf",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "projectList":"/packageB/component/projectList/projectList"
+  }
+}

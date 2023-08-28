@@ -1,0 +1,5 @@
+<view class='hd'  wx:if="{{isPlay}}">
+  <video class='video' title="在线直播课堂" src="http://replayqn.wangxiao.eaydu.com/livecourse/306746_02.mp4" show-center-play-btn="{{false}}" show-play-btn="{{false}}" show-progress="{{false}}" controls="{{true}}" show-fullscreen-btn="{{true}}" initial-time="{{videoTime}}"
+    autoplay="{{videoStatus}}" enable-progress-gesture="{{false}}" bindwaiting="videoLoad" bindended="videoEnd" bindpause="videoPause">
+    </video>
+</view>

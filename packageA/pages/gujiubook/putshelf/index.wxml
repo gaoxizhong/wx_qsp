@@ -1,0 +1,63 @@
+<form bindsubmit="createActivity">
+
+  <view class="activity-imgs">
+    <image 
+      wx:for="{{img}}"
+      wx:for-item="item"
+      wx:for-index="index"
+      wx:key="index"
+      mode="aspectFill"
+      data-index="{{index}}"
+      src="{{item}}"
+      bindtap="openPhoto"/>
+    <view class="add-pic" bindtap="choosePic" wx:if="{{img.length <= 9}}">
+      <image src="/images/icon-addphoto.png" mode="aspectFill"/>
+    </view>
+  </view>
+
+  <view class="list-box">
+    <view class="list-box-items">
+      <view>图书原价</view>
+      <input type="text" value="{{book_oriprice}}" placeholder="请输入图书原价" bindinput="book_oriprice"></input>
+    </view>
+    <view class="list-box-items">
+      <view>图书售价</view>
+      <input type="text" value="{{book_sellprice}}" placeholder="请输入图书售价" bindinput="book_sellprice"></input>
+    </view>
+    <view class="list-box-items">
+      <view>图书名称</view>
+      <input type="text" value="{{book_name}}" placeholder="请输入图书名称" bindinput="book_name"></input>
+    </view>
+    <view class="list-box-items">
+      <view>图书作者</view>
+      <input type="text" value="{{book_author}}" placeholder="请输入图书作者" bindinput="book_author"></input>
+    </view>
+    <view class="list-box-items">
+      <view>出版社</view>
+      <input type="text" value="{{book_press}}" placeholder="请输入出版社" bindinput="book_press"></input>
+    </view>
+    <view class="list-box-items">
+      <view>出版时间</view>
+      <input type="text" value="{{book_time}}" placeholder="请输入出版时间" bindinput="book_time"></input>
+    </view>
+    <view class="list-box-items list-box-items-textarea">
+      <view>内容简介</view>
+      <textarea type="text" value="{{book_summary}}" placeholder="请输入内容简介" bindinput="book_summary"></textarea>
+    </view>
+
+  </view>
+
+
+
+
+  <view style="height:140rpx;"></view>
+  <button  class="create-btn" formType="submit">{{id ? '保存' : '确定'}}</button>
+</form>
+
+<view class="layer" wx:if="{{showFull}}" bindtap='closePic'>
+  <view class="cover"></view>
+  <view class="con">
+    <image src='{{preview}}' mode="widthFix"></image>
+    <view bindtap='delPic' class="txt" bindtap='delPic'>删除</view>
+  </view>
+</view>

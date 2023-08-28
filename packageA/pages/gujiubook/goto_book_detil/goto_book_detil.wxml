@@ -1,0 +1,53 @@
+<view class="swiper-container">
+  <swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+    <block wx:for="{{book_info.imgs}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" mode="aspectFit" bindtap="saveImage" data-img="{{item}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+ <view class="detail-box">
+  <view class="detail-book-name">{{book_info.name}}</view>
+  <view class="detail-discount-price">
+    <text class="discount-price1"> ￥{{book_info.discount_price}} </text>
+  </view>
+  <view style="width:100%;height:20rpx; background:#eaeaea;"></view>
+  <view class="book-info-detail">
+    <view><text class="info-detail-title">原价：</text>{{book_info.price}}</view>
+    <view><text class="info-detail-title">作者：</text>{{book_info.author?book_info.author:'暂无'}}</view>
+    <view><text class="info-detail-title">出版时间：</text>{{book_info.pubdate?book_info.pubdate:'暂无'}}</view>
+    <view><text class="info-detail-title">出版社：</text>{{book_info.publisher?book_info.publisher:'暂无'}}</view>
+  </view>
+  <view style="width:100%;height:20rpx; background:#f2f2f2;"></view>
+
+  <view>
+    <view style="font-weight:700;padding-top:20rpx;">书籍简介</view>
+      <view style="padding:35rpx 20rpx;font-size:28rpx;" class="{{is_height?'height':'no_height'}}">
+        {{book_info.summary?book_info.summary:'暂无'}}
+      </view>
+      <view bindtap="see_quanbu" class="see-quanbu">{{is_height?'查看全部':'点击收起'}}</view>
+    <view style="margin-top:20rpx;">
+      <image 
+      wx:for="{{summary_image}}" 
+      wx:key="index"
+      src="{{item}}"
+       class="slide-image"
+        mode="aspectFit"
+         data-img="{{item}}"/>
+    </view>
+
+  </view>
+
+ </view>
+<view style="width:100%;height:92rpx;"></view>
+ <view class="btn-submit-1">
+  <view class="btn-right">
+    <view bindtap="subimt_buy" class="subimt-buy" wx:if="{{stock > 0}}">立即购买</view>
+    <view class="subimt-buy-no" wx:else>库存不足</view>
+  </view>
+ </view>
+
+<!-- 授权登录弹窗 -->
+<include src="/pages/module/login_mark/index.wxml" />

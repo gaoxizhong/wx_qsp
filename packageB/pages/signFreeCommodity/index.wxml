@@ -1,0 +1,116 @@
+<view class="signfree-bg-box">
+  <image src="https://oss.qingshanpai.com/icon/mytitle-banner.png"></image>
+</view>
+<!-- 免费商品信息 开始-->
+<view class="signfreeCommodity-title-box">
+  <view class="freeCommodity-title-imagebox" data-id="2" bindtap="goToshopActivity">
+    <image src="https://oss.qingshanpai.com/banner/signin_5.jpg"></image>
+    <view class="title-num-imagebox">
+      <image src="/packageB/assets/images/sigin/freeimg-icon-num.png" mode="widthFix"></image>
+      <view class="title-num-imagebox1">1/6</view>
+    </view>
+  </view>
+  <view class="freeCommodity-info-imagebox">
+    <view class="titleinfo-title">OCE悦色彩妆盘化妆品组合化妆盒大地色</view>
+    <view class="titleinfo-jiage">兑换价：0元+50积分</view>
+    <view class="titleinfo-yuanjia">原价：160元</view>
+  </view>
+</view>
+<!-- 免费商品信息 结束-->
+
+<!-- 选择兑换方式 开始-->
+<view class="chooseWay-box">
+  <view class="chooseWay-title-box">
+    <view class="chooseWay-title-icon"><view></view></view>
+    <view style="padding-left: 14rpx;">选择兑换方式</view>
+  </view>
+  <!-- 选项切换按钮 开始-->
+  <view class="chooseWay-btn-box">
+    <view bindtap="chooseWayBtn" data-id="1"  class="{{columnSeleted == '1'? 'choose-icon' :''}}">自付运费6元</view>
+    <view bindtap="chooseWayBtn" data-id="2"  class="{{columnSeleted == '2'? 'choose-icon' :''}}">分享10人免运费</view>
+    <view bindtap="chooseWayBtn" data-id="3"  class="{{columnSeleted == '3'? 'choose-icon' :''}}">满30元免运费</view>
+  </view>
+  <!-- 选项切换按钮 结束-->
+
+  <!-- 分享成员头像展示 开始-->
+  <view class="member-share-box" wx:if="{{columnSeleted == '2'}}">
+    <view class="member-shareimg-lsit-box">
+      <block wx:for="{{shareimg}}" wx:key="index">
+        <view class="shareimg-items-box">
+          <image src="{{item.image?item.image:'/packageB/assets/images/sigin/sign-icon-wh.png'}}"></image>
+        </view>
+      </block>
+    </view>
+    <view class="member-shareimg-btn">
+      <image src="/packageB/assets/images/sigin/shareimg-btn.png" mode="widthFix"></image>
+      分享
+    </view>
+  </view>
+  <!-- 分享成员头像展示 结束-->
+</view>
+<!-- 选择兑换方式 结束-->
+
+<view class="chooseShop-box">
+
+  <view class="chooseWay-title-box" style="padding: 0 10rpx;box-sizing: border-box;">
+    <view class="chooseWay-title-icon"><view></view></view>
+    <view style="padding-left: 14rpx;">其他人同事购买商品</view>
+  </view>
+  <!-- 商品列表开始 -->
+  <view class="chooseShop-list-box">
+    <block wx:for="{{chooseShoplist}}" wx:key="index">
+      <view class="chooseShop-items-box">
+        <view class="chooseShop-items-view">
+
+          <view class="chooseShop-items-imagetitle-box">
+            <image src="{{item.image}}" class="chooseShop-items-image"></image>
+            <view class="chooseShop-items-title">{{item.title}}</view>
+            <view class="chooseShop-num-imagebox">
+              <image src="/packageB/assets/images/sigin/freeimg-icon-num.png" mode="widthFix"></image>
+              <view class="chooseShop-num-imagebox1">1/6</view>
+            </view>
+            <!-- 选择状态开始 -->
+            <view class="chooseShop-status-box" bindtap="chooseLibrary" data-index="{{index}}" data-id="{{item.id}}">
+              <image src="/packageB/assets/images/sigin/{{item.checked == true ? 'chooseShop-icon-xz': 'chooseShop-icon-noxz'}}.png" mode="widthFix"></image>
+            </view>
+            <!-- 选择状态结束 -->
+          </view>
+          <!-- 价格开始 -->
+          <view class="chooseShop-items-price-box">
+            <view class="items-price-left">
+              <text style="font-size: 22rpx;">￥</text>
+              <text>{{item.price}}</text>
+            </view>
+            <view class="items-price-right">
+              <view catchtap="minusNum" class="minuadd-box">
+                <image src="/packageB/assets/images/sigin/icon-num-jian.png" mode="widthFix"></image>
+              </view>
+              <input class="numinput" type="number" bindinput="inputValue" value="{{item.goodnum}}"/>
+              <view class="minuadd-box" catchtap="addNum">
+                <image src="/packageB/assets/images/sigin/icon-num-jia.png" mode="widthFix"></image>
+              </view>
+            </view>
+          </view>
+          <!-- 价格结束 -->
+
+        </view>
+      </view>
+    </block>
+  </view>
+  <!-- 商品列表结束 -->
+</view>
+<view style="width: 100%;height: 130rpx;"></view>
+<view class="bottom-buy1">
+  <view class="buyprice-box">
+    <view class="buyprice-heji">
+      合计：<text style="color:#ff462f;">￥<text style="font-weight: bold;font-size: 36rpx;">6</text></text>
+    </view>
+    <text style="color: #a6a6a6;font-size: 30rpx;">运费0元（满30免运费）</text>
+  </view>
+  <view class="to-buy-box">
+    <view bindtap="buyNow" class="tobuy-box-n">立即兑换</view>
+  </view>
+</view>
+
+
+

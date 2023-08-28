@@ -1,0 +1,23 @@
+<view class="title-text"><text style="color: #ff0000;padding-right: 10rpx;font-weight: bold;">*</text>请授权您的头像和昵称！</view>
+<view class="userUrl-view">
+  <view class="userUrl-img-box" bindtap="chooseBack">
+    <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+      <image class="avatar" src="{{ avatarUrl ? avatarUrl: '/images/notlogin.jpg' }}"></image>
+      <image class="xiu-img" mode="widthFix" src="/images/15.png"></image>
+    </button>
+  </view>
+</view>
+<form catchsubmit="getUserProfile" catchreset="cancelLogin">
+  <view class="nameBox">
+    <view class="nameBox-title">昵称：</view>
+    <view class="nameInput-box">
+      <input type="nickname" class="weui-input" name="nickname" value="{{nickname}}" placeholder="请输入昵称"/>
+    </view>
+  </view>
+
+
+  <view class="footer-btn-box">
+    <button type="primary" size="mini" class="getUserProfile-btn" lang="zh_CN" formType="submit"> {{is_newMember == '1'?'确认':'确认修改' }} </button>
+    <button type="default" size="mini" class="cancelLogin-btn" formType="reset"> {{is_newMember == '1'?'取消':'取消修改' }} </button>
+  </view>
+</form>

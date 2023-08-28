@@ -1,0 +1,99 @@
+<!-- 好友列表 -->
+<view class="signFriend-list-box">
+  <block wx:for="{{signtList}}" wx:key="index">
+    <view class="signFriend-listitems-box">
+      <!-- 头部信息开始 -->
+      <view class="listitems-top-box">
+        <image src="{{item.member.avatar}}" class="dzlw-listitems-avatar" data-id="{{item.member.id}}" bindtap="goOtherCircle"></image>
+        <view class="listitems-top-l">
+          <view class="dzlw-listitems-name">
+            <text>{{item.member.nickname}}</text>
+            <view class="signFriend-status-box">完成签到</view>
+          </view>
+          <view style="color: #afafaf;font-size: 26rpx;">{{item.created_at}}</view>
+        </view>
+        <view class="listitems-top-r">
+          <image src="/packageB/assets/images/sigin/icon_add_jl.png" mode="widthFix" class="add-icon"></image>
+          <text style="color: #6b6b6b;">{{item.distance?item.distance:0}}km</text>
+        </view>
+      </view>
+      <!-- 头部信息结束 -->
+      <!-- 中间部分开始 -->
+      <view class="listitems-mide-box">
+        <view data-id="{{item.id}}" data-curindex="{{index}}" bindtap="signLike">
+          <image src="{{item.mine_like?'/packageB/assets/images/sigin/icon_jy_dz2.png':'/packageB/assets/images/sigin/icon_jy_dz1.png'}}" mode="widthFix" class="icon_today_hh"></image>
+          <text style="font-size: 15px;padding-left:6px;" class="{{item.mine_like == 1 ? 'active':''}}">{{item.mine_like?'已赞':'点赞'}}</text>
+        </view>
+        <view style="justify-content: center;" data-id="{{item.id}}" bindtap="clickisLy">
+          <image src="/packageB/assets/images/sigin/icon_today_hh.png" mode="widthFix" class="icon_today_hh"></image>
+          <text style="font-size: 15px;padding-left:6px;">留言</text>
+        </view>
+        <view style="justify-content: flex-end;" data-id="{{item.id}}" data-content_uid="{{item.member_id}}" bindtap="clickisGift">
+          <image src="/packageB/assets/images/sigin/icon_today_listsghh.png" mode="widthFix" style="width: 130rpx;"></image>
+        </view>
+      </view>
+      <!-- 中间部分结束 -->
+      <!-- 礼物列表开始 -->
+      <view class="dzlw-list-box">
+        <!-- 留言开始 -->
+        <block wx:for="{{item.comment}}" wx:for-item="c_item" wx:key="c_index">
+          <view class="dzlw-listitems-box">
+            <view class="dzlw-listitems-hzbox">
+              <image src="/packageB/assets/images/sigin/icon_today_hh.png" mode="widthFix"></image>
+            </view>
+            <image src="{{c_item.member.avatar}}" class="dzlw-listitems-avatar" data-id="{{c_item.member.id}}" bindtap="goOtherCircle"></image>
+            <view class="dzlw-listitems-nameinfo">
+              <view class="dzlw-listitems-name"><text>{{c_item.member.nickname}}</text><text>{{c_item.created_at}}</text></view>
+              <view style="margin-top: 8rpx;padding-left: 4rpx;color: #797777;">{{c_item.content}}</view>
+            </view>
+          </view>
+        </block>
+
+        <!-- 留言结束 -->
+        <!-- 礼物开始 -->
+        <block wx:for="{{item.con_list}}" wx:for-item="r_item" wx:key="r_index">
+          <view class="dzlw-listitems-box" wx:if="{{r_item.gift.length> 0}}">
+             <view class="dzlw-listitems-hzbox">
+              <image src="/packageB/assets/images/sigin/icon_dtmh.png" mode="widthFix"></image>
+            </view>
+            <image src="{{r_item.member.avatar}}" class="dzlw-listitems-avatar" data-id="{{r_item.member.id}}" bindtap="goOtherCircle"></image>
+            <view class="dzlw-listitems-nameinfo">
+              <view class="dzlw-listitems-name"><text>{{r_item.member.nickname}}</text></view>
+              <view class="listitems-lw-box">
+                <block wx:for="{{r_item.gift}}" wx:for-item="g_item" wx:key="g_index">
+                  <view class="listitems-lwlist1">
+                    <image src="https://oss.qingshanpai.com/gift/sign_gift_{{g_item.id}}.png" mode="widthFix" class="dzlw-listitems-lwimg1"></image>
+                    <view class="lw-num1">x{{g_item.count}}</view>
+                  </view>
+                </block>
+              </view>
+            </view>
+
+          </view>
+        </block> 
+        <!-- 礼物结束 -->
+      </view>
+      <!-- 礼物列表结束 -->
+    </view>
+  </block>
+</view>
+
+
+<!-- ========================= 弹窗 开始 =========================== -->
+ <!-- ============= 留言/回话 弹窗 开始===========  -->
+  <view class="is-ly-mask" catchtouchmove="catchtouchmove" catchtap="is_ly_mask" wx:if="{{is_ly}}"></view>
+  <view class="is-ly-box" wx:if="{{is_ly}}">
+    <input type="text" placeholder="留言" value="{{textVal}}" bindinput="bindTextChange" class="inp"/>
+    <view hover-class="none" bindtap="sendComment"  class="send-btn-box">
+      <image src="/packageB/assets/images/sigin/icon_lybtn.png" mode="widthFix"></image>
+      <view class="send-btn">发送</view>
+    </view>
+  </view>
+ <!-- ============= 留言/回话 弹窗 结束===========  -->
+
+ <!-- ============= 送个花花 弹窗 开始===========  -->
+ <giftList selt_id="{{selt_id}}" content_uid="{{content_uid}}" is_gift="{{is_gift}}" bindshow_poster="show_poster" />
+ <!-- ============= 送个花花 弹窗 结束===========  -->
+
+
+

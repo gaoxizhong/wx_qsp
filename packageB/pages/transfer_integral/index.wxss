@@ -1,0 +1,128 @@
+page{
+  padding: 30rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+}
+.my-balance-box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.my-balance-number{
+  color: #fe8441;
+}
+.choose-amount-box{
+  margin-top:60rpx;
+  width: 100%;
+}
+.choose-amount-title{
+  padding: 10rpx 0;
+  font-size: 30rpx;
+}
+.choose-amount-list{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  box-sizing: border-box;
+}
+.choose-amount-list>view {
+  width: 25%;
+  box-sizing: border-box;
+  padding: 10rpx 8rpx;
+  font-size: 28rpx;
+}
+.choose-amount-list>view .chooseIemsList {
+  box-sizing: border-box;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx 10rpx;
+  height: 106rpx;
+}
+.chooseIemsList .chooseIemsList-input{
+  text-align: center;
+}
+.choose-amount-list>view .chooseIemsList.selectMoney {
+  border: 1px solid #ff9005;
+  color: #ff9005;
+  background: #feebda;
+}
+.chooseIemsList>view {
+  font-size: 28rpx;
+}
+.choose-branch-box{
+  width: 100%;
+  margin-top: 40rpx;
+}
+.choose-branch-title{
+  width: 100%;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.allSelect_box{
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkbox{
+  transform: scale(0.6);
+}
+ .member_box{
+   padding-bottom:30rpx;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   border-bottom:2rpx solid #EBEBEB;
+   padding:20rpx 0 20rpx 0;
+  }
+ .avatar{
+   width:100rpx;
+   border-radius:50%;
+ }
+ .applicant_name{
+   font-size:30rpx;
+   padding:0 0 15rpx 30rpx;
+ }
+ .approval_state{
+   color:#8D8D8D;   
+   font-size:28rpx;   
+   padding-left: 30rpx;
+ }
+ .sxed-box{
+   width: 260rpx;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 26rpx;
+ }
+ .footer-box{
+   width: 100%;
+   padding: 40rpx 0;
+   display: flex;
+   align-items: center;
+  justify-content: center;
+}
+.footer-btn-box{
+  width: 482rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #fff;
+  border-radius: 8px;
+  background-image: linear-gradient(to right, #ffad3c , #ff7d18);
+}
+.ji-box{
+  padding: 4rpx;
+  box-sizing: border-box;
+  border-radius: 50%;
+  font-size: 22rpx;
+  color: #ff7d18;
+}

@@ -1,0 +1,41 @@
+
+
+<import src="../../../../wxParse/wxParse.wxml" />
+<view class="page-title-box">
+  <view class="pagetitle-info-box">
+    <view class="pagetitle-info">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+    <!-- <view class="pagetitle-info">
+      <view>免费兑换项目：发布作品图片，每个获赞可以 获得1元钱奖励。</view>
+      <view>高价挂售手工作品，手工变现；</view>
+      <view>其它平台奖励用于换购；</view>
+      <view>票价超值优惠</view>
+    </view> -->
+  </view>
+</view>
+
+<view class="pages-tab-box">
+  <view class="pages-tab-1 {{card_type == '1'?'active':''}}" data-card_type="1" bindtap="pagesTab">基础权益卡</view>
+  <view class="pages-tab-2 {{card_type == '2'?'active':''}}" data-card_type="2" bindtap="pagesTab">畅玩权益卡</view>
+</view>
+
+<view class="pages-box">
+  <view class="card-box" wx:for="{{ cardList }}" wx:key="index" wx:if="{{card_type == item.card_type}}">
+    <view class="cardbg-box {{card_type == '1'?'jc-cardbg-box':'cw-cardbg-box'}}">
+      <view>
+        <view class="cardbg-info-box">
+          <view class="cardbg-info-box1"><text style="font-weight: bold;">{{item.title}}</text></view>
+          <!-- <view class="cardbg-info-box2">{{card_type == '1'?'不包含上色、上釉、烧制':'赠送20元任意购'}}</view> -->
+          <view class="cardbg-info-box2" wx:if="{{ item.card_voucher >0 }}">赠送{{item.card_voucher}}元</view>
+        </view>
+        <image src="{{card_type == '1'?'https://oss.qingshanpai.com/memberLife/hy-jck-btn.png':'https://oss.qingshanpai.com/memberLife/hy-cwk-btn.png'}}" class="hy-btn" mode="widthFix" data-config_id="{{item.id}}" data-card_type="{{item.card_type}}" data-card_num="{{item.card_num}}" data-card_price="{{item.card_price}}" bindtap="hyBtn"></image>
+      </view>
+      <view>
+        <view class="parice-num-box"><text>￥</text><text style="font-size: 40rpx;">{{item.card_price}}</text></view>
+        <view>开通后{{item.card_date}}天内有效</view>
+      </view>
+    </view>
+    <view class="card-text" style="background: {{card_type == '1'?'#fcfbf2':'#EFF1FF'}};">{{item.notice?item.notice:'暂无说明...'}}</view>
+  </view>
+</view>

@@ -1,0 +1,58 @@
+<wxs module="filters">
+  var filters = {
+    toFix: function (value) {
+			//丢弃小数部分,保留整数部分
+      return parseInt(value)
+    }
+  }
+  module.exports = {
+    toFix: filters.toFix
+  }
+</wxs>
+<view class="wintermap-box">
+  <!-- 人数展示 -->
+  <view class="punchpepole-box">
+    <view class="peple-box">
+      <text>您已打卡{{content_count}}次, </text>
+      <text wx:if="{{content_count < p_count}}">再打卡{{filters.toFix( p_count - content_count )  }}次即可领取奖品</text>
+      <text wx:else>可以领奖就行了</text>
+    </view>
+    <view class="punchpepole-listbox">
+      <view class="userList-number-img" style="width: {{done.length*60}}rpx;">
+        <block wx:for="{{done}}" wx:for-item="items" wx:for-index="subidx" wx:key="index">
+          <view style="left:{{subidx*60}}rpx;" data-index="{{subidx}}"><image src="{{items.member.avatar}}"></image></view>
+        </block>
+      </view>
+      <view class="userList-text">等{{done_count}}人次获得奖励</view>
+    </view>
+  </view>
+  <!-- 地图展示 -->
+  <view class="punchmap-box">
+    <map id="map" longitude="{{centerX}}" latitude="{{centerY}}" markers="{{markers}}" scale="14" bindcontroltap="controltap" bindlabeltap="markertap" bindregionchange="regionchange" enable-3D show-location='true' style="width: 100%; height: 512rpx;"></map>
+  </view>
+</view>
+
+<!-- 列表展示 -->
+
+<view class="container-listbox">
+  <view class="playList-box" wx:for="{{ newplayList }}" wx:key="index">
+    <view class="playList-box-l">
+      <image src="/packageB/assets/images/address.png" mode="widthFix" class="acList-l-avatar"></image>
+      <view class="acList-l-view">
+        <view class="acList-l-title">{{item.name}}( {{item.feature}} )</view>
+        <view class="acList-l-ac">{{item.address}}</view>
+        <view class="acList-l-ac">距离{{item.my_distance}}Km</view>
+      </view>
+    </view>
+    <view class="playList-box-r">
+      <view class="acList-r-btn r-btn-t" hover-class="hoverClass" data-address="{{item.address}}" data-feature="{{item.feature}}" data-name="{{item.name}}" data-lat="{{item.latitude}}" data-lng="{{item.longitude}}" bindtap="getRoadLine">导航</view>
+      <view class="acList-r-btn r-btn-b" data-id="{{item.id}}" data-name="{{item.name}}" data-feature="{{item.feature}}" bindtap="{{item.my_status == 1?'gotots':'gotowinter_punch'}}" hover-class="hoverClass">{{item.my_status == 1?'已打卡':'打卡'}}</view>
+    </view>
+  </view>
+  <view class="ckgd-box" hover-class="hoverClass" bindtap="clickmore" wx:if="{{hasMore && newplayList.length > 0}}">查看更多</view>
+  <view class="btnitems-box">
+    <view hover-class="hoverClass" bindtap="gotojl">打卡奖励</view>
+    <view hover-class="hoverClass" bindtap="gotopunchshow">打卡秀</view>
+    <button hover-class="hoverClass" open-type="share">分享</button>
+  </view>
+</view>

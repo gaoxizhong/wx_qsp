@@ -1,0 +1,35 @@
+<view class="title flex-justitem-center">
+  <image src="http://oss.qingshanpai.com/banner/setp-2.png" />
+</view>
+<view class="scan" bind:tap="useScan">
+  <image src="http://oss.qingshanpai.com/icon/sao-icon.gif" />
+  <view style="margin-top: 6px;">点这里,扫码图书条形码</view>
+</view>
+<view class="booklist">
+  <view class="list-item flex-justitem-startcent">
+    <view class="book-name" style="padding-left:60rpx;">书 籍 名 称</view>
+    <view class="book-value">书 籍 价 格</view>
+  </view>
+  <view wx:for="{{bookList}}" wx:for-index="index" wx:for-item="item" wx:key="index" class="list-item flex-justitem-startcent">
+    <input type="text" class="book-name" placeholder="扫一扫或手动输入书名" bindinput="saveBookName" data-index="{{index}}" value="{{item.book_name}}"/>
+    <input type="digit" class="book-value" placeholder="请输入积分..."  bindinput="saveBookPoint" data-index="{{index}}" value="{{item.integral_price}}"/>
+    <view bind:tap="delCurItem" data-index="{{index}}" class="del">
+      <image src="/images/icon_empty.png" />
+    </view>
+  </view>
+  <view bind:tap="useScan" class="add-list color-64B" wx:if="{{bookList.length < (5 - dayLimit-0) && bookList.length < (10 - monthLimit-0)}}">
+    <text>添加图书</text>
+    <image src="/images/icon_downadd.png"/>
+  </view>
+</view>
+<view class="book-point flex-justitem-spacecent">
+  <text>需使用</text>
+  <text>{{point_sum ? point_sum : '0.00'}}  环保积分</text>
+</view>
+<view class="tips flex-column-center">
+  <view>今日已购<text style="color:#64B532"> {{dayLimit}} </text>本书籍，今日限购 5 本</view>
+  <view>本月已购<text style="color:#64B532"> {{monthLimit}} </text>本书籍，本月限购 10 本</view>
+</view>
+<view class="btn-box">
+  <view class="confirm-buy" bind:tap="confirmBuy">确认兑换</view>
+</view>

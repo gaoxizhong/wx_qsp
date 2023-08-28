@@ -1,0 +1,14 @@
+	<view class="add-wealth-list flex-justitem-startcent">
+		<block wx:for="{{result}}" wx:key="index">
+			<view class="buy-item">
+        <view class="box-nei flex-column-space">
+          <view class="buy-item-title">{{item.integral}}环保积分</view>
+          <view class="buy-item-price">
+            <text style="font-size:24rpx;">￥</text>
+            <text class="buy-price">{{item.money}}</text>
+          </view>
+          <view class="buy-item-btn"  bindtap="buy_integral" data-integral="{{item.integral}}" data-id="{{item.id}}" data-money="{{item.money}}">赞助</view>
+        </view>
+			</view>
+		</block>
+</view>

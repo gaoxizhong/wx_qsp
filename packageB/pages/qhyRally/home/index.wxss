@@ -1,0 +1,202 @@
+
+page{
+  padding: 0 12.5rpx;
+  box-sizing: border-box;
+}
+
+.dh-box{
+  width: 100%;
+  height: 242rpx;
+  overflow: hidden;
+  padding-top: 20rpx;
+}
+.dhimg{
+  width: 100%;
+  height: 724rpx;
+  animation: animal 10s infinite linear ;
+  -webkit-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+}
+@keyframes animal {
+  0%{
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+  }
+}
+.listitems-box{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  position: relative;
+}
+.qhy-dt{
+  width: 100%;
+  height: 713rpx;
+  position: absolute;
+  top: 20rpx;
+  left: 0;
+  z-index: -1;
+}
+.items-box{
+  width: 227rpx;
+  height: 239rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid #F2F4F7;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+.items-box:nth-of-type(3n-1){
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.items-img{
+  width: 86rpx;
+  height: 94rpx;
+  margin-top: 46rpx;
+}
+.items-title{
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #000000;
+}
+.items-sub{
+  font-size: 20rpx;
+  text-align: center;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #A6A4A1;
+}
+.btn-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 60rpx;
+}
+.btn-box>image{
+  width: 287rpx;
+  height: 121rpx;
+}
+.hoverClass{
+  background: #ebebeb23;
+}
+
+/* ========================== 弹幕 ↓ ==================== */
+.Barrage-box {
+  width: 100%;
+  height: 600rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #f2f2f238;
+}
+view,text,scroll-view,swiper,button,form,input,textarea,label,navigator,image {
+  box-sizing: border-box;
+}
+.ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.displayGroup {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  margin: 0 -1rpx;
+  margin-top: 20rpx;
+}
+.dmGroup {
+  position: absolute;
+  top: 15rpx;
+  left: 100%;
+  z-index: 10;
+  animation-timing-function: linear;
+  animation-fill-mode: none;
+  transform: translateZ(0);
+  white-space: nowrap;
+  height: 76rpx;
+}
+.dmGroup.top,.dmGroup.top1 {
+  height: 76rpx;
+}
+.dmGroup.top2 {
+  height: 76rpx;
+  top: 135rpx;
+}
+.dmGroup.top3 {
+  height: 76rpx;
+  top: 260rpx;
+}
+.dmGroup.top4 {
+  height: 76rpx;
+  top: 380rpx;
+}
+.dmItem {
+  display: inline-flex;
+  margin-right: 60rpx;
+  white-space: nowrap;
+}
+.dmItem .dm {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  position: relative;
+  height: 76rpx;
+  line-height: 76rpx;
+  padding: 0 15rpx 0 5rpx;
+  background: rgba(255, 255, 255, 0.502);
+  border-radius: 20px;
+  overflow: hidden;
+  font-size: 26rpx;
+  color: #000;
+  box-shadow: 0 1px 1px #00000020;
+}
+.dmItem .avatarBox {
+  display: inline-block;
+  position: relative;
+  width: 64rpx;
+  height: 64rpx;
+  margin-right: 10rpx;
+}
+.dmItem .avatarBox .avatar {
+  width: 64rpx;
+  height: 64rpx;
+  border: 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.dmItem .dm .content {
+  display: inline-block;
+  max-width: 440rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  margin-right: 10rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+@keyframes dmAnimation2{ 
+  0% { transform: translateX(0); } 
+  100% { transform: translateX(-100%); } 
+}
+
+@keyframes dmAnimation{
+  from{ left: 100%; }
+  to{ left: -100%; }
+}
+
+/* ========================== 弹幕 ↑ ========================= */

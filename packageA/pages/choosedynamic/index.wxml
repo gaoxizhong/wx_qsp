@@ -1,0 +1,97 @@
+<view class="top-announcement-box">
+  <view class="announcement-img-box"><image src="/packageA/image/volunacti-hron.png"></image></view>
+  <view style="padding-left:20rpx;">{{notic}}</view>
+</view>
+
+<view class="seleNav-box">
+  <view data-index="2" bindtap="seleNav">
+    <image src="https://oss.qingshanpai.com/banner/their_1.png"></image>
+    <view class="seleNav-title">他们的故事</view>
+    <view wx:if="{{is_seleNav == '2' }}" class="hoverClass"></view>
+  </view>
+  <view data-index="1" bindtap="seleNav">
+    <image src="https://oss.qingshanpai.com/banner/mydynamic_1.png"></image>
+    <view class="seleNav-title">我的动态</view>
+    <view wx:if="{{is_seleNav == '1' }}" class="hoverClass"></view>
+  </view>
+</view>
+
+<view>
+  <view wx:if="{{is_seleNav == '1' }}" class="setion-centent-box">
+    <view style="padding: 0 30rpx;">
+      <view class="release-dynamic-box">
+        <view class="release-info-box">
+          <view class="release-textarea-box">
+            <!-- <textarea name="{{textarea}}" value="{{textarea}}" placeholder="发布一条动态" placeholder-style="color:#999999;font-size:28rpx;" class="release-textarea" focus="{{textarea_focus}}" maxlength='-1' bindblur="textarea_blur" wx:if="{{is_foucs}}"></textarea>
+            <view class="release-textarea1" bindtap="is_foucs" wx:else>发布一条动态</view> -->
+            <view class="release-textarea1" bindtap="goToPublish">发布一条动态</view>
+          </view>
+          <view class="release-btn-box"  bindtap="goToPublish">
+            <view class="release-btn">去发布</view>
+          </view>
+        </view>
+        <!-- <view class='photo-box'>
+          <view class='photo' wx:for="{{photos}}" wx:key="index" data-index="{{index}}" data-url="{{item}}" data-imgname="" bindtap='openPhoto'>
+            <image mode='aspectFill' src="{{item}}" mode='aspectFill'></image>
+          </view>
+          <view class="add-pic" bindtap="choose" hover-class='none' wx:if="{{photos.length < 9}}">
+            <image mode='widthFix' src="/images/icon-addphoto.png" />
+          </view>
+        </view> -->
+      </view>
+    </view>
+    <!-- 我的动态 -->
+    <view class="mydynami-list">
+      <include src="/packageA/pages/module/apeny_mydynamic/index.wxml" />
+    </view>
+  </view>
+  <!-- 他们的故事 -->
+  <view wx:if="{{is_seleNav == '2' }}" class="setion-centent-box">
+    <include src="/packageA/pages/module/their_story/index.wxml" />
+  </view>
+</view>
+
+<view style="width:100%;height:190rpx;"></view>
+<view class="footer-btn">
+  <button class="footer-btn1-left" bindtap="cliek_fenxiang_btn">
+    <image  src="/packageA/assets/images/loveActivity/active_fenxiang.png"></image> 
+    分享故事集赞
+  </button>
+  <button class="footer-btn1-right" bindtap="gotoMakephoto">
+    <image  src="/packageA/assets/images/loveActivity/active_haibao.png"></image> 
+    生成海报集赞
+  </button>
+</view>
+
+<!-- 生成海报弹窗 --> 
+<include src="/pages/module/makephoto/index.wxml" />
+
+<view class="is_notice_marek2" wx:if="{{is_clock_text2}}" bindtap="cle_marek2"></view>
+<view class="is_notice_box2" wx:if="{{is_clock_text2}}">
+  <view class="notice_center2">
+    <view style="text-align: center;padding-bottom:10rpx;">分享好友集赞</view>
+    <!-- <view class="template-text">
+      <template is="wxParse" data="{{wxParseData:activity_tips.nodes}}" />
+    </view> -->
+    <view class="pos-box">
+      <view class="content-words-box">
+        <view class="content-words-info">{{record_data.words}}</view>
+        <view class="circle-img" wx:if="{{record_data.image.length > 0}}">
+          <image 
+            wx:for="{{record_data.images}}" 
+            wx:for-item="items" 
+            wx:for-index="subidx" 
+            wx:key="index" src='{{ items.url }}' 
+            mode="aspectFill" 
+            class="imgduo-width"
+            >
+          </image>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view class="notice_btn2">
+    <button class="notice_btn2_btn" open-type="share" hover-class="notice_hover_btn">分享给好友</button>
+  </view>
+</view>

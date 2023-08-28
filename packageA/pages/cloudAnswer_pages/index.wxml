@@ -1,0 +1,20 @@
+<view class="anwer-title-box">调研内容</view> 
+<view class="answer-list-box">
+  <block wx:for="{{answerList}}" wx:key="index">
+    <view class="answer-items">
+      <view class="answer-items-title"><text style="color:#ff0000;font-size: 32rpx;">*</text>{{index + 1}}、{{item.title}}</view>
+      <view class="answer-options-box">
+        <radio-group bindchange="radioChange" data-id="{{item.id}}" data-index="{{index}}">
+          <block wx:for="{{item.data.option}}" wx:for-item="items" wx:key="idx">
+            <view class="options-list"><label><radio value="{{items.key}}" />{{ items.content }}</label></view>
+          </block>
+        </radio-group>
+      </view>
+    </view>
+  </block>
+</view>
+<view style="width:100%;height:200rpx;"></view>
+
+<view class="footer-box">
+  <view class="footer-status" bindtap="goto_points_gifts">提交</view>
+</view>

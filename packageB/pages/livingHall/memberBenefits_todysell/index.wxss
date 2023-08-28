@@ -1,0 +1,238 @@
+page {
+  background: #f6f6f6;
+  box-sizing: border-box;
+  padding: 24rpx;
+  font-size: 32rpx;
+}
+.todayLike-title-box {
+  width: 100%;
+  height: 264rpx;
+  box-sizing: border-box;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background: #ffe4bf;
+  padding: 30rpx 0px;
+  box-sizing: border-box;
+}
+.new-title-bbox>view {
+  flex: 1;
+  height: 98rpx;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #62452c;
+  position: relative;
+}
+.income-title-m::before {
+  content: '';
+  height: 80%;
+  width: 1px;
+  background: #333;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.income-title-m::after{
+  content: '';
+  height: 80%;
+  width: 1px;
+  background: #333;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.income-text-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 12rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+}
+.income-text-nub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+}
+
+.titlebtn-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30rpx;
+}
+.titlebtn-1{
+  width: 440rpx;
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #7d5112;
+  background-image: linear-gradient(to right,#ecbb7b,#f1cb95);
+	box-shadow: 0px 0px 20px 0px rgba(125, 81, 18,0.1000);
+}
+
+
+.seeccon-btn-box {
+  width: 100%;
+  display: flex;
+  padding: 35rpx 10rpx;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-top: 20rpx;
+  background: #fff;
+}
+.mys-items-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.mys-items-box image {
+  width: 104rpx;
+  height: 108rpx;
+  border-radius: 50%;
+}
+.mys-items-box text {
+  font-size: 28rpx;
+  padding-top: 20rpx;
+}
+.project-box{
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-top: 20rpx;
+  background: #fff;
+  padding: 10rpx 0;
+}
+.project-box-title{
+  font-size: 36rpx;
+  font-weight: bold;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.projectList-items{
+  margin-top: 20rpx;
+  /* padding: 10rpx 20rpx; */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+.items-img{
+  width: 184rpx;
+  height: 138rpx;
+  border-radius: 6px;
+}
+.items-r-box{
+  flex: 1;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+.items-r-title{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.items-r-m{
+  font-size: 28rpx;
+  color: #666;
+  margin-top: 8rpx;
+  box-sizing: border-box;
+}
+.items-r-pbox{
+  margin-top: 8rpx;
+}
+.items-btnbox{
+  width: 128rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  color: #7d7d7d;
+  box-sizing: border-box;
+
+}
+.items-btn{
+  margin: 12rpx 0;
+  width: 110rpx;
+  text-align: center;
+  height: 52rpx;
+  line-height: 52rpx;
+  color: #824b00;
+  background-image: linear-gradient(to right, #ffd87a,#ffbe5e);
+  font-size: 28rpx;
+  border-radius: 20px;
+  box-sizing: border-box;
+
+}
+.illustrate-box{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+.illustrate-pop{
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #acacac2a;
+}
+.illustrate-infobox{
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background: #fff;
+  padding: 20rpx 30rpx 30rpx;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.illustrate-title-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.close{
+  padding: 10px;
+  box-sizing: border-box;
+}
+.infoText-box{
+  padding-top: 20rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #535353;
+}
+.infoText-btn{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: bold;
+  background: #e9ca8f;
+  color: #7b520d;
+  border-radius: 6px;
+  margin-top: 16rpx;
+}
+.titleInfo-jrsdz-img{
+  width: 34rpx;
+  margin-left: 4px;
+}

@@ -1,0 +1,43 @@
+<view class="pages-title1" wx:if="{{ official_type == '1'}}">欢迎开通青山生态会员</view>
+<view class="pages-title">请填写您的基础信息</view>
+<form bindsubmit='savaData' report-submit>
+  <view class="mine_nav">
+    <view class="items">
+      <text>姓名</text>
+      <input placeholder='请输入姓名' placeholder-style='color:#b2b2b2;' name="contact_name" value="{{contact_name}}"></input>
+    </view>
+    <view class="items">
+      <text>手机号</text>
+      <input placeholder='请输入手机号' placeholder-style='color:#b2b2b2;' name="contact_phone" value="{{contact_phone}}"></input>
+    </view>
+    <view class="items">
+      <text>所在地区</text>
+      <picker mode="region" name="garden" value="{{garden}}" start="" bindchange="saveGarden">
+        <view class="shengshi" style="color:{{garden == ''? '#b2b2b2' : '#000'}}">{{ garden ? garden:'请选择' }}</view>
+      </picker>
+    </view>
+    <view class="items">
+      <text>联系地址</text>
+      <input placeholder='请输入详细地址' placeholder-style='color:#b2b2b2;' name="contact_area" value="{{contact_area}}"></input>        
+    </view>
+  </view>
+
+  <view class="v-pics" wx:if="{{ official_type != '2'}}">
+    <view class="v-back">
+      <span>主页背景</span>
+      <view class='photo'>
+        <image mode='scaleToFill' src="{{v_back}}"></image>
+        <button class='btn-addphoto' bindtap='chooseBack' hover-class='none' style="opacity:{{v_back && v_back!='' ? 0 : 1}}">
+          <image mode='widthFix' src='/images/icon-addphoto.png'></image>
+        </button>
+      </view>
+      <text class="xiu-text">点击图片修改</text>
+    </view>
+  </view>
+  <view style="width: 100%;height: 140rpx;"></view>
+  <view class="btn-box">
+    <button form-type='submit' hover-class='hover_color' class="send-apply" wx:if="{{is_xiu == '1'}}">确认修改</button>
+    <button form-type='submit' hover-class='hover_color' class="send-apply" wx:if="{{ !is_xiu && official_type == '1'}}">确认开通</button>
+  </view>
+
+</form>

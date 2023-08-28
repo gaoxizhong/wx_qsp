@@ -1,0 +1,86 @@
+.mine_nav>view {
+  background: #fff;
+  margin-top: 15rpx;
+  padding: 0 40rpx;
+}
+.mine_nav>view .items {
+  color: #000;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-radius: 0;
+  border-bottom: 1px solid #f4f4f4;
+}
+.mine_nav>view .items text {
+  font-size: 32rpx;
+  color: #1a1a1a;
+  width: auto;
+  text-align: left;
+}
+.mine_nav>view .items input {
+  text-align: left;
+  font-size: 30rpx;
+  color: #000;
+  flex: 1;
+  padding-left: 30rpx;
+}
+.shengshi {
+  font-size: 30rpx;
+}
+.v-pics {
+  padding: 0 40rpx;
+  font-size: 32rpx;
+}
+.v-pics >view {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #f4f4f4;
+}
+.v-pics >view >span {
+  width: auto;
+}
+.v-pics .photo {
+  position: relative;
+  width: 120rpx;
+  height: 120rpx;
+  border: 1px solid #b5b5b5;
+  border-radius: 10rpx;
+  margin-left: 30rpx;
+}
+.v-pics .photo image {
+  width: 100%;
+  height: 100%;
+}
+.v-pics .photo button {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.v-pics .photo button image {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  top: 20%;
+  left: 20%;
+}
+.send-apply {
+  margin-top: 60rpx;
+  margin-bottom: 60rpx;
+  width: 440rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  background-image: linear-gradient(to right, #4AC081 , #6cd67f);
+  border-radius: 40rpx;
+  font-size: 30rpx;
+}
+.xiu-text{
+  font-size: 24rpx;
+  color: #999;
+  padding-left: 60rpx;
+}

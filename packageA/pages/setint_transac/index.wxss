@@ -1,0 +1,144 @@
+page{
+  padding: 28rpx 30rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  margin-bottom: 30rpx;
+}
+.setint-box{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16rpx 16rpx;
+  background: #fff;
+  box-shadow: 0 0 20rpx 0 #00000015;
+  margin-top: 10rpx;
+}
+.setint-title{
+  font-weight: 600;
+}
+.setint-title-desc{
+  color: #999;
+}
+.setint-list-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 36rpx;
+}
+.setint-list-box>.setint-list-item{
+  width: 33.3333333333333333%;
+  font-size: 26rpx;
+  margin: 15rpx 0;
+  display: flex;
+  align-items: center;
+}
+.setint-list-box>.setint-list-item>view{
+  width: auto;
+  height: auto;
+  padding: 16rpx 40rpx;
+  border-radius: 20px;
+  box-shadow: 0 0 20rpx 0 #00000015;
+}
+.set-btn{
+  background: #cecece;
+}
+
+.setint-list-item>input{
+  width: 152rpx;
+  height: 100%;
+  text-align: center;
+  padding: 10rpx 40rpx;
+  border-radius: 20px;
+  box-shadow: 0 0 20rpx 0 #00000015;
+}
+.show-number-box{
+  margin-top: 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 28rpx;
+}
+.right-text{
+  text-align:right;
+}
+.right-text text{
+  display: inline-block;
+  width: 94rpx;
+  text-align:right;
+}
+.que-btn{
+  width: 298rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  text-align: center;
+  font-weight: 600;
+  margin: 40rpx auto;
+  border-radius: 20px;
+  box-shadow: 0 0 20rpx 0 #00000015;
+}
+.tishi-text{
+  width: 100%;
+  font-size: 28rpx;
+  color: #ababab;
+  box-sizing: border-box;
+}
+.seld-btn{
+  background: #4ac081;
+  color: #fff;
+}
+.transac-mark{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+  background: #000;
+  opacity: 0.5;
+  z-index: 9999;
+}
+.transac-view-box{
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 50%;
+  left:0;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+.transac-input-box{
+  width: 84%;
+  height: auto;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 6px;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 84rpx 28rpx 40rpx 28rpx;
+  box-shadow: 0 0 20rpx 0 #00000015;
+}
+.transac-input-btn{
+  margin: 0 auto;
+  margin-top: 98rpx;
+  width: 70%;
+  padding: 22rpx 0;
+  background: #63d080;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  border-radius: 20px;
+}
+.transac-input-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.transac-input-title>input{
+  flex: 1;
+  margin-left: 5px;
+  border: 1px solid #999;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  padding-left: 20rpx;
+}

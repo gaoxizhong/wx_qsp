@@ -1,0 +1,8 @@
+
+
+<image src="http://oss.qingshanpai.com/banner/scann-step.png" class="scann-step" mode='widthFix'></image>
+
+<view class="btn-scanning" bindtap="scanning">
+   <image src="/images/sao-2.png"></image>
+    扫码上架
+</view>

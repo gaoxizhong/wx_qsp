@@ -1,0 +1,8 @@
+
+{
+  "disableSwipeBack": true,
+  "disableScroll": false,
+  "navigationBarTitleText": "优惠券详情",
+  "navigationBarBackgroundColor": "#ffbd6d",
+  "navigationBarTextStyle": "white"
+}

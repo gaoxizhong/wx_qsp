@@ -1,0 +1,17 @@
+<view class='state_wrap'>
+  <image src="http://oss.qingshanpai.com/huanbaobi/d6dc25ee8e79bcf619df459f2cb28584.png" />
+  <view class='txt'>支付成功</view>
+
+  <form bindsubmit='getFormId' report-submit>
+    <view class='success-btn-list'>
+      <button form-type='submit' class="btn-lt" bindtap="goToUseCoin">查看我的订单</button>
+      <button form-type='submit' class="btn-rt"  bindtap="goTocircle">查看我的积分</button>
+    </view>
+  </form>
+</view>
+<!-- 回收按钮 -->
+<!-- <include src="/pages/module/huishouBtn/index.wxml" /> -->
+<!-- <view class="bottom-text" bind:tap="goToCircle">
+  <text>查看我的购物车</text>
+  <image src="/images/icon_loadall.png" />
+</view> -->

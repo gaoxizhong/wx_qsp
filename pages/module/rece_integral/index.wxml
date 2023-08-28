@@ -1,0 +1,6 @@
+<view wx:if="{{is_mark}}" class="is-mark" catchtouchmove="myCatchTouch"></view>
+<view  wx:if="{{is_mark}}" class="mark-box" catchtouchmove="myCatchTouch">
+	<image src="http://oss.qingshanpai.com/banner/integual-11.png" mode="widthFix"></image>
+  <view class="integual-title"> {{integual ? integual :'50'}} <text style='font-size:30rpx;'> 环保积分</text> </view>
+	<view class="sub-btn" bindtap="rece_integral">立即领取</view>
+</view>

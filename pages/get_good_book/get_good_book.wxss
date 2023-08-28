@@ -1,0 +1,105 @@
+page{
+  background: #eeeeee;
+}
+.nulldata_wrap{
+  width: 100%;
+}
+.msg{
+  color: #fff;
+  margin-top: 50rpx;
+}
+.pages-box{
+  display: flex;
+  flex-wrap: wrap;
+}
+.scroll-view {
+  width: 100%;
+  height: auto;
+  }
+  .scroll-view .content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding: 20rpx 0;
+    position: relative;
+    padding-top: 30rpx;
+    border-bottom: 1px solid #d2d2d2;
+    background: #fff;
+    margin-top: 12rpx;
+    }
+    
+    .left {
+     display: flex;
+      flex-direction: row;
+      width: auto;
+      height: auto;
+      
+      }
+
+.right {
+display: flex;
+flex-direction: column;
+width: auto;
+height: auto;
+font-size: 26rpx;
+color: #090909;
+font-family: PingFang-SC-Regular;
+margin-left: 26rpx;
+overflow: hidden;
+flex: 1;
+
+}
+.shopping-cart {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 170rpx;
+  right: 26rpx;
+
+}
+.content .left image {
+  margin-top: 4%;
+  width: 130rpx;
+  height: 173rpx;
+  margin-left: 12rpx;
+  
+  }
+.right text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  }
+  .movable-area .movable-view image {
+    height: 92rpx;
+    width: 92rpx;
+    }
+.refr-icon {
+  width: auto;
+  height: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  background: red;
+  color: #fff;
+  font-size: 20rpx;
+  position: absolute;
+  top: -30rpx;
+  right: -18rpx;
+  padding: 6rpx 14rpx;
+  }
+.movable-area .movable-view {
+  pointer-events: auto;
+  height: 92rpx;
+  width: 92rpx;
+  right: 46rpx;
+  left: auto;
+  bottom: 140rpx;
+  top: auto;
+  border-radius: 50%;
+  }
+            
+           
+          
+    
+  
+ 

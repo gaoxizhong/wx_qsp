@@ -1,0 +1,25 @@
+<view class="projectList-items">
+  <block wx:for="{{projectList}}" wx:key="index">
+    <view class="listitems-box">
+      <view class="graphics-box" data-id="{{item.id}}" bindtap="gotoBuyDetails">
+        <image src="{{item.image_array[0]}}" class="graphics-img"></image>
+        <view class="graphics-title">
+          <view style="font-weight: bold;">{{item.title}}</view>
+          <view style="color: #595959;font-size: 26rpx;">{{item.sub_title}}</view>
+          <view>
+            <text style="color: #fa6633;">￥{{item.price}}</text>
+            <text style="color:#454545;text-decoration: line-through;margin-left:10rpx;font-size: 26rpx;">￥{{item.project_price}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="items-btnbox">
+        <view class="items-buybtn" hover-class="hoverClass" data-id="{{item.id}}" bindtap="gotoBuyDetails">购买</view>
+        <view class="items-sold">已售{{item.order_count}}</view>
+      </view>
+    </view>
+  </block>
+  <view class='nulldata_wrap' wx:if="{{projectList.length <= 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无项目...</view>
+  </view>
+</view>

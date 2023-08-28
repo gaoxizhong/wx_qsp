@@ -1,0 +1,205 @@
+.slide-image {
+    width: 100%;
+    height: 100%;
+}
+.swiper-container {
+    position: relative;
+}
+.register-info {
+    height: 300rpx;
+}
+.register-info>image {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-container .dots {
+    position: absolute;
+    left: 20rpx;
+    right: 0;
+    bottom: 20rpx;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.swiper-container .dots .dot {
+    margin: 0 8rpx;
+    width: 14rpx;
+    height: 14rpx;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8rpx;
+    transition: all 0.6s;
+}
+
+.swiper-container .dots .dot.active {
+    background: #fff;
+}
+
+.mine_nav>view {
+    background: #fff;
+    margin-top: 15rpx;
+    padding: 0 40rpx;
+}
+
+.mine_nav>view .items {
+    color: #000;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0;
+    border-radius: 0;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.mine_nav>view .items text {
+    width: 200rpx;
+    text-align: left;
+}
+
+.time-picker {
+    text-align: left;
+    font-size: 32rpx;
+    color: #000;
+    flex: 1;
+}
+
+.mine_nav>view .items navigator {
+    flex: 1;
+}
+
+.mine_nav>view .items input {
+    text-align: left;
+    font-size: 30rpx;
+    color: #000;
+    flex: 1;
+}
+
+.mine_nav>view .items textarea {
+    height: 120rpx;
+    line-height: initial;
+    text-align: left;
+    font-size: 32rpx;
+    color: #000;
+    flex: 1;
+}
+
+.mine_nav>view navigator:last-of-type button {
+    border: none;
+}
+
+.mine_nav>view .items text {
+    font-size: 32rpx;
+    color: #1a1a1a;
+}
+
+.mine_nav>view .items .min_icon {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.mine_nav>view .items .min_icon image {
+    width: 12rpx;
+    margin-left: 40rpx;
+}
+
+.mine_nav>view .items .min_icon view.doc {
+    background: #ff3933;
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+}
+
+.mine_nav>view .items .min_icon view.txt {
+    background: #ff3933;
+    height: 36rpx;
+    min-width: 36rpx;
+    font-size: 24rpx;
+    text-align: center;
+    line-height: 36rpx;
+    color: #fff;
+    border-radius: 100px;
+}
+.v-pics {
+    padding: 0 40rpx;
+    font-size: 32rpx;
+}
+.v-pics >view {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20rpx 0;
+    border-bottom: 1px solid #f4f4f4;
+}
+.v-pics >view >span {
+    width: 200rpx;
+}
+.v-pics .photo {
+    position: relative;
+    width: 120rpx;
+    height: 120rpx;
+    border: 1px solid #b5b5b5;
+    border-radius: 10rpx;
+}
+.v-pics .photo image {
+    width: 100%;
+    height: 100%;
+}
+.v-pics .photo button {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.v-pics .photo button image {
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+}
+.confirm-agree {
+    margin-top: 30rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28rpx;
+}
+.confirm-agree a {
+    color: #4285f4;
+}
+.agree-detail {
+    font-size: 24rpx;
+    padding: 16rpx;
+    position: fixed;
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    overflow: scroll;
+    background-color: #fff;
+    z-index: 999;
+    border: 1px solid #b5b5b5;
+    border-radius: 16rpx;
+}
+.agree-detail button {
+    margin-top: 24rpx;
+    background-color: #64B532;
+    color: #FFF;
+}
+.send-apply {
+    margin-top: 60rpx;
+    margin-bottom: 60rpx;
+    width:440rpx;
+    height:80rpx;
+    line-height: 80rpx;
+    color: #fff;
+    background-image: linear-gradient(to right, #4AC081 , #6cd67f);
+    border-radius:40rpx;
+    font-size: 30rpx;
+}
+.shengshi{
+    font-size: 30rpx;
+
+}

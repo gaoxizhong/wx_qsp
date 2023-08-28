@@ -1,0 +1,114 @@
+<!-- <view>{{ day + '天 '+hr +'小时'+ min +'分钟' +sec+'秒' }}</view> -->
+<!-- 商品订单 -->
+<view>
+  <view class="tab-bar">
+    <view class="tab-bar-item {{status == ''?'color-64B':'color-333'}}" data-status="" bindtap="changeTabItem">
+      <text>全部</text>
+      <view class="bar-border bacg-64B" wx:if="{{status == ''}}"></view>
+    </view>
+    <view class="tab-bar-item {{status == '1'?'color-64B':'color-333'}}" data-status="1" bindtap="changeTabItem">
+      <text>待付款</text>
+      <view class="bar-border bacg-64B" wx:if="{{status == '1'}}"></view>
+    </view>
+    <view class="tab-bar-item {{status == '2'?'color-64B':'color-333'}}" data-status="2" bindtap="changeTabItem">
+      <text>待发货</text>
+      <view class="bar-border bacg-64B" wx:if="{{status == '2'}}"></view>
+    </view>
+    <view class="tab-bar-item {{status == '3'?'color-64B':'color-333'}}" data-status="3" bindtap="changeTabItem">
+      <text>待收货</text>
+      <view class="bar-border bacg-64B" wx:if="{{status == '3'}}"></view>
+    </view>
+    <view class="tab-bar-item {{status == '4'?'color-64B':'color-333'}}" data-status="4" bindtap="changeTabItem">
+      <text>已完成</text>
+      <view class="bar-border bacg-64B" wx:if="{{status == '4'}}"></view>
+    </view>
+  </view>
+  <view class="order-list-box">
+    <view class="commodity-order-box">
+      <view class="commodity-order-item" wx:for="{{orderlists}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+        <view class="order-shop-title">
+          <view>{{item.name?item.name:item.obtain_name}}</view>
+          <view style="color:#e96907;font-weight:100;">{{item.status_text}}</view>
+        </view>
+        <view class="order-shop-content" bindtap="{{item.type == 'library' || item.type == 'book' || item.type == 'guan_zhang' ? '' : 'gotocommdetail'}}" data-id="{{item.id}}" data-discount_order_tid="{{item.discount_order_tid}}">
+          <view class="image-box">
+            <image src="{{item.img}}"></image>
+          </view>
+          <view class="order-shop-info">
+            <view class="order-shop-info-title">{{item.title}}</view>
+            <view style="color:#e96907;">{{item.pay_money}}</view>
+            <view style="color:#4ac081;">{{item.remark?item.remark:""}}</view>
+          </view>
+          <view class="commodity-order-number">*{{item.pay_count}}</view>
+        </view>
+        <!-- 下方按钮 -->
+        <view>
+          <view class="yonghu_maijia" wx:if="{{item.type == 'guan_zhang'}}">
+            <view>买家：</view>
+            <image src="{{item.pay_member_avatar}}" class="yonghu_maijia_image"></image>
+            <view style="padding-left:20rpx;">{{item.pay_member_nickname}}</view>
+          </view>
+
+          <view class="order-button" wx:if="{{type == 1 && (item.type == 1 || item.order_type == '3'|| item.order_type == '4' || item.type == 'book' || item.type == 'library'|| item.type == 'guan_zhang')  }}">
+            <button wx:if="{{item.type == 'library'}}" bindtap="makeCall" data-phone="{{item.library_tel}}" class="redorg redorgbg">联系馆长</button>
+            <button wx:if="{{item.type == 'guan_zhang'}}" bindtap="obtainCall" data-phone="{{item.obtain_phone}}" class="redorg redorgbg">联系买家</button>
+            <button wx:if="{{item.status == '1'}}" hover-class="none" bindtap="cancelOrder" class="cancelbg" data-index="{{index}}" data-id="{{item.id}}">取消订单</button>
+            <button wx:if="{{(item.type == 'book' || item.type == 'library')&&item.order_status == '1'}}" hover-class="none" bindtap="cancelOrder_book" data-index="{{index}}" data-id="{{item.id}}">取消订单</button>
+            <button wx:if="{{item.status == '1'}}" hover-class="none" class="redorg redorgbg" bindtap="payOrder" data-id="{{item.id}}">去支付</button>
+            <button wx:if="{{(item.type == 'book' || item.type == 'library')&&item.order_status == '1'}}" hover-class="none" bindtap="payOrder_book" data-id="{{item.id}}">去支付</button>
+            <button wx:if="{{ item.order_type == '3' && item.order_status == '1'}}" hover-class="none" bindtap="payOrder_book" data-order_type="{{item.order_type}}" data-id="{{item.id}}">去支付</button>
+            <button wx:if="{{ item.order_type == '4' && item.order_status == '1'}}" hover-class="none" bindtap="payOrder_gujiu" data-order_type="{{item.order_type}}" data-id="{{item.id}}">去支付</button>
+            <button wx:if="{{item.status >= '3' && item.order_type != 'tuan'}}" hover-class="none" bindtap="viewLogistics" data-in_stock="{{item.status}}" data-id="{{item.id}}" data-discount_order_tid="{{item.discount_order_tid}}">查看物流</button>
+            <button wx:if="{{item.status == '3'}}" hover-class="none" bindtap="takeOrder" data-id="{{item.id}}" data-type="{{item.type}}">确认收货</button>
+            <button wx:if="{{item.order_status == '3'}}" hover-class="none" bindtap="takeOrder_book" data-id="{{item.id}}" data-type="{{item.type}}" data-library_id="{{item.library_id}}">确认收货</button>
+            <button wx:if="{{item.order_type == 'tuan' && item.status != '1'}}" hover-class="none" data-id="{{item.id}}" data-index="{{index}}" data-discount_id="{{item.discount_id}}" data-business_id="{{item.business_id}}" data-img="{{item.img}}" data-order_type="{{item.order_type}}" data-need_num="{{item.need_num}}" data-tuan_order_id="{{item.tuan_order_id}}" open-type="share">分享给好友</button>
+          </view>
+          <view class="order-button" wx:if="{{type == 2 && item.order_type != 'tuan'}}">
+            <button wx:if="{{item.status == '2'}}" hover-class="none" bindtap="shipmentsOrder" data-order_type="ture" data-id="{{item.id}}" data-discount_order_tid="{{item.discount_order_tid}}" data-discount_id="{{item.discount_id}}">去发货</button>
+            <button wx:if="{{item.status >= '3' && item.order_type != 'tuan'}}" hover-class="none" bindtap="viewLogistics" data-in_stock="{{item.status}}" data-id="{{item.id}}" data-discount_order_tid="{{item.discount_order_tid}}">查看物流</button>
+          </view>
+        </view>
+
+      </view>
+
+
+      <view class='nulldata_wrap' wx:if="{{orderlists.length == 0}}">
+        <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+        <view class='msg'>暂无数据</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 评分弹窗 -->
+<view wx:if="{{is_pingfen}}" class="mark-pingfen"></view>
+<view wx:if="{{is_pingfen}}" class="pingfen">
+  <view class="row">
+    <view style="width:25%;font-size:30rpx;text-align: center;">评分:</view>
+    <view class="content" style="flex-direction:row;display:flex;align-items:center;width:75%;">
+      <image bindtap="tapstar0" data-text="0" wx:if="{{starPic[0]==0}}" class="star" src="/images/star.png" mode="widthFix" />
+      <image bindtap="tapstar0" data-text="0" wx:elif="{{starPic[0]==1}}" class="star" src="/images/shineStar.png" mode="widthFix" />
+      <image bindtap="tapstar0" data-text="1" wx:if="{{starPic[1]==0}}" class="star" src="/images/star.png" mode="widthFix" />
+      <image bindtap="tapstar0" data-text="1" wx:elif="{{starPic[1]==1}}" class="star" src="/images/shineStar.png" mode="widthFix" />
+      <image bindtap="tapstar0" data-text="2" wx:if="{{starPic[2]==0}}" class="star" src="/images/star.png" mode="widthFix" />
+      <image bindtap="tapstar0" data-text="2" wx:elif="{{starPic[2]==1}}" class="star" src="/images/shineStar.png" mode="widthFix" />
+      <image bindtap="tapstar0" data-text="3" wx:if="{{starPic[3]==0}}" class="star" src="/images/star.png" mode="widthFix" />
+      <image bindtap="tapstar0" data-text="3" wx:elif="{{starPic[3]==1}}" class="star" src="/images/shineStar.png" mode="widthFix" />
+      <image bindtap="tapstar0" data-text="4" wx:if="{{starPic[4]==0}}" class="star" src="/images/star.png" mode="widthFix" />
+      <image bindtap="tapstar0" data-text="4" wx:elif="{{starPic[4]==1}}" class="star" src="/images/shineStar.png" mode="widthFix" />
+      <view style="margin-left:20rpx;font-size:28rpx;">{{score}}分</view>
+    </view>
+  </view>
+  <view bindtap="submint" class="btnaa">提交</view>
+</view>
+
+<!-- 活动标题弹窗 -->
+<view class="is-title" wx:if="{{is_title}}" bindtap="no_istitle"></view>
+<view class="title-box" wx:if="{{is_title}}">
+  <block>
+    <view wx:for="{{title_text}}" wx:key="index" class="title-box-text">
+      <text>{{index+1}}、</text><text>{{item}}</text>
+    </view>
+  </block>
+  <image src="/images/icon-chacha.png" class="photo-cancel" bindtap="open_image"></image>
+</view>

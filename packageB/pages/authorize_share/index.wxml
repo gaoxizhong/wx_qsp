@@ -1,0 +1,31 @@
+<!-- 没有授权分店展示 -->
+<view class="no-branch-box" wx:if="{{branchList.length <=0}}">
+  <view class="no-branch-imagebox">
+    <image src="https://oss.qingshanpai.com/icon/adperm-icon-tsbj.png" mode="widthFix"></image>
+    <view class="no-branch-text">暂无授权分店</view>
+  </view>
+  <button class="no-branch-btn" open-type="share">去授权</button>
+</view>
+<!-- 有授权分店时展示 -->
+<view class="yes-branch-box" wx:else>
+  <view class="no-branch-imagebox">
+    <image src="https://oss.qingshanpai.com/icon/adperm-icon-tsbj.png" mode="widthFix"></image>
+    <view class="no-branch-text">已授权{{num}}家分店</view>
+  </view>
+  <button class="no-branch-btn" open-type="share" style="width: 240rpx;">去授权</button>
+  <view class="branchlist-box">
+    <view class="yes-branch-title">已授权的</view>
+    <block wx:for="{{branchList}}" wx:key="index">
+      <view class="branchlist-items-box">
+        <image src="{{item.avatar}}" class="branchlist-items-image"></image>
+        <view class="branchlist-items-info">
+          <view class="applicant_name">{{item.name}}</view>
+          <view class="approval_state">{{item.name}}分店</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  
+
+
+</view>

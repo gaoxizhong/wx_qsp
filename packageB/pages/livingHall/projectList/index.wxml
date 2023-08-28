@@ -1,0 +1,4 @@
+<view class="project-box">
+  <view class="project-box-title">低碳生活馆项目</view>
+  <projectList id="projectID"/>
+</view>

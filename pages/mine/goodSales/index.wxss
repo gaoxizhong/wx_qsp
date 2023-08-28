@@ -1,0 +1,51 @@
+@import "/pages/mine/myIdle/index.wxss";
+page{
+  background: #fff;
+}
+.desc-info {
+color: #9C9A9A;
+font-size: 28rpx;
+width: 100%;
+box-sizing: border-box;
+position: fixed;
+bottom: 160px;
+}
+.image-box1{
+  width: 100%;
+  height: 193rpx;
+  box-sizing: border-box;
+  /* background-color: #fd783c; */
+  background-image: linear-gradient(to bottom, #4AC081 , #6cd67f);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  padding: 33rpx 42rpx 33rpx 26rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.image-box1 image {
+  width: 124rpx;
+  height: 124rpx;
+  border-radius: 50%;
+}
+.image-box1 .name1 {
+padding-left: 28rpx;
+color: white;
+}
+.idle-release1 {
+  width: 170rpx;
+  height: 64rpx;
+  border-radius: 8px;
+  /* background: #fd783c; */
+  border: 2rpx solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 30rpx;
+  padding: 0 14rpx;
+}

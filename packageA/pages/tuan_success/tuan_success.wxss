@@ -1,0 +1,32 @@
+
+/* pages/tobuy_welfare/pay_succcess.wxss */
+.main{
+  text-align: center;
+  margin-top: 30rpx;
+  width: 100%;
+  height: 40%;
+}
+.main view{
+  padding: 20rpx;
+}
+.main image{
+  height: 150rpx;
+  width: 150rpx;
+}
+.skip-button{
+  display: flex;
+}
+.skip-button button{
+  background: orange;
+  color: white;
+  width: 40%;
+  border-radius: 60rpx;
+  font-size: 38rpx;
+}
+.title-text{
+  font-size: 48rpx;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 20rpx;
+  padding: 20rpx;
+}

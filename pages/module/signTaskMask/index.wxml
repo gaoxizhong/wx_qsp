@@ -1,0 +1,10 @@
+<view class="pop-box" wx:if="{{is_signTaskMask}}">
+  <view class="preview-bg" catchtouchmove="myCatchTouch" bindtap="click_mask"></view>
+  <view class="taskMaskpreview-box">
+    <view class="taskMaskpreview-title">{{taskMaskpreview_title}}</view>
+    <view class="taskMaskpreview-jifen">+<text>{{taskMaskpreview_jifen}}</text></view>
+    <view style="color: #fd4e30;">环保积分</view>
+  </view>
+</view>
+
+

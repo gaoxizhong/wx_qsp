@@ -1,0 +1,58 @@
+<view class="todayLike-title-box">
+  <view class="new-title-bbox flex-justitem-startcent">
+    <view>
+      <view class="income-text-nub">{{today_sale}}</view>
+      <view class="income-text-title">今日出售(单)</view>
+    </view>
+    <view class="income-title-m">
+      <view class="income-text-nub">
+      {{today_money}}
+      <image src="/packageB/assets/images/livingHall/mark_image.png" mode="widthFix" bindtap="openIllustrate" class="titleInfo-jrsdz-img"></image>
+      </view>
+      <view class="income-text-title">今日收益(元)</view>
+    </view>
+    <view>
+      <view class="income-text-nub">{{money}}</view>
+      <view class="income-text-title">可提现金额(元)</view>
+    </view>
+  </view>
+  <view class="titlebtn-box">
+    <view class="titlebtn-1" bindtap="gotoTx">立即提现</view>
+  </view>
+</view>
+
+
+<view class="seeccon-btn-box">
+  <view class="mys-items-box" bindtap="goToLikeGetDetails">
+    <image src="/packageB/assets/images/livingHall/icon-sr.png" mode="widthFix"></image>
+    <text>出售收入</text>
+  </view>
+  <view class="mys-items-box" bindtap="getWithdraw">
+    <image src="/packageB/assets/images/livingHall/icon-txmx.png" mode="widthFix"></image>
+    <text>提现明细</text>
+  </view>
+  <view class="mys-items-box" bindtap="goTogd">
+    <image src="/packageB/assets/images/livingHall/icon-gdsy.png" mode="widthFix"></image>
+    <text>更多收益</text>
+  </view>
+</view>
+
+<view class="project-box">
+  <view class="project-box-title">兑换项目</view>
+  <projectList id="projectID"/>
+</view>
+
+
+<view class="illustrate-box" catchtouchmove="catchtouchmove" wx:if="{{is_illustrate}}">
+  <view class="illustrate-pop" catchtouchmove="catchtouchmove" bindtap="infoTextBtn"></view>
+  <view class="illustrate-infobox">
+    <view class="illustrate-title-box">
+      <view>今日卖出收益</view>
+      <view class="close" bindtap="infoTextBtn">X</view>
+    </view>
+    <view class="infoText-box">
+      今日卖出收益由本人作品销售成功获得，该收益会在交易成功7个工作日后提现。
+    </view>
+    <view class="infoText-btn" bindtap="infoTextBtn">我知道了</view>
+  </view>
+</view>

@@ -1,0 +1,469 @@
+/* pages/library/index.wxss */
+.first{
+  height:auto;
+  background-image: linear-gradient(to bottom, #4AC081 , #6cd67f);
+  flex-direction: column;
+  width: 100%;
+}
+.page-position{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+.f-1{
+  padding-top:12rpx;
+  display: flex;
+  flex-direction: row;
+  padding-left: 41rpx;
+}
+.library_name{
+  width: 68%;
+  height: auto;
+  color: #FFFFFF;
+  font-family: Adobe Heiti Std R;
+  font-size: 33rpx;
+  padding-right: 16rpx;
+}
+.show-road {
+  width:auto;
+  height:38rpx;
+  border-radius:16rpx;
+  margin-top: 14rpx;
+  border: 1rpx solid #ffffff;
+  color: #fff;
+  display: flex;
+  font-size: 24rpx;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 36rpx;
+  padding: 4rpx 16rpx 6rpx 16rpx;
+}
+.show-road image {
+width: 24rpx;
+height: 24rpx;
+margin-right: 14rpx;
+margin-top: 2rpx;
+
+}
+
+.f-2{
+ display: flex;
+ flex-direction: column;
+ height: auto;
+ width: auto;
+ padding-left: 41rpx;
+ padding-top: 28rpx;
+ color: #FFFFFF;
+ font-size: 24rpx;
+ font-family: Adobe Heiti Std R;
+ margin-bottom: 6rpx;
+}
+/* .f-2 text{
+  white-space: nowrap;  
+  overflow:auto;
+} */
+.f-3{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20rpx 40rpx 44rpx 40rpx;
+  color: #FFFFFF;
+}
+.f-3 button{
+  margin: 0;
+}
+button{
+  height: 55rpx;
+  width: 144rpx;
+  border: 1px solid #FFFFFF; 
+  border-radius: 10px;  
+  font-size: 26rpx;
+  color: #FFFFFF;
+  font-family: PingFang-SC-Regular;
+  text-align: center;
+  line-height:48rpx;
+}
+.button2{
+  margin-right:33rpx;
+  margin-left:26rpx;
+}
+.button1{
+  margin-right:26rpx;
+}
+.second{
+  width:100%;
+  height:auto;
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+  align-items:center;
+  border-top: 1px solid #DCDCDC; 
+  border-radius: 10px;  
+  margin-top:-15rpx;
+  background-color:  #FFFFFF;
+}
+.s-1{
+  margin:20rpx 0;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  align-items:center;
+  border: 1px solid #DCDCDC; 
+  border-radius: 10px; 
+  width:95%;
+  height:50rpx;
+}
+/* input{
+  height:50rpx;
+  width:88%;
+  font-size: 24rpx;
+  color: #736F6F;
+  text-align: center;
+  z-index: 0;
+} */
+.list-tile{
+  height:50rpx;
+  width:95%;
+ display: flex;
+ flex-direction:row;
+ font-size: 28rpx;
+ justify-content:space-between;
+ margin:30rpx  16rpx;
+ }
+ .list-tile text{
+   flex: 1;
+   text-align: right;
+   box-sizing: border-box;
+ }
+/*遮罩层*/
+.cover {
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    position: fixed;
+    background-color: black;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.input-num{
+  display: flex;
+  width: 325rpx;
+  height: 60rpx;
+  border: 1px solid #DCDCDC; 
+  border-radius: 12px;  
+  background-color: #b4b4b4;
+  margin-top: 30rpx;
+  margin-left: 20%;
+  font-size: 30rpx;
+  color: #FFFFFF;
+  font-family: PingFang-SC-Regular;
+}
+.t-b{
+  margin-top: 35rpx;
+  background-image: linear-gradient(to right, #4AC081 , #6cd67f);
+  border-radius: 20px; 
+}
+.s-1-image{
+  flex: 1;
+  text-align: center;
+  border: none;
+  padding-top: 8rpx;
+}
+.s-1-image .search{
+  height:40rpx;
+  width:40rpx;
+  z-index:999;
+}
+.content{
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  height: auto;
+  margin: 0 15rpx;
+  border-bottom: 2rpx solid #aaa;
+  padding: 20rpx 0;
+  position: relative;
+}
+.content .left image{
+  margin-top:4%;
+  width: 130rpx;
+  height:173rpx;
+  margin-left:12rpx; 
+}
+.left{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+}
+.right{
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  font-size: 26rpx;
+  color: #090909;
+  font-family: PingFang-SC-Regular;
+  margin-left: 26rpx;
+  overflow: hidden;
+  flex: 1;
+}
+.right text{
+  white-space: nowrap;  
+  text-overflow:ellipsis; 
+  overflow:hidden;
+}
+.library_name_img{
+  height:36rpx;
+  width:36rpx;
+  position: absolute;
+  right: 180rpx;
+  margin-top: 18rpx;
+
+}
+.shopping-cart{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  bottom: 4rpx;
+  right: 6rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shopping-cart image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.scroll-view{
+  width: 100%;
+  height: auto;
+}
+.book-list-sort{
+padding-right:14rpx;
+ color:#474646;
+}
+.refresh {
+  width: auto;
+  height: auto;
+  position: fixed;
+  z-index: 200;
+  border-radius: 50%;
+  /* overflow: hidden; */
+}
+ 
+.refresh image {
+  width: 98rpx;
+  height: 98rpx;
+  background-color: transparent;
+}
+.refr-icon{
+  width: auto;
+  height: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  background: red;
+  color: #fff;
+  font-size: 20rpx;
+  position: absolute;
+  top: -22rpx;
+  right: -16rpx;
+  padding: 6rpx 14rpx;
+}
+
+/* ================================        新       ============================== */
+page{
+  background: #ececec;
+  font-family: PingFangSC-Regular,PingFangSC;
+  box-sizing: border-box;
+  padding-top: 32rpx;
+
+}
+.kapian-box{
+  height: auto;
+  z-index: 100;
+  margin: 0 20rpx;
+  box-sizing: border-box;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  padding: 26rpx 20rpx;
+}
+.kaipian-title-info{
+  white-space: normal;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: #fff;
+}
+.kaipian-title-info .lt {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  color: #666;
+  position: relative;
+}
+.kaipian-title-info .rt {
+  display: flex;
+  align-items: flex-end;
+  text-align: right;
+  font-size: 26rpx;
+  margin-left: 32rpx;
+  color: #666;
+  height: 120rpx;
+  flex-direction: column;
+}
+.lt .name {
+  font-size: 32rpx;
+  color: #333;
+  height: auto;
+  font-weight: 700;
+  margin-bottom: 20rpx;
+}
+.name-text {
+  padding-top: 20rpx;
+  font-size: 26rpx;
+  color: #959393;
+}
+.saomama{
+  margin-top: 16rpx;
+  padding: 10rpx 0 10rpx 10rpx;
+}
+.title-bott{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20rpx;
+}
+.title-bott>view{
+  width: 25%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24rpx;
+}
+.title-bott>view>image{
+  width: 84rpx;
+  height: 84rpx;
+}
+.books-list{
+  height: auto;
+  margin: 0 10rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10rpx;
+}
+.books-list>view{
+  width: 33.333333333333333333%;
+  height: auto;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  margin: 10rpx 0;
+}
+.books-list>view>view.nei{
+  padding:20rpx 14rpx;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.nei .top{
+  width: 100%;
+  height: 236rpx;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+.nei .top image{
+  width: 100%;
+  height: 100%;
+}
+.nei .bott{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+.nei .bott .bott-text-1{
+  font-size: 26rpx;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.nei .bott .bott-text-2{
+  font-size: 24rpx;
+  color: #676767;
+}
+.box-input {
+  flex: 1;
+  height: 60rpx;
+  background-color: #dcdcdc;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 20px;
+  margin:20rpx 20rpx 0 20rpx;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.search-image-2 {
+  width: 122rpx;
+  height: 60rpx;
+  font-size: 28rpx;
+  background: #4dc180;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  }
+.box-input input{
+    height:60rpx;
+    width:90%;
+    font-size: 24rpx;
+    background: #fff;
+    text-align: center;
+    z-index: 0;
+  }
+  .d-images{
+    animation: scaleDraw ease-in-out infinite 5s;
+  }
+  @keyframes scaleDraw { 
+    0%{
+        transform: scale(1);  /*开始为原始大小*/
+    }
+    25%{
+        transform: scale(1.2); /*放大1.1倍*/
+    }
+    50%{
+        transform: scale(1);
+    }
+    75%{
+        transform: scale(1.2);
+    }
+  }

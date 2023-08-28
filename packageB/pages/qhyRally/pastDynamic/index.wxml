@@ -1,0 +1,13 @@
+<view class="list-box">
+  <include src="/packageB/pages/module/pastDynamic/index.wxml" />
+</view>
+
+<!-- 多图点击轮播展示弹窗 -->
+<include src="/pages/module/swipershop/index.wxml" />
+
+<!-- 发动态-->
+<movable-area class="movable-area">
+  <movable-view direction="all" out-of-bounds='true' bindtap="goToAdd" class="movable-view">
+    <image src="/packageB/image/pat_btn.png"></image>
+  </movable-view>
+</movable-area> 

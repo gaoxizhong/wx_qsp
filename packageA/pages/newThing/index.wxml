@@ -1,0 +1,33 @@
+<view class="newThing-title-box">
+  <view class="newThing-title-box-l">
+    <image src="/images/shop/shophead-logo.png" class="newThing-head-logo" mode="widthFix"></image>
+    <text style="margin: 0 5px;margin-bottom: 2px;">打卡趣事</text>
+    <image src="/images/shop/newThing-add.png" class="newThing-add" mode="widthFix" data-id="{{business_id}}" bindtap="goTorelease_newThing"></image>
+  </view>
+</view>
+
+<view class="newThing-list-box">
+  <block wx:for="{{storyList}}" wx:key="index">
+    <view class="newThing-itemsList-box"  data-id="{{item.id}}" data-business_id="{{item.business_id}}" bindtap="goTonewThing_detail">
+      <view class="newThing-item">
+        <view class="newThing-img-box">
+          <image src="{{  item.image[0] }}" class="item-image"></image>
+          <view class="member-view">
+            <image src="{{item.member.avatar}}" class="member-view-img"></image>
+            <text style="padding-left: 12rpx;color: #fff;">{{item.member.nickname}}</text>
+          </view>
+        </view>
+        <view class="newThing-title">
+          <view class="newThing-title-text">{{item.content}}</view>
+          <view class="shanchu-icon" hover-class="hoverClass" data-curIdx="{{index}}" data-id="{{item.id}}" bindtap="delt"  wx:if="{{infoData.flag}}">
+            <image src="/packageA/assets/images/shanchu-icon.png" class="shanchu-icon-img"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class='nulldata_wrap' wx:if="{{storyList.length <= 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据</view>
+  </view>
+</view>

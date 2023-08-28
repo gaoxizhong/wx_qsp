@@ -1,0 +1,175 @@
+<view class="top-announcement-box">
+  <view class="announcement-img-box"><image src="/packageA/image/volunacti-hron.png"></image></view>
+  <view style="padding-left:20rpx;">动态发布一条19.9元/小时，24小时199元</view>
+</view>
+<view class="module-box">
+  <view class="select-box" wx:if="{{!select_type_moving}}">
+    <image src="/packageA/assets/images/select_b.png" bindtap="gotosele"></image>
+    <text style="padding-top:20rpx;font-size: 28rpx;">选择商品/优惠券</text>
+  </view>
+  <view class='circle' style="padding:30rpx 20rpx;" wx:elif="{{select_type_moving == 1}}">
+    <view class='shop-centent'>
+      <view class='shop-centent-title'>
+        <view class="shop-img">
+          <image class="shop-img-width" src="{{ sele_info_moving.image }}"></image>
+        </view>
+        <view class='shop-jottings'>
+          <view selectable='true' class='text'>{{sele_info_moving.title}}</view>
+          <view class='circle-head' style="justify-content: space-between;">
+            <text style="font-size:20rpx;text-decoration: line-through;">原价 ￥{{sele_info_moving.price}}</text>
+          </view>
+          <view class="discount">
+            <view class="discount-price">
+              <text>折扣价：￥{{sele_info_moving.total_price}}+{{sele_info_moving.hbb?sele_info_moving.hbb:'0.00'}}积分</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="coupon-list-items" wx:elif="{{select_type_moving == 2}}">
+    <view class="sheng-bg">
+      <image src="/images/sheng-bg.png"></image>
+    </view>
+    <view class="listitems-le">
+      <view class="listitems-le-title">凭此券 享优惠</view>
+      <view class="calendar-box">
+        <view class="calendar-con"><text style="font-size:28rpx;">￥</text>{{sele_info_moving.youhui}}</view>
+      </view>
+      <view class="shops-name" wx:if="{{is_mycoupon == '1'}}">{{sele_info_moving.b_name}}</view>
+      <view class="shops-name" wx:else>{{sele_info_moving.business_name?sele_info_moving.business_name: sele_info_moving.title}}</view>
+    </view>
+    <view class="listitems-ri">
+      <view class="listitems-rititle-box">
+        <view class="coupon-title">{{sele_info_moving.name}} 优惠券</view>
+      </view>
+      <view class="ri-price-curr"><text>原价： {{sele_info_moving.price}}</text><text style="padding-left:12rpx;">劵后价： {{sele_info_moving.current_price}}</text></view>
+      <view class="coupon-view">支付：￥{{sele_info_moving.coupon_price}} + {{sele_info_moving.coupon_integral}}积分 获取本券</view>
+      <view class="start-end-time">{{sele_info_moving.start_time}} - {{sele_info_moving.end_time}}内有效。</view>
+    </view>
+  </view>
+</view>
+
+<view class="again-box" wx:if="{{select_type_moving}}">
+  <view class="again-btn"  bindtap="gotosele">重新选择商品</view>
+</view>
+<view class="dynamic-title-view">
+  <view class="dynamic-title">推广文案:</view>
+  <view class="dynamic-input">
+    <textarea placeholder="请填写推广文案" maxlength="-1" placeholder-style="color:#a2a2a2;" type="text" value="{{copywrite}}" bindinput="getcopywrite" wx:if="{{is_textarea}}"></textarea>
+  </view>
+</view>
+<view class="footer-btn">
+  <view hover-class="btn-hover" bindtap="yulan_moving" data-select_type="{{select_type_moving}}" data-id="{{sele_info_moving.id}}" data-discount_id="{{sele_info_moving.discount_id}}">预览</view>
+  <view hover-class="btn-hover" bindtap="submit_btn">确认发布</view>
+</view>
+
+
+<!-- 预览弹窗 -->
+<view class="is_layer" wx:if="{{is_bullet}}" bindtap="islayer"></view>
+<view class="yulan-box" wx:if="{{is_bullet}}">
+  <view class='circle-box1'>
+    <view class='circle-head'>
+      <button form-type='submit' hover-class='none' style="margin:0;border-radius:50%;width:90rpx;height:90rpx;">
+        <open-data type="userAvatarUrl" class="avatar"></open-data>
+      </button>
+      <view>
+        <view class='name_box'>
+          <view class='name'><open-data type="userNickName" class="nickname"></open-data></view>
+        </view>
+        <view class='time'>
+          <text style="margin-right:24rpx">{{yulian_info.public_at}}</text>
+          <text style="margin-right:20rpx">0 阅读</text>
+          <text style="margin-right:20rpx;">0 Km</text>
+        </view>
+      </view>
+    </view>
+
+    <view class='circle-centent'>
+      <view class='circle-jottings'>
+        <view>
+          <text selectable='true' >{{copywrite}}</text> 
+        </view>
+        <view class="circle-img" wx:if="{{select_type_moving == 1 ? yulian_info.img.length > 0 : yulian_info.thumb.length > 0}}">
+          <image 
+            wx:for="{{select_type_moving == 1 ? yulian_info.img : yulian_info.thumb}}" 
+            wx:key="index" src='{{item}}' 
+            mode="{{select_type_moving == 1 ? yulian_info.img.length > 1? 'aspectFill': 'widthFix' : yulian_info.thumb.length > 1? 'aspectFill': 'widthFix' }}" 
+            class="{{select_type_moving == 1 ? yulian_info.img.length > 1? 'imgduo-width': 'imgyi-width' : yulian_info.thumb.length > 1? 'imgduo-width': 'imgyi-width' }}" 
+            >
+          </image>
+        </view>
+      </view>
+    </view>
+    <view class='circle-footer-operation'>
+        <view class="item-btn icon_relay">
+          <button hover-class='none'>
+            <image src='/images/icon_relay.png'></image>
+          </button>
+          <text>分享</text>
+        </view>
+        <view class="item-btn">
+          <button hover-class='none'>
+            <image src='/images/icon_comment.png'></image>
+          </button>
+          <text>评论</text>
+        </view>
+        <view class="item-btn">
+          <button hover-class='none'>
+            <image src="/images/coin_1.png"></image>
+          </button>
+          <text>拆盲盒</text>
+        </view>
+        <view class="item-btn">
+          <button hover-class='none'>
+            <image src="/images/icon-praise.png"></image>
+          </button>
+          <text>赞</text>
+        </view>
+        <!-- <view class="item-btn" style="height: 54rpx;">
+          <view style="color:#aaa;font-size:30rpx;height: 100%;display: flex;">
+            <text class="shou-icon" style="color:#aaa;border: 1rpx solid #aaa;">领</text> 
+            <text style="display: flex;align-items: center;margin-left: 6rpx;color:rgb(131, 92, 92)">领红包</text> 
+          </view>
+        </view> -->
+      </view>
+  </view>
+</view>
+
+
+
+<!-- 、、、、、、、 设置推广有效期弹窗 、、、、、、、 -->
+<view wx:if="{{is_limit}}" class="is_limit_layer" catchtouchmove="layer_move" bindtap="is_limit_layer"></view>
+<view wx:if="{{is_limit}}" class="is_limit_box">
+  <view class="limit_box_title">请选择推广时长</view>
+  <radio-group bindchange="radioChange" class="limit_radio_group">
+    <label class="limit_box_label" wx:for="{{items}}" wx:key="index">
+      <view class="">
+        <radio value="{{item.value}}" checked="{{item.checked}}"/>
+      </view>
+      <view class="limit_box_name">{{item.name}}</view>
+    </label>
+  </radio-group>
+  <view style="font-size: 28rpx;padding: 10rpx 0;">19.9元/1小时，24小时199元。</view>
+  <view class="limit_btn_box">
+    <view class="limit_btn" bindtap="limit_btn">确认</view>
+  </view>
+</view>
+<!-- 、、、、、、、 扣推广账户金额弹窗 、、、、、、、 -->
+<view wx:if="{{is_promlines}}" class="is_limit_layer" catchtouchmove="layer_move" bindtap="is_promlines_layer"></view>
+<view wx:if="{{is_promlines}}" class="is_limit_box">
+  <view class="limit_box_title" style="margin-bottom:2rpx;font-weight:100;font-size:32rpx;">本次支付</view>
+  <view class="buy-money-view">￥{{total_price}}</view>
+  <view class="way-box">
+    <view class="way-title">支付方式</view>
+    <view class="way-name" bindtap="gotoqingwaad">推广余额 ></view>
+  </view>
+  <view class="the-view-box">
+    <view>本次推广:<text style="color:#f19149;"> {{total_price}} 元</text></view>
+    <view>推广账户余额: {{balance3?balance3:0}} 元</view>
+  </view>
+  <view class="limit_btn_box">
+    <view class="promlines_btn" bindtap="promlines_btn" hover-class="btn-hover">确认支付</view>
+  </view>
+</view>
+

@@ -1,0 +1,9 @@
+<view class="main">
+    <view><image src="/images/S1.jpg"></image></view>
+    <view>订单支付成功</view>
+    <view>已收到订单，正在处理...</view>
+</view>
+<view class="skip-button">
+   <button bindtap="goto1">我的订单</button>
+</view>
+

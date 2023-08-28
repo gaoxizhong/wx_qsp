@@ -1,0 +1,48 @@
+<view class="filter-box">
+  <view class="filter-l">
+    <!-- {{filterText}} -->
+  </view>
+  <view class="filter-r">
+    <view class="citveBox-items {{tab == '1'?'active':''}}" data-current="1" bindtap="swichNav">收入</view>
+    <view class="citveBox-items {{tab == '2'?'active':''}}" data-current="2" bindtap="swichNav">支出</view>
+  </view>
+</view>
+
+<view class="list-box">
+  <view wx:if="{{tab == '1'}}">
+
+    <block wx:for="{{lists}}" wx:key="index">
+      <view class="order-item">
+        <image src='{{item.avatar}}'></image>
+        <view class="order-info">
+          <text class="name">{{item.name}}</text>
+          <text class="time">{{item.create_time}}</text>
+          <text class="time">详情：{{item.note}}</text>
+        </view>
+        <view class="hbb color-64B">{{item.amount}}</view>
+      </view>
+    </block>
+    <view class='nulldata_wrap' wx:if="{{lists.length <= 0}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>暂无数据</view>
+    </view>
+
+  </view>
+  <view wx:if="{{tab == '2'}}">
+    <block wx:for="{{detailsLists}}" wx:key="index">
+      <view class="order-item">
+        <image src='{{item.avatar}}'></image>
+        <view class="order-info">
+          <text class="name">{{item.name}}</text>
+          <text class="time">{{item.create_time}}</text>
+          <text class="time">详情：{{item.note}}</text>
+        </view>
+        <view class="hbb" style="color:#64B532;">{{item.amount}}</view>
+      </view>
+    </block>
+    <view class='nulldata_wrap' wx:if="{{detailsLists.length <= 0}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>暂无数据</view>
+    </view>
+  </view>
+</view>

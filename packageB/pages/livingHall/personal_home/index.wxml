@@ -1,0 +1,127 @@
+<view class="home-info-box">
+  <view class="lifeimg-box">
+    <!-- 生活照轮播模块 -->
+    <view class="lifeimg-box">
+      <swiper class='swiper' autoplay="true" circular="true" interval="2500">
+        <swiper-item style="display: flex;align-items: center;">
+          <image src="{{space.background? space.background : v_back}}" class="slide-image" mode="widthFix"/>
+        </swiper-item>
+      </swiper>
+
+      <view class="lifeimg-infobtn-box">
+        <view class="lifeimg-infobtn-box-l">
+          <view class="lifeimg-photo-box">
+            <image src="{{getmy_space.member.avatar}}"></image>
+          </view>
+          <view class="lifeimg-name-title">
+            <view class="lifeimg-n-t">{{space.name}}</view>
+            <view hover-class="hoverClass" class="lifeimg-n-btn" bindtap="gotomemberInfo" wx:if="{{space.member_id == member_id}}">
+              <text style="margin: 0 6rpx;" bindtap="clickXg">修改信息</text>
+            </view>
+          </view>
+        </view>
+        <view class="lifeimg-infobtn-box-r">
+          <!-- <button class="type-item" data-is_sharepage="1" open-type="share" hover-class="hoverClass">
+            <image src="/packageB/assets/images/livingHall/icon-zf.png" mode="widthFix"></image>
+            <text>0</text>
+          </button> -->
+        </view>
+      </view>
+    </view>
+    <!-- 生活照轮播模块 -->
+  </view>
+</view>
+<view class="citveBox" wx:if="{{is_more != '1'}}">
+  <view class="citveBox-items {{currentTab == '1'? 'itemsHover' :''}}" bindtap="swichNav" data-current="1">销售作品</view>
+  <view class="citveBox-items {{currentTab == '2'? 'itemsHover' :''}}" bindtap="swichNav" data-current="2">展示作品</view>
+</view>
+
+<view class="infoList-box">
+  <block wx:for="{{work_list}}" wx:key="index">
+    <view class="infoList-items-box">
+      <view class="infoList-items-imagebox" data-id="{{item.id}}" bindtap="gotogoodsdetails">
+        <!-- 图片信息 开始 -->
+        <swiper class='swiper' indicator-dots="true" indicator-active-color="rgb(253, 122, 0)" circular="true">
+          <block wx:for="{{item.image_array}}" wx:for-item="items" wx:key="ind">
+            <swiper-item>
+              <image src="{{items}}" class="slide-image" mode="aspectFit" />
+            </swiper-item>
+          </block>
+        </swiper>
+        <!-- 图片信息 结束 -->
+        <view class="infoList-items-title">{{item.title}}</view>
+        <view class="infoList-items-time">{{item.created_at}}</view>
+        <view class="infoList-items-pirce">￥{{item.price}}</view>
+      </view>
+      <!-- 底部图标、按钮 开始 -->
+      <view class="infoList-items-btnbox">
+        <view class="infoList-items-iconbox">
+          <view class="iconbox-btn" hover-class="hoverClss" data-id="{{item.id}}" bindtap="workBj" wx:if="{{item.member_id == member_id}}">
+            <view class="infoList-items-iconi">
+              <image src="/packageB/assets/images/livingHall/icon-zp-bj.png" mode="widthFix"></image>
+            </view>
+            <view class="infoList-items-icont">编辑</view>
+          </view>
+          <view class="iconbox-btn" hover-class="hoverClss" data-id="{{item.id}}" data-index='{{index}}' bindtap="clickDelete"  wx:if="{{item.member_id == member_id}}">
+            <view class="infoList-items-iconi">
+              <image src="/packageB/assets/images/livingHall/icon-zp-sc.png" mode="widthFix"></image>
+            </view>
+            <view class="infoList-items-icont">删除</view>
+          </view>
+          <button class="iconbox-btn" open-type="share" data-id="{{item.id}}" data-img="{{item.image_array[0]}}" data-title="{{item.title}}" hover-class="hoverClss" wx:if="{{mid != member_id}}">
+            <view class="infoList-items-iconi">
+              <image src="/packageB/assets/images/livingHall/icon-zp-fx.png" mode="widthFix"></image>
+              <text>{{item.share_count}}</text>
+            </view>
+            <view class="infoList-items-icont">分享</view>
+          </button>
+          <view class="iconbox-btn" hover-class="hoverClss" data-index="{{index}}" data-id="{{item.id}}" bindtap="like">
+            <view class="infoList-items-iconi">
+              <image src="/packageB/assets/images/livingHall/icon-zp-dz.png" mode="widthFix"></image>
+              <text>{{item.like_count}}</text>
+            </view>
+            <view class="infoList-items-icont">赞</view>
+          </view>
+          <view class="iconbox-btn" hover-class="hoverClss" data-index="{{index}}" data-id="{{item.id}}" bindtap="clickcomment">
+            <view class="infoList-items-iconi">
+              <image src="/packageB/assets/images/livingHall/icon-zp-bj.png" mode="widthFix"></image>
+              <text>{{item.comment_count}}</text>
+            </view>
+            <view class="infoList-items-icont">留言</view>
+          </view>
+        </view>
+        <button class="infoList-items-btn" hover-class="hoverClass" open-type="share" data-id="{{ item.id }}" data-img="{{ item.image_array[0] }}" data-title="{{item.title}}" wx:if="{{mid == member_id}}">分享</button>
+        <view class="infoList-items-btn" hover-class="hoverClass" data-id="{{item.id}}" bindtap="gotogoodsdetails" wx:else>{{currentTab == '1'?'立即购买':'查看详情'}}</view>
+      </view>
+      <!-- 底部图标、按钮 结束 -->
+    </view>
+  </block>
+  <view class='nulldata_wrap' wx:if="{{ work_list.length == 0 }}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无作品...</view>
+  </view>
+</view>
+
+<!-- =====================   弹窗  ================= -->
+<view class="cler-marsk" wx:if="{{is_cler}}" catchtap="cler_marsk"></view>
+<view class="cler-box" wx:if="{{is_cler}}">
+  <view class="cler-title">*确定删除吗？</view>
+  <view class="cler-btn-box">
+    <view catchtap="cler_marsk">取消</view>
+    <view class="cler-btn-r" hover-class="hoverClass" catchtap="submit_btn">确定</view>
+  </view>
+</view>
+
+
+<!-- ==================  留言  ↓ ============== -->
+<view class='pop-box' wx:if="{{pop1}}" catchtouchmove="myCatchTouch">
+  <view class='pop-bg' bindtap='popLock'></view>
+
+  <view class="addwx-wrap">
+    <input type='text' placeholder='{{inpPlaceholder}}' maxlength="-1" focus class='inp' bindinput='bindTextChange'></input>
+    <button hover-class='none' class="send-btn" bindtap='sendComment' style="{{textVal!=''&& savaStatus?'' :'color:rgba(255,255,255,.5);'}}">
+      发送
+    </button>
+  </view>
+</view>
+<!-- ==================  留言  ↑ ============== -->

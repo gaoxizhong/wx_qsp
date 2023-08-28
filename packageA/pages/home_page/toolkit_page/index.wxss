@@ -1,0 +1,72 @@
+page{
+  box-sizing: border-box;
+  padding: 30rpx 20rpx;
+}
+/* 隐藏滚动条 */
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.list-box{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-box>view.list-items{
+  width: 50%;
+  height: auto;
+  margin: 23rpx 0;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+}
+.list-box>view.list-items .list-items-1{
+  width: 100%;
+  height: 474rpx;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0rpx 0rpx 4px 2px#00000020;
+
+}
+.list-box>view.list-items .list-items-1 image{
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+.sign-btn{
+  margin: 10rpx 0;
+  width: 100%;
+  height: 158rpx;
+  box-sizing: border-box;
+}
+.sign-btn>image{
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+
+}
+.class-bottom-list,.class-bottom-list1{
+  margin: 16rpx 0;
+  width: 100%;
+  height: auto;
+  padding: 10rpx;
+  box-sizing: border-box;
+  display: flex;
+  padding: 0;
+}
+.class-bottom-list1{
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 2rpx 4rpx 4px #00000020;
+}
+.class-bottom-list>image,.class-bottom-list1>image{
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+

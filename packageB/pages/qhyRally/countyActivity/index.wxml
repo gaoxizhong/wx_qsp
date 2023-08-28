@@ -1,0 +1,169 @@
+<view class="img-bg">
+  <view class="countdown-bgbox">
+    <view class="countdown-day">{{c_day?c_day:'00'}}</view>
+    <view class="countdown-hr">{{c_hr?c_hr:'00'}}</view>
+    <view class="countdown-min">{{c_min?c_min:'00'}}</view>
+    <view class="countdown-sec">{{c_sec?c_sec:'00'}}</view>
+  </view>
+</view>
+<view class="contentbox">
+  <view class="event-notification-box">
+    <image src="https://oss.qingshanpai.com/qhy/icon-qhy-hdtz.png" mode="widthFix"></image>
+  </view>
+  <view class="f-infobox">{{marketInfo.info}}</view>
+
+  <view class="btn-box">
+    <image src="https://oss.qingshanpai.com/qhy/btn-qhy-ljbm.png" mode="widthFix" class="image-b1" bindtap="clickSign"></image>
+    <image src="https://oss.qingshanpai.com/qhy/btn-qhy-qtw.png" mode="widthFix" class="image-b2" bindtap="clickRobBooth"></image>
+    <image src="https://oss.qingshanpai.com/qhy/btn-qhy-wqhg.png" mode="widthFix" class="image-b1" bindtap="goToDynamic"></image>
+  </view>
+<!--  ====================滚动公告 ↓=========================== -->
+
+  <!-- <view class="barrage-box">
+    <view class="left">
+      <swiper vertical="true" autoplay="true" circular="true" interval="3000" duration='800'>
+        <block wx:for='{{msgList}}' wx:key='index'>
+          <swiper-item>
+            <view class="swiper-item">{{item.title}}</view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view> -->
+<!--  ====================滚动公告 ↑=========================== -->
+  <view class="barrage-box1">
+    <view class="item-1">
+      <view class="item-l-b">
+        <view class="item-l-imgbox">
+          <image style="margin-left:{{index*20}}rpx;" src="{{item.member_info.avatar}}" wx:for="{{marketSignList.data}}" wx:key="index"></image>
+        </view>
+        <view class="item-l-name" style="padding-left: {{(marketSignList.to)*20}}rpx;margin-left: 40rpx;">{{marketSignList.data[0].member_info.nickname}}</view>
+      </view>
+      <view class="item-r-t">等{{marketSignList.total}}人抢摊位成功</view>
+    </view>
+    <!-- <view class="item-2" style="margin-top:30rpx;">
+      <view class="item-l-b">
+        <view class="item-l-imgbox">
+          <image style="margin-left:{{index*20}}rpx;" src="{{item.member_info.avatar}}" wx:for="{{marketMemberStrol.data}}" wx:key="index"></image>
+        </view>
+        <view class="item-l-name" style="padding-left: {{(marketMemberStrol.to)*20}}rpx;margin-left: 40rpx;">{{marketMemberStrol.data[0].member_info.nickname}}</view>
+      </view>
+      <view class="item-r-t">等{{marketMemberStrol.total}}人想去看看</view>
+    </view> -->
+  </view>
+</view>
+
+<view class="idle-box">
+  <image src="https://oss.qingshanpai.com/qhy/icon-qhy-wdxz.png" mode="widthFix" bindtap="goTomyidle"></image>
+  <image src="https://oss.qingshanpai.com/qhy/icon-qhy-wdxzq.png" mode="widthFix" bindtap="goTomyGroup"></image>
+</view>
+
+<view class="shop-box">
+  <view class="event-notification-box">
+    <image src="https://oss.qingshanpai.com/qhy/icon-qhy-hdfl.png" mode="widthFix"></image>
+  </view>
+  <view class="shoplist-box">
+    <block wx:for="{{shopList}}" wx:key="index">
+      <view class="commodity-items">
+        <view class="shou-tu" wx:if="{{ item.business_discount_order.length > 0 }}">
+          <image src="http://oss.qingshanpai.com/banner/shouwan-1.png" mode="widthFix"></image>
+        </view>
+        <view class="itemsImage">
+          <image src="{{ item.business_discount[0].img[0] }}" class="commodity-items-image" bind:tap="" data-business_id="{{item.business_discount[0].business_id}}" data-discount_id="{{item.business_discount[0].id}}" data-content_id="{{item.business_discount[0].id}}" mode="aspectFit"></image>
+        </view>
+        <view class="commodity-items-info-box">
+          <view class="shop-itemsInfo-title">{{item.business_discount[0].title}}</view>
+          <view class='shop-itemsInfo-time'>
+            <text style="text-decoration: line-through;">原价 ￥{{item.business_discount[0].price}}</text>
+            <view class='itemsInfo-time'>
+              <text decode="true">&emsp;{{item.business_discount[0].idle_num}} 阅读</text>
+            </view>
+          </view>
+          <view class="shop-itemsInfo-price">
+            <view class="shop-itemsInfo-price-l">折扣价：<text style="color: #ff0000;font-size: 38rpx;">￥{{item.business_discount[0].total_price}}</text>+{{item.business_discount[0].hbb?item.business_discount[0].hbb:'0.00'}}积分</view>
+            <view class="{{item.business_discount_order.length > 0?'yjduihuan-btn':'duihuan-btn'}}" bindtap="{{item.business_discount_order.length > 0?'':'goToPay'}}" data-info='{{item}}'>{{item.business_discount_order.length > 0?'已兑换':'兑换'}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class='nulldata_wrap' wx:if="{{shopList.length == 0}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>暂无数据</view>
+    </view>
+  </view>
+</view>
+
+<!-- 报名弹窗 -->
+
+<view class="market-gg-box" wx:if="{{is_gg}}">
+  <view class="market-gg-mark" bindtap="clickGgMark"></view>
+  <view class="market-gg-infobox">
+    <view class="tips">
+      <view class="tips-title">温馨提示：</view>
+      <view class="tips-t">
+        {{marketInfo.reminder?marketInfo.reminder:'暂无信息！'}}
+      </view>
+    </view>
+    <view class="add-pop-btn" style="margin-top: 12rpx;">
+      <button class="add-footer-btn" bindtap="changerMarsk" hover-class="hoverClass">确认</button>
+    </view>
+  </view>
+</view>
+
+
+<view class="market-signup-box" wx:if="{{is_signUp}}">
+  <view class="market-signup-mark" bindtap="clickSifnMark"></view>
+  <view class="market-signup-infobox">
+    <view class="tips">
+      <view class="tot1">
+        <view class="garden-box">
+          <view class="types-i">联系人</view>
+          <input class="types-input" type="text" placeholder="如某先生、某女士" value="{{user_name}}" bindinput="user_name"/>
+        </view>
+        <view class="garden-box">
+          <view class="types-i">联系电话</view>
+          <view wx:if="{{user_tel}}">{{user_tel}}</view>
+          <button wx:else open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
+        </view>
+      </view>
+    </view>
+    <view class="add-pop-btn">
+      <button class="add-footer-btn" bindtap="changer_address_marsk" hover-class="hoverClass">提交</button>
+    </view>
+  </view>
+</view>
+
+<!-- 参加社区大集活动 -->
+<view class="pop-box" wx:if="{{is_communityInfo}}" catchtouchmove="myCatchTouch">
+  <view class='pop-bg' bindtap='clickCommunityInfoPop'></view>
+  <view class="communityInfo-box">
+    <view class="prompt-titie">*此商品用于参加社区大集活动只适用于现场兑换，请确认后购买！</view>
+    <view class="myinfo-box">
+      <view>可用积分：{{ realAmount }}</view>
+      <view class="number-box">
+        <text>兑换数量：</text>
+        <view class="num">
+          <view class="minuadd-box" catch:tap="minusNum">-</view>
+          <input type="number" bindinput="inputValue" value="{{goodnum}}" />
+          <view class="minuadd-box" catch:tap="addNum">+</view>
+        </view>
+      </view>
+      <view class="tips">
+        <view class="tot1">
+          <view class="garden-box">
+            <view class="types-i">联系人</view>
+            <input class="types-input" type="text" placeholder="如某先生、某女士" value="{{user_name}}" bindinput="user_name"/>
+          </view>
+          <view class="garden-box">
+            <view class="types-i">联系电话</view>
+            <view wx:if="{{user_tel}}">{{user_tel}}</view>
+            <button wx:else open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
+          </view>
+        </view>
+      </view>
+      <view class="add-pop-btn" style="margin-top: 12rpx;">
+        <button class="{{realAmount > infoData.hbb?'nohbb-box':'add-footer-btn' }}" bindtap="{{realAmount > infoData.hbb?'':'clickExchangeBtn' }}" hover-class="hoverClass">{{realAmount < infoData.hbb?'积分不足':'确定' }}</button>
+      </view>
+    </view>
+  </view>
+</view>

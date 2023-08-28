@@ -1,0 +1,22 @@
+<block wx:for="{{meprojectList}}" wx:key="index">
+  <view class="beused-items-box">
+    <view class="beused-items-tbox">
+      <view class="photo-title-box">
+        <image class="photo-image" src="https://oss.qingshanpai.com/dtshg/shg_6.jpg"></image>
+        <text>青山生态生活馆</text>
+      </view>
+      <view style="width: 120rpx;text-align: right;font-size: 28rpx;color: {{item.status == 1?'#333':'#999'}};">{{item.status == 1?'购买成功':'已核销'}}</view>
+    </view>
+    <view class="beused-items-infobox">
+      <image src="{{item.project.image_array[0]}}"></image>
+      <view class="items-infobox-left">
+        <view>订单编号: {{item.order_num}}</view>
+        <view>预约项目: {{ item.project.title }}</view>
+        <view>购买价格: ￥ {{ item.total_price }}</view>
+      </view>
+    </view>
+    <view class="items-btnbox">
+      <view class="items-btnbox1 {{ item.status == 2 ?'active':'' }}" hover-class="hoverClass" data-index="{{index}}" data-p_id="{{ item.id }}" bindtap="{{ item.status == 1?'clickHx':'' }}">{{ item.status == 2?'已核销':'核销' }}</view>
+    </view>
+  </view>
+</block>

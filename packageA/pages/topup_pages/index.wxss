@@ -1,0 +1,102 @@
+page{
+  padding: 15rpx;
+  box-sizing: border-box;
+}
+.topup-listbtn-box{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.topup-listbtn-box>view.topup-listbtn-items{
+  width: 33.333333333%;
+  padding: 15rpx;
+  box-sizing: border-box;
+}
+view.topup-listbtn-items>view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150rpx;
+  border-radius: 8px;
+  font-size: 36rpx;
+  box-shadow: 0 0 20rpx 2rpx #00000020;
+}
+.custom-input-box{
+  margin-top: 30rpx;
+  padding: 0 36rpx;
+  box-sizing: border-box;
+}
+
+.custom-title{
+  padding: 20rpx 0 10rpx 0;
+  color: #949292;
+  font-size: 42rpx;
+}
+.topupinput-box{
+  padding-bottom:20rpx;
+  padding-right:30rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+}
+.topupinput-box::after{
+  width: 100%;
+  height: 1px;
+  content: '';
+  transform: scaleY(0.5);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #333;
+}
+.topupinput-box-icon{
+  font-size: 44rpx;
+  display: block;
+  width: auto;
+}
+.topupinput-view{
+  flex: 1;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.topupinput-view>input{
+  width: 100%;
+  height: 100%;
+  padding-left: 12rpx;
+}
+.pages-btn{
+  width: 462rpx;
+  height: 74rpx;
+  line-height: 74rpx;
+  text-align: center;
+  background: #016ab9;
+  color: #fff;
+  border-radius: 20px;
+  margin: 110rpx auto;
+}
+.hover-btn{
+  opacity: 0.8;
+}
+view.topup-listbtn-items>view.select_class{
+  background: #016ab9;
+  color: #fff;
+}
+.topup-desc-box{
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+}
+.topup-desc-box>view{
+  font-size: 30rpx;
+  color: #333;
+  display: flex;
+  align-items: flex-start;
+}
+.desc-number{
+  width: auto;
+}
+.desc-text{
+  flex: 1;
+  padding-left: 10rpx;
+  box-sizing: border-box;
+}

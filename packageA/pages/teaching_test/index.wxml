@@ -1,0 +1,35 @@
+<!-- <view class="test-title-box">试卷</view> -->
+<view class="text-title">以下为调研内容，共5道单选题，您可以宣传分享给您身边的人、同事或朋友,让我们一起行动起来！</view>
+<view class="answer-list-box">
+  <block wx:for="{{answerList}}" wx:key="index">
+    <view class="answer-items">
+      <view class="answer-items-title">
+        <text style="color:#ff0000;font-size: 32rpx;">*</text>
+        {{index + 1}}、{{item.title}}
+      </view>
+      <view class="answer-options-box">
+        <radio-group bindchange="radioChange">
+          <block wx:for="{{item.data.option}}" wx:for-item="items" wx:key="idx">
+            <view class="options-list">
+              <label><radio value="{{items.name}}"  :checked="checked"  disabled="disabled"/>{{ items.content }}</label>
+            </view>
+          </block>
+        </radio-group>
+      </view>
+    </view>
+  </block>
+</view>
+
+<view class="footer-btn">
+  <button class="footer-btn1-left" open-type="share">
+    <image src="https://oss.qingshanpai.com/icon/cloud-fen.png"></image>
+  </button>
+  <button bindtap="gotoMakephoto" class="footer-btn1-right">
+    <image src="https://oss.qingshanpai.com/icon/cloud-hai.png"></image>
+  </button>
+</view>
+
+
+
+<!-- 生成海报弹窗 --> 
+<include src="/pages/module/makephoto/index.wxml" />

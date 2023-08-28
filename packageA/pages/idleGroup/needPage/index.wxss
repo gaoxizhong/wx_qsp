@@ -1,0 +1,97 @@
+page{
+  background: #f2f2f2;
+  padding: 0 26rpx;
+  box-sizing: border-box;
+}
+.mdmjy-box{
+  width: 100%;
+  background: #FEFBEC;
+  border-radius: 8px;
+  padding: 30rpx 8rpx 24rpx;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+}
+.mdmjy-box1{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24rpx 0;
+  background: #fff;
+  border-radius: 6px;
+}
+.mdmjy-titlebox{
+  width: 100%;
+  padding-left: 20rpx;
+  padding-bottom: 24rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+.title-left{
+  width: 46rpx;
+  height: 44rpx;
+}
+.title-right{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20rpx;
+  padding-right: 20rpx;
+  padding-bottom: 24rpx;
+  border-bottom: 1rpx solid #f2f2f2;
+  box-sizing: border-box;
+}
+.right-t{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #000000;
+}
+.right-t image{
+  width: 54rpx;
+  height: 41rpx;
+  margin-left: 15rpx;
+}
+.right-icon{
+  width: 43rpx;
+  height: 43rpx;
+}
+.text-box{
+  width: 100%;
+  height: auto;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.text-view{
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 20rpx;
+  box-sizing: border-box;
+}
+.text-view image{
+  width: 20rpx;
+  margin-top: 3rpx;
+}
+.text-view-t{
+  flex: 1;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #868686;
+  padding-left: 10rpx;
+  box-sizing: border-box;
+}
+.btn-box{
+  width: 100%;
+  margin-top: 160rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-box image{
+  width: 100%;
+}

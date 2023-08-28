@@ -1,0 +1,93 @@
+.poster-view-box{
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 420rpx;
+}
+.poster-view-box swiper.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.poster-view-box swiper.swiper swiper-item.is_secl{
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  padding: 0 6rpx;
+}
+.poster-view-box swiper.swiper .swiper-item-view {
+  width: 100%;
+  height: 100%;
+  padding: 2rpx;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+.scaleY-1{
+  transform: scaleY(1);
+  transition:  0.2s;
+}
+.scaleY-2 {
+  transform: scaleY(0.9);
+  transition: 0.2s;
+}
+.poster-view-box swiper.swiper .swiper-item-view image {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+.love-info-text{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30rpx 60rpx;
+  font-size: 30rpx;
+}
+.love-bottom-box{
+  width: 100%;
+  padding-bottom: 20rpx;
+  text-align: center;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+}
+.love-bottom-btn{
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+}
+.btn-view{
+  background: #ffb400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 342rpx;
+  height: 76rpx;
+  color: #fff;
+  border-radius: 8px;
+}
+.btn-view image {
+  width: 62rpx;
+  height: 54rpx;
+}
+.love-bottom-title{
+  width:100%; 
+  font-size:32rpx; 
+  color:#29c572;
+  padding: 6rpx 0;
+  text-align: center;
+  position: relative;
+}
+.love-info-text>text{
+  height: auto;
+  float: left;
+}

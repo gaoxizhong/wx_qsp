@@ -1,0 +1,92 @@
+.bg {
+  background: #fff;
+  position: relative;
+  padding: 0 8rpx;
+}
+.textarea-wrp {
+  padding: 0 44rpx;
+  background-color: #fff;
+  position: relative;
+  border: 1px solid #eee;
+  border-radius: 12rpx;
+  margin-bottom: 40rpx;
+}
+
+.textarea-wrp textarea {
+  width: 100%;
+  padding: 25rpx 0;
+  min-height: 120rpx;
+  max-height: 500rpx;
+  font-size: 34rpx;
+  position: relative;
+  z-index: 1;
+}
+.comment-label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 28rpx;
+  padding: 0 16rpx;
+}
+.comment-label label {
+  width: auto;
+  margin-bottom: 12rpx;
+}
+.comment-label label checkbox {
+  -webkit-appearance: none;
+}
+.row {
+  background: #fff;
+  border-top: 2rpx solid #eee;
+  border-bottom: 2rpx solid #eee;
+  padding: 20rpx 30rpx;
+  margin-bottom: 30rpx;
+  font-size: 28rpx;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-around;
+  align-items: center;
+}
+
+.photo-box {
+  padding: 25rpx 44rpx 80rpx 44rpx;
+  font-size: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.photo {
+  width: 180rpx;
+  height: 180rpx;
+  box-sizing: border-box;
+  font-size: 0;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+  background: #fafbfc;
+  overflow: hidden;
+}
+
+.photo image {
+  width: 100%;
+  height: 100%;
+}
+
+.photo:nth-child(3n) {
+  margin-right: 0;
+}
+
+.btn-addphoto {
+  width: 180rpx;
+  height: 180rpx;
+  padding: 50rpx;
+  background: #f0f2f5;
+  font-size: 0;
+  margin: 0;
+  margin-bottom: 20rpx;
+  border-radius: 0;
+}
+
+.btn-addphoto image {
+  width: 100%;
+}

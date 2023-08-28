@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "附近求购",
+  "navigationBarBackgroundColor": "#ffbd6d",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {}
+}

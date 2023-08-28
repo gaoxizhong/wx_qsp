@@ -1,0 +1,116 @@
+<!-- 进度条模块 -->
+<view class="is_progress_box" wx:if="{{is_progress}}">
+  <view class="djs-box">00 : 00 : 0{{djs_number}}</view>
+  <view class="is_progress_bar">
+    <!-- 进度条 -->
+    <view class="progress-box">
+      <!-- 图标定位 -->
+      <view class="tb-box" style= 'left:{{tb_leflt}}rpx;'> 
+        <image src="/images/icon_jdt_yq.png" mode="widthFix" class="tb-img-1"></image>
+        <image  src="/images/jdt-icon-yb.png" mode="widthFix" class="tb-img-2"></image>
+      </view>
+      <progress percent="{{ bar_number }}" stroke-width="24" activeColor="#fbce00" backgroundColor="#fff" duration="" bindactiveend="activeend_jdt" border-radius="20" />
+    </view>
+  </view>
+  <view class="progress_btn_box">{{ bar_text }}</view>
+</view>
+<!-- 进度条模块 -->
+
+<view style="margin: 0 24rpx;" wx:if="{{is_zyhd_box}}">
+  <view class="page-title" wx:if="{{is_zyhd}}">
+    集赞有好奖,传播有力量！ 请给<text style="color:#ff0000;">{{dynamic.nickname}}</text>一个赞！
+  </view>
+  <view class="love-story">
+    <view class="poster-view-box"  wx:if="{{is_zyhd}}">
+      <swiper class='swiper' bindchange="moveServerProSwiper" circular="true" current="{{swiper_index}}" previous-margin="40rpx" next-margin="40rpx">
+        <block wx:for="{{dynamic.gdImages}}" wx:key="index">
+          <swiper-item  class="is_secl" data-swiper_index="{{swiper_index}}">
+            <view class="swiper-item-view" >
+              <image src="{{item.url}}" mode='scaleToFill'/>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="love-story-text {{!show_status?'cool':''}}"  wx:if="{{is_zyhd}}">
+      <view>{{dynamic.words}}</view>
+    </view>
+    <view bindtap="openFulltxt" class="full_txt"  wx:if="{{is_zyhd}}">{{!show_status?'查看完整内容':'收起'}}</view>
+    <view class="footer-box">
+      <view class="footer-btn1">
+        <button class="footer-btn1-left" bindtap="like" data-zxid="{{dynamic.id}}" 
+        data-mid="{{dynamic.member_id}}" >
+          <image src="/images/icon-zan.png"></image>
+          <text style="padding-left:20rpx;">给一个赞 +{{dynamic.laud_count}}</text>
+        </button>
+        <button class="footer-btn1-right" bindtap="goTohd">
+          <image  src="/packageA/assets/images/loveActivity/active_haibao.png"></image> 
+          我也要奖品
+        </button>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+<view class="page-title" style=" text-align: center;padding:12rpx 0;margin-top: 12rpx;" wx:if="{{ business_name != '' && dynamic.referral_traffic }}">本次活动由<text style="color:#ff0000;">{{business_name}}</text>赞助</view>
+
+<!-- 有赞助商广告 -->
+<view style="background:#fff;box-sizing:border-box;margin: 30rpx 24rpx;" wx:if="{{dynamic.referral_traffic}}">
+  <view class="swiper-container1">
+    <swiper class='swiper' autoplay="true" circular="true" interval="1500">
+      <block wx:for="{{banner_img}}" wx:key="index">
+        <swiper-item bind:tap="goToFromImg" data-index="{{index}}" data-select_id="{{dynamic.referral_traffic.select_id}}" data-select_type="{{dynamic.referral_traffic.select_type}}">
+          <view class="swiperitem-box">
+            <view class="swiperitem-l" wx:if="{{dynamic.referral_traffic.select_type == '1'}}">
+              <image src="{{ item.img }}" class="swiperitem-l-image" mode='aspectFill' />
+            </view>
+            <view class="swiperitem-l" wx:else>
+              <image src="{{ item.thumb }}" class="swiperitem-l-image" mode='aspectFill' />
+            </view>
+            <view class="swiperitem-r">
+              <view class="swiperitem-r-title">{{item.name}}</view>
+              <view class="swiperitem-r-y">原价 <text style="text-decoration:line-through;">￥{{item.price}}</text></view>
+              <view class="discount-price" wx:if="{{dynamic.referral_traffic.select_type == '1'}}">
+                <text>折扣价 ￥{{ item.total_price }}+{{item.hbb?item.hbb:'0.00'}}积分</text>
+              </view>
+              <view class="discount-price" wx:else>
+                <text>优惠价格 ￥{{ item.coupon_price }}+{{item.hbb?item.hbb:'0.00'}}积分</text>
+              </view>
+              <view class="qg-box">立即抢购</view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+<!-- banner广告商品 -->
+<view style="background:#fff;padding:20rpx; box-sizing:border-box;" wx:else>
+  <view class="swiper-container1">
+    <swiper class='swiper' autoplay="true" circular="true" interval="1500">
+      <block wx:for="{{banner_img1}}" wx:key="index">
+        <swiper-item bind:tap="goToFromImg1" data-index="{{index}}" data-id="{{item.id}}" data-select_id="{{item.select_id}}" data-select_type="{{item.select_type}}">
+          <view class="swiperitem-box">
+            <view class="swiperitem-l">
+              <image src="{{ item.select.image[0] }}" class="swiperitem-l-image" mode='aspectFill' />
+            </view>
+            <view class="swiperitem-r">
+              <view class="swiperitem-r-title">{{item.select.select.title}}</view>
+              <view class="swiperitem-r-y">原价 <text style="text-decoration:line-through;">￥{{item.select.select.price}}</text></view>
+              <view class="discount-price">
+                <text>折扣价 ￥{{ item.select.select.total_price }}+{{item.select.select.hbb?item.select.select.hbb:'0.00'}}积分</text>
+              </view>
+              <view class="qg-box">立即抢购</view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+<!-- <view style="width: 100%;height: 80rpx;"></view> -->
+
+<!-- 信息广告弹窗 -->
+<include src="/pages/module/ad_preview/index.wxml" />

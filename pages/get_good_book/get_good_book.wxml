@@ -1,0 +1,51 @@
+<view class="pages-box">
+          <view class='nulldata_wrap' wx:if="{{dataStatus}}">
+            <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+            <view class='msg'>暂无数据</view>
+          </view>
+          <view class="scroll-view" wx:else>
+            <view class="content" wx:for="{{book_listaa}}" wx:for-item="item" wx:key="index" wx:for-index='key_name'>
+              <!-- <view class="library-name color-64B" data-library_id="{{item.library_id}}" bindtap="goTolibrary">>> {{item.library_name}}</view> -->
+              <view style="display:flex">
+                <view class="left">
+                  <image src="{{item.images_medium}}"></image>
+                </view>
+                <view class="right">
+                  <text>图书名称：{{item.name?item.name:'暂无名称'}}</text>
+                  <text>图书作者：{{item.author?item.author:'暂无作者'}}</text>
+                  <text>出版社：{{item.publisher?item.publisher:'无'}}</text>
+                  <text>图书价格：{{item.integral_price}} 环保积分</text>
+                  <text>图书数量：{{item.stock}}</text>
+                </view>
+              </view>
+              <image class="shopping-cart" src="{{ item.is_car ? is_car_1 : is_car }}" 
+              bindtap="add_ShopCart" 
+              data-library_id="{{item.library_id}}" 
+              data-library_name="{{item.library_name}}" 
+              data-index="{{key_name}}"
+              data-is_car="{{item.is_car}}"
+              data-book_id="{{item.book_id}}"
+              data-stock="{{item.stock}}" 
+              data-name="{{item.name}}" 
+              data-integral_price="{{item.integral_price}}" 
+              data-images_medium="{{item.images_medium}}" 
+              ></image>
+              <view style="padding-left:40rpx;padding-right: 20rpx;margin-top:16rpx;">
+                <view style='color:#4AC081; font-size:26rpx;font-weight:700;'>内容简介</view>
+                <view style='font-size:26rpx;margin-top:12rpx;'>
+                  <text class="book-list-sort">{{item.summary?item.summary:'暂无'}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+
+</view>
+<!-- 可拖拽购物车图标按钮 -->
+<movable-area class="movable-area">
+  <movable-view direction="all" out-of-bounds='true' bindtap="goToAcrt" class="movable-view">
+    <image mode='widthFix' src="/images/acrt-all-green.png"></image>
+      <view class="refr-icon flex-justitem-center">
+    {{car_num}}
+  </view>
+  </movable-view>
+</movable-area>

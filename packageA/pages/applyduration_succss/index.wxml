@@ -1,0 +1,18 @@
+<view class="title-text">
+  <view class="images-box">
+    <image src="/images/S1.jpg"></image>
+    <view style="font-size:44rpx;margin-top: 20rpx;">申请成功</view>
+  </view>
+  <view class="succ-infobox">
+    <view>在志愿北京加入项目，时长会</view>
+    <view>在3-5个工作日审核通过</view>
+  </view>
+</view>
+
+<!-- <view style="font-siz:26rpx;text-align:center;"><text style="color:#a1a1a1;">剩余时间</text>  <text style="text-align: center;padding-left:12rpx;">23:22:30</text></view> -->
+
+<view class="footer-box">
+  <view bindtap="gotojixu">继续参加</view>
+  <view bindtap="gotoqita">其他活动</view>
+</view>
+  

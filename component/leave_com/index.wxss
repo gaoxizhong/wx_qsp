@@ -1,0 +1,86 @@
+.leave-com-box{
+  padding: 11rpx 22rpx 56rpx 22rpx;
+  background: #fff;
+  border-radius: 6px;
+  margin: 20rpx 20rpx 10rpx 20rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 20rpx 2rpx #00000010;
+}
+.leave-message {
+  color: #4AC081;
+  font-size: 26rpx;
+  position: absolute;
+  bottom: 0;
+  right: 24rpx;
+  padding: 10rpx;
+}
+.leave-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+}
+.leave-fabu-btn{
+  width: auto;
+  padding: 6rpx 0 6rpx 10rpx;
+  font-size: 30rpx;
+  color: #4AC081;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+.leave-fabu-btn>image{
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 10rpx;
+}
+.leave-items {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 42rpx;
+}
+.release_img {
+  width: 144rpx;
+  height: 50rpx;
+}
+/* .items-avatar {
+  width: 74rpx;
+  height: auto;
+} */
+.items-info-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.items-info {
+  flex: 1;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.items-avatar image {
+  width: 86rpx;
+  height: 86rpx;
+  border-radius: 50%;
+}
+.leave-name {
+  font-size: 32rpx;
+  color: #ff0000;
+}
+.info-deac {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+  
+  

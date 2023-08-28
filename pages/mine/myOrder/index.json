@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "comp": "./../../module/component/component"
+  }
+}

@@ -1,0 +1,71 @@
+page{
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.ranklist-items{
+  width: 100%;
+  padding: 14rpx 0;
+  margin: 10rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.ranklist-items::after{
+  content: '';
+  width: 100%;
+  height: 1px;
+  transform: translateY(0.5);
+  background: #dbdada;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.ranklist-items>view{
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ranklist-items>view.rank-index image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.ranklist-items>view.rank-avatar image{
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+}
+.rank-4{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rank-4 image{
+  width: 36rpx;
+  height: 36rpx;
+}
+.rank-5-btn{
+  width: 104rpx;
+  height: 44rpx;
+  font-size: 24rpx;
+  border-radius: 20px;
+  background: #4ac081;
+  color: #fff;
+  line-height: 44rpx;
+  text-align: center;
+}
+.ranklist-items>view:nth-of-type(1) {
+  width: 50rpx;
+  height: 50rpx;
+  padding: 0 12rpx;
+}
+.ranklist-items>view:nth-of-type(2) {
+  width: auto;
+  padding: 0 12rpx;
+}
+.ranklist-items>view:nth-of-type(3) {
+  flex: 1;
+}
+.ranklist-items>view:nth-of-type(4), .ranklist-items>view:nth-of-type(5) {
+  width: 120rpx;
+}

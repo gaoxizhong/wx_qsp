@@ -1,0 +1,69 @@
+<view>
+  <view class="title-text">完善信息</view>
+  <view class="box-form">
+    <!-- <view class="discount-price">
+      <view class="price1"><text style="color:red;">*</text>书店名称</view>
+      <view>
+        <input type="text" value="{{create_count}}" placeholder="请输入书店名称" bindinput="inputCrecount"/>
+      </view>
+    </view>
+
+    <view class="discount-price">
+      <view class="price1"><text style="color:red;">*</text>店长姓名</view>
+      <view>
+        <input type="text" value="{{cre_name}}" placeholder="请输入店长姓名" bindinput="inputCrename"/>
+      </view>
+    </view> -->
+
+    <view class="discount-price">
+      <view class="price1"><text style="color:red;">*</text>店长电话</view>
+      <view>
+        <input type="digit" value="{{cre_phone}}" placeholder="请输入店长电话" bindinput="inputCrephone"/>
+      </view>
+    </view>
+    <view class="discount-price">
+      <view class="price1"><text style="color:red;">*</text>选择市区</view>
+      <picker mode="region" value="{{big_address}}" start="2015-09-01" bindchange="chooseAddress" style="flex:1;">
+       <view style="color:{{big_address == '请选择省市区' ? '#777777':'#333'}};">{{big_address}}</view>
+      </picker>
+    </view>
+    <view class="discount-price">
+      <view class="price1"><text style="color:red;">*</text>详细地址</view>
+      <view style="flex:1;">
+        <input style="width:100%;" type="text" value="{{cre_address}}" placeholder="例：xxx小区xxx楼" bindinput="inputCreaddress"/>
+      </view>
+    </view>
+    <view style="color:#4AC081;font-size:24rpx;margin-top: 2rpx;padding-left: 20rpx;">*出于隐私考虑，个人书店地址可只填写到小区几号楼</view>
+ 
+    <!--<view class="discount-price">
+      <view class="price1"><text style="color:red;">*</text>书店密码</view>
+      <view>
+        <input type="text" value="{{library_password}}" placeholder="设置个人书店密码" bindinput="inputpassword"/>
+      </view>
+    </view> 
+    <view style="color:#4AC081;font-size:24rpx;margin-top: 2rpx;padding-left: 20rpx;">
+      *用于团组活动和隐藏自己书店；好友或邻居设置相同的密码即可进入同一团组
+    </view> -->
+  </view>
+  <view class="create-btn" bind:tap="createActivity">完成</view>
+  <!-- <view class="xieyi-quan">
+    <view class="quan" bindtap="chooseLibrary">
+      <view class="{{checked == true ? 'quan-in': ''}}" ></view>
+    </view>
+    <view class="create-btn-text">已阅读并同意<text style="color:#4AC081;" bindtap="xieyi">邻居的书功能使用协议</text></view>
+  </view> -->
+</view>
+
+
+<!-- <view wx:if="{{is_xieyi}}" class="xieyi"> </view>
+<view wx:if="{{is_xieyi}}" class="xieyi-box">
+  <view class="xieyi-box-text">
+    <view style="color:#333;font-size:30rpx;padding:6rpx 0;font-weight: 700;">个人书店入驻须知</view> 
+    <view style="padding:6rpx 0;">1. 个人可在本版块免费建立个人书店，发布个人图书信息: 用于好友、邻居等之间的图书分享、流转、销售或各类团体活动。</view>  
+    <view style="padding:6rpx 0;">2. 个人图书有偿销售所得，会进入本平台“我的钱包”并可按平台规则提现。</view>  
+    <view style="padding:6rpx 0;">3. 禁止在本平台上传盗版，以及国家明令禁止的各类出版物。</view>  
+    <view style="padding:6rpx 0;">4. 平台将从个人图书交易中，收取平台费，每1元收取0.15元。</view>  
+
+  </view>
+  <view class="tongyi-btn" bindtap="tongyi">同意</view>
+</view> -->

@@ -1,0 +1,46 @@
+<view class="pagebox">
+  <view class="pagebox-title-left">
+    <view class="title-text">筛选范围：</view>
+    <view class="title-left-btn">
+      <block wx:for="{{distance_list}}" wx:key="index">
+        <view class="distance-item {{is_dist == index?'highlight-item':''}} " data-dist="{{item.dist}}" data-index="{{index}}" bindtap="select_dist">{{item.name}}</view>
+      </block>
+    </view>
+  </view>
+  <view class="pagebox-title-right">
+    <view class="title-text">附近客户：</view>
+    <view class="title-left-btn">
+      <view>{{total_peop}}人</view>
+      <view style="background:#f9c15f;" bindtap="gotoall_transaction">快速推广</view>
+    </view>
+  </view>
+</view>
+
+<view class="filter-list-box">
+  <view class="filter-list-th">
+    <view style="width:102rpx;"></view>
+    <view style="flex:1;">用户名</view>
+    <view style="flex:1;">额度</view>
+    <view style="flex:1;">活跃度</view>
+    <!-- <view style="width:86rpx;"></view> -->
+  </view>
+  <block wx:for="{{filter_list}}" wx:key="index">
+    <view class="filter-list-tr" bindtap="goto" data-member_id="{{item.member_id}}">
+      <view class="filter-list-tr-image">
+        <image src="{{item.avatar}}"></image>
+      </view>
+      <view style="flex:1;" class="filter-list-tr-name">
+        <view>{{item.nickname}}</view>
+        <view style="color:#999;" class="is_address">附近的人</view>
+      </view>
+      <view style="flex:1;">{{item.integral}}</view>
+      <view style="flex:1;">{{item.activity}}</view>
+      <!-- <view style="width:86rpx;"></view> -->
+    </view>
+  </block>
+</view>
+
+<view class="is_marsk" bindtap="hiddenis_apply" wx:if="{{is_apply}}"></view>
+<view class="is_marskbox" bindtap="gotocreate_shop" wx:if="{{is_apply}}">
+  <image src="http://oss.qingshanpai.com/banner/is_apply.png"></image>
+</view>

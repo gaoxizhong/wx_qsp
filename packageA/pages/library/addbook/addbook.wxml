@@ -1,0 +1,24 @@
+<view class="all">
+   <scroll-view scroll-y="true" style="height: 100%;">
+      <view class="content" wx:for ="{{book_list}}"  wx:for-item="item" wx:key="index">
+        <view class="left">
+          <view class="quan" bind:tap="chooseBook"  data-index="{{index}}">
+            <view class="{{item.checked == true ? 'quan-in': ''}}" ></view>
+          </view>
+          <image src="{{item.book_image}}"></image>
+        </view>
+        <view class="right">
+          <text>图书价格：{{item.book_price}}</text>
+          <text>图书名称：{{item.book_name?item.book_name:'暂无名称'}}</text>
+          <text>图书作者：{{item.book_author?item.book_author:'暂无作者'}}</text>
+          <text>出版社：{{item.book_publisher?item.book_publisher:'无'}}</text>
+          <text>图书ISBN：{{item.isbn}}</text>
+        </view>
+      </view> 
+    </scroll-view>
+<view class="sao-box">
+  <image src="http://oss.qingshanpai.com/banner/sao-1.png" class='sao_image' bindtap="saoyisao"></image>
+  <text>扫一扫</text>
+</view>
+<button bindtap="submit">确认上架</button>
+</view>

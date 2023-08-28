@@ -1,0 +1,40 @@
+.module-box{
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding-top: 154rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.module-box>view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title-text{
+  font-size: 48rpx;
+  color: #4ac081;
+}
+.image-box{
+  width: 198rpx;
+  height: 198rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 108rpx;
+}
+.image-box>image{
+  width: 100%;
+  height: 100%;
+}
+.btn-submit{
+  width: 410rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin-top: 124rpx;
+  background: #4ac081;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 20px;
+}

@@ -1,0 +1,11 @@
+<view>
+  <view  wx:for="{{library_see_list}}" wx:key="index" class="see-list-box"
+    data-member_library_id="{{item.member_library_id}}"
+   bindtap="goTosee_lidrary">
+    <view class="list-box-item">
+      <image src="{{item.avatar}}"></image>
+      <view style="margin-left:20rpx;">{{item.library_name?item.library_name:'暂无'}}</view>
+    </view>
+    <view style="width:auto">馆长：{{item.member_name?item.member_name:'暂无'}}</view>
+  </view>
+</view>

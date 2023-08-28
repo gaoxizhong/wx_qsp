@@ -1,0 +1,113 @@
+<!-- 展示列表 开始 -->
+<block wx:for="{{space_list}}" wx:key="index">
+  <view class="userList-box" wx:if="{{index == 0}}">
+    <!-- 生活照轮播模块 -->
+    <view class="lifeimg-box">
+      <swiper class='swiper' autoplay="true" circular="true" interval="2500">
+        <swiper-item>
+          <image src="{{item.background ? item.background : v_back}}" class="slide-image" />
+        </swiper-item>
+      </swiper>
+      <view class="lifeimg-infobtn-box">
+        <view class="lifeimg-infobtn-box-l">
+          <view class="lifeimg-photo-box">
+            <image src="{{item.member.avatar}}" class="photo-image"></image>
+          </view>
+          <view class="lifeimg-name-title">
+            <view class="lifeimg-n-t">{{item.name}}</view>
+            <view hover-class="hoverClass" class="lifeimg-n-btn" data-member_id="{{item.member_id}}" bindtap="gotoPersonalHome">
+              <image class="lifeimg-n-icon2" src="/packageB/assets/images/livingHall/icon-tx.png" mode="widthFix"></image>
+              <text style="margin: 0 6rpx;">主页</text>
+              <image class="lifeimg-n-icon2" src="/packageB/image/my_more.png" mode="widthFix"></image>
+            </view>
+          </view>
+        </view>
+        <view class="lifeimg-infobtn-box-r">
+          <!-- <view class="type-item">
+            <image src="/packageB/assets/images/livingHall/icon-zf.png" mode="widthFix" class="type-itemimage"></image>
+            <text>0</text>
+          </view> -->
+        </view>
+      </view>
+    </view>
+    <!-- 生活照轮播模块 -->
+
+    <view class="lifeimg-titlebox">
+      <view style="font-weight: bold;">作品相册</view>
+      <!-- <view class="titlebox-ljxq" hover-class="hoverClass">了解详情<image src="/packageB/image/my_more.png" mode="widthFix" class="titlebox-ljxqimage"></image></view> -->
+    </view>
+    <!-- 她的作品列表 开始-->
+    <view class="workList-box">
+      <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%" wx:if="{{item.work.length > 0}}">
+        <view class="scroll-view-item_H" wx:for="{{item.work}}" wx:for-item="items" wx:key="index">
+          <image src="{{items.image_array[0]}}"  data-id="{{items.id}}" bindtap="clickBuy"></image>
+        </view>
+      </scroll-view>
+      <view class="zwzpzs-box" wx:else>暂无作品展示...</view>
+
+    </view>
+    <!-- 她的作品列表 结束-->
+    <view class="userList-btnbox">
+      <view class="userList-btn" hover-class="hoverClass" bindtap="gotoAll">查看更多人作品</view>
+    </view>
+  </view>
+</block>
+
+<view class='nulldata_wrap' wx:if="{{space_list.length == 0}}">
+  <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+  <view class='msg'>暂无用户创建主页...</view>
+</view>
+<!-- 展示列表 结束 -->
+<view class="livingHall-box">
+  <image src="/packageB/assets/images/livingHall/live-icon.png" mode="widthFix" hover-class="hoverClass" bindtap="clickSx" />
+</view>
+<!-- 作品推荐 -->
+<view class="workRecommend-box">
+  <view class="lifeimg-titlebox">
+    <view style="font-weight: bold;">作品推荐</view>
+    <view class="titlebox-ljxq" hover-class="hoverClass" bindtap="gotoAllcom">全部<image src="/packageB/image/my_more.png" mode="widthFix"></image></view>
+  </view>
+  <!-- 列表 -->
+  <view class="workRecommendList-box">
+    <scroll-view class="scroll-workList" scroll-x="true" style="width: 100%">
+
+      <block wx:for="{{work_list}}" wx:key="index">
+        <view class="scroll-workList-item_H">
+          <view class="item_Himage-box" data-id="{{item.id}}" bindtap="clickBuy">
+            <image src="{{item.image_array[0]}}" class="item_Himage-poto"></image>
+            <image src="{{item.member.avatar}}" class="item_Himage-workimg"></image>
+          </view>
+          <view class="scroll-workList-info">
+            <view class="scroll-workList-title">{{item.title}}</view>
+            <view class="scroll-workList-f">
+              <view class="scroll-workList-l">￥{{item.price}}</view>
+              <view class="scroll-workList-rbtn" data-id="{{item.id}}" bindtap="clickBuy">立即购买</view>
+            </view>
+          </view>
+        </view>
+      </block>
+
+    </scroll-view>
+  </view>
+</view>
+<!-- 作品推荐 -->
+<view style="width: 100%;height: 218rpx;"></view>
+
+<!-- 底部按钮 -->
+<view class="footer-box">
+  <view bindtap="gotoCreate">
+    <image src="/packageB/assets/images/livingHall/icon-zp-fb.png" mode="widthFix"></image>
+    <!-- <text>发布</text> -->
+  </view>
+  <view bindtap="gotoMemberCentre">
+    <image src="/packageB/assets/images/livingHall/icon-zp-hyqy.png" mode="widthFix"></image>
+    <!-- <text>会员权益</text> -->
+  </view>
+  <view bindtap="gotoReserveHome">
+    <image src="/packageB/assets/images/livingHall/icon-zp-yy.png" mode="widthFix"></image>
+    <!-- <text>预约</text> -->
+  </view>
+</view>
+
+
+

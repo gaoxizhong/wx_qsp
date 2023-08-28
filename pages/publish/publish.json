@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "发表",
+  "usingComponents": {
+    "comp": "./../module/component/component"
+  }
+}

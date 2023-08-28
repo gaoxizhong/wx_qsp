@@ -1,0 +1,43 @@
+<view class="useList-box">
+  <block wx:for="{{voucher}}" wx:key="index">
+    <view class="items-box">
+      <view class="items-t-box">
+        <view class="items-t-l">
+          <view class="items-price">
+            <text style="font-size: 40rpx;">￥</text>
+            <text>{{item.total_value}}</text>
+          </view>
+          <view class="items-title-box">
+            <view class="items-title-1">{{item.total_value}}元商品任意购券</view>
+            <view class="items-title-t">即将于06月4日 23:23过期</view>
+          </view>
+        </view>
+        <view class="items-t-r" data-id="{{item.id}}">立即使用</view>
+      </view>
+      <view class="items-b-box">使用须知：请在店铺购买指定商品下单时使用</view>
+    </view>
+  </block>
+</view>
+
+<view class="is-invalidList" wx:if="{{invalidList.length != 0}}" bindtap="lookinvalidList">查看已失效优惠券 <image src="/packageB/assets/images/livingHall/icon-jt.png" mode="widthFix" class="{{is_invalidList?'hover':''}}"></image></view>
+
+<view class="useList-box hover" wx:if="{{is_invalidList}}">
+  <block wx:for="{{voucher}}" wx:key="index">
+    <view class="items-box">
+      <view class="items-t-box">
+        <view class="items-t-l">
+          <view class="items-price">
+            <text style="font-size: 40rpx;">￥</text>
+            <text>{{item.total_value}}</text>
+          </view>
+          <view class="items-title-box">
+            <view class="items-title-1">{{item.total_value}}元商品任意购券</view>
+            <view class="items-title-t">于06月4日 23:23过期</view>
+          </view>
+        </view>
+        <view class="items-t-r">已失效</view>
+      </view>
+      <view class="items-b-box">使用须知：请在店铺购买指定商品下单时使用</view>
+    </view>
+  </block>
+</view>

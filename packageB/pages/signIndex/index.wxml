@@ -1,0 +1,165 @@
+<view class="sigin-dt-box">
+  <view class="siginDt-title-box">
+    <image src="/packageB/assets/images/sigin/icon_xz.png" mode="widthFix"></image>
+    <view style="font-size: 32rpx;font-weight: bold;padding-left: 20rpx;">第{{signCircle.sign_count}}次签到打卡</view>
+  </view>
+  <view class="siginDt-text">{{signCircle.content.words}}</view>
+  <view class="circle-img">
+    <image src="{{signCircle.content.images[0].url}}" class="imgyi-width" mode="widthFix"></image>
+  </view>
+  <view class='circle-footer-operation' wx:if="{{item.source !=9}}">
+    <!-- 分享 -->
+    <button hover-class='none' open-type="share" class="item-btn">
+      <image src='/packageB/assets/images/sigin/icon_dtfx.png' mode="widthFix" style="width:44rpx;"></image>
+      <!-- <text>{{forward_count !=0?forward_count:'分享'}}</text> -->
+      <text class="text">分享</text>
+      <view class="index-ic-sub" style="left: 32%; top: -26rpx;">
+        <image src="/packageB/assets/images/sigin/icon_bg_tag.png" mode="widthFix"></image>
+        <text>+1积分</text>
+      </view>
+    </button>
+    <!-- 拆盲盒 -->
+    <button hover-class='none'  class="item-btn" bindtap='goToBlindbox'>
+      <image src='/packageB/assets/images/sigin/icon_dtmh.png' mode="widthFix" style="width:44rpx;"></image>
+      <text class="text">拆盲盒</text>
+      <view class="index-ic-sub" style="left: 55%; top: -26rpx;">
+        <image src="/packageB/assets/images/sigin/icon_bg_tag.png" mode="widthFix"></image>
+        <text>+0.2元</text>
+      </view>
+    </button>
+    <!-- 点赞 -->
+    <button hover-class='none' class="item-btn" bindtap='signLike'>
+      <image src='/packageB/assets/images/sigin/icon_dtdz.png' mode="widthFix" style="width:44rpx;"></image>
+      <text class="text">赞 {{signCircle.content.laud_count?signCircle.content.laud_count:0}}</text>
+      <view class="index-ic-sub" style="right: 0; top: -26rpx;">
+        <image src="/packageB/assets/images/sigin/icon_bg_tag.png" mode="widthFix"></image>
+        <text>+0.1元</text>
+      </view>
+    </button>
+  </view>
+  <view class="zhxx-box" wx:if="{{m_id == member_id}}">
+    <image src="/packageB/assets/images/sigin/icon_zhbg.png" mode="widthFix" class="icon_zhbg"></image>
+    <view class="zhxx-text-box">
+      <text>积分余额 {{signCircle.real_amount}}</text>
+      <text>可提现金额 {{signCircle.balance}}元</text>
+      <text class="tx-btn" bindtap="goToWallet">去提现</text>
+    </view>
+  </view>
+  <view class="sigin-jrbox"  wx:if="{{m_id == member_id}}">
+    <view class="sigin-jrbox-title" bindtap="goTojrsddz">
+      <image src="/packageB/assets/images/sigin/icon_jrdz.png" mode="widthFix" class="jrbox-title-img"></image>
+      <text style="color:#4d997b;">今日赞我的人</text>
+      <view class="jrbox-num">+{{signCircle.content.content_laud_count}}</view>
+      <image src="/packageB/assets/images/sigin/icon_ty.png" mode="widthFix" class="icon_ty"></image>
+    </view>
+    <view class="sigin-jrbox-zj"></view>
+    <view class="sigin-jrbox-title" bindtap="goTojrsdlw">
+      <image src="/packageB/assets/images/sigin/icon_jrlw.png" mode="widthFix" class="jrbox-title-img"></image>
+      <text style="color:#854d4d;">今日收到的礼物</text>
+      <view class="jrbox-num">+{{signCircle.today_gift}}</view>
+      <image src="/packageB/assets/images/sigin/icon_ty.png" mode="widthFix" class="icon_ty"></image>
+    </view>
+  </view>
+</view>
+<view wx:if="{{m_id == member_id}}">
+  <!-- 免费兑换模块 开始-->
+
+  <!-- <view class="sigin-mfdh-box">
+    <image src="https://oss.qingshanpai.com/sign/icon_mfdh_bg.png" mode="widthFix" class="mfdh-box-bgimg"></image>
+    <view class="mfdh-infoBox">
+      <view class="mfdh-title">免费兑换</view>
+      <view class="mfdh-shopInfo-box">
+        <image src="https://oss.qingshanpai.com/banner/signin_5.jpg" mode="scaleToFill" class="mfdh-shopInfo-image"></image>
+        <view class="mfdh-shopInfo-title-p">
+          <view class="shopInfo-title">点赞创意造型咖啡碟套装小众创意小小马克杯陶瓷杯子安顺达萨打好了</view>
+          <view class="shopInfo-num">剩余33件</view>
+          <view class="shopInfo-jf-btn">
+            <view class="shopInfo-jf">
+              <text style="font-weight: bold;font-size: 36rpx;">20</text>积分
+            </view>
+            <view class="shopInfo-btn" bindtap="goTosignFree">签到积分 免费兑换</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  
+  <!-- 免费兑换模块 结束-->
+  <!-- 签到交友 -->
+  <view class="sigin-qdjy-box">
+    <image src="https://oss.qingshanpai.com/sign/icon_qdjy_bg.png" mode="widthFix" class="mfdh-box-bgimg"></image>
+    <view class="mfdh-infoBox">
+      <view class="zrwzjf-title-box">
+        <view class="zrwzjf-title">签到交友</view>
+        <view class="zrwzjf-mode" bindtap="goTosignFriend">
+          <text>更多好友</text>
+          <image src="/packageB/assets/images/sigin/icon_list_more.png" mode="widthFix" class="list_more"></image>
+        </view>
+      </view>
+      <view class="zrwzjf-shopInfo-box" style="justify-content: space-between;">
+        <block wx:for="{{signtList}}" wx:key="index">
+          <view class="zrwzjf-list-box" bindtap="goTosignFriend">
+            <view class="list-items-jb">
+              <image src="/packageB/assets/images/sigin/icon_dtdz.png" mode="widthFix" class="list-items-jbimage" style="width: 42rpx;"></image>
+            </view>
+            <image src="{{item.member.avatar}}" mode="widthFix" class="list-items-image" style="border-radius: 50%;"></image>
+            <view class="list-items-title">{{item.member.nickname}}</view>
+            <view class="qdjy-items-btn">送个花花</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <!-- 做任务赚积分 -->
+  <view class="sigin-zrwzjf-box">
+    <image src="https://oss.qingshanpai.com/sign/icon_gdjf_bg.png" mode="widthFix" class="mfdh-box-bgimg"></image>
+    <view class="mfdh-infoBox">
+      <view class="zrwzjf-title-box">
+        <view class="zrwzjf-title">做任务赚积分</view>
+        <view class="zrwzjf-mode" bindtap="goTotastList">
+          <text>更多任务</text>
+          <image src="/packageB/assets/images/sigin/icon_list_more.png" mode="widthFix" class="list_more"></image>
+        </view>
+      </view>
+      <view class="zrwzjf-shopInfo-box" style="justify-content: space-between;">
+        <block wx:for="{{more_integral}}" wx:key="index">
+          <view class="zrwzjf-list-box" bindtap="{{ (item.do_num - 0)< (item.limit_num - 0) ? 'goTotask' : 'goTotask1' }}" data-url="{{item.to_url}}" data-jifen="{{item.one_integral}}" data-type="{{item.type}}" data-task_id="{{item.id}}">
+            <view class="list-items-jb">
+              <image src="/packageB/assets/images/sigin/icon_jb.png" mode="widthFix" class="list-items-jbimage"></image>
+              <text>+{{item.one_integral}}</text>
+            </view>
+            <image src="{{item.icon}}" mode="widthFix" class="list-items-image"></image>
+            <view class="list-items-title">{{item.name}}</view>
+            <image src="/packageB/assets/images/sigin/icon_qwc.png" mode="widthFix" class="list-items-btn" wx:if="{{(item.limit_num - item.do_num) > 0}}"></image>
+            <view class="taskList-items-btnbox" wx:else>
+              <image src="/packageB/assets/images/sigin/task_icon_btn1.png" mode="widthFix"></image>
+              <view class="items-text">已完成</view>
+            </view>
+          </view>
+        </block>
+
+
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<view class="mySign-box" wx:else>
+  <view class="mySign-boxbtn" hover-class="hoverClass" bindtap="{{is_true?'goTobank':'goToSign'}}">我也去签到打卡</view>
+</view>
+
+
+
+<!-- =====================   弹窗  ================= -->
+<view class="cler-marsk" wx:if="{{m_id == member_id && !is_true}}"></view>
+<view class="cler-box" wx:if="{{m_id == member_id && !is_true}}">
+  <view class="cler-title">*请先签到打卡</view>
+  <view class="cler-btn-box">
+    <view catchtap="cler_marsk">取消</view>
+    <view class="cler-btn-r" hover-class="hoverClass" catchtap="goToSign">签到</view>
+  </view>
+</view>
+
+
+

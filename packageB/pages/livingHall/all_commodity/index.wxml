@@ -1,0 +1,21 @@
+<view class="commodityList-box">
+  <block wx:for="{{work_list}}" wx:key="index">
+    <view>
+      <view class="scroll-workList-item_H" data-id="{{item.id}}" bindtap="clickBuy">
+        <view class="scroll-workList-item_H">
+          <view class="item_Himage-box">
+            <image src="{{item.image_array[0]}}" class="item_Himage-poto"></image>
+            <image src="{{item.member.avatar}}" class="item_Himage-workimg"></image>
+          </view>
+          <view class="scroll-workList-info">
+            <view class="scroll-workList-title">{{item.title}}</view>
+            <view class="scroll-workList-f">
+              <view class="scroll-workList-l">￥{{item.price}}</view>
+              <view hover-class="hoverClass" class="scroll-workList-rbtn">立即购买</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,64 @@
+<view class="door-info">
+	<view class="door-info-title">填写上门信息</view>
+	<view class="door-info-input">
+		<view>
+			<text>姓名</text>
+			<view class="door-input-view">
+				<input value="{{name}}" placeholder="请输入姓名" bindinput="getinputname"></input>
+			</view>
+		</view>
+		<view> 
+      <text>电话</text>
+			<view class="door-input-view">
+				<input  value="{{phone}}" placeholder="请输入电话" bindinput="getinputteph"></input>
+			</view>
+		</view>
+		<view> 
+      <text>地址</text>
+			<view class="door-input-view">
+        <picker mode="region" name="garden" value="{{address}}" start="2015-09-01" bindchange="saveGarden">
+          <view class="shengshi" style="color:{{address ? '':'#a09f9f'}};">{{address ? address:'请选择省市区'}}</view>
+        </picker>
+      </view>
+		</view>
+		<view> 
+      <text></text>
+			<view class="door-input-view">
+      <input value="{{address_details}}" placeholder="填写详细地址、街道、小区、门牌号" bindinput="getinputliuyan"></input></view>
+		</view>
+
+	</view>
+</view>
+<view class="reservation-date">
+	<view class="door-info-title">选择预约时间</view>
+  	<view class="door-info-input">
+		<view>
+			<text>时间</text>
+			<view class="door-input-view">
+        <picker 
+        style='color:{{startDate == "" ? "#b2b2b2":""}};' 
+        class='time-picker' 
+        mode="multiSelector" 
+        bindchange="bindStartMultiPickerChange" 
+        bindtap='pickerTap' 
+        bindcolumnchange="bindMultiPickerColumnChange" 
+        value="{{multiIndex}}" 
+        range="{{multiArray}}"
+        >
+        {{startDate?startDate:'请选预约时间'}}
+      </picker>
+			</view>
+		</view>
+		<view> 
+      <text>备注</text>
+			<view class="door-input-view">
+				<input value="{{remark}}" placeholder="请输入备注" bindinput="getinputbeizhu"></input>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view style="width:100%;height:170rpx;"></view>
+<view class="btn-sub" >
+  <view class="btn-box" bindtap="submitdata">提交预约</view>
+</view>

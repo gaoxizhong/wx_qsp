@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "我的闲置",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {}
+}

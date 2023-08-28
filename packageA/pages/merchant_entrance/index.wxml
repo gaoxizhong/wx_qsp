@@ -1,0 +1,138 @@
+
+<view>
+	<view class="new-adbox">
+		<view class="title-banner-box">
+			<image src="https://oss.qingshanpai.com/icon/merchant_banner.png"></image>
+		</view>
+		<view class="newbg-plan-box">
+			<!-- 流量池上部分 -->
+			<view class="newbg-plan-top">
+				<view class="plan-left-box">
+					<image src="/packageA/assets/images/ad/ad_ic_fwcs.png" mode="widthFix"></image>
+					<view class="plan-num-box">
+						<text>广告阅读量:</text>
+						<view><text style="font-size: 32rpx;font-weight: 600;">{{ad_info.ad_browse}}</text><text style="font-size: 24rpx;">次</text></view>
+					</view>
+				</view>
+				<view class="plan-middle-box"></view>
+				<view class="plan-right-box">
+					<image src="/packageA/assets/images/ad/ad_ic_tfzt.png" mode="widthFix"></image>
+					<view class="plan-num-box">
+						<text>广告总投放数:</text>
+						<view><text style="font-size: 32rpx;font-weight: 600;">{{ad_info.ad_count}}</text><text style="font-size: 24rpx;">次</text></view>
+					</view>
+				</view>
+			</view>
+			<!-- 流量池中部分 -->
+			<view class="newbg-plan-middle">
+				<view class="plan-middle-l-box">
+					<view class="plan-middle-title">
+						<image src="/packageA/assets/images/ad/ad_ic_yhzs.png" mode="widthFix"></image>
+						<text style="padding-left: 10rpx;">新增用户:</text>
+					</view>
+					<view class="plan-middle-bgimg"><image src="https://oss.qingshanpai.com/icon/ad_bingzhuang.png" mode="widthFix"></image></view>
+					<view class="plan-middle-num-box">
+						<view class="m-num-t" style="margin-top: 10rpx;">
+							<view class="m-num-t-img" style="background: #ffc602;"></view>
+							<view class="m-num-t-text"><text style="padding-left: 7px;">7日:</text><text style="font-weight: 28rpx;font-weight: 600;">{{ad_info.member_7}}</text><text>人</text></view>
+						</view>
+						<view class="m-num-t">
+							<view class="m-num-t-img" style="background: #fd7342;"></view>
+							<view class="m-num-t-text"><text>30日:</text><text style="font-weight: 28rpx;font-weight: 600;">{{ad_info.member_30}}</text><text>人</text></view>
+						</view>
+
+					</view>
+				</view>
+				<view class="plan-middle-m-box"></view>
+				<view class="plan-middle-r-box">
+					<view class="plan-middle-title">
+						<image src="/packageA/assets/images/ad/ad_ic_bgd.png" mode="widthFix"></image>
+						<text style="padding-left: 10rpx;">曝光度:</text>
+					</view>
+					<view class="plan-middle-zhuzhuangimg"><image src="https://oss.qingshanpai.com/icon/ad_zhuzhuang.png" mode="widthFix"></image></view>
+					<view class="plan-middle-num-box">
+						<view class="m-num-t" style="margin-top: 10rpx;">
+							<view class="m-num-t-img" style="background: #ffc602;"></view>
+							<view class="m-num-t-text"><text style="padding-left:7px;">7日:</text><text style="font-weight: 28rpx;font-weight: 600;">{{ad_info.browse_7}}</text><text>人次</text></view>
+						</view>
+						<view class="m-num-t">
+							<view class="m-num-t-img" style="background: #fd7342;"></view>
+							<view class="m-num-t-text"><text>30日:</text><text style="font-weight: 28rpx;font-weight: 600;">{{ad_info.browse_30}}</text><text>人次</text></view>
+						</view>
+
+					</view>
+				</view>
+			</view>
+			<!-- 最新动态部分 -->
+			<view class="newbg-plan-dynamic">
+				<view class="bebug-box"></view>
+				<!-- 无需弹幕 -->
+				<view class='dmGroup' wx:for="{{ dmList }}" wx:key="index"  style="top:50%; transform: translateY(-50%); animation: dmAnimation {{item.time}}s linear {{ index*4}}s; ">
+					<view class='dmItem'>
+						<view class='dm'>
+							<view class='avatarBox'>
+								<image src='{{item.avater}}' class='avatar' mode='aspectFit'></image>
+							</view>
+							<text class='content' style="color:{{item.color}};">{{ item.content }}</text>
+							<text style="color: #c4c4c4;">{{item.member_id}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+			<!-- 流量池中部分 -->
+			<view class="newbg-plan-bottom">
+				<view class="plan-bottom-l">
+					<text>账面余额: </text>
+					<text style="font-weight: 600;">￥{{ad_info.balance3?ad_info.balance3:0}}</text>
+				</view>
+				<view class="plan-bottom-m"></view>
+				<view class="plan-bottom-r">
+					<text>积分余额: </text>
+					<text style="font-weight: 600;">{{ad_info.i ? ad_info.i : 0}}分</text>
+				</view>
+
+			</view>
+		</view>
+		
+	</view>
+	<view class="new-adbtn-box">
+		<view bindtap="gotoadsubpsge" >
+			<image src="https://oss.qingshanpai.com/icon/ad_ic_tfgg.png"></image>
+			<text class="info-text">投放广告</text>
+		</view>
+		<view bindtap="view_usage">
+			<image src="https://oss.qingshanpai.com/icon/ad_ic_ggsj.png"></image>
+			<text class="info-text">广告数据</text>
+		</view>
+		<view bindtap="goTotopup">
+			<image src="https://oss.qingshanpai.com/icon/ad_ic_jyz.png"></image>
+			<text class="info-text">加油站</text>
+		</view>
+		<view bindtap="gotocreate_shop" data-url="{{ business_id ? '/pages/shop/shop?' : '/pages/register/register' }}">
+			<image src="https://oss.qingshanpai.com/icon/ad_ic_ztgl.png"></image>
+			<text class="info-text">{{business_id?'展厅管理':'申请展厅'}}</text>
+		</view>
+		<view bindtap="goto_index">
+			<image src="https://oss.qingshanpai.com/icon/ad_ic_llc.png"></image>
+			<text class="info-text">流量池</text>
+		</view>
+		<view bindtap="goto_gjqx">
+			<image src="https://oss.qingshanpai.com/icon/ad_ic_qlh.png"></image>
+			<text class="info-text">高级权限</text>
+		</view>
+	</view>
+
+	<view class="hbb-method wealth-rank">
+		<view class="head-title flex-justitem-spacecent" bind:tap="goToHbbWalkThrough">
+			<view>青蛙动态</view>
+			<image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+		</view>
+		<scroll-view class="method-list" scroll-x="{{true}}">
+			<view class="method-item" wx:for="{{HBBArticle}}" wx:for-item="item" wx:for-index="index" wx:key="index" bindtap="goToFromArticle" data-articlelabel="{{item.article_label}}" data-articlelabelid="{{item.article_label_id}}" data-id="{{item.id}}">
+				<image src="{{item.image}}" />
+				<view class="method-title">{{item.title}}</view>
+				<view class="method-info flex-justitem-spacecent"><text>{{item.scan_count}}次浏览</text></view>
+			</view>
+		</scroll-view>
+	</view>
+</view>

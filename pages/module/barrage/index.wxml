@@ -1,0 +1,13 @@
+<!-- <view class="bar-list"> -->
+ <!-- wx:if="{{barrageList.length > 0}}" -->
+    <view class="bar-item {{ loopShow == 2 ? 'bar-animate':'' }}" 
+        wx:for="{{barrageList}}" 
+        wx:for-index="idx" 
+        wx:for-item="{{item}}"
+        wx:key="idx"
+        style="animation: barAnimation 10s linear {{idx*7}}s;position:absolute;"
+        >
+        <!-- top:{{(idx%4*60)+480}}rpx -->
+        {{barrageList[idx]}}
+    </view>
+<!-- </view> -->

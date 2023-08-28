@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "comp": "./../module/component/component",
+        "multiple-rate": "./../module/multiple-rate/multiple-rate"
+    }
+}

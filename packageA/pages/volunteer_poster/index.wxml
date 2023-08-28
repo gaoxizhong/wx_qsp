@@ -1,0 +1,13 @@
+<view class="words-box">
+  <view>{{text}}</view>
+  <view class="fuze-btn-box">
+    <view class="fuze-btn" bindtap="fuzhi_btn">复制文案</view>
+  </view>
+</view>
+
+<view>
+ <view class="haibao-box">
+  <image src="{{makephoto_img}}"></image>
+ </view>
+  <view class="baocun-box" data-img="{{makephoto_img}}" bindtap="saveImage" wx:if="{{makephoto_img}}">保存到手机相册</view>
+</view>

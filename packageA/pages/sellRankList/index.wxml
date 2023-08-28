@@ -1,0 +1,88 @@
+<!-- 好友排名、附近排名 -->
+<view class="integral-transaction">
+	<view class="sellRank-img">
+		<image src="http://oss.qingshanpai.com/banner/bg_title_jf.png"></image>
+		<view class="sellRank-img-view">环保积分总额：{{ canUseGrandTotal }}</view>
+	</view>
+	<view class="sellRank-module-box">
+		<!-- 切换按钮 -->
+		<view class="sellRank-citveBox">
+			<view bindtap="sellRankNav" data-sellrank='0' class="sellRank-citveBox-items {{sellRankTab == '0'? 'itemsHover' :''}}">
+				<view class="sellRank-citveBox-subtitle">
+					<image src="/images/jfjydt/ic_hyph_disbled.png"></image>
+					<text>好友排名</text>
+				</view>
+			</view>
+			<view bindtap="sellRankNav" data-sellrank='1' class="sellRank-citveBox-items {{sellRankTab == '1'? 'itemsHover' :''}}">
+				<view class="sellRank-citveBox-subtitle">
+					<image src="/images/jfjydt/ic_map_disbled.png"></image>
+					<text>附近排名</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 好友排行 -->
+	<view class="sellRankList-box" wx:if="{{sellRankTab == '0'}}">
+		<!-- 我的排名 -->
+		<view class="ranklist-items ranklist-items1">
+      <view class="rank-index"><text>1</text></view>
+      <view class="rank-avatar">
+        <image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKN0iaIYwibC2icX6Pjvy6uNEhMZ8Wb2cw3n37oUfrAsof1HqRJE7xyticsCDJicIv3No2Xzc7I9oiaZRZQ/132"></image>
+				<text style="color:#757474;padding-left: 14rpx;">灬 命</text>
+      </view>
+			<view class="rank-money-box">
+				<view>积分交易</view>
+				<view>480元</view>
+			</view>
+    </view>
+		<block wx:for="{{sellBuddyRankList}}" wx:key="index">
+			<view class="ranklist-items ranklist-items2">
+				<view class="rank-index">
+					<image src="/images/jfjydt/ic_{{index + 1}}.png" wx:if="{{index == 0 || index == 1 || index == 2}}"></image>
+          <text wx:else>{{index+1}}</text>
+				</view>
+				<view class="rank-avatar">
+					<image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKN0iaIYwibC2icX6Pjvy6uNEhMZ8Wb2cw3n37oUfrAsof1HqRJE7xyticsCDJicIv3No2Xzc7I9oiaZRZQ/132"></image>
+					<text style="color:#757474;padding-left: 14rpx;">灬 命</text>
+				</view>
+				<view class="rank-money-box">
+					<view>积分交易</view>
+					<view>480元</view>
+				</view>
+			</view>
+		</block>
+	</view>
+
+		<!-- 附近排行 -->
+	<view class="sellRankList-box" wx:if="{{sellRankTab == '1'}}">
+			<!-- 我的排名 -->
+		<view class="ranklist-items ranklist-items1">
+      <view class="rank-index"><text>1</text></view>
+      <view class="rank-avatar">
+        <image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKN0iaIYwibC2icX6Pjvy6uNEhMZ8Wb2cw3n37oUfrAsof1HqRJE7xyticsCDJicIv3No2Xzc7I9oiaZRZQ/132"></image>
+				<text style="color:#757474;padding-left: 14rpx;">灬 命</text>
+      </view>
+			<view class="rank-money-box">
+				<view>积分交易</view>
+				<view>480元</view>
+			</view>
+    </view>
+		<block wx:for="{{sellNearbyRankList}}" wx:key="index">
+			<view class="ranklist-items ranklist-items2">
+				<view class="rank-index">
+					<image src="/images/jfjydt/ic_{{index + 1}}.png" wx:if="{{index == 0 || index == 1 || index == 2}}"></image>
+          <text wx:else>{{index+1}}</text>
+				</view>
+				<view class="rank-avatar">
+					<image src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKN0iaIYwibC2icX6Pjvy6uNEhMZ8Wb2cw3n37oUfrAsof1HqRJE7xyticsCDJicIv3No2Xzc7I9oiaZRZQ/132"></image>
+					<text style="color:#757474;padding-left: 14rpx;">灬 命</text>
+				</view>
+				<view class="rank-money-box">
+					<view>积分交易</view>
+					<view>480元</view>
+				</view>
+			</view>
+		</block>
+	</view>
+
+</view>

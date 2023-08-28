@@ -1,0 +1,135 @@
+
+<view class="Barrage-box">
+  <view class='displayGroup'>
+      <!-- 无需弹幕 -->
+      <view class='dmGroup' wx:for="{{ dmList }}" wx:key="index"  style="top:{{ item.top }}rpx; animation: dmAnimation {{item.time}}s linear {{ index*1.5 }}s; ">
+        <view class='dmItem'>
+          <view class='dm'>
+            <view class='avatarBox'>
+              <image src='{{item.avater}}' class='avatar' mode='aspectFit'></image>
+            </view>
+            <text class='content' style="color:{{item.color}};">{{ item.content }}</text>
+            <text style="color: #c4c4c4;">{{item.member_id}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 有序弹幕、 -->
+      <!-- <view class='dmGroup top1' style="animation: dmAnimation2 180s linear infinite; ">
+        <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index < size }}" wx:key="index">
+          <view class='dm'>
+            <view class='avatarBox'>
+              <image src='{{item.avater}}' class='avatar' mode='aspectFit'></image>
+            </view>
+            <text class='content' style="color:{{item.color}};">{{ item.content }}</text>
+            <text style="color: #c4c4c4;">{{item.member_id}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='dmGroup top2' style="animation: dmAnimation2 180s linear 1.5s infinite; ">
+        <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index > size && index < size*2 }}" wx:key="index">
+          <view class='dm'>
+            <view class='avatarBox'>
+              <image src='{{item.avater}}' class='avatar' mode='aspectFit'></image>
+            </view>
+            <text class='content' style="color:{{item.color}};">{{ item.content }}</text>
+            <text style="color: #c4c4c4;">{{item.member_id}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='dmGroup top3' style="animation: dmAnimation2 185s linear infinite; ">
+        <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index > size*2  && index < size*3 }}" wx:key="index">
+          <view class='dm'>
+            <view class='avatarBox'>
+              <image src='{{item.avater}}' class='avatar' mode='aspectFit'></image>
+            </view>
+            <text class='content' style="color:{{item.color}};">{{ item.content }}</text>
+            <text style="color: #c4c4c4;">{{item.member_id}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='dmGroup top4' style="animation: dmAnimation2 180s linear 2.5s infinite; ">
+        <view class='dmItem' wx:for="{{ dmList }}" wx:if="{{ index > size*3 }}" wx:key="index">
+          <view class='dm'>
+            <view class='avatarBox'>
+              <image src='{{item.avater}}' class='avatar' mode='aspectFit'></image>
+            </view>
+            <text class='content' style="color:{{item.color}};">{{ item.content }}</text>
+            <text style="color: #c4c4c4;">{{item.member_id}}</text>
+          </view>
+        </view>
+      </view> -->
+  </view>
+</view>
+
+<!-- 展示位置、开始推送 弹窗 -->
+<view class="location-box" wx:if="{{is_location}}">
+  <view class="location-box1">
+    <view class="infoPlate-title">选择推广位置</view>
+   <!-- 导航nav按钮 -->
+    <view class="location-nav-box">
+      <view class="nav-items-box {{navItems_active == item.id? 'after':''}}" wx:for="{{navItems}}" wx:key="index" data-id="{{item.id}}" bindtap="navItems">
+        <image src="{{navItems_active == item.id? item.image2:item.image1}}" mode="heightFix"></image>
+        <text class="{{navItems_active == item.id? 'hoverClass':''}}">{{item.name}}</text>
+      </view>
+    </view>
+    <!-- 店铺位置 -->
+    <view class="address-box">
+      <view class="address-title">店铺地址:</view>
+      <view class="address-text">{{exhibitAddress}}</view>
+    </view>
+    <view class="infoPlate-title">选择推广范围</view>
+    <!-- 筛选 -->
+    <view class="filter-box" bindtap="filterDis">
+      <view class="filter-image-box"><image src="/packageA/assets/images/fastPromote/fastPromote_sx.png" mode="widthFix" class="image-box-l"></image></view>
+      <view class="filter-box-c">筛选模式: <text style="padding-left: 20rpx;">附近 <text style="padding-left: 20rpx;font-weight: 600;">{{distname}}</text> </text></view>
+      <view class="filter-image-box"><image src="/packageA/assets/images/fastPromote/fastPromote_dn.png" mode="widthFix" class="image-box-r"></image></view>
+    </view>
+    <!-- 信息数据 -->
+    <view class="infoPlate-box">
+      <view class="infoPlate-title">潜在客户数量</view>
+      <view class="infoPlate-data-box">
+        <view class="infoPlate-data-items">
+          <view class="infoPlate-data-title"><text>{{total_peop}}</text>个</view>
+          <view class="instruction-text">发现潜在客户</view>
+        </view>
+        <view class="infoPlate-data-items hover-class">
+          <view class="infoPlate-data-title">300积分/千次</view>
+          <view class="instruction-text">平台奖励</view>
+        </view>
+        <view class="infoPlate-data-items">
+          <view class="infoPlate-data-title">300元/千人</view>
+          <view class="instruction-text">按点击量收费</view>
+        </view>
+      </view>
+      <view class="infoPlate-Push-box">
+        <image src="/packageA/assets/images/fastPromote/fastPromote_tsbtn.png" mode="widthFix" bindtap="fixed_btn"></image>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<view class="kilometerItems-box" wx:if="{{is_kilometerItems}}">
+  <view class="kilometerItems-box1">
+    <!-- 筛选 -->
+    <view class="filter-box">
+      <view class="filter-image-box"><image src="/packageA/assets/images/fastPromote/fastPromote_sx.png" mode="widthFix" class="image-box-l"></image></view>
+      <view class="filter-box-c">筛选模式: <text style="padding-left: 20rpx;">附近 <text style="padding-left: 20rpx;font-weight: 600;">{{distname}}</text> </text></view>
+      <view class="filter-image-box"><image src="/packageA/assets/images/fastPromote/fastPromote_dn.png" mode="widthFix" class="image-box-r"></image></view>
+    </view>
+    <!-- 公里按钮 -->
+    <view class="list-box-items">
+      <block wx:for="{{distance_list}}" wx:key="index">
+        <view class="distance-item {{is_dist == index?'highlight-item':''}} " data-dist="{{item.dist}}" data-index="{{index}}" bindtap="select_dist" wx:if="{{index != 0}}">
+          {{item.name}}
+          <image src="/packageA/assets/images/fastPromote/fastPromote_active.png" wx:if="{{ is_dist == index }}" mode="widthFix" class="sel-image"></image>
+        </view>
+      </block>
+    </view>
+
+    <view class="distance-btn-box">
+      <view class="dist-btn" bindtap="distBtn">确定</view>
+    </view>
+  </view>
+</view>
+

@@ -1,0 +1,142 @@
+<view class="indexbg"></view>
+<view class="idleGroup-box">
+  <image src="{{group.group_image}}"></image>
+  <view class="idleGroup-item-info">
+    <view class="item-info-title">{{group.group_name}}</view>
+    <view class="item-info-add">{{group.garden?group.garden:''}}{{group.address?group.address:'暂无地址'}}</view>
+    <view class="item-info-fijin">附近{{group.member_count}}人在这里</view>
+  </view>
+  <view class="idleGroup-btn-box">
+    <button class="idleGroup-btn" hover-class="hoverClass" data-group_id="{{group_id}}" open-type="share" bindtap="goToGroupIndex" wx:if="{{mine}}">邀请好友</button>
+    <button class="idleGroup-btn" hover-class="hoverClass" data-group_id="{{group_id}}" bindtap="gotojiar" wx:else>加入闲圈</button>
+    <button class="idleGroup-btn" hover-class="hoverClass" data-type="{{group.type}}" data-group_id="{{group.id}}" bindtap="CompleteBtn" wx:if="{{member_id == group.member_id}}">{{group.is_new == 1?'完善信息':'修改信息'}}</button>
+  </view>
+</view>
+<view class="cl-box">
+  <view class="Makephoto" hover-class="hoverClass" bindtap="gotoMakephoto">生成海报</view>
+</view>
+<view class="kapian-box">
+  <view class="kapian-box-top">
+    <view class="kapian-box-top1">
+      <view><text class="text-ti">浏览量:</text><text class="text-te">{{browse}}</text></view>
+      <view><text class="text-ti">闲置数:</text><text class="text-te">{{idleCount}}</text></view>
+      <view><text class="text-ti">圈成员:</text><text class="text-te">{{member_List.length}}</text></view>
+    </view>
+    <view class="kapian-box-top2">{{group.type}}{{group.create}}</view>
+  </view>
+  <view class="tuanti-ly-box">
+    <!-- <view>团体留言({{content_num}})</view> -->
+    <view class="fa-ly-box" bindtap="release_btn">
+      <text>发布留言</text>
+      <view class="fa-box">+</view>
+    </view>
+  </view>
+  <block>
+    <view class="leave-items" wx:for="{{ly_status?contentList:content_list}}" wx:key="index">
+      <view class="items-avatar">
+        <image src="{{item.member.avatar?item.member.avatar:'/images/notlogin.jpg'}}"></image>
+      </view>
+      <view class="items-info">
+        <view class="leave-name">{{item.member.nickname}}</view>
+        <text style="display: inline-block;font-size:23rpx;color: #6b6b6b;">{{item.created_at}}</text>
+        <view class="info-deac">{{item.content}}</view>
+      </view>
+    </view>
+  </block>
+  <view class="ckly-box" wx:if="{{content_count>1}}">
+    <view  bindtap="gotoly" style="padding: 0 10rpx;">{{ly_status?'收起':'查看更多'}}</view>
+    <image src="/packageA/assets/images/icon_up.png" class="ckly-img  {{ly_status?'is-duo':'is-s'}}"></image>
+  </view>
+  <view class="ly-footer-box">
+    <view class="ly-footer-item">流转 {{saleCount}}件闲置</view>
+    <view class="ly-footer-item ck-btn" data-group_id="{{group_id}}" bindtap="goTomemberindex">50积分到账 <text style="margin-left: 12rpx;">查看详情</text></view>
+  </view>
+</view>
+
+
+<!-- 圈内闲置 -->
+<view class="myidle-box">
+  <view class="myidle-box-title">
+    <view class="myidle-title-l">
+      <view class="myidle-title-l-b"></view>
+      <text>圈内闲置</text>
+    </view>
+    <view class="myidle-title-r" hover-class="hoverClass" data-group_id="{{group_id}}" bindtap="gotoQnIdleList"><text>查看更多</text> > </view>
+  </view>
+  <view>
+    <view class="goodinfo"> 
+      <view class="goToInfo" wx:for="{{wenzData}}" wx:key="index">
+        <view class="good-item-view" bindtap="{{item.bal_count == 0?'':'goToActivity'}}"  data-idle="{{item.id}}" data-curidx="{{index}}" data-busnesid="{{item.member_id}}" >
+          <view class="shou-tu" wx:if="{{item.bal_count == 0}}">
+            <image src="http://oss.qingshanpai.com/banner/shouwan.png"></image>
+          </view>
+          <image src="{{item.img.url}}" class="good-item-img"></image>
+          <view class="goodname">{{item.desc}}</view>
+          <view class="goodprice">
+            <text class="goodprice-1">￥</text>
+            <text class="goodprice-2">{{item.total_price}}</text>
+          </view>
+          <view class="idle-avar-box">
+              <image src="{{item.avatar}}"></image>
+              <text>{{item.nickname}}</text>
+            </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 圈友闲置 -->
+<view class="myidle-box">
+  <view class="myidle-box-title">
+    <view class="myidle-title-l">
+      <view class="myidle-title-l-b"></view>
+      <text>圈友闲置</text>
+    </view>
+    <view class="myidle-title-r" hover-class="hoverClass" bindtap="goTotyList"><text>查看更多</text> > </view>
+  </view>
+  <view>
+    <view class="userList-box" wx:for="{{member_List}}" wx:key="index">
+      <view class="user-box">
+        <view class="user-items-avatar">
+          <image src="{{item.avatar}}"></image>
+        </view>
+        <view class="user-items-info">
+          <view class="user-leave-name">{{item.nickname}}</view>
+          <text style="display: inline-block;font-size:22rpx;color: #6b6b6b;"> {{item.idle_time?('编辑于 ' + item.idle_time) : '暂无闲置'}}</text>
+        </view>
+        <view class="user-items-sf">{{item.is_admin?'发起人':'成员'}}</view>
+      </view>
+      <view class="goodinfo"> 
+        <view class="goToInfo" wx:for="{{item.idle_list}}" wx:for-item="items" wx:key="idx">
+          <view class="good-item-view" bindtap="{{items.bal_count == 0?'':'goToActivity'}}"  data-idle="{{items.id}}" data-curidx="{{idx}}" data-busnesid="{{items.member_id}}" >
+            <view class="shou-tu" wx:if="{{items.bal_count == 0}}">
+              <image src="http://oss.qingshanpai.com/banner/shouwan.png"></image>
+            </view>
+            <image src="{{items.img[0]}}" class="good-item-img"></image>
+            <view class="goodname">{{items.title}}</view>
+            <view class="goodprice">
+              <text class="goodprice-1">￥</text>
+              <text class="goodprice-2">{{items.total_price}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>
+
+  <!-- 留言弹框 -->
+<view wx:if="{{is_leamsg}}" class="mrsk" bindtap="release_mrsk"></view>
+<view wx:if="{{is_leamsg}}" class="is-leamsg">
+  <view class="leamsg-title">留言：</view>
+  <view class="leamsg-text">
+    <textarea value="{{leamsg}}" placeholder="请留言..." bindinput="leamsg"></textarea>
+  </view>
+  <button class="leamsg_sub" bindtap="leamsg_sub">提交留言</button>
+</view>
+<!-- 生成海报弹窗 -->
+<include src="/pages/module/makephoto/index.wxml" />

@@ -1,0 +1,18 @@
+@import "/pages/mine/myIdle/index.wxss";
+page{
+  background: #fff;
+}
+.retweet{
+  width: auto;
+}
+.desc-info {
+color: #9C9A9A;
+font-size: 28rpx;
+width: 100%;
+box-sizing: border-box;
+position: fixed;
+bottom: 160px;
+height: 1px;
+z-index: 200;
+
+}

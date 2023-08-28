@@ -1,0 +1,126 @@
+.tab-bar {
+  height: 98rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 28rpx;
+  color: #333;
+  background: #fff;
+}
+.tab-bar .tab-bar-item {
+  width: 20%;
+  height: 100%;
+  line-height: 98rpx;
+  text-align: center;
+  position: relative;
+}
+.tab-bar .tab-bar-item .bar-border {
+  width: 45rpx;
+  height: 8rpx;
+  border-radius: 4rpx;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+.order-list-box{
+  height: calc(100% - 98rpx);
+  padding: 20rpx 24rpx 0;
+  box-sizing: border-box;
+}
+.order-list-box .order-item, .order-list-box .commodity-order-item {
+  box-shadow: 0px 2px 12px 0px rgba(0,0,0,0.08);
+  border-radius: 6px;
+}
+.order-list-box .commodity-order-item {
+  background: #fff;
+  margin: 16rpx 0;
+  padding: 0 20rpx 20rpx 20rpx;
+  box-sizing: border-box;
+}
+.order-shop-title {
+  font-weight: 600;
+  font-size: 30rpx;
+  padding: 26rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order-shop-content {
+  display: flex;
+  align-items: center;
+  height: 126rpx;
+  margin-top: 20rpx;
+}
+.order-list-box .order-button {
+  padding-top: 20rpx;
+  height: auto;
+  padding-right: 10rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.image-box {
+  width: 122rpx;
+  height: 122rpx;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.order-shop-info {
+  font-size: 28rpx;
+  flex: 1;
+  padding-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+}
+.commodity-order-number {
+  width: 54rpx;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: felx-start;
+  color: #666666;
+}
+.image-box image {
+  width: 122rpx;
+  height: 122rpx;
+}
+.order-shop-info-title {
+  color: #7a7a7a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.order-list-box .order-button {
+  padding-top: 20rpx;
+  height: auto;
+  padding-right: 10rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.order-list-box .order-button button {
+  margin: 0;
+  padding: 0;
+  width: 132rpx;
+  height: 58%;
+  line-height: 196%;
+  text-align: center;
+  font-size: 24rpx;
+  color: #29c572;
+  border: 2rpx solid #29c572;
+  border-radius: 50rpx;
+  margin-left: 20rpx;
+}
+.cancelbg{
+  color: #cacaca !important;
+  border: 2rpx solid #cacaca !important;
+}
+.commodity-order-box{
+  width: 100%;
+}

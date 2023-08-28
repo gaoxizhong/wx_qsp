@@ -1,0 +1,167 @@
+<view class="hdrt-box">
+	<view class="title1-box">
+		<view style="display: flex;align-items: center;"><image src="/packageA/assets/images/jyhs-icon-lc.png" mode="widthFix"></image>请选择家电类型</view>
+		<view class="title1-right-box"></view>
+	</view>
+	<view class="cate lt">
+		<view class="cate-item" wx:for="{{cateList}}" wx:for-index="index" wx:for-item="item" wx:key="index" bind:tap="changeCate" data-typeid="{{item.key}}">
+			<view class="cate-name1">
+				<image class="imagurl" src="{{item.icon}}"></image>
+				<image class="cate-name1-image" src="/images/sele-0.png" wx:if="{{sel_type_id == item.key}}"></image>
+			</view>
+			<view class="cate-name">{{item.value}}</view>
+			<image class="lt-image" src="/images/super-1.png" wx:if="{{sel_type_id == item.key}}"></image>
+		</view>
+	</view>
+	<view class="hd rt">
+		<view class="items" bindtap="changere"
+			wx:for="{{newlists}}" 
+			wx:key='idx' 
+			wx:for-index='idx'  
+			wx:for-item="item" 
+			data-goods_id="{{item.key}}" 
+			data-curidx="{{idx}}" 
+			>
+			<view class="{{goodid == item.key ? 'items-list-hove':''}} items-list">
+				{{item.value}}
+				<image src="/packageA/assets/images/jyhs-ic-ok.png" mode="widthFix" class="items-img-box" wx:if="{{goodid == item.key}}"></image>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="hdrt-box" style="margin-top: 20rpx;">
+	<view class="title1-box">
+		<view style="display: flex;align-items: center;"><image src="/packageA/assets/images/jyhs-icon-tb.png" mode="widthFix"></image>信息地址</view>
+		<view class="title1-right-box"></view>
+	</view>
+	<view class="tips-box" bindtap="changer_address">
+		<view class="tips-title-box">
+			<view style="font-weight: 600;">个人信息及地址</view>
+			<view style="color: #999;">点击填写个人信息和回收地址</view>
+		</view>
+		<image src="/packageA/assets/images/my_more.png" mode="widthFix" class="tips-arrow-img"></image>
+	</view>
+
+	<view class="tips-box" style="margin-top: 30rpx;"  bindtap="changer_time">
+		<view class="tips-title-box">
+			<view style="font-weight: 600;">回收时间</view>
+			<view style="color: #999;" wx:if="{{order_date || order_time}}">
+				{{order_date}}<text wx:if="{{order_date && order_time}}"> - </text>{{order_time}}
+			</view>
+			<view style="color: #999;" wx:else>点击选择预约时间，取件时间</view>
+
+		</view>
+		<image src="/packageA/assets/images/my_more.png" mode="widthFix" class="tips-arrow-img"></image>
+	</view>
+</view>
+
+<view class="hdrt-box" style="margin-top: 20rpx;">
+	<view class="title1-box">
+		<view style="display: flex;align-items: center;"><image src="/packageA/assets/images/jyhs-icon-jl.png" mode="widthFix"></image>环保奖励</view>
+		<view class="title1-right-box"></view>
+	</view>
+	<view class='tot' wx:if="{{payStatus == 3}}">预计环保分：
+		<text class='color-64B'>{{total?total:0.00}}</text>
+	</view>
+	<view class='tot' wx:elif="{{payStatus == 2}}">预计环保币：
+		<text class='color-64B'>{{total?total:0.00}}</text>
+	</view>
+	<view class='tot' wx:elif="{{payStatus == 4}}">预计人民币：
+		<text class='color_red'>价格面议!</text>
+	</view>
+
+	<!-- <view class="bd">
+		<view class='items'>
+			<form report-submit bindsubmit='tapPay' data-id="{{item.id}}" data-curidx="{{index}}" wx:for="{{payItems}}" wx:key="index">
+				<button form-type='submit' hover-class='none'>
+					<view>
+						<view wx:if="{{item.checked}}" class='icon_box'>
+							<icon type="success_no_circle" size="16"></icon>
+						</view>
+					</view>
+					<image src='{{item.src}}'></image>
+				</button>
+				<view class="icon_box_text">{{item.name}}</view>
+			</form>
+		</view>
+		<view class='tips'>暖心提醒：环保奖励信息有少量出入，具体以现场回收人员测量为准！</view>
+	</view> -->
+</view>
+<!-- <view style="width: 100%;height: 140rpx;"></view> -->
+<!-- 广告位 -->
+<view class="circle-adbox" wx:if="{{is_ad}}">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30" bindclose="adClose"></ad>
+</view>
+
+<view class="page-listbox listbox-btn">
+	<form report-submit bindsubmit='savaData'>
+		<button form-type='submit' hover-class='none' class="footer-btn">
+			<image src="https://oss.qingshanpai.com/icon/btnjyhs-icon-btn.png" mode="widthFix"></image>
+		</button>
+	</form>
+</view>
+
+
+<!-- =====================  弹窗 ==================== -->
+<view class="add-pop-marsk" wx:if="{{changer_address_pop}}" bindtap="changer_address_marsk"></view>
+<view class="add-pop-box" wx:if="{{changer_address_pop}}">
+	<view class='tips'>
+		<view class="tot1">
+			<view class="name-phone">
+				<view style="padding-right: 20rpx;">
+					<view class="types-i" style="width:75rpx;text-align:left;">姓名</view>
+					<input class="types-input" value="{{user_name}}" placeholder="姓名" bindinput="user_name"></input>
+				</view>
+				<view>
+					<view class="types-i" style="width:75rpx;text-align:left;">电话</view>
+					<input class="types-input"  value="{{user_phone}}" placeholder="电话" bindinput="user_phone"></input>
+				</view>
+			</view>
+			<view class="garden-box">
+				<view class="types-i">所在地区</view>
+				<picker mode="region" style="flex:1;height:62rpx;" name="garden" value="{{garden}}" start="2015-09-01" bindchange="saveGarden">
+					<view class="shengshi">{{garden ? garden:'请选择'}}</view>
+				</picker>
+			</view>
+			<view class="garden-box" style="margin-top: 20rpx;">
+				<view class="types-i">社区街道</view>
+				<input class="types-input" style="margin-left:20rpx;"  value="{{user_street}}" placeholder="街道" bindinput="user_street"></input>
+			</view>
+			<view class="garden-box" style="margin-top: 20rpx;">
+				<view class="types-i">详细地址</view>
+				<input class="types-input" style="margin-left:20rpx;"  value="{{user_address}}" placeholder="详细地址" bindinput="user_address"></input>
+			</view>
+			<!-- <view class="garden-box">
+				<view class="types-i">订单备注</view>
+				<input class="types-input" style="margin-left:20rpx;"  value="{{remark}}" placeholder="" bindinput="remark"></input>
+			</view> -->
+		</view>
+	</view>
+	<view class="add-pop-btn">
+		<button hover-class='none' class="add-footer-btn" bindtap="changer_address_marsk">提交</button>
+	</view>
+</view>
+
+<view class="time-pop-marsk" wx:if="{{changer_time_pop}}" bindtap="changer_time_marsk"></view>
+<view class="time-pop-box" wx:if="{{changer_time_pop}}">
+	<view style="padding:0 30rpx;">
+		<view class="items">
+			<text>预约日期：</text>
+			<picker class="time-picker" mode="date" value="{{order_date}}" start="{{now_data}}" end="2099-12-12" bindchange="dataPicker">{{order_date ?order_date :'请选择'}}</picker>
+			<view class="min_icon">
+				<image mode="widthFix" src="/images/icon_mine_more.png"></image>
+			</view>
+		</view>
+		<view class="items">
+			<text>预约时间：</text>
+			<picker class="time-picker" mode="time" value="{{order_time}}" start="{{now_time}}" end="23:59" bindchange="starttimePicker">{{order_time?order_time:'请选择'}}</picker>
+			<view class="min_icon">
+				<image mode="widthFix" src="/images/icon_mine_more.png"></image>
+			</view>
+		</view>
+	</view>
+	<view class="add-pop-btn">
+		<button hover-class='none' class="add-footer-btn" bindtap="changer_time_marsk">提交</button>
+	</view>
+</view>

@@ -1,0 +1,356 @@
+<view class="shopinfo-bg-box" wx:if="{{!is_yzm}}">
+  <image src="{{v_back}}" class="shopinfo-bg" binderror="imageerror"></image>
+  <view class="shopinfo-box">
+    <view class="shopinfo-name">
+      <text>{{infoData.name}}</text>
+      <image class='icon-gai' bindtap="showEdit" src="/images/15.png" data-business_id="{{infoData.id}}" wx:if="{{infoData.flag}}"></image>
+    </view>
+    <view class="shopinfo-b-box">
+      <view class="shopinfo-access-box">
+        <view class="access-innerlayer-box"></view>
+        <view class="access-box">
+          <view class="access-box-l">
+            <image src="{{item.member.avatar}}" style="left:{{index * 15}}px;" wx:for="{{browse_list}}" wx:key="index"></image>
+          </view>
+          <view class="access-box-r">{{infoData.browse_count}}人访问过此店铺</view>
+        </view>
+      </view>
+      <view class="shopinfo-pass-box"  wx:if="{{infoData.flag && hidden_infodata}}">
+        <switch name="switch" color="#29c572" checked="{{switchvalue}}" bindchange="switch1Change"/>
+        <view class="switchvalue"> {{switchvalue ? '密码开启' : '密码关闭' }}</view> 
+      </view>
+    </view>
+  </view>
+</view>
+<view class="shopinfo-address-box" wx:if="{{!is_yzm}}">
+  <view class="address-box-l"><image src="/images/shop/icon_mappoint.png" mode="widthFix"></image></view>
+  <view class="address-box-c">
+    <view class="address-name">{{infoData.address}}</view>
+    <view class="address-d">距您现在的位置{{distance}}Km</view>
+  </view>
+  <view class="address-box-r">
+    <image src="/images/shop/shopditu-icon.png" mode="widthFix" bindtap="getRoadLine"></image>
+    <image src="/images/shop/shopphone-icon.png" mode="widthFix" bindtap="tel" data-callTel="{{infoData.phone}}"></image>
+  </view>
+</view>
+<!-- 打卡趣事 -->
+<view class="newThing-box" wx:if="{{!is_yzm}}">
+  <view class="newThing-title-box">
+    <view class="newThing-title-box-l">
+      <image src="/images/shop/shophead-logo.png" class="newThing-head-logo" mode="widthFix"></image>
+      <text style="margin: 0 12rpx;margin-bottom: 2px;">打卡趣事</text>
+      <image src="/images/shop/newThing-add.png" class="newThing-add" mode="widthFix" data-id="{{infoData.id}}" bindtap="goTorelease_newThing"></image>
+    </view>
+    <view class="newThing-title-box-r" data-id="{{infoData.id}}" bindtap="goTonewThing">
+      <text>全部</text>
+      <image src="/images/shop/newThing-more.png" class="newThing-more" mode="widthFix"></image>
+    </view>
+  </view>
+  <!-- 列表 -->
+  <scroll-view class="newThing-list-box" scroll-x='true' style="height:{{storyList.length > 0?'500rpx':'auto'}};">
+    <block wx:for="{{storyList}}" wx:key="index">
+      <view class="newThing-item" data-id="{{item.id}}" data-business_id="{{item.business_id}}" bindtap="goTonewThing_detail">
+        <view class="newThing-img-box">
+          <image src="{{  item.image[0] }}" class="item-image" mode="aspectFill"></image>
+          <view class="member-view">
+            <image src="{{item.member.avatar}}" class="member-view-img"></image>
+            <text style="padding-left: 12rpx;color: #fff;">{{item.member.nickname}}</text>
+          </view>
+        </view>
+        <view class="newThing-title">{{item.content}}</view>
+      </view>
+    </block>
+    <view wx:if="{{storyList.length <= 0}}" style="text-align: center;padding: 20rpx 30rpx;font-size: 28rpx;color: #999;box-sizing: border-box;">暂无趣事...</view>
+  </scroll-view>
+</view>
+<!-- 商品 、 优惠券列表模块 -->
+<view class="shopList-box">
+  <!-- 切换按钮 -->
+  <view class="citveBox">
+   <view bindtap="swichNav" data-current='0' class="citveBox-items {{currentTab == '0'? 'itemsHover' :''}}">
+    <view class="citveBox-items-title" wx:if="{{!is_yzm}}">店长推荐</view>
+    <view class="citveBox-subtitle">
+      <text style="color: {{currentTab == '0'? '#9fda5a' :'#949494'}};">获得心仪的商品</text>
+      <image src="/images/shop/shop-1.png"></image>
+    </view>
+   </view>
+
+   <view bindtap="swichNav" data-current='1' class="citveBox-items {{currentTab == '1'? 'itemsHover' :''}}">
+    <view class="citveBox-items-title" wx:if="{{!is_yzm}}">超级优惠券</view>
+    <view class="citveBox-subtitle">
+      <text style="color: {{currentTab == '1'? '#9fda5a' :'#949494'}};">获得心仪的优惠券</text>
+      <image src="/images/shop/shop-2.png"></image>
+    </view>
+   </view>
+
+  </view>
+  <!-- 商品列表模块 -->
+  <view class='shop-circle-box' wx:if="{{qwe && currentTab == 0 }}">
+    <view class='nulldata_wrap' wx:if="{{ dataStatus }}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>店长快马加鞭传商品，先去看看优惠券</view>
+    </view>
+    <block wx:for="{{wenzData}}" wx:key="idx" wx:for-index="idx">
+      <view class="commodity-items">
+
+        <view class="itemsImage">
+          <view class="shou-tu" wx:if="{{item.business_discount_order && item.community_market_goods_relation}}">
+            <image src="http://oss.qingshanpai.com/banner/shouwan-1.png" mode="widthFix"></image>
+          </view>
+          <image src="{{ item.image }}" class="commodity-items-image" bind:tap="goToActivity" data-business_id="{{item.business_id}}" data-discount_id="{{item.discount_id}}" data-content_id="{{item.id}}" mode="aspectFit"></image>
+        </view>
+        <view class="commodity-items-info-box">
+          <view class="shop-itemsInfo-title">{{item.title}}</view>
+          <view class='shop-itemsInfo-time'>
+            <view>
+              <text style="text-decoration: line-through;">原价 ￥{{item.price}}</text>
+              <text style="margin-left: 20rpx;color: #666;">库存 {{item.bal_count}}</text>
+            </view>
+            <view class='itemsInfo-time'>
+              <text decode="true" wx:if="{{!is_yzm}}">&emsp;{{item.idle_num}} 阅读</text>
+            </view>
+          </view>
+          <view class="shop-itemsInfo-price">
+
+            <view class="shop-itemsInfo-price-l">折扣价：<text style="color: #ff0000;font-size: 38rpx;">￥{{item.total_price}}</text>+{{item.hbb?item.hbb:'0.00'}}积分</view>
+            <!-- 外层判断是否是社区大集商品 -->
+            <view wx:if="{{!item.community_market_goods_relation}}">
+              <view class="shop-itemsInfo-price-r" wx:if="{{!is_yzm}}">
+                <button hover-class='none' bindtap='goToDetail' data-curindex="{{idx}}" data-contentid="{{item.id}}">
+                  <image mode='widthFix' src='/images/icon_comment.png'></image>
+                  <label>
+                    <text>{{item.comment_count}}</text>
+                  </label>
+                </button>
+                <button hover-class='none' open-type="share" data-sharetxt="{{item.title}}" data-gdImages="{{item.image}}" data-is_tuan="{{item.is_tuan}}" data-contentid="{{item.id}}" data-business_id="{{item.business_id}}" data-discount_id="{{item.discount_id}}">
+                  <image mode='widthFix' src='/images/icon-relay.png'></image>
+                  <label>
+                    <text>{{item.forward_count}}</text>
+                  </label>
+                </button>
+                <button hover-class='none' class="{{item.laud_status == 1 ? 'active':''}}" data-="" data-curindex="{{idx}}" data-zxid="{{item.id}}" bindtap='like'>
+                  <image mode='widthFix' src="/images/{{item.laud_status == 1 ? 'icon-praise-opt':'icon-praise'}}.png"></image>
+                  <label>
+                    <text>{{item.laud_count}}</text>
+                  </label>
+                </button>
+                <button class="butSET" hover-class='none' bindtap='openguanli' wx:if="{{infoData.flag}}" data-curindex="{{idx}}">
+                  <image src="/images/dian.png" class="dian"></image>
+                </button>
+              </view>
+              <view class="duihuan-btn" bind:tap="goToActivity" data-business_id="{{item.business_id}}" data-discount_id="{{item.discount_id}}" data-content_id="{{item.id}}" wx:else>兑换</view>
+            </view>
+            <view style="display: flex;align-items: center;" wx:else>
+              <view class="{{item.business_discount_order?'yjduihuan-btn':'duihuan-btn'}}" bindtap="{{item.business_discount_order?'goToPay':'goToPay'}}" data-info='{{item}}'>{{item.business_discount_order?'已兑换':'兑换'}}</view>
+              <button class="butSET" hover-class='none' bindtap='openguanli' wx:if="{{infoData.flag}}" data-curindex="{{idx}}">
+                <image src="/images/dian.png" class="dian"></image>
+              </button>
+            </view>
+           
+          </view>
+        </view>
+
+        <!-- 隐藏弹窗 -->
+        <view wx:if="{{idx == popidx && pop3 && infoData.member_id == member_id}}">
+          <view class='pop-bg' catchtouchmove='true'></view>
+          <view class='pop-add'>
+            <view class='itemm' wx:if="{{!item.copy_member}}">
+              <form report-submit bindsubmit='edit' data-is_tuan="{{item.is_tuan}}" data-id="{{item.discount_id}}" data-curidx="{{idx}}">
+                <button form-type='submit' class='last' hover-class='none'>修改</button>
+              </form>
+            </view>
+            <view class='itemm'  wx:if="{{!item.copy_member}}">
+              <form report-submit bindsubmit='' data-id="{{item.discount_id}}" data-curidx="{{idx}}">
+                <button hover-class='none' bindtap="stand" data-index="{{idx}}" data-discountid="{{item.discount_id}}" data-stand="2" wx:if="{{item.stand == 1}}">下架</button>
+                <button bindtap="stand" data-index="{{idx}}" data-discountid="{{item.discount_id}}" data-stand="1" wx:else>上架</button>
+              </form>
+            </view>
+            <view class='itemm'>
+              <form report-submit bindsubmit='delCircle' data-content_id="{{item.id}}" data-id="{{item.discount_id}}" data-curidx="{{idx}}">
+                <button form-type='submit' class='last' hover-class='none'>删除</button>
+              </form>
+            </view>
+            <view class='itemm'>
+              <form report-submit bindsubmit='popLock_itemm' data-content_id="{{item.discount_id}}" data-id="{{item.id}}" data-curidx="{{idx}}" data-member_id="{{member_id}}">
+                <button form-type='submit' class='last' hover-class='none'>取消</button>
+              </form>
+            </view>
+          </view>
+
+        </view>
+
+      </view>
+    </block>
+
+  </view>
+  <!-- 我的优惠券 -->
+  <view class="shop-circle-box" wx:if="{{currentTab == 1 }}">
+    <view class='nulldata_wrap' wx:if="{{dataStatu}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg' style="color:#000;">店长快马加鞭传优惠券，先去看看商品</view>
+    </view>
+    <block wx:for="{{xianData}}" wx:key="idx" wx:for-index="idx">
+      <view class="coupon-list-items" style='margin:30rpx 0;'>
+        <view class="sheng-bg">
+          <image src="/images/sheng-bg.png"></image>
+        </view>
+        <view class="listitems-le" data-id="{{item.id}}" bindtap="goToidleActivity">
+          <view class="listitems-le-title">凭此券 享优惠</view>
+          <view class="calendar-box">
+            <view class="calendar-con"><text style="font-size:28rpx;">￥</text>{{item.youhui}}</view>
+          </view>
+          <view class="shops-name">{{item.b_name}}</view>
+        </view>
+        <view class="listitems-ri">
+          <view data-id="{{item.id}}" bindtap="goToidleActivity">
+            <view class="listitems-rititle-box">
+              <view class="coupon-title">{{item.name}} 优惠券</view>
+            </view>
+            <view class="ri-price-curr"><text>原价： {{item.price}}</text><text style="padding-left:12rpx;">劵后价： {{item.current_price}}</text></view>
+            <view class="coupon-view">支付：￥{{item.coupon_price}} + {{item.coupon_integral}}积分 获得本券</view>
+            <view class="start-end-time">{{item.start_time}} - {{item.end_time}}内有效。</view>
+          </view>
+          <view class='circle-footer-operation' wx:if="{{infoData.flag}}" style="margin-top: 30rpx;">
+            <view class="more-activit flex-justitem-center more-activit-dian" bindtap='openguanli' data-curindex="{{idx}}" catchtouchmove="catchtouchmove" style="margin-bottom:0;padding: 0 10px;right:0;">
+              <image src="/images/dian.png" style="margin-bottom:0;"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{idx == popidx && pop3 && infoData.member_id == member_id}}" >
+        <view class='pop-bg' catchtouchmove='true'></view>
+        <view class='pop-add'>
+          <view class='itemm' wx:if="{{!item.copy_member && item.is_status != 2}}">
+            <form report-submit bindsubmit='edit_idle' data-id="{{item.id}}" data-curidx="{{idx}}" data-is_coupon="1">
+              <button form-type='submit' class='last' hover-class='none'>修改</button>
+            </form>
+          </view>
+          <view class='itemm' wx:if="{{!item.copy_member}}">
+            <form report-submit data-id="{{item.id}}" data-curidx="{{idx}}">
+              <button hover-class='none' bindtap="stand_idle" data-id="{{item.id}}"
+                data-index="{{idx}}" 
+                data-status="2" 
+                wx:if="{{item.status == 1}}">下架</button>
+              <button bindtap="stand_idle" data-id="{{item.id}}"
+                data-index="{{idx}}" 
+                data-status="1" data-status="1" wx:else>上架</button>
+            </form>
+          </view>
+          <view class='itemm'>
+            <form report-submit bindsubmit='delCirclecoupon' data-content_id="{{item.discount_id}}" data-id="{{item.id}}" data-curidx="{{idx}}" data-member_id="{{member_id}}">
+              <button form-type='submit' class='last' hover-class='none'>删除</button>
+            </form>
+          </view>
+          <view class='itemm'>
+            <form report-submit bindsubmit='popLock_itemm' data-content_id="{{item.discount_id}}" data-id="{{item.id}}" data-curidx="{{idx}}" data-member_id="{{member_id}}">
+              <button form-type='submit' class='last' hover-class='none'>取消</button>
+            </form>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!-- 评论弹层 -->
+<view class='pop-box' wx:if="{{pop1}}" catchtouchmove="myCatchTouch">
+  <view class='pop-bg' bindtap='popLock'></view>
+  <view class="addwx-wrap">
+    <input type='text' placeholder='{{inpPlaceholder}}' maxlength="-1" focus class='inp' bindinput='bindTextChange'></input>
+    <button hover-class='none' class="send-btn" bindtap='sendComment' style="{{textVal!=''&& savaStatus?'' :'color:rgba(255,255,255,.5);'}}">
+      发送
+    </button>
+  </view>
+</view>
+
+<!-- 参加社区大集活动 -->
+<view class="pop-box" wx:if="{{is_communityInfo}}" catchtouchmove="myCatchTouch">
+  <view class='pop-bg' bindtap='clickCommunityInfoPop'></view>
+  <view class="communityInfo-box">
+    <view class="prompt-titie">*此商品用于参加社区大集活动只适用于现场兑换，请确认后购买！</view>
+    <view class="myinfo-box">
+      <view>可用积分：{{ realAmount }}</view>
+      <view class="number-box">
+        <text>兑换数量：</text>
+        <view class="num">
+          <view class="minuadd-box" catch:tap="minusNum">-</view>
+          <input type="number" bindinput="inputValue" value="{{goodnum}}" />
+          <view class="minuadd-box" catch:tap="addNum">+</view>
+        </view>
+      </view>
+      <view class="tips">
+        <view class="tot1">
+          <view class="garden-box">
+            <view class="types-i">联系人:</view>
+            <input class="types-input" type="text" placeholder="如某先生、某女士" value="{{user_name}}" bindinput="user_name"/>
+          </view>
+          <view class="garden-box">
+            <view class="types-i">联系电话:</view>
+            <view wx:if="{{user_tel}}">{{user_tel}}</view>
+            <button wx:else open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
+          </view>
+        </view>
+      </view>
+      <view class="add-pop-btn" style="margin-top: 12rpx;">
+        <button class="{{realAmount > communityinfoData.hbb?'add-footer-btn':'nohbb-box' }}" bindtap="{{realAmount > communityinfoData.hbb?'clickExchangeBtn':'' }}" hover-class="hoverClass">{{realAmount > communityinfoData.hbb?'确定':'积分不足' }}</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+
+
+<!-- 底部功能模块 -->
+<view class='footer-bg' bindtap='footer_bg' wx:if="{{is_footer}}" catchtouchmove="myCatchTouch"></view>
+<view class="footer-box" style="bottom:{{is_footer?'10':'-500'}}px;">
+  <view bindtap="show_toast">
+    <image src="http://oss.qingshanpai.com/icon/shopgoods-drainage.png"></image>
+    <text class="info-text">引流商品</text>
+  </view>
+  <view>
+    <button class="openimage" data-earnings="1" open-type="share"><image src="http://oss.qingshanpai.com/icon/shop-promote.png"></image></button>
+    <text class="info-text">推广展厅</text>
+  </view>
+  <view bindtap="gotoMakephoto">
+    <image src="http://oss.qingshanpai.com/icon/shop-posters.png"></image>
+    <text class="info-text">生成海报</text>
+  </view>
+  <view bindtap="goToMyComment" data-url="/pages/merchantOrder/index?status=0&business_id={{infoData.id}}">
+    <image src="http://oss.qingshanpai.com/icon/shop-myorder.png"></image>
+    <text class="info-text">我的订单</text>
+  </view>
+  <view bindtap="toufang">
+    <image src="http://oss.qingshanpai.com/icon/shop-frog.png"></image>
+    <text class="info-text">青蛙推广</text>
+  </view>
+</view>
+
+
+<movable-area class="movable-area" wx:if="{{ infoData.flag && !is_footer }}">
+  <movable-view direction="all" out-of-bounds='true' bindtap="sezhi" class="movable-view1">
+    <image mode='widthFix' src="http://oss.qingshanpai.com/icon/sez-icon.png" class="movable-image"></image>
+  </movable-view>
+</movable-area> 
+
+
+<!-- 生成海报弹窗 -->
+<include src="/pages/module/makephoto/index.wxml" />
+<!-- 返回上一步 -->
+<!-- <include src="/pages/module/backto/index.wxml" /> -->
+<!-- 扫码得积分 -->
+<!-- <view wx:if="{{is_mark}}" class="is-mark" catchtouchmove="myCatchTouch"></view>
+<view wx:if="{{is_mark}}" class="mark-box" catchtouchmove="myCatchTouch">
+	<image src="http://oss.qingshanpai.com/banner/red-envelope.png" mode="widthFix"></image>
+	<view class="sub-btn" bindtap="rece_integral">立即领取</view>
+</view> -->
+<!-- 授权登录弹窗 -->
+<include src="/pages/module/login_mark/index.wxml" />
+<!-- 投放广告弹窗 -->
+<include src="/pages/module/is_put/index.wxml" />
+<!-- 信息预览弹窗 -->
+<include src="/pages/module/is_yulian/index.wxml" />
+<!-- 扫码得积分 -->
+<include src="/pages/module/rece_integral/index.wxml" />

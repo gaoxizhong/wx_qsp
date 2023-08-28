@@ -1,0 +1,12 @@
+<view class='state_wrap'>
+  <image src="/images/S1.jpg"/>
+  <form bindsubmit='getFormId' report-submit>
+    <view style="margin-top: 130rpx;">
+      <button form-type='submit' class="btn-rt">提交订单成功</button>
+    </view>
+    <view style="margin-top:10rpx;padding:6rpx;width:100%;text-align:center;font-size:30rpx;">3个工作日内发货</view>
+    <view class='suc-dingdan' bindtap="goToUseCoin">
+      >>查看订单
+    </view>
+  </form>
+</view>

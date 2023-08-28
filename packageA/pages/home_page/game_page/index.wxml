@@ -1,0 +1,7 @@
+
+<view class="list-box">
+  <view bindtap="gotolottery" class="list-items" data-url="/packageA/pages/lottery_project/lottery_awards/index">
+    <image src="http://oss.qingshanpai.com/banner/game_1.png?{{number_r}}" mode="widthFix"></image>
+  </view>
+</view>
+<view class="page-bottom-title" style="position: fixed;bottom: 0;left: 0;">青山生态，让每一个环保行为都有价值！</view>

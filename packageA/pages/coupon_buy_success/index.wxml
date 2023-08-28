@@ -1,0 +1,8 @@
+<view class='state_wrap'>
+  <image src="/images/S1.jpg" />
+  <view class='txt' bindtap="gotomycoupon">我的优惠券 >> </view>
+  <view class='success-btn-list'>
+    <view>持该优惠券订单</view>
+    <view>到店出示并支付券后价格</view>
+  </view>
+</view>

@@ -1,0 +1,39 @@
+.title-text{
+  margin-top:96rpx;
+   padding: 80rpx 0;
+}
+.images-box{
+  width:100%;
+  height:auto;
+  text-align: center;
+}
+.images-box>image{
+  width:162rpx;
+  height:162rpx;
+  margin:0 auto;
+  border-radius:50%;
+}
+.succ-infobox{
+  text-align:center;
+  font-size:34rpx;
+  margin-top: 30rpx;
+}
+.footer-box{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 60rpx;
+}
+.footer-box>view{
+  width: 280rpx;
+  height: 80rpx;
+  border-radius: 20px;
+  background: #4ac081;
+  color: #fff;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

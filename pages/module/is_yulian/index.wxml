@@ -1,0 +1,87 @@
+<view class="pop-box" wx:if="{{ is_yulian }}">
+  <view class="preview-bg" catchtouchmove="myCatchTouch" bindtap="click_yulian_bg"></view>
+	<!-- 推广店铺 -->
+	<view class="preview-box" style="width:{{select_type == '2'? '680': ''}}rpx" wx:if="{{yulian_selec_id == '1'}}" bindtap="click_yulian_bg">
+		<image src='http://oss.qingshanpai.com/banner/adshop_bg.png' mode="widthFix"></image>
+		<!-- 推广店铺  商品-->
+		<view class="is_adshop" wx:if="{{select_type == '1'}}">
+			<view class="adshop_title">
+				获得： {{yulian_integral?yulian_integral:'0.00'}}环保积分
+			</view>
+			<view class="image-box">
+				<image src="{{ad_content.img[0]}}" mode="aspectFit"></image>
+			</view>
+			<view class="adshop_info_box">
+				<view class="adshop_info_title">{{yulian_company_name}}</view>
+				<view class="adshop_info_text">{{ad_content.desc}}</view>
+				<view style="color: #D55B06;padding:10rpx 0;">折扣价：￥{{ad_content.total_price}} + {{ad_content.hbb?ad_content.hbb:'0.00'}}积分</view>
+				<view style="text-decoration: line-through;font-size:24rpx;">原价：￥{{ad_content.price}}</view>
+			</view>
+			<view class="adshop_btn">
+				<image src="/images/adshop_img.png"></image>
+			</view>
+		</view>
+		<!-- 推广店铺  优惠券-->
+		<view  class="is_adshop" wx:if="{{select_type == '2'}}">
+			<view class="adshop_title">
+				获得： {{yulian_integral?yulian_integral:'0.00'}}环保积分
+			</view>
+			<view class="image-box" style="margin-top:20rpx;">
+				<image src="{{ad_content.thumb[0]}}" mode="aspectFit"></image>
+			</view>
+			<view class="adshop_info_title" style="padding-left:30rpx;color:#FED068;">{{yulian_company_name}}</view>
+			<view class="adshop-list-box">
+        <view class="adshop-list-items">
+          <view class="adshopitems-le">
+            <view class="adshopitems-le-title">凭此券 享优惠</view>
+            <view class="adshopdar-box">
+              <view class="adshopdar-con"><text style="color:#333;font-size:28rpx;">￥</text>{{ad_content.price - ad_content.current_price}}</view>
+            </view>
+            <view class="shops-name">{{ad_content.business_name}}</view>
+          </view>
+          <view class="adshopitems-ri">
+            <view class="adshopitems-rititle-box">
+              <view class="coupon-title">{{ad_content.name}} 优惠券</view>
+            </view>
+            <view class="ri-price-curr"><text>原价： {{ad_content.price}}</text><text style="padding-left:12rpx;">劵后价： {{ad_content.current_price}}</text></view>
+            <view class="adshop-view">支付：￥{{ad_content.coupon_price}} + {{ad_content.coupon_integral}}积分 获取本券</view>
+            <view class="adshop-end-time">{{ad_content.start_time}} - {{ad_content.end_time}}内有效。</view>
+          </view>
+        </view>
+    	</view>
+			<view class="adshop_btn">
+				<image src="/images/adshop_img.png"></image>
+			</view>
+		</view>
+	</view>
+
+  <view class="preview-box" catchtouchmove="myCatchTouch" bindtap="click_yulian_bg" wx:else>
+    <image src='{{yulian_image}}' mode="widthFix"></image>
+		<view class="aa_view">
+			<view class="aa_view_box">
+				<view class="preview-avatar">
+					<view wx:if="{{yulian_selec_id != '3'}}">
+						<image src="{{avatar}}"></image>
+					</view>
+				</view>
+				<view class="preview-info-text">
+					<view class="preview-info-title">
+						<view class="">获得</view>	
+					</view>
+				</view>
+				<view class="preview-integral">
+      		<view class="integral-view">{{yulian_integral?yulian_integral:'0.00'}}</view>
+      		<view>环保积分</view>
+    		</view>
+			</view>
+			<view class="business-response">
+				<view wx:if="{{yulian_selec_id == '1' || yulian_selec_id == '2'}}">由公益商家</view>
+				<view wx:if="{{yulian_selec_id == '1' || yulian_selec_id == '2'}}">“{{yulian_company_name?yulian_company_name:'未知'}}”赞助</view>
+			</view>
+			<view class="response-btn">
+				<image src="http://oss.qingshanpai.com/banner/response-btn.png"></image>
+			</view>			
+		</view>
+  </view>
+
+</view>

@@ -1,0 +1,199 @@
+@import '/pages/huishou/types/index.wxss';
+.hd.rt {
+  min-height: 180rpx;
+  margin-top: 6rpx;
+}
+.bd {
+  padding-top: 2rpx;
+  }
+  
+.activity-imgs{
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.activity-imgs view {
+  width: 124rpx;
+  height: 124rpx;
+  position: relative;
+  border: 2rpx solid #999;
+  border-radius: 12rpx;
+  background: #d1d1d1;
+}
+.activity-imgs image {
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 24rpx;
+  margin-top: 24rpx;
+  margin-bottom: 20rpx;
+  border-radius: 8px;
+}
+.activity-imgs view image {
+  width: 84rpx;
+  height: 84rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+.layer {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  
+  }
+.layer .cover {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  background: #333;
+  
+  }
+.layer .con {
+  position: relative;
+  height: 100vh;
+  z-index: 4;
+  text-align: center;
+  font-size: 36rpx;
+  
+  }
+.layer .con image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  }
+            
+  .layer .con .txt {
+    width: 120rpx;
+    height: 120rpx;
+    line-height: 120rpx;
+    font-size: 30rpx;
+    border-radius: 50%;
+    position: fixed;
+    left: 50%;
+    bottom: 20rpx;
+    text-align: center;
+    background: #f33;
+    color: #fff;
+    transform: translate(-50%, 0);
+    }
+    .tips{
+      padding: 0 20rpx;
+      position: relative;
+    }
+    .tips input{
+      padding: 10rpx 0 10rpx 10rpx;
+      background: #f2f2f2;
+      border-radius: 6px;
+      font-size: 28rpx;
+    }
+    .btn-send button {
+      width: 92%;
+      height: 80rpx;
+      line-height: 80rpx;
+      border-radius: 20px;
+      border: none;
+      background-image: linear-gradient(to right, #2eae84 , #6cd67f);
+      position: fixed;
+      left: 50%;
+      bottom: 20rpx;
+      transform: translateX(-50%);
+      z-index: 100;
+    }
+.bd .items {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  }
+  .bd .items .icon_box_text {
+  font-size: 30rpx;
+  margin: 24rpx 0;
+  display: flex;
+  font-size: 28rpx;
+  flex-direction: column;
+  text-align: left;
+  }
+.btn-send {
+    padding: 10rpx 40rpx 60rpx 20rpx;
+}
+ .text-tishi{
+   font-size: 26rpx;
+   color: #999;
+   padding: 10rpx 40rpx;
+ }   
+
+ .scrollview{
+  padding: 10rpx 0;
+  background: #eaeaea;
+  font-size: 28rpx;
+  z-index: 999;
+  margin-top: 12rpx;
+ }
+ .itemview{
+   padding: 4rpx 0 4rpx 10rpx;
+   margin:4rpx 0;
+ }
+ .tot1 {
+  font-size: 30rpx;
+}
+.name-phone {
+ display: flex;
+}
+.name-phone>view {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.types-i{
+  margin: 18rpx 0;
+  font-size: 28rpx;
+}
+.types-input{
+  flex: 1;
+  padding: 10rpx 0 10rpx 20rpx;
+  z-index: 0;
+  font-size: 28rpx;
+}
+.shengshi {
+  padding: 10rpx 0 10rpx 20rpx;
+  font-size: 28rpx;
+  color: #333232;
+  background: #fcfcfc;
+}
+.garden-box{
+  display: flex;
+  align-items: center;
+  margin: 10rpx 0;
+}
+.listbox-btn{
+  padding: 24rpx 34rpx;
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+
+}
+.footer-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #fff;
+  height: 80rpx;
+  border-radius: 20px;
+  background-image: linear-gradient(to right, #4AC081 , #6cd67f);
+}

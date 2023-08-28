@@ -1,0 +1,39 @@
+<view class="items-list-box">
+
+  <block wx:for="{{recoverList}}" wx:key="index">
+    <view class="items-list" bind:tap="chooseRecover" data-id="{{item.id}}">
+      <view class="items-list-top">
+        <view class="list-top-info">
+          <view class="info-top-box">
+            <view class="info-top-box-images">
+              <image src="{{ item.thumb ? item.thumb : '/packageA/assets/images/notlogin.jpg' }}"></image>
+            </view>
+            <view class="info-top-box-right">
+              <view class="info-right-name">姓名： {{item.name}}</view>
+              <view class="info-right-point">回收点位： {{item.hsdw?item.hsdw:'流动点位'}}</view>
+            </view>
+            
+          </view>
+          <view class="type-name">{{item.quyu?item.quyu:'回收专员'}}</view>
+        </view>
+        <view class="list-top-sele">
+          <image src="{{item.id == recoverid ? '/packageA/assets/images/yes-select.png' : '/packageA/assets/images/no-select.png'}}"></image>
+        </view>
+      </view>
+      <view class="items-list-bott" wx:if="{{ item.id != '-1' }}">回收范围：{{item.hsd?item.hsd:'暂无'}}</view>
+      <view class="posit-box" wx:if="{{ item.id != '-1' }}">
+        <image src="/packageA/assets/images/posit-images.png"></image>
+        <text style="padding-left:8rpx;">{{item.distance}}km</text>
+      </view>
+    </view>
+  </block>
+  <view style="width:100%;height:124rpx;"></view>
+</view>
+<view class="bottom-btn">
+  <!-- <view bindtap="system_distr" hover-class="bottom-btn-hover">系统分配</view> -->
+  <view bindtap="determine_info" style="background:#ffb400;color:#fff;">确定</view>
+</view>
+
+<view>
+  <toast id='toast'></toast>
+</view>

@@ -1,0 +1,14 @@
+  <view style="padding: 11rpx 22rpx 0 22rpx;">
+    <block wx:for="{{library_content}}" wx:key="index">
+      <view class="leave-box">
+        <view class="leave-items">
+          <view class="items-avatar"><image src="{{item.avatar?item.avatar:'/images/notlogin.jpg'}}"></image></view>
+          <view class="items-info">
+            <view class="leave-name">{{item.nickname}}</view>
+            <text style="display: inline-block;font-size:23rpx;color: #6b6b6b;">{{item.created_at}}</text>
+            <view class="info-deac">{{item.content}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>

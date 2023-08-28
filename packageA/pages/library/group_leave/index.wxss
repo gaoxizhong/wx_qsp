@@ -1,0 +1,52 @@
+page{
+  background: #dcdcdc;
+}
+.leave-box {
+  background: #fff;
+  border-radius: 6px;
+  padding: 22rpx 26rpx 60rpx 26rpx;
+  margin: 20rpx 0;
+  height: auto;
+}
+.leave-items {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14rpx;
+  
+}
+  
+.items-avatar {
+  width: 74rpx;
+  height: auto;
+}
+.items-info {
+  flex: 1;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+}
+.items-avatar image {
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 50%;
+}
+.leave-name {
+  font-size: 32rpx;
+  color: #ff0000;
+}
+.info-deac {
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+.else-msg{
+  text-align: center;
+  font-size: 36rpx;
+  height: 100%;
+  color: #464646;
+  text-align: center;
+}
+  
+  
+  
+  
+  

@@ -1,0 +1,14 @@
+<view class="title-box">
+  <text style="color:#ff0000;">*</text>
+  <text>当日购买积分的汇率是1元钱=10积分</text>
+</view>
+<form bindsubmit="get_inte">
+  <view class="conver-box">
+    <view class="input-view">
+      <input type="number" name="money" value="{{money}}" placeholder="请输入金额" bindinput="set_money"></input>
+    </view>
+    <view style="padding: 0 20rpx;font-size: 58rpx;font-weight: 600;">=</view>
+    <view style="font-size: 38rpx;">{{inte_number}}积分</view>
+  </view>
+  <button class="t-b" form-type="submit">兑换</button>  
+</form>

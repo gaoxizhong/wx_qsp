@@ -1,0 +1,172 @@
+<view class="top-announcement-box">
+  <view class="announcement-img-box"><image src="/packageA/image/volunacti-hron.png"></image></view>
+  <view style="padding-left:20rpx;flex: 1;color: #666;"> {{open_info.rule}} </view>
+</view>
+<view class="prop-up-20"></view>
+<view class="prize-section">
+  <view class="pen-title-box">
+    <view class="pen-title-l"><image src="../../assets/images/loveActivity/penny-fa.png"></image></view>
+    <view class="pen-title-r">
+      <view class="title-r-t">热血传声筒</view>
+      <view class="title-r-b">号外号外！快看看看看最近都发生了什么！</view>
+    </view>
+  </view>
+
+  <view class="love-story">
+    <view class="poster-view-box">
+      <swiper class='swiper' bindchange="moveServerProSwiper" circular="true" current="{{swiper_index}}" previous-margin="40rpx" next-margin="40rpx">
+        <block wx:for="{{open_info.story_image}}" wx:key="index">
+          <swiper-item  class="is_secl" data-swiper_index="{{swiper_index}}">
+            <view class="swiper-item-view" >
+              <image src="{{item}}" mode='scaleToFill'/>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="love-story-text {{!show_status?'cool':''}}">
+     <view>{{open_info._story.content}}</view>
+    </view>
+    <view bindtap="openFulltxt" class="full_txt">{{!show_status?'查看完整内容':'收起'}}</view>
+    <view class="footer-box" wx:if="{{open_info.status == 1}}">
+      <view class="footer-btn" bindtap="signActivityBtn" wx:if="{{open_info.my_record.length <= 0}}">我要参加</view>
+      <view class="footer-btn1" wx:else>
+        <button class="footer-btn1-left" open-type="share">
+          <image  src="/packageA/assets/images/loveActivity/active_fenxiang.png"></image> 
+          分享内容集赞
+        </button>
+        <button class="footer-btn1-right" bindtap="gotoMakephoto">
+          <image  src="/packageA/assets/images/loveActivity/active_haibao.png"></image> 
+          生成海报集赞
+        </button>
+      </view>
+    </view>
+    <view class="footer-box" wx:else>
+      <view class="footer-status">活动已结束</view>
+    </view>
+  </view>
+</view>
+<!-- 今日礼品 -->
+<view class="prize-section">
+  <view class="pen-title-box">
+    <view class="pen-title-l"><image src="../../assets/images/loveActivity/penny-li.png"></image></view>
+    <view class="pen-title-r">
+      <view class="title-r-t">热血宝藏</view>
+      <view class="title-r-b">点击转发按钮,成为宝藏的主人！</view>
+    </view>
+  </view>
+
+  <view class="prizeList-box">
+    <block wx:for="{{prizeList}}" wx:key="index">
+      <view class="prizeList-items" data-index="{{index}}" bindtap="goToPrize_Activity">
+        <view class="prizeList-items-image">
+          <image src="{{item.prize_pic}}" class="items-image"></image>
+          <image src="/packageA/assets/images/loveActivity/prize_{{index + 1}}.png" class="items-image-icon"></image>
+        </view>
+        <view class="prizeList-items-info">
+          <view class="items-info-title">{{item.prize_name}}</view>
+          <view class="items-info-money"> <text style="color:#666;">￥{{item.prize_price}}</text> 兑换价￥0 </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view style="font-size:28rpx;color:#666;padding:39rpx;text-align: center;" wx:if="{{prizeList.length <= 0}}">暂无信息...</view>
+</view>
+<!-- 项目活动 -->
+<view class="prize-section">
+  <view class="pen-title-box">
+    <view class="pen-title-l"><image src="../../assets/images/loveActivity/penny-xiang.png"></image></view>
+    <view class="pen-title-r">
+      <view class="title-r-t">正在进行的活动</view>
+      <view class="title-r-b">选择感兴趣的宣传活动，赢取对应的奖品！</view>
+    </view>
+  </view>
+  <view class="prizeList-box">
+    <scroll-view class="method-list" scroll-x="{{true}}">
+      <view class="method-item" wx:for="{{open_active}}" wx:key="index" data-index="{{index}}" bindtap="tab_view">
+        <image src="{{item.story_image[0]}}"class="{{tab_view_id == index? 'usecoin-hover' :''}}" />
+        <view class="method-title">{{item.no}}</view>
+        <view class="method-time">截止日期：{{item.end_time}}</view>
+      </view>
+    </scroll-view>
+  </view>
+  <view style="font-size:28rpx;color:#666;padding:39rpx;text-align: center;" wx:if="{{prizeList.length <= 0}}">暂无信息...</view>
+</view>
+<!-- 爱心企业 -->
+<view class="prize-section">
+  <view class="pen-title-box">
+    <view class="pen-title-l"><image src="../../assets/images/loveActivity/penny-ai.png"></image></view>
+    <view class="pen-title-r">
+      <view class="title-r-t">本活动赞助企业</view>
+      <!-- <view class="title-r-b">一个点赞，一份爱心；一次转发，一份力量！</view> -->
+    </view>
+  </view>
+  <view class="aixin-box">
+    <view class="aixin-qiye-box">
+      <!-- <view class="qiye-title">赞助企业</view> -->
+      <view class="qiye-r">
+        <view class="qiye-r-q">{{open_info.buss_name?open_info.buss_name:'碧波青山（北京）科技有限公司'}}</view>
+        <view class="qiye-liaojie" data-id="{{open_info.buss_id}}" bindtap="gotoshop">了解企业</view>
+      </view>
+    </view>
+    <!-- <view class="aixin-a">
+      <view class="ai-title">爱心账户</view>
+      <view class="ai-a-s">已搜集<text class="color-red">{{open_info.money?open_info.money:0.00}}</text>赞</view>
+    </view> -->
+    <view class="qi-notice">{{open_info.notice?open_info.notice:"暂无企业宣传语..."}}</view>
+  </view>
+</view>
+
+<view class="prop-up-20"></view>
+<view class="ranking-section">
+  <view class="past-btn" bindtap="goToPast">历史记录</view>
+  <view class="ranking-name">
+    <image src="/packageA/assets/images/loveActivity/rxphb-icon.png" mode="widthFix" class="rankimg-img"></image>
+    <text>热血排行榜</text>
+  </view>
+  <view class="ranklist-box" wx:if="{{open_info.my_record.length > 0}}">
+    <view class="pai-view">我的排名</view>
+    <view class="ranklist-items ranklist-items1">
+      <view class="rank-index"><text>{{ open_info.my_record[0].my_rank }}</text></view>
+      <view class="rank-avatar">
+        <image src="{{open_info.my_record[0].member.avatar}}"></image>
+      </view>
+      <view style="color:#757474;">{{open_info.my_record[0].member.nickname}}</view>
+      <view class="rank-4">
+        <image src="/images/icon-praise.png"></image>
+        <text style="padding-left:10rpx;color:#ff0000;">{{open_info.my_record[0].like_num}}</text>
+      </view>
+      <view class="rank-5">
+        <view></view>
+      </view>
+    </view>
+  </view>
+  <view class="ranklist-box">
+    <view class="pai-view">所有排名</view>
+    <block wx:for="{{open_info.welfare_record}}" wx:key="index">
+      <view class="ranklist-items">
+        <view class="rank-index">
+          <image src="/packageA/assets/images/loveActivity/rank_{{ index + 1 }}.png" wx:if="{{ index == 0 || index == 1 || index == 2 }}"></image>
+          <text wx:else>{{index+1}}</text>
+        </view>
+        <view class="rank-avatar">
+          <image src="{{ item.member.avatar }}"></image>
+        </view>
+        <view style="color:#757474;">{{ item.member.nickname }}</view>
+        <view class="rank-4" hover-class="hoverClass" catchtap="goToAdynamicPages" data-contentid="{{item.content_id}}">
+          <image src="/images/icon-praise.png"></image>
+          <text style="padding-left:10rpx;color:#ff0000;">{{item.like_num}}</text>
+        </view>
+        <view class="rank-5">
+          <view></view>
+        </view>
+      </view>
+    </block>
+    <view class="no-ranklist-box" wx:if="{{open_info.welfare_record.length<=0}}">暂无排名...</view>
+  </view>
+</view>
+<view style="width:100%;height:200rpx;"></view>
+
+
+<!-- 生成海报弹窗 --> 
+<include src="/pages/module/makephoto/index.wxml" />

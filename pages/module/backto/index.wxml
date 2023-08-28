@@ -1,0 +1,5 @@
+<movable-area class="movable-area">
+  <movable-view direction="all" out-of-bounds='true' bindtap="turnto" class="movable-view">
+    <image mode='widthFix' src="http://oss.qingshanpai.com/banner/icon_gohome.png"></image>
+  </movable-view>
+</movable-area> 

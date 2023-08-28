@@ -1,0 +1,144 @@
+<view class="citve-box" style="padding:20rpx;">
+  <view bindtap="swichNav" data-current='1' class="{{select_type == '1'? 'items-hover' :''}}">
+    <image src="http://oss.qingshanpai.com/icon/promote_goods1_btn.png"></image>
+  </view>
+  <view bindtap="swichNav" data-current='2' class="{{select_type == '2'? 'items-hover' :''}}"> 
+    <image src="http://oss.qingshanpai.com/icon/promote_coupons1_btn.png"></image>
+  </view>
+</view>
+<view style="width:100%;height:186rpx;"></view>
+<!-- 商品 -->
+<view class="circle-box" wx:if="{{select_type == '1'}}">
+  <view class='nulldata_wrap' wx:if="{{shopData.length <= 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg' style="color:#000;">暂无商品</view>
+  </view>
+  <block wx:for="{{shopData}}" wx:key="index">
+    <view class="commodity-items {{ item.chend ? 'select-items' : ''}}" bindtap="select_shopdata" data-business_id="{{item.business_id}}" data-discount_id="{{item.discount_id}}" data-index="{{index}}">
+      <view class='circle' style="padding:30rpx 20rpx;">
+        <view class='shop-centent'>
+          <view class='shop-centent-title'>
+            <view class="shop-img">
+              <image class="shop-img-width" src="{{ item.image }}"></image>
+            </view>
+            <view class='shop-jottings'>
+              <view selectable='true' class='text'>{{item.title}}</view>
+              <view class='circle-head' style="justify-content: space-between;">
+                <text style="font-size:20rpx;text-decoration: line-through;">原价 ￥{{item.price}}</text>
+              </view>
+              <view class="discount">
+                <view class="discount-price">
+                  <text>折扣价：￥{{item.total_price}}+{{item.hbb?item.hbb:'0.00'}}积分</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view style="width:100%;height:130rpx;"></view>
+  <view class="bottom-submit-box">
+    <!-- <view bindtap="nosend_coupon">不发送商品</view> -->
+    <view bindtap="{{shopData.length<=0 ? 'gotocreate':'confirm_send'}}">{{shopData.length<=0 ? '点击编辑':'确定选择2/3'}}</view>
+  </view>
+</view>
+
+<!-- 优惠券 -->
+<view wx:if="{{select_type == '2'}}">
+  <view class="no-couponlist" wx:if="{{coupon_list.length<=0}}">
+    暂无库存优惠券点击下方按钮进入编辑页面，也可以点击提交按钮不发送优惠券完成订单!
+  </view>
+
+  <couponList coupon_list="{{coupon_list}}" bindselect_items="select_items" />
+
+  <view style="width:100%;height:130rpx;"></view>
+  <view class="bottom-submit-box">
+    <!-- <view bindtap="nosend_coupon">不发送优惠券</view> -->
+    <view bindtap="{{coupon_list.length<=0 ? 'gotocreate':'confirm_send'}}">{{coupon_list.length<=0 ? '点击编辑':'确定选择2/3'}}</view>
+  </view>
+</view>
+
+<!-- 、、、、、、、 设置推广有效期弹窗 、、、、、、、 -->
+<view wx:if="{{is_limit}}" class="is_limit_layer" catchtouchmove="layer_move" bindtap="is_limit_layer"></view>
+<view wx:if="{{is_limit}}" class="is_limit_box">
+  <view class="limit_box_title">请选择推广持续时间</view>
+  <radio-group bindchange="radioChange" class="limit_radio_group">
+    <label class="limit_box_label" wx:for="{{items}}" wx:key="index">
+      <view class="">
+        <radio value="{{item.value}}" data-name="{{item.name}}" checked="{{item.checked}}"/>
+      </view>
+      <view class="limit_box_name">{{item.name}}</view>
+    </label>
+  </radio-group>
+  <view class="limit_btn_box">
+    <view class="limit_btn" bindtap="limit_btn">确认并开始推广</view>
+  </view>
+</view>
+<!-- 、、、、、、、 数据展示弹窗 、、、、、、、 -->
+
+<view  wx:if="{{is_sjzs}}" class="is_sjzs_layer" catchtouchmove="layer_move" bindtap="is_sjzs_layer"></view>
+<view  wx:if="{{is_sjzs}}" class="is_sjzs_box">
+  <view class="is-sjzs-itemsBox">
+    <view class="itemsBox-title">推广圆心：</view>
+    <view class="itemsBox-text">{{all_info.exhibitAddress}}</view>
+  </view>
+  <view class="is-sjzs-itemsBox">
+    <view class="itemsBox-title">推广范围：</view>
+    <view class="itemsBox-text">{{all_info.distname}}</view>
+  </view>
+  <view class="is-sjzs-itemsBox">
+    <view class="itemsBox-title">潜在用户数量：</view>
+    <view class="itemsBox-text">{{all_info.total_peop}}人</view>
+  </view>
+  <view class="is-sjzs-itemsBox">
+    <view class="itemsBox-title">持续时间：</view>
+    <view class="itemsBox-text">{{select_name}}</view>
+  </view>
+  <view class="is-sjzs-itemsBox">
+    <view class="itemsBox-title">收费模式：</view>
+    <view class="itemsBox-text">按照点击量收费</view>
+  </view>
+  <view class="is-sjzs-itemsBox">
+    <view class="itemsBox-title">收费标准：</view>
+    <view class="itemsBox-text">1000次有效点击/300元</view>
+  </view>
+  <view class="limit_btn_box">
+    <view class="limit_btn" bindtap="sjzs_btn">确认并开始推广3/3</view>
+  </view>
+</view>
+
+
+ <!-- 进度条动画 -->
+<view wx:if="{{ is_progress}}" class="is_progress_layer" catchtouchmove="layer_move"></view>
+<view wx:if="{{is_progress}}" class="is_progress_box">
+  <!-- <view class="progress_btn_box" style="font-size:32rpx;font-weight: 600;">支付成功</view> -->
+  <view class="is_progress_bar">
+    <view class="progress-box">
+      <progress percent="{{bar_number}}" show-info stroke-width="14" border-radius="20"/>
+    </view>
+  </view>
+  <view class="progress_btn_box">共推广{{all_info.total_peop}}人，正在推送...</view>
+</view>
+
+
+
+<!-- 、、、、、、、 扣推广账户金额弹窗 、、、、、、、 -->
+<view wx:if="{{is_promlines}}" class="is_limit_layer" catchtouchmove="layer_move" bindtap="is_promlines_layer"></view>
+<view wx:if="{{is_promlines}}" class="is_limit_box">
+  <view class="limit_box_title" style="margin-bottom:2rpx;font-weight:100;font-size:32rpx;">预估费用</view>
+  <view class="buy-money-view">￥{{all_info.total_price}}</view>
+  <view class="way-box">
+    <view class="way-title">支付方式</view>
+    <view class="way-name" bindtap="gotoqingwaad">推广余额 ></view>
+  </view>
+  <view class="the-view-box">
+    <view>本次推广:<text style="color:#f19149;"> {{all_info.total_price}} 元</text></view>
+    <view>推广账户余额: {{balance3?balance3:0}} 元</view>
+  </view>
+  <view class="limit_btn_box">
+    <view class="promlines_btn" bindtap="promlines_btn" hover-class="hover-class">确认支付</view>
+  </view>
+</view>
+
+

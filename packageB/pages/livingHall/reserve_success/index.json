@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "userList":"/packageB/component/userList/userList"
+  }
+}

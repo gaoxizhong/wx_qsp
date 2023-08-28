@@ -1,0 +1,57 @@
+<view class="infoadd-box">
+  <view class="edit-info">
+    <form bindsubmit="savaData">
+      <view class="need-hbb">
+        <text>志愿者姓名</text>
+        <view class="need-hbb-input">
+          <input type="text" value="{{member_name}}" name="member_name" placeholder="请输入志愿者姓名"/>
+        </view>
+      </view>
+      <view class="need-hbb">
+        <text>志愿者编号</text>
+        <view class="need-hbb-input">
+          <input type="Number" value="{{vol_number}}" maxlength="15" name="vol_number" placeholder="请输入志愿者编号"/>
+        </view>
+      </view>
+      <view class="need-hbb">
+        <text>联系电话</text>
+        <view class="need-hbb-input">
+          <input type="digit" value="{{member_mobile}}" name="member_mobile" placeholder="请输入联系电话"/>
+        </view>
+      </view>
+      <view class="need-hbb">
+        <text>省市区</text>
+        <picker mode="region" value="{{member_garden}}" start="2015-09-01" bindchange="saveGarden"  class="need-hbb-input">
+          <view style="color: {{member_garden ? '#333':'#a6a6a6'}};">{{member_garden ? member_garden:'请选择省市区'}}</view>
+        </picker>
+      </view>
+      <view class="need-hbb">
+        <text>详细地址</text>
+        <view class="need-hbb-input">
+          <input type="text" value="{{member_address}}" name="member_address" placeholder="请输入详细地址" />
+        </view>
+      </view>
+      <view class="need-hbb">
+        <text>所在学校</text>
+        <view class="need-hbb-input">
+          <input type="text" value="{{member_school}}" name="member_school" placeholder="请输入所在学校" />
+        </view>
+      </view>
+      <button class="infoPlate-Push-box" form-type="submit" hover-class="hoverClass">
+        <image src="/packageA/assets/images/vol/vol-icon-btn1.png" mode="widthFix"></image>
+        <view class="infoPlate-text" hover-class="hoverClass">保存</view>
+      </button>
+    </form>
+    <!-- <view class="sc-btn" bindtap="cler_btn" wx:if="{{ext_id}}">删除</view> -->
+  </view>
+</view>
+
+<!-- =====================   弹窗  ================= -->
+<view class="cler-marsk" wx:if="{{is_cler}}" catchtap="cler_marsk"></view>
+<view class="cler-box" wx:if="{{is_cler}}">
+  <view class="cler-title">*确定要删除该志愿信息吗？</view>
+  <view class="cler-btn-box">
+    <view catchtap="cler_marsk">取消</view>
+    <view class="cler-btn-r" hover-class="hoverClass" catchtap="submit_btn">确定</view>
+  </view>
+</view>

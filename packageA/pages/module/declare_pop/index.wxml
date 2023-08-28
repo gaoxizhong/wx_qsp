@@ -1,0 +1,55 @@
+<view wx:if="{{is_pop}}" class="is-pop-mark" catchtouchmove="myCatchTouch" bindtap="click_useinter"></view>
+<view wx:if="{{is_pop}}"  class="is-pop-box" catchtouchmove="myCatchTouch">
+  <form catchsubmit="formSubmit">
+    <view class="page-section">
+      <view class="section-info-title">请输入您的信息</view>
+      <view class="page-section-title">姓名</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" value="{{declare_name}}" name="declare_name" placeholder="请填写志愿者姓名" />
+          </view>
+        </view>
+      </view>
+      <view class="page-section-title">志愿者编号</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="number" value="{{declare_serial}}" name="declare_serial" placeholder="请填写志愿者编号" />
+          </view>
+        </view>
+      </view>
+      <view class="page-section-title">联系方式</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="number" value="{{declare_phone}}" name="declare_phone" placeholder="请留下联系电话" />
+          </view>
+        </view>
+      </view>
+      <view class="page-section-title">填写地址</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell__bd">
+          <picker mode="region" name="garden" value="{{garden}}" bindchange="saveGarden">
+            <view class="shengshi" style="color:{{garden ? '#333':'#a2a2a2'}};">{{garden ? garden:'请选择省市区'}}</view>
+          </picker>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="types-input" style="font-size:28rpx;padding: 6rpx;" value="{{address}}" placeholder="例：xxx街道xxx小区xxx楼" bindinput="saveAddress"></input>
+        </view>
+      </view>
+      <view class="page-section-title">备注</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="text" value="{{remark}}" name="remark" placeholder="请填写备注信息" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="btn-area">
+      <button formType="submit">提交</button>
+      <button bindtap="click_declare">进度查询</button>
+    </view>
+  </form>
+</view>

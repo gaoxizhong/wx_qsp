@@ -1,0 +1,77 @@
+<view class="indexbg">
+  <image src="http://oss.qingshanpai.com/banner/indexbg_1.png"></image>
+</view>
+<view class="kapian-box">
+  <view>
+    <view>{{infodata.stu_count}}</view>
+    <view style="margin-top:15rpx;">参与调研人数</view>
+  </view>
+  <!-- <view>
+    <view>{{infodata.donestu_count}}</view>
+    <view style="margin-top:15rpx;">合格人数</view>
+  </view> -->
+  <view>
+    <view>{{infodata.hournum_count?infodata.hournum_count:0}}</view>
+    <view style="margin-top:15rpx;">已申请人数</view>
+  </view>
+</view>
+
+
+<view class="list-box">
+  <view class="list-items" wx:for="{{infodata.stu}}" wx:key="index">
+    <view class="items-1">{{index+1}}</view>
+    <view class="items-2"><image src="{{item.member.avatar}}"></image></view>
+    <view class="items-3">{{item.member.nickname}}</view>
+    <view class="items-4">{{item.created_at}}</view>
+  </view>
+  <view class="no-ranklist-box" wx:if="{{infodata.stu.length <= 0}}">
+    暂无数据...
+  </view>
+</view>
+
+<view class="footer-box">
+  <button class="bott-box-btn" open-type="share">继续分享</button>
+  <button class="bott-box-btn" bindtap="gotoMakephoto">生成海报</button>
+  <button bindtap="goto_clock" class="bott-box-btn">申请时长</button>
+</view>
+
+
+<!-- 生成海报弹窗 --> 
+<include src="/pages/module/makephoto/index.wxml" />
+
+
+<!-- 申报弹窗 -->
+<!-- <include src="/packageA/pages/module/declare_pop/index.wxml" /> -->
+<view wx:if="{{is_pop}}" class="is-pop-mark" catchtouchmove="myCatchTouch" bindtap="click_useinter"></view>
+<view wx:if="{{is_pop}}"  class="is-pop-box" catchtouchmove="myCatchTouch">
+  <view class="is-pop-listbox">
+    <view>
+      <view class="infoItem-title">志愿者信息</view>
+        <view class="items-list" bindtap="chooseExt" data-ext_id="{{ selectedExt.ext_id }}">
+          <view class="infoItem-list-box">
+            <image src="/packageA/assets/images/vol/vol-icon-grtx.png" mode="widthFix" class="index-list-img"></image>
+            <view class="list-titletext">
+              <view>
+                <text style="font-weight:600;font-size: 30rpx;">{{selectedExt.member_name}}</text>
+                <text style="padding-left: 10rpx;font-size: 28rpx;">{{selectedExt.vol_number}}</text>
+              </view>
+              <view style="font-size: 28rpx;color: #555555;">{{selectedExt.member_mobile}}</view>
+              <view style="font-size: 28rpx;color: #555555;">{{selectedExt.member_garden}}{{selectedExt.member_address}}</view>
+            </view>
+            <view class="list-top-sele">
+              <image src="/packageA/assets/images/my_more.png" mode="widthFix"></image>
+            </view>
+          </view>
+        </view>
+        <view class="infoPlate-box" wx:if="{{ !selectedExt }}">
+          <view bindtap="fixed_btn" class="infoPlate-Push-box">
+            <image src="/packageA/assets/images/vol/vol-icon-btn1.png" mode="widthFix"></image>
+            <view class="infoPlate-text" hover-class="hoverClass">+ 添加志愿者信息</view>
+          </view>
+        </view>
+    </view>
+  </view>
+  <view class="newbtn-area"  wx:if="{{ selectedExt }}">
+    <button bindtap="gotoduration">确定</button>
+  </view>
+</view>

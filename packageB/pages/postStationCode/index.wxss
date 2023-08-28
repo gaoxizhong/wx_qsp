@@ -1,0 +1,113 @@
+page{
+  background: #f2f2f2;
+  padding: 15rpx 30rpx;
+  box-sizing: border-box;
+}
+.codeList-box{
+  width: 100%;
+  box-sizing: border-box;
+}
+.codeList-box>view {
+  width: 100%;
+  height: 172rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 20rpx 0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+}
+.index-list-img {
+  width: 84rpx;
+}
+.popularActivity-list-titletext {
+  flex: 1;
+  padding-left: 20rpx;
+  font-size: 34rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.my-more {
+  width: 48rpx;
+}
+.dhjl-title{
+  box-sizing: border-box;
+  font-size: 30rpx;
+}
+.dhjlList-box>view{
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 20rpx 0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 20rpx 20rpx 20rpx 30rpx;
+}
+.dhjlList-list-titletext {
+  flex: 1;
+  font-size: 32rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.dhjlList-jf{
+  width: auto;
+  color: #b22b13;
+  font-size: 28rpx;
+}
+.dhjlList-cjf{
+  width: auto;
+  color: #4ac081;
+  font-size: 28rpx;
+}
+.page-bottom-box{
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.page-qd-box{
+  width: 610rpx;
+  height: 82rpx;
+  text-align: center;
+  line-height: 82rpx;
+  background-image: linear-gradient(to right, #ff7405 , #ffae00);
+  font-size: 30rpx;
+  margin: 16rpx auto;
+  border-radius: 28px;
+  color: #fff;
+}
+.page-zh-box{
+  width: 100%;
+  font-size: 28rpx;
+  text-align: center;
+  color: #ff0000;
+  padding-bottom: 10rpx;
+  font-weight: 600;
+}
+.page-zh-box>text{
+  padding: 0 14rpx;
+}
+.hoverClass{
+  opacity: 0.8;
+}
+.beforeList-title{
+  padding-top: 18rpx;
+  display: block;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

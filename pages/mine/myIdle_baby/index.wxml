@@ -1,0 +1,143 @@
+<view class="page-box" style="height:{{screenHeight}}rpx;">
+  <view class="page-box-top">
+    <view class="fbxz-box">
+      <view class="fbxz-su-box">
+        <view class="fbxz-su-left-box">
+          <image src="{{avatarUrl}}" mode="widthFix"></image>
+          <view class="fbxz-su-nickName">{{nickName}}</view>
+        </view>
+        <view class="fbxz-su-right-box">
+          <view class="fbxz-su-right-xql">
+            <view>
+              <view class="su-right-xql-num">{{groupcount}}</view>
+              <view class="su-right-xql-title">闲置圈</view>
+            </view>
+            <view>
+              <view class="su-right-xql-num">{{purchasecount}}</view>
+              <view class="su-right-xql-title">求购闲置</view>
+            </view>
+            <view>
+              <view class="su-right-xql-num">{{browse}}</view>
+              <view class="su-right-xql-title">浏览量</view>
+            </view>
+          </view>
+          <view style="width: 100%;display: flex;align-items: center;justify-content: center;">
+            <view class="su-right-tdkj" bindtap="gotokongjian">{{memberid == shangjia_id?'我的空间':'他的空间'}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="fbxzlist-box">
+      <view class="tab-bar">
+        <view class="tab-bar-item {{typeStatus == '1'?'tab-barhover':''}}"  data-status="1"  bindtap="changeTabItem">
+          <text>宝贝<text style="padding: 0 10rpx;">{{all}}</text></text>
+          <view class="bar-border"  wx:if="{{typeStatus == '1'}}"></view>
+        </view>
+        <view class="tab-bar-item {{typeStatus == '2'?'tab-barhover':''}}" data-status="2" bindtap="changeTabItem">
+          <text>在售<text style="padding: 0 10rpx;">{{shangjia}}</text></text>
+          <view class="bar-border"  wx:if="{{typeStatus == '2'}}"></view>
+        </view>
+        <view class="tab-bar-item {{typeStatus == '3'?'tab-barhover':''}}" data-status="3" bindtap="changeTabItem">
+          <text>已售<text style="padding: 0 10rpx;">{{chushou}}</text></text>
+          <view class="bar-border"  wx:if="{{typeStatus == '3'}}"></view>
+        </view>
+        <view class="tab-bar-item {{typeStatus == '4'?'tab-barhover':''}}" data-status="4" bindtap="changeTabItem">
+          <text>已下架<text style="padding: 0 10rpx;">{{xiajia}}</text></text>
+          <view class="bar-border"  wx:if="{{typeStatus == '4'}}"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 全部 -->
+  <view class="myitem-listbox" wx:if="{{typeStatus == 1}}">
+    <scroll-view style="height: {{screenHeight - 370}}rpx;" lower-threshold='20' scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" class="myitem-listbox-scroll-view">
+      <view class="scroll-view-box">
+        <view class="goToInfo" wx:for="{{wenzData}}" wx:key="index">
+          <view class="good-item-view" bindtap="{{item.bal_count == 0?'':'goToActivity'}}"  data-idle="{{item.id}}" data-curidx="{{index}}" data-busnesid="{{item.member_id}}" >
+            <image src="{{item.img.url}}" class="good-item-img"></image>
+            <view class="goodname">{{item.title}}</view>
+            <view class="goodprice">
+              <text class="goodprice-1">￥</text>
+              <text class="goodprice-2">{{item.total_price}}</text>
+              <text style="color: #999;font-size: 22rpx;padding-left:10rpx;">原价: {{item.price}}元</text>
+            </view>
+
+            <view class="idle-avar-box">
+              <image src="{{item.avatar}}"></image>
+              <text>{{item.nickName}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 在售 -->
+  <view class="myitem-listbox" wx:if="{{typeStatus == 2}}">
+    <scroll-view style="height: {{screenHeight - 370}}rpx;" lower-threshold='20' scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" class="myitem-listbox-scroll-view">
+      <view class="scroll-view-box">
+        <view class="goToInfo" wx:for="{{wenzData}}" wx:key="index" wx:if="{{ item.stand == 1 && item.bal_count == 1 && item.in_stock == 1 }}">
+          <view class="good-item-view" bindtap="{{item.bal_count == 0?'':'goToActivity'}}"  data-idle="{{item.id}}" data-curidx="{{index}}" data-busnesid="{{item.member_id}}" >
+            <image src="{{item.img.url}}" class="good-item-img"></image>
+            <view class="goodname">{{item.title}}</view>
+            <view class="goodprice">
+              <text class="goodprice-1">￥</text>
+              <text class="goodprice-2">{{item.total_price}}</text>
+              <text style="color: #999;font-size: 22rpx;padding-left:10rpx;">原价: {{item.price}}元</text>
+            </view>
+
+            <view class="idle-avar-box">
+              <image src="{{item.avatar}}"></image>
+              <text style="padding: 4px 12px;" wx:if="{{memberid == shangjia_id}}" catchtap='stand' data-idle="{{item.id}}" data-index="{{index}}" data-is_idle="{{item.is_idle}}" data-stand="2">下架</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 已售 -->
+  <view class="myitem-listbox" wx:if="{{typeStatus == 3}}">
+    <scroll-view style="height: {{screenHeight - 370}}rpx;" lower-threshold='20' scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" class="myitem-listbox-scroll-view">
+      <view class="scroll-view-box">
+        <view class="goToInfo" wx:for="{{wenzData}}" wx:key="index" wx:if="{{ item.bal_count == 0  }}">
+          <view class="good-item-view" bindtap="{{item.bal_count == 0?'':'goToActivity'}}"  data-idle="{{item.id}}" data-curidx="{{index}}" data-busnesid="{{item.member_id}}" >
+            <image src="{{item.img.url}}" class="good-item-img"></image>
+            <view class="goodname">{{item.title}}</view>
+            <view class="goodprice">
+              <text class="goodprice-1">￥</text>
+              <text class="goodprice-2">{{item.total_price}}</text>
+              <text style="color: #999;font-size: 22rpx;padding-left:10rpx;">原价: {{item.price}}元</text>
+            </view>
+
+            <view class="idle-avar-box">
+              <image src="{{item.avatar}}"></image>
+              <text>{{item.nickName}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+    <!-- 已下架 -->
+  <view class="myitem-listbox" wx:if="{{typeStatus == 4}}">
+    <scroll-view style="height: {{screenHeight - 370}}rpx;" lower-threshold='20' scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" class="myitem-listbox-scroll-view">
+      <view class="scroll-view-box">
+        <view class="goToInfo" wx:for="{{wenzData}}" wx:key="index" wx:if="{{ item.stand == 2 && item.bal_count == 1 }}">
+          <view class="good-item-view" bindtap="{{item.bal_count == 0?'':'goToActivity'}}"  data-idle="{{item.id}}" data-curidx="{{index}}" data-busnesid="{{item.member_id}}" >
+            <image src="{{item.img.url}}" class="good-item-img"></image>
+            <view class="goodname">{{item.title}}</view>
+            <view class="goodprice">
+              <text class="goodprice-1">￥</text>
+              <text class="goodprice-2">{{item.total_price}}</text>
+              <text style="color: #999;font-size: 22rpx;padding-left:10rpx;">原价: {{item.price}}元</text>
+            </view>
+
+            <view class="idle-avar-box">
+              <image src="{{item.avatar}}"></image>
+              <text>{{item.nickName}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

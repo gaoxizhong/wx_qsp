@@ -1,0 +1,21 @@
+<view>
+<view class="main" wx:if="{{need_num > 0}}">
+    <view><image src="/images/S1.jpg"></image></view>
+    <view>订单支付成功</view>
+</view>
+  <view class="title-text" wx:if="{{need_num > 0}}">再购买{{need_num}}份，立即成团!</view>
+  <view class="title-text" wx:if="{{need_num == 0}}" style="margin-top:96rpx; background: #f2f2f2;margin-left: 30rpx;margin-right: 30rpx;padding: 80rpx 0;">
+    <view style="display: flex;justify-content: center;">
+      <image src="/images/S1.jpg" style="width:56rpx;height:56rpx;margin-right:20rpx;border-radius:50%;"></image>
+      <text style="color:#4AC081;font-size:44rpx;">拼团成功</text>
+    </view>
+    <view style="text-align:center;font-size:32rpx;color:#a1a1a1;margin-top: 30rpx;">商家按照付款顺序发中，请耐心等待！</view>
+  </view>
+
+  <!-- <view style="font-siz:26rpx;text-align:center;"><text style="color:#a1a1a1;">剩余时间</text>  <text style="text-align: center;padding-left:12rpx;">23:22:30</text></view> -->
+    <button 
+      hover-class='none' open-type="share" style="width:94%;margin:0 auto;margin-top:38rpx; text-align:center;color:#fff;background-image: linear-gradient(to right, #fd8232 , #d44f02);" wx:if="{{need_num > 0}}">邀请好友参团</button>
+    <view style="margin-top:26rpx;color:#a1a1a1;font-size:24rpx;text-align:center;" wx:if="{{need_num > 0}}">团购不成立后发起退款</view>
+    <button hover-class='none' style="width:94%;margin:0 auto;margin-top:38rpx; text-align:center;color:#fff;background-image: linear-gradient(to right, #fd8232 , #d44f02);" bindtap="goTodingdan"  wx:if="{{need_num == 0}}">查看我的订单</button>
+</view>
+  

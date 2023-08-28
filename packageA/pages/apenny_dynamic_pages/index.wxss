@@ -1,0 +1,360 @@
+page{
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+.page-title{
+  font-size: 30rpx;
+  color:#000;
+}
+.dynamic-info-box{
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 2px #00000020;
+  padding: 20rpx 13rpx;
+  font-size: 26rpx;
+  border-radius: 8px;
+  margin: 30rpx 0;
+}
+.circle-img {
+  margin-top: 10rpx;
+  margin-bottom: 18rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.imgduo-width {
+  width: 217rpx;
+  height: 217rpx;
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+.love-bottom-btn {
+  padding: 30rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  width: 100%;
+}
+.btn-view {
+  background: #ffb400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 460rpx;
+  height: 76rpx;
+  color: #fff;
+  border-radius: 20px;
+}
+.btn-view image {
+  width: 52rpx;
+  height: 54rpx;
+}
+.apenny-dynamic-mark{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.6;
+  z-index: 999;
+}
+.apenny-dynamic{
+  width: 620rpx;
+  height: 752rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #000;
+  z-index: 9999;
+}
+.apenny-dynamic image{
+  width: 100%;
+  height: 100%;
+}
+.apenny-marsk-box{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 30rpx 0;
+}
+.apenny-marsk-box>view{
+  width: auto;
+  padding: 10rpx 20rpx;
+  border-radius: 20px;
+  background: #4ac081;
+  color: #fff;
+  margin: 0 16rpx;
+}
+.business_name{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 30rpx 0;
+  color: #fff;
+}
+.love-story {
+  position: relative;
+  box-sizing: border-box;
+  margin-top: 10rpx;
+  /* padding: 20rpx; */
+  /* box-shadow: 0 0 10px 2px #00000020; */
+}
+
+.poster-view-box {
+  box-sizing: border-box;
+  width: 100%;
+  height: 370rpx;
+  padding: 10rpx 0;
+}
+.love-story-text {
+  font-size: 28rpx;
+  padding-top: 24rpx;
+  box-sizing: border-box;
+}
+.love-story-text.cool {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.footer-box {
+  width: 100%;
+  height: 146rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.poster-view-box swiper.swiper {
+  width: 100%;
+  height: 100%;
+}
+.poster-view-box swiper.swiper swiper-item.is_secl {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  padding: 0 6rpx;
+}
+.poster-view-box swiper.swiper .swiper-item-view {
+  width: 100%;
+  height: 100%;
+  padding: 2rpx;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+.poster-view-box swiper.swiper .swiper-item-view image {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+
+.full_txt {
+  font-size: 32rpx;
+  color: #4285f4;
+  margin-top: 10rpx;
+  text-align: right;
+  box-sizing: border-box;
+  padding-right: 10px;
+}
+.footer-btn1 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.footer-btn1 button {
+  width: 320rpx;
+  height: 82rpx;
+  margin: 0 20rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+}
+.footer-btn1 button.footer-btn1-left {
+  background: #ffb400;
+}
+.footer-btn1 button.footer-btn1-right {
+  background: #63d080;
+}
+.footer-btn1 button image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+
+/* ========================banner 广告 一下============================================== */
+.swiper-container1 {
+  width: 100%;
+  height: 406rpx;
+  z-index: -1;
+  box-sizing: border-box;
+  border-radius: 6px;
+  box-shadow: 0 1px 10px #00000020;
+}
+.swiper-container1 swiper {
+  height: 100%;
+}
+.swiperitem-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.swiperitem-l {
+  width: 430rpx;
+  height: 100%;
+}
+.swiperitem-r {
+  flex: 1;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
+  position: relative;
+}
+.swiper-container1 image {
+  width: 100%;
+  height: 100%;
+}
+.swiperitem-l image {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+.swiperitem-r-title {
+  font-size: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.swiperitem-r-y {
+  font-size: 28rpx;
+  color: #b8b8b8;
+  padding: 10rpx 0;
+}
+.discount-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  margin-top: 12rpx;
+  color: #ffbd73;
+}
+.qg-box {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #ffbd73;
+  padding: 30rpx 20rpx;
+  box-sizing: border-box;
+}
+/* ========================banner 广告 以上============================================== */
+
+/* ==================  进度条  ============================ */
+.is_progress_box{
+  width:auto;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 6px;
+  margin: 20rpx;
+}
+.is_progress_bar {
+  width: 650rpx;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.progress_btn_box {
+  width: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  padding: 20rpx 0;
+}
+.djs-box{
+  text-align: right;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.progress-box{
+  position: relative;
+  box-sizing: border-box;
+}
+.progress-box progress {
+  border-radius: 20px;
+}
+.tb-box{
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  top: 0;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.tb-box>.tb-img-1{
+  width: 100%;
+}
+.tb-img-2{
+  width: 26rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 100;
+  animation: show_ani 4s linear infinite;
+}
+@keyframes show_ani{
+  0%{
+    opacity: 1;
+  }
+  33.333%{
+    opacity: 0;
+  }
+  66.666%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}

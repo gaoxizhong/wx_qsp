@@ -1,0 +1,45 @@
+  <!-- <wxs module="filters">
+var filters = {
+  toFix: function (value) {
+    return value.toFixed(1)
+  }
+}
+module.exports = {
+  toFix: filters.toFix
+}
+</wxs> -->
+<view class="coupon-list-box"  wx:if="{{coupon_list.length>0}}">
+  <block wx:for="{{coupon_list}}" wx:key="index">
+    <view class="coupon-list-items {{ item.chend ? 'select-items' : ''}}" data-index="{{index}}" bindtap="select_items">
+      <view class="sheng-bg">
+        <image src="/images/sheng-bg.png"></image>
+      </view>
+      <view class="listitems-le" bindtap="goToActivity" data-id="{{item.id}}" data-order_number="{{ item.order_number?item.order_number : '' }}" data-stock="{{item.stock}}">
+
+        <view class="listitems-le-title">凭此券 享优惠</view>
+        <view class="calendar-box">
+          <view class="calendar-con"><text style="font-size:28rpx;">￥</text>{{item.youhui}}</view>
+        </view>
+        <view class="shops-name" wx:if="{{is_mycoupon == '1'}}">{{item.b_name}}</view>
+        <view class="shops-name" wx:else>{{item.business_name?item.business_name: item.title}}</view>
+      </view>
+      <view class="listitems-ri" bindtap="goToActivity" data-id="{{item.id}}" data-order_number="{{ item.order_number?item.order_number : '' }}" data-stock="{{item.stock}}">
+        <view class="listitems-rititle-box">
+          <view class="coupon-title">{{item.name}} 优惠券</view>
+        </view>
+        <view class="ri-price-curr"><text>原价： {{item.price}}</text><text style="padding-left:12rpx;">劵后价： {{item.current_price}}</text></view>
+        <view class="coupon-view">支付：￥{{item.coupon_price}} + {{item.coupon_integral}}积分 获取本券</view>
+        <view class="start-end-time">{{item.start_time}} - {{item.end_time}}内有效。</view>
+        <view wx:if="{{is_mycoupon == '1'}}" class="coupon-title-stock">x{{item.stock}}</view>
+        <view class="use-btn" style="bottom:{{item.stock > 0 ?'70': '10' }}rpx;" wx:if="{{is_mycoupon == '1'}}">
+          <view class="use-btnstock" wx:if="{{item.stock > 0}}">
+            <image src="http://oss.qingshanpai.com/banner/use_coupon.png"></image>
+          </view>
+          <view class="use-btnstock_else" wx:else>
+            <image src="http://oss.qingshanpai.com/banner/logout_coupon.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

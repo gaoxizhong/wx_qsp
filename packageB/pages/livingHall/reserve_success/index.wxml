@@ -1,0 +1,77 @@
+<view class="success-titlebox">
+  <view class="success-title">
+    <image src="/packageB/assets/images/S1.jpg" mode="widthFix" class="success-title-img"></image>
+    <view class="success-text-box" wx:if="{{is_type == 'xm'}}">
+      <view class="success-text-t">购买成功</view>
+      <view class="success-text-b">购买成功可在手工坊"会员权益"——"我的"——"项目记录"中查看！</view>
+    </view>
+    <view class="success-text-box">
+      <view class="success-text-t">{{is_buy == '1'?'购买成功':'预约成功'}}</view>
+      <view class="success-text-b" wx:if="{{is_shang == '1'}}">购买成功可在我购买的订单中查看！</view>
+      <view class="success-text-b" wx:if="{{is_buy == '1'}}">购买成功可在我的待使用中查看，请及时到店体验使用。</view>
+      <view class="success-text-b" wx:else>预约详情可在我的订单中查看，商户将为您预留30分钟，过时预约将无效，请按时到店。</view>
+    </view>
+  </view>
+  <view class="success-btn" hover-class="hoveClass" bindtap="gotoHome">返回低碳生活馆</view>
+</view>
+<view class="t-20"></view>
+
+<!-- 展示列表 开始 -->
+<block wx:for="{{space_list}}" wx:key="index">
+  <!-- 展示列表 开始 -->
+  <view class="userList-box">
+    <!-- 生活照轮播模块 -->
+    <view class="lifeimg-box">
+      <swiper class='swiper' autoplay="true" circular="true" interval="2500">
+        <swiper-item>
+          <!-- <image src="{{item.background}}" class="slide-image" mode="aspectFit"/> -->
+          <image src="{{item.background}}" class="slide-image" />
+        </swiper-item>
+      </swiper>
+
+      <view class="lifeimg-infobtn-box">
+        <view class="lifeimg-infobtn-box-l">
+          <view class="lifeimg-photo-box">
+            <image src="{{item.member.avatar}}"></image>
+          </view>
+          <view class="lifeimg-name-title">
+            <view class="lifeimg-n-t">{{item.name}}</view>
+            <view class="lifeimg-n-btn" data-member_id="{{ item.member_id }}" bindtap="gotoPersonalHome">
+              <image class="lifeimg-n-icon2" src="/packageB/assets/images/livingHall/icon-tx.png" mode="widthFix"></image>
+              <text style="margin: 0 6rpx;">主页</text>
+              <image class="lifeimg-n-icon2" src="/packageB/image/my_more.png" mode="widthFix"></image>
+            </view>
+          </view>
+        </view>
+        <view class="lifeimg-infobtn-box-r">
+          <!-- <view class="type-item">
+            <image src="/packageB/assets/images/livingHall/icon-zf.png" mode="widthFix"></image>
+            <text>0</text>
+          </view> -->
+        </view>
+      </view>
+    </view>
+    <!-- 生活照轮播模块 -->
+
+    <view class="lifeimg-titlebox">
+      <view style="font-weight: bold;">作品相册</view>
+      <!-- <view class="titlebox-ljxq" hover-class="hoverClass">了解详情<image src="/packageB/image/my_more.png" mode="widthFix"></image></view> -->
+    </view>
+    <!-- 她的作品列表 -->
+    <view class="workList-box">
+      <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%" wx:if="{{item.work.length > 0}}">
+        <view class="scroll-view-item_H" wx:for="{{item.work}}" wx:for-item="items" wx:key="idx">
+          <image src="{{items.image_array[0]}}" data-id="{{items.id}}" bindtap="clickBuy"></image>
+        </view>
+      </scroll-view>
+      <view class="zwzpzs-box" wx:else>暂无作品展示...</view>
+    </view>
+    <!-- 她的作品列表 -->
+  </view>
+  <!-- 展示列表 结束 -->
+</block>
+<view class='nulldata_wrap' wx:if="{{space_list.length == 0}}">
+  <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+  <view class='msg'>暂无数据...</view>
+</view>
+<!-- 展示列表 结束 -->

@@ -1,0 +1,239 @@
+  <view class='circle-box' style="padding:0 0 0 0;">
+    <block wx:for="{{wenzData}}" wx:key="index" wx:for-index="idx">
+      <view>
+        <view class='circle-box1'>
+          <view class='circle-head'>
+            <form report-submit bindsubmit='goOtherCircle' data-id="{{item.member_id}}" data-business_id="{{item.copy_business ? item.copy_business : item.business_id}}">
+              <button form-type='submit' hover-class='none'>
+                <image class='photo' src="{{item.avatar}}" style="border-radius:50%;width:94rpx;height:94rpx"></image>
+              </button>
+            </form>
+            <view>
+              <view class='name_box'>
+                <view class='name'>{{item.nickname}}
+                </view>
+              </view>
+              <view class='time'>
+                <text style="margin-right:24rpx">{{item.public_at}}</text>
+                <text style="margin-right:20rpx" wx:if="{{item.read_count}}">{{item.read_count ? item.read_count:''}} 阅读</text>
+              </view>
+            </view>
+            <view class='func' wx:if="{{item.is_delete == 1}}">
+              <view>
+                <form report-submit bindsubmit='openFun' data-curindex="{{idx}}">
+                  <button form-type='submit' class='zhank' hover-class='none'>
+                    <image src='/images/icon_fun.png' mode='widthFix'></image>
+                  </button>
+                </form>
+                <view class='fun_item' style="top:90rpx;z-index:100000;" wx:if="{{idx == popidx && pop3}}">
+                  <form report-submit  bindsubmit="delCircle" data-id="{{item.id}}" data-curidx="{{idx}}">
+                    <button form-type='submit' class='last' hover-class='none'>
+                      <view class='img_box'>
+                        <image src='/images/icon_fun_del.png' mode='widthFix' style='margin:0 0 0 8rpx;'></image>
+                      </view>
+                      <view>删除</view>
+                    </button>
+                  </form>
+                </view>
+              </view>
+            </view>
+          </view>
+          
+          <view class='circle-centent'>
+            <view class='circle-jottings'>
+              <view>
+                <text style="color:red;" wx:if="{{item.source}}">#{{item.source_text}}#</text>
+
+                <text selectable='true' class='{{item.words.length > 100 && !showFull[idx].status ?"cool":""}}'>{{item.words}}</text> 
+              </view>
+              <view class='full_txt' bindtap='openFulltxt' wx:if='{{item.words.length > 90}}' data-curidx="{{idx}}">{{!showFull[idx].status?'全文':'收起'}}</view>
+              <view class="circle-img" style="{{item.source == 9 || item.source == 6?'justify-content: center;':''}}" wx:if="{{item.images.length > 0}}">
+                <image 
+                  wx:for="{{item.images}}" 
+                  wx:for-item="items" 
+                  wx:for-index="subidx" 
+                  wx:key="index" src='{{items.url}}' 
+                  data-subidx="{{subidx}}" 
+                  data-curindex="{{idx}}" 
+                  data-img = "{{items.url}}"
+                  data-images = "{{item.images}}" 
+                  data-source = "{{item.source}}"
+                  bindtap="previewImage1" 
+                  mode="{{item.images.length > 1 ? 'aspectFill': 'widthFix'}}" 
+                  class="{{item.images.length > 1? 'imgduo-width': 'imgyi-width'}}" 
+                  wx-if="{{item.source == 200 && subidx <= 2 }}"
+                  >
+                </image>
+                <image 
+                  wx:for="{{item.images}}" 
+                  wx:for-item="items" 
+                  wx:for-index="subidx" 
+                  wx:key="index" src='{{items.url}}' 
+                  data-subidx="{{subidx}}" 
+                  data-curindex="{{idx}}" 
+                  data-img = "{{items.url}}"
+                  data-images = "{{item.images}}" 
+                  data-source = "{{item.source}}"
+                  bindtap="previewImage1" 
+                  mode="{{item.images.length > 1 ? 'aspectFill': 'widthFix'}}" 
+                  class="{{item.images.length > 1? 'imgduo-width': 'imgyi-width'}}" 
+                  wx-if="{{item.source != 9 && item.source != 6 && item.source != 200 }}"
+                  >
+                </image>
+                <image 
+                  wx:for="{{item.images}}" 
+                  wx:for-item="items" 
+                  wx:for-index="subidx" 
+                  wx:key="index" src='{{items.url}}' 
+                  data-subidx="{{subidx}}" 
+                  data-curindex="{{idx}}" 
+                  data-img = "{{items.url}}"
+                  data-images = "{{item.images}}" 
+                  data-source = "{{item.source}}"
+                  bindtap="previewImage1" 
+                  mode="widthFix" 
+                  style="height:560rpx;width:560rpx;" 
+                  wx-if="{{item.source == 9 || item.source == 6}}"
+                  >
+                </image>
+              </view>
+            </view>
+            <view class="more-activity color-64B" 
+              wx:if="{{item.business_id != 0 && item.discount_id}}" 
+              bind:tap="goToActivity"
+              data-business_id="{{item.business_id}}"
+              data-discount_id="{{item.discount_id}}"
+              data-content_id="{{item.id}}"
+              >
+              <image src="/images/buy-now.png" />
+            </view>
+
+            <view class="biaoshi_btn_box" wx:if="{{ (item.source && item.source != 10 && item.source != 200  && item.source != 201)  ||  (item.source == 10  && member_id == item.member_id) }}">
+              <view class="biaoshi_btn" data-source="{{item.source}}" data-memberid="{{item.member_id}}" data-business_id="{{item.business_id}}" data-goods_id="{{item.goods_id}}" bindtap="gotojion">
+                <image src="{{item.source == 9?'/images/trees_btn.png':'/images/biaoshi_1.png'}}"></image>
+                <text class="biaoshi_text" wx:if="{{item.source == 1}}">发个动态</text>
+                <text class="biaoshi_text" wx:if="{{item.source == 2}}">去参加</text>
+                <text class="biaoshi_text" wx:if="{{item.source == 3}}">签到打卡</text>
+                <text class="biaoshi_text" wx:if="{{item.source == 4}}">去兑换</text>
+                <text class="biaoshi_text" wx:if="{{item.source == 5}}">去捐赠</text>
+                <text class="biaoshi_text" wx:if="{{item.source == 6}}">去提现</text>
+                <text class="biaoshi_text" wx:if="{{item.source == 7}}">{{member_id == item.member_id?'去提现':'去兑换'}}</text>
+                <text class="biaoshi_text" wx:if="{{item.source == 8 || item.source == 11 || item.source == 12}}">去看看</text>
+                <text class="biaoshi_text" wx:if="{{item.source == 9}}">去种一棵摇钱树</text>
+                <text class="biaoshi_text" wx:if="{{item.source == 10  && member_id == item.member_id}}">去查看</text>
+                <text class="biaoshi_text" wx:if="{{item.source == 13}}">去兑换</text>
+                <text class="biaoshi_text" wx:if="{{item.source == 14}}">去抽奖</text>
+                <text class="biaoshi_text" wx:if="{{item.source == 15}}">去呼叫</text>
+                <text class="biaoshi_text" wx:if="{{item.source == 16 || item.source == 203 }}">去参与</text>
+                <text class="biaoshi_text" wx:if="{{item.source == 17 }}">去参与</text>
+              </view>
+              <view class="biaoshi_btn" wx:if="{{item.source == 2 && member_id == item.member_id }}">
+                <text class="biaoshi_text" wx:if="{{item.record_status == 2 && member_id == item.member_id }}" data-activity_id="{{item.activity_id}}" bindtap="gotoApplyFor">去申请时长</text>
+                <text class="biaoshi_text" wx:if="{{item.record_status == 3 && member_id == item.member_id }}">已申请</text>
+              </view>
+            </view>
+            <!-- <view class="click-name" wx:if="{{item.source !=9 && item.source != 16 && item.source != 203}}">点击下方<image src="/images/coin_1.png"></image>领红包，享优惠拿红包</view>
+            <view class="click-name" wx:if="{{item.source == 16 || item.source == 203}}">为爱而赞，让"赞"变成最有力的正能量</view> -->
+            <!-- 下方按钮 -->
+            <view class='circle-footer-operation' wx:if="{{item.source !=9}}">
+              <!-- 分享 -->
+              <!-- <view class="item-btn icon_relay"> -->
+              <button hover-class='none' open-type="share" class="item-btn"
+                data-sharetxt="{{item.words}}" 
+                data-gdImages="{{item.gdImages == ''?item.images:item.gdImages}}" 
+                data-nickname="{{item.nickname}}" 
+                data-contentId="{{item.id}}" 
+                data-flag="{{item.flag}}"
+                data-status="{{item.status}}"
+                data-member="{{item.member_id}}"
+                >
+                <image src='/images/icon-f.png' mode="widthFix" style="width:44rpx;"></image>
+                <text>{{item.forward_count !=0?item.forward_count:'分享'}}</text>
+              </button>
+              <!-- 留言 -->
+              <button hover-class='none'  class="item-btn" bindtap='goToDetail' data-curindex="{{idx}}" data-contentid="{{item.id}}">
+                <image src='/images/icon-l.png' mode="widthFix" style="width:44rpx;"></image>
+                <text>{{item.comment_count !=0?item.comment_count:'评论'}}</text>
+              </button>
+              <!-- 拆盲盒 -->
+              <view class="item-btn" data-curindex="{{idx}}" 
+                data-source="{{item.source}}" 
+                data-select_id="{{item.referral_traffic.select_id}}" 
+                data-select_type="{{item.referral_traffic.select_type}}" 
+                data-traffic_id="{{item.referral_traffic.id}}" 
+                data-zxid="{{item.id}}" 
+                data-mid="{{item.member_id}}" 
+                data-business_id="{{item.business_id}}" 
+                data-is_like="3" 
+                bindtap='like' 
+                style="height: 54rpx;">
+
+                <button hover-class='none'>
+                  <image src="/images/{{item.laud_status == 1 ? 'coin_2':'coin_1'}}.png" class="dou_anm"></image>
+                </button>
+                <!-- <text>{{item.laud_count != 0 ? item.laud_count :'拆盲盒'}}</text> -->
+                <text style="color:{{item.laud_status == 1 ? '#4ac081':'#aaa'}};">拆盲盒</text>
+              </view>
+
+              <view class="item-btn" data-curindex="{{idx}}" 
+                data-source="{{item.source}}" 
+                data-select_id="{{item.referral_traffic.select_id}}" 
+                data-select_type="{{item.referral_traffic.select_type}}" 
+                data-traffic_id="{{item.referral_traffic.id}}" 
+                data-zxid="{{item.id}}" 
+                data-mid="{{item.member_id}}" 
+                data-business_id="{{item.business_id}}" 
+                data-is_like="{{item.source == 200  || item.source == 201 ? '1': '2'}}" 
+                bindtap='like'>
+                <button hover-class='none' class="{{item.laud_status == 1 ? 'active':''}}" wx:if="{{item.source != 201 && item.source != 200}}">
+                  <image src="/images/{{item.laud_status == 1 ? 'icon-praise-opt':'icon-praise'}}.png"></image>
+                </button>
+                <button hover-class='none' class="{{item.laud_status == 1 ? 'active':''}}" style="width:34rpx;height:34rpx;" wx:else>
+                  <image src="/images/link-btn-1.png" style="width:100%;height:100%;"></image>
+                </button>
+                <text wx:if="{{item.source == 200  || item.source == 201}}">立即购买</text>
+                <text wx:else>{{item.laud_count != 0 ? item.laud_count :'赞'}}</text>
+              </view>
+
+            </view>
+
+
+            <view class="circle-item-footer" wx:if="{{item.source ==9}}">
+              <view class="item-btn item-btnleft">
+                <button hover-class='none' open-type="share" 
+                data-sharetxt="{{item.words}}" 
+                data-gdImages="{{item.gdImages == ''?item.images:item.gdImages}}" 
+                data-nickname="{{item.nickname}}" 
+                data-contentId="{{item.id}}" 
+                data-flag="{{item.flag}}"
+                data-status="{{item.status}}"
+                data-member="{{item.member_id}}"
+                >
+                <image src='/images/good_friend.png'></image>
+                </button>
+              </view>
+              <view class="item-btn item-btnright" data-curindex="{{idx}}" data-zxid="{{item.id}}" data-mid="{{item.member_id}}" bindtap='like' data-is_shake='1'>
+                <image src="/images/{{item.laud_status == 1 ? 'tree_seed_icon':'tree_seed'}}.gif"></image>
+                <text style="margin-left:10rpx;">摇一摇 <text style="padding-left:12rpx;" wx-if="{{item.laud_count}}">{{item.laud_count !=0 ? item.laud_count : ''}}</text></text>
+              </view>
+            </view>
+
+
+          </view>
+        </view>
+      </view>
+      <!-- 广告位 开始 -->
+      <block  wx:for="{{circleAd}}" wx:key="index" wx:for-item="ad_items" wx:for-index="Adidx">
+        <view class="circle-adbox" wx:if="{{idx == ad_items}}">
+          <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>
+        </view>
+      </block>
+      <!-- 广告位 结束-->
+
+    </block>
+
+    <view class='nulldata_wrap' wx:if="{{wenzData.length == 0}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>正在加载...</view>
+    </view>
+  </view>

@@ -1,0 +1,8 @@
+<view class="img-box">
+  <image src="https://oss.qingshanpai.com/communityFunction/p-1.png?{{num}}"></image>
+  <view class="notice-box">
+    <view>{{community_people}}人参与{{community_count}}次、共{{community_sum}}kg,减少{{community_tan}}Kg碳排放</view>
+  </view>
+
+
+</view>

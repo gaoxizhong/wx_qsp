@@ -1,0 +1,9 @@
+{
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "comp": "./../module/component/component",
+    "couponList":"/component/coupon_list/coupon_list"
+}
+}

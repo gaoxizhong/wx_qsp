@@ -1,0 +1,376 @@
+@import "/pages/dicount_good/dicount_good.wxss";
+.idleGood-info-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  margin-top: 30rpx 0 10rpx 0;
+  height: 164rpx;
+}
+.idleGood-info-box>image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 6px;
+}
+.idleGood-item-info{
+  padding-left: 10rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  flex: 1;
+  position: relative;
+}
+.gotogrdt-box{
+  width: 166rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  color: #ff905f;
+  border-radius: 20px;
+  border: 1px solid #ff905f;
+}
+.idleGood-item-info>view {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.item-info-title {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.item-info-add {
+  font-size: 28rpx;
+  color: #878787;
+  padding: 8rpx 0;
+}
+.item-info-fijin {
+  font-size: 28rpx;
+}
+.idleGood-btn-box {
+  width: 170rpx;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.idleGood-btn {
+  width: 152rpx;
+  height: 58rpx;
+  border-radius: 20px;
+  border: 1px solid #ff905f;
+  color: #ff905f;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 58rpx;
+}
+.jg-box{
+  display: flex;
+  align-items: center;
+  padding: 12rpx 30rpx;
+  box-sizing: border-box;
+
+}
+.info-deac-box{
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+}
+.type-box{
+  padding:10rpx 30rpx;
+  box-sizing: border-box;
+  width: 100%;
+}
+.type-box1{
+  margin: 20rpx 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.type-box1-title{
+  width: 136rpx;
+  text-align: left;
+}
+.type-box1-title>view{
+  width: auto;
+  padding: 8rpx 10rpx;
+  font-size: 28rpx;
+  background: #f5f7f6;
+  border-radius: 20px;
+  color: #a8a9a8;
+  text-align: center;
+}
+.type-box1-text{
+  flex: 1;
+  font-size: 28rpx;
+  font-weight: 600;
+  padding-left: 20rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.noe-price-stock {
+  justify-content: flex-end;
+}
+.introduction_idle{
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 36rpx;
+}
+.introduction_idle .intr_idle_title{
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.intr_idle_title image {
+  width: 32rpx;
+  height: 32rpx;
+  text-align: center;
+}
+.intr_idle_title text {
+  font-size: 26rpx;
+  flex: 1;
+  margin-left: 16rpx;
+  color: #040404;
+}
+.intr_idle_btn{
+  width: auto;
+  padding: 0 20rpx;
+  font-size: 26rpx;
+  color: #64B532;
+}
+.to-buyto{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.to-buyto>view{
+  flex: 1;
+  width: 100%;
+}
+.foot-btn-box{
+  width: 100%;
+  padding: 30rpx 60rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.foot-btn-box-l{
+  width: 152rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  text-align: center;
+  color: #ff905f;
+  border: 1px solid #ff905f;
+  border-radius: 20px;
+}
+.foot-btn-box-r{
+  width: 395rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  text-align: center;
+  background: #ff905f;
+  color: #fff;
+  border-radius: 20px;
+}
+.hoverClass{
+  opacity: .8;
+}
+.bid-box{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30rpx 40rpx;
+}
+.bid-box-title{
+  width: 100%;
+  font-size: 30rpx;
+  font-weight: 600;
+  padding: 10rpx 0;
+}
+.bid-box-list{
+  margin: 20rpx 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 86rpx;
+}
+.bid-box-list .t-image{
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 50%;
+}
+.t-info{
+  padding-left: 10rpx;
+  font-size: 28rpx;
+}
+.t-info1{
+  font-weight: 600;
+}
+.t-info2 text{
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #ff905f;
+}
+.lx-box{
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 20rpx;
+}
+.lx-box image{
+  width: 100%;
+  height: 100%;
+}
+.bid-mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+}
+.isbid-box{
+  width: 684rpx;
+  height: auto;
+  border-radius: 8px;
+  background: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 999999;
+  padding:20rpx;
+  box-sizing: border-box;
+}
+.xy-mask{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0,20);
+  opacity: 0.8;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+}
+.xy-box{
+  width: 92%;
+  height: auto;
+  border-radius: 8px;
+  background: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 999999;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.isbid-box-title{
+  width: 246rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 74rpx;
+  height: 74rpx;
+  background: #ff905f;
+  color: #fff;
+  margin: 0 auto;
+  margin-top: -20rpx;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.isbid-cj-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  margin: 20rpx 0;
+}
+.isbid-cj-box .isbid-cj-l image{
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 50%;
+}
+.isbid-input-box{
+  width: 364rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-left: 20rpx;
+}
+.isbid-input-box input{
+  width: 100%;
+  height: 100%;
+  padding-left: 12rpx;
+  font-size: 28rpx;
+  background: #eee9e9;
+}
+.isbid-cj-l{
+  display: flex;
+  align-items: center;
+}
+.is-bid-btn{
+  width: 100%;
+  height: 64rpx;
+  line-height: 64rpx;
+  background: #ff905f;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  margin: 40rpx auto 20rpx;
+  font-size: 28rpx;
+}
+.fbsj-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #999;
+  padding: 0 0 20rpx 30rpx;
+  box-sizing: border-box;
+}
+.origin-price-box{
+  font-size: 24rpx;
+  color: #b8b8b8;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10rpx 0;
+}
+.bz-box view{
+  font-size: 26rpx;
+  color: #888;
+}

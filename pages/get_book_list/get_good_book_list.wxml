@@ -1,0 +1,14 @@
+<view class="pages-box">
+  <view wx:for="{{getbooklist}}" wx:key="index" class="booklist-items"
+    bindtap="goToActivitylist" 
+    data-id="{{item.id}}"
+    data-books_id="{{item.books_id}}"
+  >
+    <view class="list-items-box">
+      <image src="{{item.thumb}}"></image>
+      <view class="box-items-text">
+        {{item.books_name}}
+      </view>
+    </view>
+  </view>
+</view>

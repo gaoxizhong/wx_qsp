@@ -1,0 +1,17 @@
+<view class="title-box">
+  <view class="left-ri">类型</view>
+  <view style="flex:1;">中奖人</view>
+  <view class="left-ri">状态</view>
+</view>
+<view class="tab_tr_box">
+  <block wx:for="{{lottery_result}}" wx:key="index">
+    <view class="tab_tr">
+      <view class="tr_td1 text"><text>{{item.price}}</text></view>
+      <view class="tr_td2 text">
+        <text>{{item.text}}</text>
+        <view class="tr_td2_btn" data-red_id="{{item.id}}" bindtap="gotoyaoqing" wx:if="{{(item.is_canyu == 1 && item.price_name !=5) ||  (item.is_canyu == 1 && item.price_name == 5 && member_id == item.yao_member_id ) }}">去邀请</view>
+      </view>
+      <view class="tr_td1 text"><text>{{item.status}}</text></view>
+    </view>
+  </block>
+</view>

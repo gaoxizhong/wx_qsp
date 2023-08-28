@@ -1,0 +1,42 @@
+<!-- <view class="search-box">
+  <view class="search-button" bind:tap="changeCheck">
+    <text>筛选</text>
+    <image src="{{showOrderList ? '/images/icon_down.png' : '/images/icon_up.png'}}" />
+  </view>
+</view> -->
+<view class="order-list" wx:if="{{showOrderList}}">
+  <view class="order-item" wx:for="{{orderList}}" wx:for-index="index" wx:key="index" wx:for-item="item">
+    <view class="order-info">
+      <image src="{{item.work.member.avatar}}" class="orderImg"></image>
+      <view class="order-info-r">
+        <view class="items-r-title">{{item.work.member.nickname}}</view>
+        <view class="items-r-m">{{item.content}}</view>
+        <view class="items-r-pbox">{{item.created_at}}</view>
+      </view>
+    </view>
+    <image src="{{ item.work.image_array[0] }}" class="order-rimg"></image>
+  </view>
+  <view class='nulldata_wrap' wx:if="{{orderList.length <= 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg' style="color:#000;">暂无数据</view>
+  </view>
+</view>
+<view class="search-condition" wx:else>
+  <view class="date-choose">
+    <view class="start-time">
+      <picker mode="date" value="{{start_time}}" bindchange="startTime" style="height:100%;width:100%">
+        <text>开始时间：<text style="color:#CDCDCD">{{start_time?start_time:'选择开始时间'}}</text></text>
+      </picker>
+    </view>
+    <view class="end-time">
+      <picker mode="date" value="{{end_time}}" bindchange="endTime" style="height:100%;width:100%">
+        <text>结束时间：<text style="color:#CDCDCD">{{end_time?end_time:'选择结束时间'}}</text></text>
+      </picker>
+    </view>
+  </view>
+  <view class="btn-search">
+    <button bindtap="resetSearch">查询</button>
+  </view>
+</view>
+
+

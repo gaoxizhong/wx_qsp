@@ -1,0 +1,17 @@
+<view class="taskList-box">
+  <block wx:for="{{more_integral}}" wx:key="index">
+    <view class="taskList-items-box">
+      <image src="{{item.icon}}" mode="widthFix" class="list-items-image"></image>
+      <view class="taskList-items-info">
+        <view class="items-info-title">{{item.name}}( {{(item.do_num - item.limit_num) >= 0 ? item.limit_num : item.do_num}}/{{item.limit_num}} )</view>
+        <view class="items-info-text">积分+{{item.one_integral}}</view>
+      </view>
+      <view class="taskList-items-btnbox" wx:if="{{(item.do_num - 0)< (item.limit_num - 0)}}" bindtap="goTotask"  data-url="{{item.to_url}}" data-jifen="{{item.one_integral}}" data-type="{{item.type}}" data-task_id="{{item.id}}">
+        <view class="items-text items-text1">去完成</view>
+      </view>
+      <view class="taskList-items-btnbox" wx:else bindtap="goTotask1" data-url="{{item.to_url}}" data-type="{{item.type}}">
+        <view class="items-text items-text2">已完成</view>
+      </view>
+    </view>
+  </block>
+</view>

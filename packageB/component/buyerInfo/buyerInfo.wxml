@@ -1,0 +1,47 @@
+<view class="addpage-box">
+  <view class="address-box" bindtap="openEdit" wx:if="{{!buyer_address}}">
+    <view class="address-info-box">
+      <text>请设置您的收货地址</text>
+    </view>
+    <image src="/images/icon_editcomment.png" class="address-icon"/>
+  </view>
+  <view class="address-box" bind:tap="openEdit" wx:else>
+    <view class="address-info-box">
+      <view class="name-phone">{{buyer_address.name+ '  '}}{{buyer_address.phone}}</view>
+      <view class="address">买家地址：{{buyer_address.address}}</view>
+    </view>
+    <image src="/images/icon_editcomment.png" class="address-icon"/>
+  </view>
+  <image src="/images/address_line.png" style="height: 5rpx;width:100%" />
+</view>
+<view class="divide"></view>
+<view class="edit-info" wx:if="{{ showEdit }}">
+  <view class="need-hbb">
+    <text class="needtitle">姓名</text>
+    <view class="needinput">
+      <input type="text" value="{{buyer_name}}" placeholder="请输入姓名" bindinput="inputName"/>
+    </view>
+  </view>
+  <view class="need-hbb">
+    <text class="needtitle">联系方式</text>
+    <view class="needinput">
+      <input type="digit" value="{{buyer_phone}}" placeholder="请输入联系方式" bindinput="inputPhone"/>
+    </view>
+  </view>
+  <view class="need-hbb">
+    <text class="needtitle">省市区</text>
+    <picker class="needpicker" mode="region" value="{{buyer_ssq}}" start="2015-09-01" bindchange="chooseAddress">
+      <view class="needpicker-v">{{buyer_ssq ? buyer_ssq:'请选择省市区'}}</view>
+    </picker>
+  </view>
+  <view class="need-hbb">
+    <text class="needtitle">详细地址</text>
+    <view class="needinput">
+      <input type="text" value="{{buyer_addressDetail}}" placeholder="请输入详细地址" bindinput="inputAddrDetail"/>
+    </view>
+  </view>
+  <button class="edit-button" hover-class="hoverClass" bindtap="saveAddress">保存</button>
+  <view class="divide"></view>
+</view>
+
+

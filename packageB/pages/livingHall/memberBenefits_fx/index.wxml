@@ -1,0 +1,62 @@
+<view class="todayLike-title-box">
+  <view class="todayLike-title-info">
+    <view class="title-2">
+      <view class="titleInfo-title-t">
+        <text>分享付款(元)</text>
+        <image src="/images/mark_image.png" mode="widthFix" bindtap="openIllustrate" class="titleInfo-jrsdz-img"></image>
+      </view>
+      <view class="titleInfo-title-t">
+          <text>收益金额(元)</text>
+        </view>
+    </view>
+    <view class="title-info-top">
+      <view class="titleInfo-title">
+        <view class="titleInfo-num">{{ no_exchange_sale?no_exchange_sale:'0' }}</view>
+      </view>
+      <view class="titleInfo-ljdh-box" bindtap="conversion_btn">
+        <image src="/packageB/assets/images/sigin/icon_today_bgljdh.png" mode="widthFix"></image>
+        立即兑换
+      </view>
+      <view class="titleInfo-title">
+        <view class="titleInfo-num">{{today_exchange_coin_share.value?today_exchange_coin_share.value:0}}</view>
+      </view>
+    </view>
+    <view class="todayLike-bottom-ye">
+      <view>可用余额(元)：{{my_coin?my_coin:0.00}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="seeccon-btn-box">
+  <view class="mys-items-box" bindtap="goToLikeGetDetails">
+    <image src="/packageB/assets/images/livingHall/icon-fxmx.png" mode="widthFix"></image>
+    <text>分享明细</text>
+  </view>
+  <view class="mys-items-box" bindtap="goToExchangeRecord">
+    <image src="/packageB/assets/images/livingHall/icon-txmx.png" mode="widthFix"></image>
+    <text>兑换明细</text>
+  </view>
+  <view class="mys-items-box" bindtap="goTogd">
+    <image src="/packageB/assets/images/livingHall/icon-gdsy.png" mode="widthFix"></image>
+    <text>更多分享</text>
+  </view>
+</view>
+
+<view class="project-box">
+  <view class="project-box-title">兑换项目</view>
+  <projectList id="projectID"/>
+</view>
+
+<view class="illustrate-box" catchtouchmove="catchtouchmove" wx:if="{{is_illustrate}}">
+  <view class="illustrate-pop" catchtouchmove="catchtouchmove" bindtap="infoTextBtn"></view>
+  <view class="illustrate-infobox">
+    <view class="illustrate-title-box">
+      <view>分享收益</view>
+      <view class="close" bindtap="infoTextBtn">X</view>
+    </view>
+    <view class="infoText-box">
+      分享收益由本人分享平台项目及其他人作品，好友下单成功，根据作品金额的{{ share_scale }}获得分享收益；该收益可用来抵现兑换项目或抵现加钱兑换，不可提现。
+    </view>
+    <view class="infoText-btn" bindtap="infoTextBtn">我知道了</view>
+  </view>
+</view>

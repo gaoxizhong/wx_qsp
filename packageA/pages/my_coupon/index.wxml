@@ -1,0 +1,73 @@
+
+<!-- <view class="citve-box is_posi">
+  <view bindtap="getcolumnShop" data-id="1"  class="{{columnSeleted == '1'? 'items-hover' :''}}">
+    <image src="http://oss.qingshanpai.com/banner/near_coupons_btn.png"></image>
+  </view>   
+  <view bindtap="getcolumnShop" data-id="2" class="{{columnSeleted == '2'? 'items-hover' :''}}">
+     <image src="http://oss.qingshanpai.com/banner/near_shops_btn.png"></image>
+  </view>
+</view> -->
+
+<!-- <view style="width:100%;height:170rpx;"></view> -->
+<!-- 附近好券 -->
+<view class="shoplist-1" wx:if="{{columnSeleted == 1}}">
+  <couponList coupon_list="{{likeList}}" bindgoToActivity="goToActivity" />
+  <view style="width:100%;height:180rpx;"></view>
+</view>
+<!-- 附近好店 -->
+<view wx:if="{{columnSeleted == 2}}">
+
+
+  <view class="sousuo-box">
+    <view class="input-box">
+      <input type="text" value="" placeholder="输入店铺名称"  bindinput="searchLibrary" value="{{shop_name}}"></input>
+    </view>
+    <view class="btn-box" catchtouchmove="aaa" bindtap="getLibraryByConditon">搜索</view>
+  </view>
+  <!-- 一级栏目 -->
+  <!-- <view class="cates">
+    <scroll-view class="cateslist" scroll-x="{{true}}" scroll-y="{{false}}">
+      <view class="cate-item"
+        wx:for="{{cate_list}}"
+        wx:for-index="index"
+        wx:for-item="item"
+        wx:key="index"
+        bindtap="getCateShop"
+        data-id="{{item.id}}"
+        style="color: {{cateSeleted == item.id? '#EB404F':''}}">
+        {{item.title}}
+      </view>
+    </scroll-view>
+  </view> -->
+  <!-- 列表 -->
+
+
+  <view class="goodinfo">
+    <view class="goToInfo" wx:for="{{shopList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+      <view class="good-item-view" bind:tap="goToShop" data-id="{{item.id}}" data-is_password="{{item.is_password}}">
+        <view class="imagebox">
+          <image class="good-item-img" src="{{ item.avatar_url }}" binderror="binderrorimg" data-errorimg="{{index}}" mode="aspectFill"></image>
+          <view class="member-view">
+            <view class="member-view-1"></view>
+            <view class="member-view-2"> 
+              <view class="member-view-2-add">{{item.address}}</view>
+              <view style="width:116rpx;">{{item.distance}}km</view>
+            </view>
+          </view>
+
+        </view>
+        <view class="item-title-name">
+          <view class="goodname">{{item.name}}</view>
+          <view class="idle-avar-box">
+            <image src="{{item.member.avatar}}"></image>
+            <text class="idle-avar-text">{{item.member.nickname}}</text>
+          </view>
+        </view>
+        
+      </view>
+    </view>
+  </view>
+
+</view>
+<!-- 密码弹窗 -->
+<include src="/packageA/pages/module/is_password/index.wxml" />

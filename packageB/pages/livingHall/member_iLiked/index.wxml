@@ -1,0 +1,30 @@
+<view class="commodityList-box">
+  <block wx:for="{{my_likeList}}" wx:key="index">
+    <view data-id="{{item.work_id}}" bindtap="gotogoodsdetails">
+      <view class="scroll-workList-item_H">
+        <view class="scroll-workList-item_H">
+          <view class="item_Himage-box">
+            <image src="{{item.work.image_array[0]}}" class="item_Himage-workimg"></image>
+          </view>
+          <view class="scroll-workList-info">
+            <view class="scroll-workList-title">{{item.work.title}}</view>
+            <view class="scroll-workList-f">
+              <view class="scroll-workList-l">
+                <image src="{{item.work.member.avatar}}"></image>
+                <text>{{item.work.member.nickname}}</text>
+              </view>
+              <!-- <view class="scroll-workList-rbtn">
+                <image src="/packageB/assets/images/livingHall/icon-aixin.png" mode="widthFix"></image>
+                <text>{{item.work}}</text>
+              </view> -->
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class='nulldata_wrap' wx:if="{{my_likeList.length == 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据...</view>
+  </view>
+</view>

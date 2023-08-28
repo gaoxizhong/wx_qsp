@@ -1,0 +1,33 @@
+<view class="setint-box">
+  <view class="setint-title">选择购买积分</view>
+  <view style="color:#666; padding:10rpx 0;">可购买：{{realAmount}} </view>
+  <view class="setint-title-desc">(最低为5积分，上限不高于10000积分)</view>
+  <view class="setint-list-box">
+    <view class="setint-list-item" style="justify-content: flex-start;">
+      <view bindtap="changere" class="{{good_seld== '1'?'seld-btn':''}}" data-integral="200" data-index="1">200积分</view>
+    </view>
+    <view class="setint-list-item">
+      <view bindtap="changere" class="{{good_seld== '2'?'seld-btn':''}}" data-integral="500" data-index="2">500积分</view>
+    </view>
+    <view class="setint-list-item" style="justify-content: flex-end;">
+      <view bindtap="changere" class="{{good_seld== '3'?'seld-btn':''}}" data-integral="2000" data-index="3">2000积分</view>
+    </view>
+  </view>
+    <view class="setint-list-box">
+    <view class="setint-list-item" style="justify-content: flex-start;">
+      <view bindtap="changere" class="{{good_seld == '4'?'seld-btn':''}}" data-integral="5000" data-index="4">5000积分</view>
+    </view>
+    <view class="setint-list-item">
+      <view bindtap="changere" class="{{good_seld == '5'?'seld-btn':''}}" data-integral="10000" data-index="5">10000积分</view>
+    </view>
+    <view class="setint-list-item" style="justify-content: flex-end;" bindtap="changere" data-integral="0"  data-index="6">
+      <input type="digit" value="{{value_input}}" class="{{good_seld== '6'?'seld-btn':''}}"  placeholder="自定义" placeholder-style="color:#333;" bindinput="save_input_num"></input>
+    </view>
+  </view>
+  <view class="show-number-box">
+    <text>已选中：{{integral?integral:'0.00'}}积分</text>
+    <text>金额(￥)：{{total_price}}</text>
+  </view>
+</view>
+<view class="que-btn" hover-class="set-btn" bindtap="que_btn">确定</view>
+<!-- <view class="tishi-text">说明：设定额度并点击确认,即视为接受积分兑换环保收益(现金+优惠劵),积分收益随商家意愿和平台规则波动,收益以及钱包进账和券包为准。</view> -->

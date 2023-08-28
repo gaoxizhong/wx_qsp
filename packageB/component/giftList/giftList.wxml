@@ -1,0 +1,34 @@
+  <view class="poster_car_box" wx:if="{{is_gift}}">
+    <view class="is-gift-mask" catchtouchmove="catchtouchmove" catchtap="is_gift_mask"></view>
+    <view class="is-gift-box" >
+      <view class="gift-list-box">
+        <block wx:for="{{giftList}}" wx:key="index">
+          <view class="giftList-items-box">
+            <view class="giftList-items-nostatus" data-index="{{index}}" data-gift_name="{{item.title}}" data-gift_jf="{{item.i}}" data-id="{{item.id}}" bindtap="giveAwayGift">
+              <image src="{{item.image}}" mode="widthFix" class="listitems-image"></image>
+              <view class="listitems-title">
+                <view>{{item.title}}</view>
+                <view style="color: #565656;font-size: 26rpx;">{{item.i}}环保积分</view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="jifen-box">
+        <text>剩余{{realAmount}}环保积分</text>
+        <text style="margin-left:14rpx;color:#f61f53;" bindtap="goTotastList">去赚积分</text>
+      </view>
+    </view>
+  </view>
+
+
+ <!-- =====================  积分不足 弹窗提示 ================ -->
+ <view class="is-jfbz-box" wx:if="{{is_jfbz}}">
+    <view class="is-jfbz-mask" catchtouchmove="catchtouchmove" catchtap="is_jfbz_mask"></view>
+    <view class="is-jfbz-view">
+      <view style="color:#f33556;font-weight: bold;font-size: 32rpx;padding:14rpx 0;">当前环保积分不足</view>
+      <view style="color:#333;font-size: 28rpx;">剩余{{realAmount}}环保积分</view>
+      <view class="zqjf-btn" bindtap="goTotastList">去赚取积分</view>
+    </view>
+  </view>
+<!-- ========================= 弹窗 结束 =========================== -->

@@ -1,0 +1,59 @@
+<view class="top-announcement-box">
+  <view class="announcement-img-box"><image src="/packageA/image/volunacti-hron.png"></image></view>
+  <view style="padding-left:20rpx;flex: 1;color: #666;">助力一分公益活动，彰显品牌正能量传播价值。提供暖心奖品，让爱传递到更多人可以看到的地方。让我们携手温暖整个世界！</view>
+</view>
+<view class="module-box">
+  <view class="select-box" wx:if="{{!select_type_moving}}">
+    <image src="/packageA/assets/images/select_b.png" bindtap="gotosele"></image>
+    <text style="padding-top:20rpx;font-size: 28rpx;">选择弹窗关联商品/优惠券</text>
+  </view>
+  <view class='circle' style="padding:30rpx 20rpx;" wx:elif="{{select_type_moving == 1}}">
+    <view class='shop-centent'>
+      <view class='shop-centent-title'>
+        <view class="shop-img">
+          <image class="shop-img-width" src="{{ sele_info_moving.image }}"></image>
+        </view>
+        <view class='shop-jottings'>
+          <view selectable='true' class='text'>{{sele_info_moving.title}}</view>
+          <view class='circle-head' style="justify-content: space-between;">
+            <text style="font-size:20rpx;text-decoration: line-through;">原价 ￥{{sele_info_moving.price}}</text>
+          </view>
+          <view class="discount">
+            <view class="discount-price">
+              <text>折扣价：￥{{sele_info_moving.total_price}}+{{sele_info_moving.hbb?sele_info_moving.hbb:'0.00'}}积分</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="coupon-list-items" wx:elif="{{select_type_moving == 2}}">
+    <view class="sheng-bg">
+        <image src="/images/sheng-bg.png"></image>
+      </view>
+    <view class="listitems-le">
+      <view class="listitems-le-title">凭此券 享优惠</view>
+      <view class="calendar-box">
+        <view class="calendar-con"><text style="font-size:28rpx;">￥</text>{{sele_info_moving.youhui}}</view>
+      </view>
+      <view class="shops-name" wx:if="{{is_mycoupon == '1'}}">{{sele_info_moving.b_name}}</view>
+      <view class="shops-name" wx:else>{{sele_info_moving.business_name?sele_info_moving.business_name: sele_info_moving.title}}</view>
+    </view>
+    <view class="listitems-ri">
+      <view class="listitems-rititle-box">
+        <view class="coupon-title">{{sele_info_moving.name}} 优惠券</view>
+      </view>
+      <view class="ri-price-curr"><text>原价： {{sele_info_moving.price}}</text><text style="padding-left:12rpx;">劵后价： {{sele_info_moving.current_price}}</text></view>
+      <view class="coupon-view">支付：￥{{sele_info_moving.coupon_price}} + {{sele_info_moving.coupon_integral}}积分 获取本券</view>
+      <view class="start-end-time">{{sele_info_moving.start_time}} - {{sele_info_moving.end_time}}内有效。</view>
+    </view>
+  </view>
+</view>
+
+<view class="again-box" wx:if="{{select_type_moving}}">
+  <view class="again-btn"  bindtap="gotosele">重新选择弹窗关联商品</view>
+</view>
+<view class="footer-btn">
+  <view hover-class="btn-hover" bindtap="goRedstyle">去赞助赛事</view>
+</view>
+

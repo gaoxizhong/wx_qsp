@@ -1,0 +1,16 @@
+<view class="poster_car_box" wx:if="{{is_poster}}" catchtouchmove='innerTap'>
+  <view class="poster_car_mark" catchtap="show_is_poster" catchtouchmove='innerTap'></view>
+  <view class="poster-view-box">
+    <view class="poster-box-title">请左右划动图片选择您喜欢的海报样式：</view>
+    <swiper class='swiper' bindchange="moveServerProSwiper" data-dongtai_id="{{item.dongtai_id}}" circular="true" current="{{swiper_index}}" previous-margin="50rpx" next-margin="50rpx">
+      <block wx:for="{{poster_tabs}}" wx:key="index">
+        <swiper-item bindtap="select_swiper" class="is_secl" data-id="{{item.dongtai_id}}" data-swiper_index="{{swiper_index}}">
+          <view class="swiper-item-view {{index == swiper_index?'scaleY-1':'scaleY-2'}} {{ item.isActive?'active':''}}">
+            <image src="{{item.thumb}}" mode='scaleToFill'/>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="que_btn" bindtap="que_btn">确认</view>
+  </view>
+</view>

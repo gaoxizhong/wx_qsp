@@ -1,0 +1,106 @@
+<view>
+  <view class="my-bg">
+    <view class="mmy-gg">
+      <image src="http://oss.qingshanpai.com/banner/walltebg-2.png"/>
+    </view>
+    <view class="mywall-cen">
+      <view class="text-col" style="font-size:34rpx;">余额(元)</view>
+      <view class="text-col" style="font-size:72rpx;font-weight: 600;padding-top: 20rpx;">{{ jine ? jine : 0 }}</view>
+      <!-- <view class="text-col tixian" bindtap="gettxian_btn">提现</view> -->
+      <!-- <view class="text-img" bindtap="caption"><image src="/images/wenhao.png"></image></view> -->
+    </view>
+  </view>
+</view>
+<view style="padding-top:18rpx;">
+  <view class="ktx-box" wx:if="{{money > 0}}">
+    <view class="section_box">
+      <view class="section_title">可提现金额</view>
+      <view class="mark_tishi" bindtap="caption"><image class="mark_image" src="/images/mark_image.png"></image></view>
+    </view>
+    <form bindsubmit="gettxian">
+      <view class="ktxje-box">
+        <image src="http://oss.qingshanpai.com/icon/wdqb-ic-bz.png" mode="widthFix"></image>
+        <!-- <input class="ktxje-num" name="money" value="" disabled/> -->
+        <text class="ktxje-num" name="money">{{money}}</text>
+      </view>
+
+      <view class="srxm-box">
+        <view class="section_title">输入本人姓名:</view>
+        <input name="name" placeholder="请输入真实姓名" value="{{name_value}}" bindinput="setName"/>
+      </view>
+      <button formType="submit" class="btn-area" hover-class='hover_color'>提现</button>
+    </form>
+  </view>
+
+
+  <view class="my-function-list">
+    <view class="function-list-item" bindtap="getdetails">
+      <view class="function-list-item-left">
+        <image src="http://oss.qingshanpai.com/banner/walltemx.png" mode="widthFix"></image>
+        <view style="padding-left:12px;">收入明细</view>
+      </view>
+      <view class="arrow">
+        <image class="my-more" mode="widthFix" src="/images/my/my_more.png"></image>
+      </view>
+    </view>
+    <view class="function-list-item" bindtap="getWithdraw">
+      <view class="function-list-item-left">
+        <image src="http://oss.qingshanpai.com/banner/walltemx.png" mode="widthFix"></image>
+        <view style="padding-left:12px;">提现明细</view>
+      </view>
+      <view class="arrow">
+        <image class="my-more" mode="widthFix" src="/images/my/my_more.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 福利券交易list -->
+  <view class="record-box">
+    <!-- <view class="record_title">已有{{done_p}}人完成交易</view> -->
+    <block wx:for="{{record_data}}" wx:key="index">
+      <view class="record_item">
+        <view class="record_item_left">
+          <view>
+            <text style="color:#ee9249;">{{item.data.business_name}}</text> 正在收购您的积分，请尽快确认交易；
+            <view>积分单价：1元/积分</view>
+            <view>收购数量：小额随机</view>
+            <view style="font-size: 26rpx;color: #999;padding-top:10rpx;">截止交易时间： {{item.tab.time}}</view>
+          </view>
+        </view>
+        <view class="record_item_right">
+          <view class="item_right_look" hover-class="font_color" data-index="{{index}}" bindtap="confirm_coupons">确认交易</view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+
+
+
+
+
+
+  <!-- <view class="detailsa">
+    <view>系统留言：</view>
+    <view class="system_message" wx:if="{{is_type == 1}}">
+      <image src="/images/system_caveat.png"></image>
+      <view class="system_message_text">{{note}}</view>
+    </view>
+    <view class="system_message" wx:else>暂无</view>
+  </view> -->
+</view>
+  <!-- 返回上一步 -->
+  <include src="/pages/module/backto/index.wxml" />
+  <!-- 点击提现弹窗 -->
+  <view class="mask-bg" wx:if="{{explanation}}" bindtap="explanation_bg"></view>
+  <view class="explanation-box" wx:if="{{explanation}}" >
+    <view class="explanation-box-bag"></view>
+    <view class="explanation-box-text">
+      <view style="font-size:32rpx;text-align: center;">提现说明</view>
+      <view class="box-text-list"><view>1、</view><text>可提现余额低于1元无法提现。</text></view>
+      <view class="box-text-list"><view>2、</view><text>用户提现完成后，1-2个工作日到账。</text></view>
+      <view class="box-text-list"><view>3、</view><text>钱包余额为总收入金额。可提现余额为买家确认收货后的实际到账金额。如果买家未点击确认收货，则卖家发货起的14个工作日自动确认收货</text></view>
+    </view>
+    <view class="explanation-box-img"><image src="http://oss.qingshanpai.com/banner/hongbao.png"></image></view>
+    <view class="icon-quxiao-img" bindtap="explanation_bg"><image src="http://oss.qingshanpai.com/banner/icon-quxiao.png"></image></view>
+  </view>

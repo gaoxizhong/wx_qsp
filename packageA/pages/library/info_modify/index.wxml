@@ -1,0 +1,83 @@
+<view class="all">
+   <scroll-view scroll-y="true" style="height: 100%;">
+      <view class="content">
+        <view class="content-top">
+          <view class="left">
+            <image src="{{book_image}}"></image>
+          </view>
+          <view class="right">
+            <text class="book-name">{{book_name?book_name:'暂无名称'}}</text>
+            <text class="book-author">{{book_author?book_author:'暂无作者'}}</text> 
+            <view class="book-prace">
+               ￥ <input class="centent-int1" type="number" value="{{book_price}}" placeholder="请输入价格" bindinput="setbookprice" placeholder-style="text-align:right;font-size:24rpx;"></input>
+            </view>
+          </view>
+        </view>
+        <view class="content-butt">
+
+          <view class="content-butt-list">
+            <view class="butt-list-title">最高可卖</view>
+            <view class="list-title-right">
+              <text>{{book_discount}}折 </text>
+              <text>￥{{discount_price}}</text>
+              <picker bindchange="binddiscountChange" data-book_price="{{book_price}}" data-book_id="{{book_id}}" value="{{discount_inx}}" range="{{discount_array}}" class="modify-btn">
+                修改
+              </picker>
+            </view>
+          </view>
+          <view class="content-butt-list">
+            <view class="butt-list-title">新旧程度</view>
+            <view class="list-title-right">
+              <text style="padding-left:22rpx;color:{{book_grade ? '#4AC081':'#d2d2d2'}};">{{book_grade ? book_grade:'请选择新旧程度'}}</text>
+              <picker bindchange="bindPickerChange" data-book_id="{{book_id}}" value="{{inx}}" range="{{oldNewarray}}" class="modify-btn">
+                选择
+              </picker>
+            </view>
+          </view>
+          <view class="content-butt-list">
+            <view class="butt-list-title">图书数量</view>
+            <view class="list-title-right centent-int1">
+              <input value="{{stock}}" type="number" bindinput="name_stock" placeholder="选填" placeholder-style="text-align:right;font-size:24rpx;" style="width:100%;height:100%;text-align:center;"></input>
+            </view>
+          </view>
+          <view class="content-butt-list">
+            <view class="butt-list-title">内容简介</view>
+            <view class="list-title-right centent-int">
+              <input value="{{summary}}" bindinput="name_rido" placeholder="选填" placeholder-style="text-align:right;" style="width:100%;height:100%;"></input>
+            </view>
+          </view>
+          <view class="content-butt-list">
+            <view class="butt-list-title">添加图片</view>
+            <view class="add-image">
+              <image 
+                mode="aspectFill" 
+                wx:for="{{summary_image}}"
+                wx:for-item="item_img"
+                wx:for-index="indx" 
+                data-index="{{indx}}"
+                wx:key="indx" 
+                src="{{item_img}}" 
+                bind:tap="openPhoto"
+                />
+              <view class="add-pic" bind:tap="choosePic_tuan" wx:if="{{summary_image.length< 3}}">
+                <image src="/images/icon-addphoto.png" mode="aspectFill"/>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view> 
+      <view style="width:100%;height:140rpx;"></view>
+    </scroll-view>
+    <view class="btn-sao">
+      <button bindtap="submit">确认修改</button>
+    </view>
+
+</view>
+
+<view class="layer" wx:if="{{showFull}}" bindtap='closePic'>
+  <view class="cover"></view>
+  <view class="con">
+    <image src='{{preview}}' mode="widthFix"></image>
+    <view bindtap='delPic' class="txt" bindtap='delPic'>删除</view>
+  </view>
+</view>

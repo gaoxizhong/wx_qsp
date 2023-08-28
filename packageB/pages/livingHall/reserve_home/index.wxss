@@ -1,0 +1,186 @@
+page{
+  box-sizing: border-box;
+  padding: 20rpx 0;
+  background: #fff;
+}
+.ts-box{
+  width: auto;
+  height: 110rpx;
+  font-size: 30rpx;
+  color: #e78f4a;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background: #fcf5dc;
+  border-radius: 8px;
+  overflow: hidden;
+  line-height: 1.2;
+  margin: 0 30rpx;
+}
+.workList-box {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 0 0 0 20rpx;
+  margin-top: 20rpx;
+}
+.scroll-view_H {
+  white-space: nowrap;
+}
+.scroll-view-item_H {
+  display: inline-block;
+  width: 688rpx;
+  height: 386rpx;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 10rpx;
+}
+.scroll-view-item_H image{
+  width: 100%;
+}
+.demo-text-1 {
+  background: red;
+}
+.demo-text-2 {
+  background: #05a78c;
+}
+.demo-text-3 {
+  background: #0e0c0c;
+}
+.reserve-title-box{
+  font-size: 36rpx;
+  font-weight: bold;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx 0;
+}
+.reserve-subtitle{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+.reserve-subtitle>text{
+  padding: 10rpx;
+}
+.reserve-icon-btn{
+  width: 100%;
+  padding: 10px 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.icon-itembtn{
+  margin: 10rpx 6rpx;
+  font-size: 26rpx;
+  width: auto;
+  padding: 10rpx 12rpx;
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+.reserve-Toshop-box{
+  width: auto;
+  margin: 30rpx;
+  padding: 30rpx 20rpx;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Toshop-box-l{
+  width: auto;
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.Toshop-box-l>image{
+  margin: 0 10rpx;
+  width: 38rpx;
+}
+.Toshop-box-r{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 24rpx;
+}
+.Toshop-box-r>image{
+  width: 30rpx;
+  margin: 0 10rpx;
+  margin-top: 2rpx;
+}
+.add-box{
+  width: 100%;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+  margin: 10rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.add-box-r{
+  flex: 1;
+}
+.add-box-l{
+  width: 172rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 6rpx;
+}
+.add-box-l>view{
+  display: flex;
+  width: 58rpx;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+}
+.add-box-l>view>image{
+  width: 56rpx;
+  height: 56rpx;
+}
+.projectList-box{
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 0 10rpx 20rpx 10rpx;
+}
+.projectList-boxtitle{
+  width: 100%;
+  height: auto;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  font-weight: bold;
+  padding: 30rpx 20rpx 0 20rpx;
+}
+
+.swiper-shop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 9999;
+}
+.swiper-shop .swiper {
+  width: 100%;
+  height: 60%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.swiper-shop image {
+  width: 100%;
+  height: 100%;
+}

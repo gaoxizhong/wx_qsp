@@ -1,0 +1,21 @@
+<view class='state_wrap'>
+  <image src="http://oss.qingshanpai.com/huanbaobi/d6dc25ee8e79bcf619df459f2cb28584.png" />
+  <view class='txt'>提交成功</view>
+  <button class="color-64B" style="font-size:32rpx;text-align:center;border: none;" plain='{{true}}' open-type="share">邀请好友参与活动 >></button>
+  <view class="frequency">
+    <view class="fre-item">活动记录：</view>
+    <view class="list-box">
+      <view wx:for='{{garbage_info}}' wx:key='index' class="item-list">
+        <text style="font-weight: 700;padding-left: 20rpx;">{{item.garbage_type}}:</text> 
+        <text style="padding-left:20rpx;">{{item.garbage_num}} 次</text>
+      </view>
+    </view>
+  </view>
+  <form bindsubmit='getFormId' report-submit>
+    <view class='success-btn-list'>
+      <button form-type='submit' class="btn-lt" bind:tap="goToUseCoin">去使用环保积分</button>
+      <button form-type='submit' class="btn-rt" plain='{{true}}' open-type="share">邀请好友一起参与</button>
+    </view>
+  </form>
+</view>
+

@@ -1,0 +1,110 @@
+
+<import src="../../../../wxParse/wxParse.wxml" />
+<view class="ts-box">
+  到店前请与商户确认营业时间和是否需要核酸证明并预约，进店请佩戴口罩。
+</view>
+<view class="info-titlebox">
+  <view class="titlebox-image">
+    <image src="{{project.image_array[0]}}"></image>
+  </view>
+  <view class="info-name-box">
+    <view class="info-name-t">
+      <view class="info-name-title">
+        <image src="/packageB/assets/images/livingHall/icon-aixin.png" mode="widthFix"></image>
+        青山生态生活馆
+      </view>
+      <view style="font-weight: bold;padding: 20rpx 0;">{{project.title}}</view>
+      <view class="info-name-icon">
+        <text>随时退</text>
+        <text>过期退</text>
+        <text>需预约</text>
+      </view>
+    </view>
+    <view style="font-size: 28rpx;">已售{{project.order_count}}</view>
+  </view>
+</view>
+<view class="t-20"></view>
+
+<!-- <view class="tab-box">
+  <view class="{{nav_id == '1'?'active':''}}" data-nav_id='1' bindtap="swichNav">项目详情</view>
+  <view class="{{nav_id == '2'?'active':''}}" data-nav_id='2' bindtap="swichNav">图文详情</view>
+  <view class="{{nav_id == '3'?'active':''}}" data-nav_id='3' bindtap="swichNav">购买须知</view>
+</view> -->
+
+<view class="detail-box">
+  <!-- 项目详情 开始 -->
+  <view class="proDet-box">
+
+    <view class="det-box-title">
+      <view class="det-title-x"></view>
+      <view class="det-title-t">项目详情</view>
+      <view class="det-title-x"></view>
+    </view>
+
+    <view class="proDet-box-text">
+      <view class="proDet-name-box">
+        <view class="proDet-name">{{project.title}}</view>
+        <view class="proDet-pric-num">
+          <text>1次</text>
+          <view style="width: 2px;height: 100%;background: #000;margin: 0 10rpx;"></view>
+          <view>{{project.price}}元</view>
+        </view>
+      </view>
+      <view class="proDet-circuit-box">
+        <!-- <view class="proDet-circuit-title">
+          <view>项目流程（共3步）</view>
+          <view>60分钟</view>
+        </view> -->
+        <view class="proDet-circuit-num">
+          <template is="wxParse" data="{{wxParseData:detail.nodes}}" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 项目详情 结束 -->
+<view class="t-20"></view>
+  <!-- 图文详情 开始 -->
+  <view class="graphicsDet-box">
+    <view class="det-box-title">
+      <view class="det-title-x"></view>
+      <view class="det-title-t">图文详情</view>
+      <view class="det-title-x"></view>
+    </view>
+    <view class="graphicsDet-info-box">
+      <template is="wxParse" data="{{wxParseData:image_detail.nodes}}" />
+    </view>
+  </view>
+  <!-- 图文详情 结束 -->
+  <view class="t-20"></view>
+  <!-- 购买须知 开始 -->
+  <view class="graphicsDet-box">
+
+    <view class="det-box-title">
+      <view class="det-title-x"></view>
+      <view class="det-title-t">购买须知</view>
+      <view class="det-title-x"></view>
+    </view>
+    <view class="graphicsDet-info-box">
+      <template is="wxParse" data="{{wxParseData:notice.nodes}}" />
+    </view>
+  </view>
+  <!-- 购买须知 结束 -->
+</view>
+
+
+
+<view style="width: 100%;height: 130rpx;"></view>
+
+<!-- ========= 购买 ========= -->
+<view class="footer-box">
+  <view class="footer-l-box">
+    <view class="footer-l-p">
+      <text>￥</text><text style="font-size: 50rpx;font-weight: 600;">{{project.price}}</text>
+    </view>
+    <view class="footer-l-ori">
+      <view class="discount-text">已优惠 {{yhj}}</view>
+      <view>原价￥{{project.project_price}}</view>
+    </view>
+  </view>
+  <view class="footer-r-box" hover-class="hoverClass" bindtap="clickBuy">购买</view>
+</view>

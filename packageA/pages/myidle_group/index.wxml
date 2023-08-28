@@ -1,0 +1,102 @@
+  
+  <!-- <view class="sousuo-box">
+    <view class="input-box">
+      <input type="text" value="" placeholder="输入图书名称"  bindinput="searchLibrary" value="{{library_name}}"></input>
+    </view>
+    <view class="btn-box" catchtouchmove="myCatchTouch" bindtap="getLibraryByConditon">搜索</view>
+  </view> -->
+  
+<view class="list-box">
+  <view>
+    <view class="fangke">
+      <view>浏览：{{browse}} 人次</view>
+      <view>闲置：{{idle_count}} 个</view>
+      <view>成员：{{count}} 人</view>
+    </view>
+  </view>
+  <view class="leave-box" style="padding-bottom:{{content_list.length>0?'60':'20'}}rpx;">
+    <view class="leave-message" bindtap="goTolist_detail" wx:if="{{content_list.length>0}}">查看全部 >> </view>
+    <view class="leave-title"> 
+      <text>团组留言({{content_num}})</text> 
+      <image class="release_img" mode="aspectFit" src="/packageA/assets/images/post-message.png" bindtap="release_btn"></image>
+    </view>
+    <block wx:if="{{content_list.length>0}}">
+      <view class="leave-items" wx:for="{{content_list}}" wx:key="index">
+        <view class="items-avatar">
+          <image src="{{item.avatar?item.avatar:'/images/notlogin.jpg'}}"></image>
+        </view>
+        <view class="items-info">
+          <view class="leave-name">{{item.nickname}}</view>
+          <text style="display: inline-block;font-size:23rpx;color: #6b6b6b;">{{item.created_at}}</text>
+          <view class="info-deac">{{item.content}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+
+  <view style="padding: 0 20rpx 20rpx 20rpx;">
+
+     <view class="library-list1">
+      <scroll-view scroll-y="{{true}}">
+        <view 
+          class="list-item" 
+          wx:for="{{member_List}}" 
+          wx:for-index="index" 
+          wx:for-item="item" 
+          wx:key="index" 
+          data-id="{{item.id}}" 
+          data-library_id="{{item.id}}" data-book_num="{{item.book_num}}" bindtap="goToindex_personal" 
+          >
+          <view class="lt">
+            <view class="lt-left">
+              <view class="lt-image">
+                <image src='{{item.avatar}}'></image>
+              </view>
+              <view class="lt-text">
+                <text style="font-size:26rpx;">{{item.nickname?item.nickname: '暂无'}}</text>
+              </view>
+            </view>
+            <view class="lt-right">
+              <view class="right-cang" style="margin-bottom:10rpx;" wx:if="{{item.stock > 0}}">
+                <image src="/images/16.png"></image>
+                <text>上架{{item.count}}个</text> 
+              </view>
+              <view style="margin-bottom:10rpx;color:#4AC08B;" wx:if="{{item.stock <= 0}}">暂无图书</view>
+
+              <view>距离{{item.distance}}KM</view>
+            </view>
+          </view>
+          <view class="rt">
+            <view class="score" wx:for="{{item.idle_list}}" wx:key="idx" wx:for-item="items">
+              <view class="rt-image-box"><image src="{{items.img[0]}}"></image></view>
+              <view class="rt-title-box">
+                <text class="rt-title-text">{{items.book_name}}</text>
+                <text class="rt-title-bg">
+                  <text class="btn-bg">折后价</text>
+                  <text class="btn-jiage">￥{{items.discount_price}}</text>
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+
+        <view class='nulldata_wrap' wx:if="{{libraryList.length == 0}}">
+          <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+          <view class='msg'>暂无数据</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 留言弹框 -->
+<view wx:if="{{is_leamsg}}" class="mrsk" bindtap="release_mrsk"></view>
+<view wx:if="{{is_leamsg}}" class="is-leamsg">
+  <view class="leamsg-title">留言：</view>
+  <view class="leamsg-text">
+    <textarea value="{{leamsg}}" placeholder="请留言..." bindinput="leamsg"></textarea>
+  </view>
+  <button class="leamsg_sub" bindtap="leamsg_sub">提交留言</button>
+</view>
+

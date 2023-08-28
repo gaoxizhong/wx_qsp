@@ -1,0 +1,8 @@
+<!-- 我的券包 -->
+<view>
+  <couponList coupon_list="{{coupon_list}}" binduse_btn="use_btn" bindgoToActivity="goToActivity"  data-is_mycoupon="1" />
+
+  <view wx:if="{{ coupon_list.length <= 0 }}" style="text-align:center;padding-top:140rpx;color:#666;">
+    暂无优惠券
+  </view>
+</view>

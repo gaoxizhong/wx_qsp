@@ -1,0 +1,26 @@
+
+<view wx:if="{{pageType == 1}}">
+  <include src="/packageB/pages/qhyRally/module/type_1.wxml" />
+</view>
+<view wx:if="{{pageType == 2}}">
+  <include src="/packageB/pages/qhyRally/module/type_2.wxml" />
+</view>
+
+
+<!-- 公共部分 -->
+<view class="Barrage-box">
+  <view class="displayGroup">
+    <!-- 无需弹幕 -->
+    <view class='dmGroup' wx:for="{{ dmList }}" wx:key="index"  style="top:{{ item.top }}rpx; animation: dmAnimation {{item.time}}s linear {{ index*1.5 }}s; ">
+      <view class='dmItem'>
+        <view class='dm'>
+          <view class='avatarBox'>
+            <image src='{{item.avater}}' class='avatar' mode='aspectFit'></image>
+          </view>
+          <text class='content' style="color:{{item.color}};">{{ item.content }}</text>
+          <text style="color: #c4c4c4;">{{item.member_id}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

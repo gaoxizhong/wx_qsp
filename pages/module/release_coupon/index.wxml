@@ -1,0 +1,121 @@
+<view>
+  <view class="need-hbb">
+    <text style="padding-left:20rpx;">优惠券名称</text>
+    <view style="flex:1;padding-left:30rpx;">
+      <input 
+        type="text" 
+        value="{{name_coupon}}" 
+        placeholder="优惠券名称" 
+        bindinput="input_name_coupon"
+        maxlength="12"
+      />
+    </view>
+  </view>
+
+  <view class="activity-imgs">
+    <image 
+      wx:for="{{thumb_coupon}}"
+      wx:for-item="item"
+      wx:for-index="index"
+      wx:key="index"
+      mode="aspectFill"
+      data-index="{{index}}"
+      src="{{item}}"
+      bindtap="openPhoto_coupon"/>
+    <view class="add-pic" bindtap="choosePic_coupon" wx:if="{{thumb_coupon.length < 9}}">
+      <image src="/images/icon-addphoto.png" mode="aspectFill"/>
+    </view>
+  </view>
+  <view class="need-hbb">
+    <text class="need-hbb-text">商品原价</text>
+    <view style="flex:1;padding-left:30rpx;">
+      <input type="text" value="{{original_price}}" placeholder="请输入商品原价格" bindinput="original_price"/>
+    </view>
+  </view>
+  <view class="need-hbb">
+    <text class="need-hbb-text">券后价</text>
+    <view style="flex:1;padding-left:30rpx;">
+      <input type="text" value="{{current_price}}" placeholder="请输入优惠后商品价格" bindinput="current_price"/>
+    </view>
+  </view>
+
+  <view class="need-hbb">
+    <text class="need-hbb-text">优惠券价格</text>
+    <view style="flex:1;padding-left:30rpx;">
+      <input type="text" value="{{coupon_price}}" placeholder="请输入优惠劵售价" bindinput="coupon_price"/>
+    </view>
+  </view>
+  <view class="need-hbb">
+    <text class="need-hbb-text">消耗积分</text>
+    <view style="flex:1;padding-left:30rpx;">
+      <input type="text" value="{{coupon_integral}}" placeholder="请输入优惠劵所消耗积分" bindinput="coupon_integral"/>
+    </view>
+  </view>
+  <view class="need-hbb">
+    <text class="need-hbb-text">数量</text>
+    <view style="flex:1;padding-left:30rpx;">
+      <input type="text" value="{{stock}}" placeholder="请输入库存数量" bindinput="input_stock"/>
+    </view>
+  </view>
+  <view class="need-hbb">
+    <text class="need-hbb-text">单人购买量</text>
+    <view style="flex:1;padding-left:30rpx;">
+      <input type="text" value="{{pay_count}}" placeholder="请输入每个用户可购买数量" bindinput="pay_count"/>
+    </view>
+  </view>
+
+  <view class="need-hbb">
+    <text class="need-hbb-text">开始时间</text>
+    <picker mode="date" value="{{start_time_coupon}}" start="{{start_time_coupon}}" bindchange="bindStartTime_coupon">
+      <text style="flex:1;padding-left:30rpx;">{{start_time_coupon?start_time_coupon:'请选择开始时间'}}</text>
+    </picker>
+  </view>
+  <view class="need-hbb">
+    <text  class="need-hbb-text">结束时间</text>
+    <picker mode="date" value="{{end_time_coupon}}" end="2099-12-31" bindchange="bindEndTime_coupon">
+      <text style="flex:1;padding-left:30rpx;">{{end_time_coupon?end_time_coupon:'请选择结束时间'}}</text>
+    </picker>
+  </view>
+  <view class="need-hbb">
+    <text  class="need-hbb-text">买家信息</text>
+    <radio-group class="radio-group discount-price" bindchange="need_radioChange">
+      <radio class="radio" value="2" checked="{{need_radio == 2}}">不需要</radio>
+      <radio class="radio" value="1" checked="{{need_radio == 1}}">需要</radio>
+    </radio-group>
+  </view>
+  <!-- <view class="activity-desc">
+    <text class="need-hbb-text">店长留言</text>
+    <textarea 
+      placeholder="例:我是店老板，新店开业！送您一张优惠券，诚邀您到店体验！谢谢，祝您工作顺利、生活愉快！"
+      placeholder-style="color:#999;font-size:28rpx"
+      bindinput="inputsign_dianzhang"
+      value="{{sign_dianzhang}}"
+      maxlength="{{400}}"
+      >
+    </textarea>
+  </view> -->
+  <view class="activity-desc">
+    <text class="need-hbb-text">使用说明</text>
+    <textarea 
+      placeholder="使用说明，请描述您的活动"
+      placeholder-style="color:#999;font-size:28rpx"
+      bindinput="input_sign"
+      value="{{sign}}"
+      maxlength="{{400}}"
+      >
+    </textarea>
+    <view class="font-num">{{sign.length}}/400</view>
+  </view>
+  <view style="height:140rpx;"></view>
+  <view class="create-btn2">
+    <view bindtap="yulan_coupon">预览</view>
+    <view bindtap="createActivity_coupon">{{coupon_id ? '保存' : '确定发布'}}</view>
+  </view>
+  <view class="layer" wx:if="{{showFull_coupon}}" bindtap='closePic_coupon'>
+    <view class="cover"></view>
+    <view class="con">
+      <image src='{{preview_coupon}}' mode="widthFix"></image>
+      <view bindtap='delPic_coupon' class="txt">删除</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,11 @@
+<view class='state_wrap'>
+  <image src="/images/S1.jpg"/>
+  <form bindsubmit='getFormId' report-submit>
+    <view style="margin-top: 130rpx;">
+      <button form-type='submit' class="btn-rt"  bindtap="tel">联系馆长取书</button>
+    </view>
+    <view class='suc-dingdan' bindtap="goToUseCoin">
+      >>查看订单
+    </view>
+  </form>
+</view>

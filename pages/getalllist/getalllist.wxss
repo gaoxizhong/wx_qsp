@@ -1,0 +1,481 @@
+@import "/assets/css/idle.wxss";
+page{
+  background: linear-gradient(to bottom,#ffbd6d,#ff9661);
+}
+.page-box{
+  padding: 30rpx;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+  background: #f5f7f6;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.page {
+  padding: 30rpx;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+  background: #f5f7f6;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.box-page-title{
+  /* position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999; */
+  height: auto;
+  width: 100%;
+}
+.sechs{
+  padding: 14rpx 0;
+  box-sizing: border-box;
+  /* position: fixed;
+  top: 0;
+  left: 0; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  margin: 0 30rpx;
+}
+.sechs input{
+  flex: 1;
+  height: 68rpx;
+  text-align: center;
+  padding: 4rpx 26rpx 4rpx 10rpx;
+  background: #f0f0f0;
+  border-radius: 20px;
+  font-size: 26rpx;
+  border: 2px solid #fe8441;
+  box-sizing: border-box;
+}
+.sechs .sech-btn{
+  width: 124rpx;
+  height: 68rpx;
+  font-size: 24rpx;
+  color: #474747;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: #ffbb3ddd;
+  position: absolute;
+  right: 30rpx;
+  z-index: 999;
+  background: #fe8441;
+  border-radius: 20px;
+}
+.sechover-btn{
+  background: #eeeeee;
+}
+.kapian-box {
+  height: auto;
+  z-index: 100;
+  margin: 0 30rpx;
+  box-sizing: border-box;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  padding: 40rpx 12rpx;
+  margin-top: 30rpx;
+  display: flex;
+  align-items: flex-start;
+  font-size: 30rpx;
+  text-align: center;
+}
+.kapian-box>view{
+  padding: 0 12rpx;
+  box-sizing: border-box;
+}
+.kapian-box>view>image{
+  height: 130rpx;
+  border-radius: 6px;
+}
+.kapian-box>view.item-box>image{
+  width: 138rpx;
+}
+.kapian-box>view.item-box1>image{
+  width: 158rpx;
+}
+.kapian-box>view>view{
+  padding-top: 8rpx;
+}
+
+.desc-info {
+  color: #9C9A9A;
+  font-size: 28rpx;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 160px;
+  z-index: 102;
+}
+
+.circle-footer-operation{
+  justify-content: stretch;
+}
+.retweet {
+  width: auto;
+  flex: none;
+
+}
+.idleList-box-item{
+  position: relative;
+  margin: 60rpx 0;
+  height: auto;
+}
+.discount-btn{
+  position: absolute;
+  right: 20rpx;
+  bottom: 17rpx;
+  padding-bottom: 4rpx;
+
+}
+.idleList-box-item .circle{
+  padding-top: 80rpx;
+}
+.shop-centent-img{
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: -50rpx;
+  left: 12rpx;
+}
+.shop-centent-img image{
+  width: 112rpx;
+  height: 112rpx;
+}
+.retweet-2{
+  flex: 1;
+  position: absolute;
+  right: 14rpx;
+  top: 14rpx;
+  width: 100rpx;
+  height: 46rpx;
+}
+.retweet-2 button {
+width: 100%;
+height: 40rpx;
+position: relative;
+overflow: visible;
+font-size: 26rpx;
+display: flex;
+justify-content: space-between;
+align-items: center;
+color: #868585;
+}
+.retweet-2 button image {
+margin-top: 3rpx;
+width: 30rpx;
+height: 30rpx;
+}
+.circle-title{
+  position: absolute;
+  top: 20rpx;
+  left: 140rpx;
+  font-size: 26rpx;
+  color: #838181;
+}
+
+.full-item{
+  padding: 25rpx 22rpx 38rpx 15rpx;
+  font-size: 30rpx;
+  box-shadow: 1rpx 1rpx 2rpx 2rpx #f1f1f1;
+  margin: 12rpx 0;
+  position: relative;
+}
+.full-avatar{
+  width: 90rpx;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 10rpx;
+}
+.full-avatar image{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}
+.full-info{
+  flex: 1;
+  padding-left: 30rpx;
+}
+.full-info-title{
+  display: flex;
+  justify-content:space-between;
+  align-items: flex-start;
+  height: 92rpx;
+}
+.info-title-text{
+  flex: 1;
+  padding-top: 10rpx;
+}
+.info-title-btn{
+  width: 130rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background-image: linear-gradient(to right, #4AC081 , #6cd67f);
+  border-radius: 20px;
+  text-align: center;
+}
+.full-info-text{
+  padding-top: 16rpx;
+  color: #64B532;
+}
+.dibox{
+  height:70rpx;
+  width:100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;  
+  color: #888888;
+  font-size: 24rpx;
+  padding: 28rpx 0;
+  margin-bottom:80rpx; 
+}
+.release-btn{
+  width: 230rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  font-size: 30rpx;
+  color: #fff;
+  /* background: #64B532; */
+  background-image: linear-gradient(to right, #2eae84 , #6cd67f);
+  text-align: center;
+  position: fixed;
+  bottom: 70rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  z-index: 100;
+}
+.marsk,.marsk1{
+  width: 100%;
+  height:100%;
+  background: #000;
+  opacity: 0.6;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+}
+.release-box{
+  width: 76%;
+  height: auto;
+  background: #fff;
+  padding: 26rpx;
+  box-sizing: border-box;
+  border-radius: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 99999;
+}
+.marsk1-box{
+  width: 80%;
+  height: auto;
+  background: #fff;
+  padding-top: 26rpx;
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 99999;
+  border-radius: 10px;
+  overflow: hidden;
+
+}
+.marsk1-title{
+  width: 100%;
+  padding: 8rpx 0;
+  text-align: center;
+  color: #333;
+  font-weight: 700;
+  font-size: 36rpx;
+}
+.release-input{
+  flex:1;
+  padding-left:30rpx;
+  padding: 14rpx 0;
+}
+.release-input input{
+  padding: 6rpx 0 6rpx 18rpx;
+  background: #d2d2d2;
+  color: #000;
+  border-radius: 20px;
+}
+.need-hbb{
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+.need-hbb-title{
+  font-size: 30rpx;
+}
+.need-hbb textarea{
+  background: #d2d2d2;
+  color: #000;
+  padding: 25rpx 10rpx;
+  border-radius: 10px;
+  height: 220rpx;
+  margin-top: 10rpx;
+  box-sizing: border-box;
+}
+.create-btn{
+  width: 100%;
+  height: 66rpx;
+  line-height: 66rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background: #f19249;
+  text-align: center;
+}
+.need-hbb-textarea{
+  margin-bottom: 20rpx;
+}
+.create-btn-hove{
+  opacity: 0.8;
+}
+.delt-btn{
+  font-size: 24rpx;
+  color: #888888;
+  width: auto;
+  padding: 6rpx 12rpx;
+  position: absolute;
+  right: 8rpx;
+  bottom: 2rpx;
+}
+.mask1-info{
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+  padding: 0 40rpx;
+}
+.marsk1-btn{
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #dddddd;
+  padding: 10rpx 0;
+}
+.marsk1-btn .marsk1-btn-item{
+  width: 50%;
+  font-size: 34rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 88rpx;
+  border-right: 1px solid #dddddd;
+}
+.left-btn{
+  color: #6e6e6e;
+}
+.right-btn{
+  background: #fff;
+  color: #00137c;
+}
+.set-cover {
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  position: fixed;
+  background-color: black;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 9999;
+}
+.set-toast-box {
+  width: 77.6%;
+  height: auto;
+  background-color: white;
+  opacity: 1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 9999;
+  border: 1rpx solid white;
+  border-radius: 5rpx;
+  box-sizing: border-box;
+}
+.set-title-input {
+  display: flex;
+  align-items: center;
+  padding: 46rpx 36rpx 20rpx 36rpx;
+  font-size: 30rpx;
+}
+.set-title-input .set-input-num {
+  flex: 1;
+  display: flex;
+  height: 60rpx;
+  background-color: #eeeeee;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Regular;
+  text-align: center;
+  margin-right: 30rpx;
+  margin-left: 10rpx;
+}
+.password-instruct {
+  font-size: 28rpx;
+  color: #4AC081;
+  padding: 0 36rpx;
+}
+.set-t-b {
+  margin-top: 35rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  width: 100%;
+  font-size: 30rpx;
+  color: #db1010;
+  position: relative;
+}
+.set-t-b:after{
+  width: 100%;
+  height: 1px;
+  content: '';
+  transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #777777;
+}
+
+.myidle-box {
+  margin: 20rpx 0;
+}
+.myidle-box1{
+  height: auto;
+  box-sizing: border-box;
+  border-radius: 6px;
+  overflow: initial;
+  background: #fff;
+  padding: 24rpx 0;
+  margin-top: 10rpx;
+}
+.myidle-box1 .myidle-box-title{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.goodinfo{
+  padding: 0 10rpx;
+}
+.goodinfo-look-box{
+  font-size: 30rpx;
+  color: #888;
+  margin: 0 auto;
+  padding: 10rpx 0;
+}
+

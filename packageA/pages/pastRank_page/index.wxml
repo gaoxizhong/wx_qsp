@@ -1,0 +1,24 @@
+<view class="pastRank-box">
+  <text class="past-title-xing">*</text>
+  <text>仅显示最近10条记录</text>
+</view>
+<view class="ranklist-box">
+  <view class="pastlist-items">
+      <view class="past-1">项目活动</view>
+      <view class="past-2">截止时间</view>
+      <view class="past-3">中奖信息</view>
+    </view>
+  <block wx:for="{{pastlist}}" wx:key="index">
+    <view class="pastlist-items" hover-class="hoverClass" bindtap="goTopast_acti" data-id="{{item.id}}" style="color:{{item.my_record.length>0 ? '#4ac081': '#999'}};">
+      <view class="past-1">{{item.no}}</view>
+      <view class="past-2">{{item.end_time}}</view>
+      <view class="past-3">{{item.my_record.length>0 ? '查询': '未参加'}}</view>
+    </view>
+  </block>
+  <view class='nulldata_wrap' wx:if="{{pastlist.length == 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据</view>
+  </view>
+</view>
+<!-- 生成海报弹窗 --> 
+<include src="/pages/module/makephoto/index.wxml" />

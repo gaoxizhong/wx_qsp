@@ -1,0 +1,28 @@
+<!-- 
+<view class="sign-btn" bindtap="{{is_true?'goTobank':'goToSign'}}">
+  <image src="{{is_true?'http://oss.qingshanpai.com/banner/master_2.png':'http://oss.qingshanpai.com/banner/master_1.png'}}"></image>
+</view> -->
+<view class="list-box">
+  <!-- <view class="list-items">
+    <view bindtap="gotolottery" data-url="/packageA/pages/recyclePlate/recyclePlateClothes/index" class="list-items-1">
+      <image src="http://oss.qingshanpai.com/banner/recyclePlate-clothes.png"></image>
+    </view>
+  </view> -->
+
+  <view class="list-items">
+    <view bindtap="gotolottery" data-url="/packageA/pages/recyclePlate/loveRecycling/index" class="list-items-1">
+      <image src="http://oss.qingshanpai.com/banner/love-recycling.png"></image>
+    </view>
+  </view>
+
+  <view class="list-items">
+    <view bindtap="gotolottery" data-url="/pages/huishou/types/index" class="list-items-1">
+      <image src="http://oss.qingshanpai.com/banner/ordinary-recycle.png"></image>
+    </view>
+  </view>
+</view>
+
+<view style="width:100%;height:104rpx;"></view>
+<view class="page-bottom-title" style="position: fixed;bottom: 0;left: 0;">青山生态，让每一个环保行为都有价值！</view>
+<!-- 信息广告弹窗 -->
+<include src="/pages/module/ad_preview/index.wxml" />

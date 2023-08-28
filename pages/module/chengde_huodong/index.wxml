@@ -1,0 +1,33 @@
+<view wx:if="{{position}}">
+	<view class="reclaim_title_huo" style="margin-bottom:0;">
+		<text style="color:red;">活动信息 </text>
+		<text style="color:#333;font-size:24rpx;">（参与承德市环保小达人活动必填信息）</text>
+	</view>
+	<view class='tips-huo'>
+		<view class="name-phone-huo">
+				<view>
+					<view class="types-i" style="text-align:left;">学校名称</view>
+					<input class="types-input"  value="{{chengde_school}}" placeholder="学校名称" bindinput="chengde_school"></input>
+				</view>
+			</view>
+			<view class="name-phone-huo">
+				<view>
+					<view class="types-i" style="text-align:left;">学生班级</view>
+					<input class="types-input"  value="{{chengde_class}}" placeholder="学生班级" bindinput="chengde_class"></input>
+				</view>
+			</view>
+			<view class="name-phone-huo">
+				<view>
+					<view class="types-i" style="text-align:left;">学生姓名</view>
+					<input class="types-input" value="{{chengde_name}}" placeholder="学生姓名" bindinput="chengde_name"></input>
+				</view>
+			</view>
+			<view class="name-phone-huo">
+				<view>
+					<view class="types-i" style="text-align:left;">学生电话</view>
+					<input class="types-input"  value="{{chengde_phone}}" placeholder="学生电话" bindinput="chengde_phone"></input>
+				</view>
+			</view>
+
+	</view>
+</view>

@@ -1,0 +1,167 @@
+.swiper-container {
+  width: 100%;
+  height: 420rpx;
+}
+.swiper-container .swiper {
+  height: 420rpx;
+}
+.swiper-container image {
+  width: 100%;
+  height: 420rpx;
+}
+.detail-box{
+  padding: 40rpx 26rpx;
+}
+.detail-book-name{
+  width: 90%;
+  font-size:38rpx;
+  color: #333;
+  padding: 8rpx;
+  font-weight: 700;
+  overflow:hidden; /*超出的文本隐藏*/
+  text-overflow:ellipsis; /*溢出用省略号显示*/
+  white-space:nowrap; /*溢出不换行*/
+}
+.detail-discount-price{
+  padding: 24rpx 0;
+  display: flex;
+  align-items: center;
+}
+.discount-price{
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #333;
+}
+.discount-price1{
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #1a9116;
+}
+
+.book-grade{
+  padding: 6rpx 8rpx;
+  border: 1px solid #cd8486;
+  font-size: 26rpx;
+  margin-left: 28rpx;
+  border-radius: 6px;
+  color: #cd8486;
+}
+.book-info-detail{
+  font-size: 26rpx;
+  padding: 12rpx 0;
+}
+.book-info-detail>view{
+  padding: 6rpx 0;
+}
+.book-info-detail>view .info-detail-title{
+  color: #6e6e6e;
+}
+.slide-image {
+  width: 100%;
+  height: 420rpx;
+}
+.btn-submit{
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.btn-submit-1{
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  height: auto;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10rpx 20rpx;
+}
+.subimt-buy,.subimt-buy-no{
+  width: 100%;
+  padding: 18rpx 32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.6;
+  border-radius: 0;
+
+}
+.subimt-buy{
+  background: #4AC081;
+  color: #fff;
+}
+.subimt-buy-no{
+  background: #8a8a8a;
+  color: #fff;
+}
+.height{
+  padding: 20rpx 0;
+  height: auto;
+  overflow: hidden;
+  max-height: 500rpx;
+
+}
+.no_height{
+  padding: 20rpx 0;
+  height: auto;
+}
+.see-quanbu{
+  font-size: 28rpx;
+  color: #4AC081;
+  text-align: right;
+  padding-right: 30rpx;
+}
+.btn-left{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 122rpx;
+  padding-right: 10rpx;
+}
+.btn-right{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  border-radius: 6px;
+  height: hidden;
+}
+.btn-left>view{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 22rpx;
+}
+.btn-left>view image{
+  width: 45rpx;
+  height: 45rpx;
+}
+.btn-left>view.acrt{
+  position: relative;
+}
+.btn-left>view.acrt image{
+  width: 42rpx;
+  height: 42rpx;
+}
+.refr-icon{
+  width: auto;
+  height: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  background: red;
+  color: #fff;
+  font-size: 20rpx;
+  position: absolute;
+  top: -32rpx;
+  right: -8rpx;
+  padding: 6rpx 14rpx;
+}

@@ -1,0 +1,36 @@
+<view class="headline">操作指引</view>
+
+<view class="plate-items">
+  <view class="plate-items-title">志愿者看这里——</view>
+  <view class="plate-centent">
+    <view>您进行桶前值守工作时，请站到垃圾桶站前，点击【开始值守】按钮，确认桶站信息后，开始值守，系统会为您计时。</view>
+    <view>结束时，请上传值守照片（桶站或值守志愿者风采照片），然后点击【结束值守】；系统会自动显示值守记录。</view>
+  </view>
+</view>
+<view class="plate-items">
+  <view class="plate-items-title">设置桶站看这里——</view>
+  <view class="plate-centent">
+    <view>注意：设置站点时，请确保手机位置信息、微信以及小程序位置信息处于打开状态；</view>
+    <view>设置桶站时，请站到桶站前，点击【设置站点】，输入密码后即可按照按照引导进行设置。</view>
+  </view>
+</view>
+<view class="plate-items">
+  <view class="plate-items-title">社区管理员看这里——</view>
+  <view class="plate-centent">
+    <view>社区管理员需向主管领导申领密码，以进行下一步操作；社区管理员功能为使用手机不熟练的年长志愿者录入时长专用，需登录电脑端进行时长录入；</view>
+  </view>
+</view>
+
+<view class="plate-items">
+  <view class="plate-items-title">操作提示：</view>
+  <view class="plate-centent">
+    <view>1 .志愿者值守、设置站点，为保证定位准确，要保证手机位置信息（或GPS定位）是打开的，并且允许微信和小程序访问您的位置信息。</view>
+    <view>2.关于值守时间，系统每次计时0.5-2小时。单次执勤不少于30分钟，不超过超过2小时。值守不到0.5小时而要放弃的，可以点【放弃值守】按钮；值守当日开始、当日结束，跨日无效；</view>
+    <view>3.社区管理员以及设置桶站需要密码，请向上级主管领导咨询；</view>
+    <view>4.有需要更多信息请致电010-84672332-‘咨询桶前值守’或者加微信18710059046</view>
+  </view>
+</view>
+
+
+
+

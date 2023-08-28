@@ -1,0 +1,9 @@
+<navigator hover-class='none' open-type='navigateBack' delta='1'>
+  <form report-submit bindsubmit='getFormId'>
+    <button form-type='submit' hover-class='none'>
+      <view class='pop_music gohome'>
+        <image mode='widthFix' class='audio' src="http://oss.qingshanpai.com/banner/icon_gohome.png"></image>
+      </view>
+    </button>
+  </form>
+</navigator>

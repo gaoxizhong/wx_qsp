@@ -1,0 +1,23 @@
+<view class="popularActivity-box">
+  <view class="popularActivity-list-box">
+    <view bindtap="goToOrderPage" class="list-before">
+      <image src="https://oss.qingshanpai.com/communityFunction/dtyz-jyhs.png" mode="widthFix" class="index-list-img"></image>
+      <view class="popularActivity-list-titletext">
+        <view style="font-weight:600;">旧衣回收订单</view>
+        <!-- <view class="list-snbtext"></view> -->
+      </view>
+      <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+    </view>
+
+    <view bindtap="goTofidd" class="list-before">
+      <image src="https://oss.qingshanpai.com/communityFunction/dtyz-hbjs.png" mode="widthFix" class="index-list-img"></image>
+      <view class="popularActivity-list-titletext">
+        <view style="font-weight:600;">福利兑换订单</view>
+      </view>
+      <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+    </view>
+ 
+
+
+  </view>
+</view>

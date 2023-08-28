@@ -1,0 +1,6 @@
+<view class='pop-bg' wx:if="{{makephoto}}" bindtap="clodmark" catchtouchmove="myCatchTouch"></view>
+<view class="makephoto" wx:if="{{makephoto}}"  catchtouchmove="myCatchTouch"> 
+  <image src="{{makephoto_img}}" bindtap="previewImage" data-img="{{makephoto_img}}"></image>
+  <view class="makephoto_btn1"  bindtap="saveImage" data-img="{{makephoto_img}}">点击保存到相册</view>
+  <view class="makephoto_btn2"  bindtap="previewImage" data-img="{{makephoto_img}}">预览并分享给好友</view>
+</view>

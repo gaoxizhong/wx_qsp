@@ -1,0 +1,29 @@
+<!--  banner图  -->
+<view class="swiper-container">
+  <swiper class='swiper' autoplay="true" circular="true">
+    <block wx:for="{{top_img}}" wx:key="index">
+      <swiper-item bind:tap="goToFromImg" data-label="{{item.label}}" data-labelid="{{item.label_id}}">
+        <image src="{{item.image}}" class="slide-image" mode='aspectFill' />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+
+<!-- 分类模块 -->
+<view class="class-module">
+  <block wx:for="{{ class_items_list }}" wx:key="index">
+    <view class="items" data-id="{{ item.id }}" data-url="{{ item.url }}" bindtap="goToclassactical">
+      <image src="{{ item.icon }}"></image>
+      <view class="title_text">{{item.distance}}Km</view>
+    </view>
+  </block>
+  <view class="items" bindtap="me_become">
+    <image src="/packageA/assets/images/me_become.png"></image>
+  </view>
+  <view class="items" bindtap="view_more" wx:if="{{is_true}}">
+    <image src="/packageA/assets/images/view_more.png"></image>
+  </view>
+</view>
+<view style="width:100%;height:100rpx;"></view>
+<view class="page-bottom-title">青山生态，让每一个环保行为都有价值！</view>

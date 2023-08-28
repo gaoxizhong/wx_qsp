@@ -1,0 +1,34 @@
+<view class='bg'>
+  <view class="textarea-wrp">
+    <textarea name="cont" maxlength="-1" bindinput="textareaChange" placeholder-style='color:#aaaaaa;' placeholder="这一刻的想法..." value="{{textareaVal}}" auto-focus />
+  </view>
+  <view class='photo-box'>
+    <view class='photo' wx:for="{{photos}}" wx:key="index" data-index="{{index}}" data-url="{{item}}" data-imgname="" bindtap='openPhoto'>
+      <image mode='aspectFill' src="{{item}}"></image>
+    </view>
+    <view class="add-pic" bindtap="chooseImg" hover-class='none' wx:if="{{ photos.length <= 9 }}">
+      <image mode='widthFix' src="/packageB/assets/images/icon-addphoto.png" />
+    </view>
+  </view>
+  <view class="acitiv_1">
+    <image src="/packageB/assets/images/address.png" mode="widthFix"></image>
+    <text style="padding-left:10rpx;">{{exhibitAddress}}</text>
+  </view>
+
+</view>
+<view class="layer" wx:if="{{layer}}" bindtap='closePic'>
+  <view class="cover"></view>
+  <view class="con">
+    <image src='{{preview}}' mode="widthFix"></image>
+    <view bindtap='delPic' class="txt">删除</view>
+  </view>
+</view>
+
+<view class='btn-send'>
+  <button bindtap="shareSub" hover-class='hover_color'> 
+    确定
+  </button>
+</view>
+
+<!-- 用来渲染的canvas --> 
+<canvas class="canvas" canvas-id="canvas" style="width:{{cWidth}}px;height:{{cHeight}}px;position: fixed;top: -9999px;left: -9999px;"></canvas>

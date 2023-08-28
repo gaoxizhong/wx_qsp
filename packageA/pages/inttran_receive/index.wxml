@@ -1,0 +1,64 @@
+<view class="my-function-list">
+  <view class="desc-box">我们将适时以短信方式通知收益信息，请输入手机号，以便收到短信通知</view>
+  <view class="function-list-item-phone">
+    <view class="function-list-item-left">
+      <view style="padding-left:24rpx;">手机号码:</view>
+    </view>
+    <view class="input-view"><input type="number" value="{{phone}}" placeholder="请您输入手机号" bindinput="setphone"> </input> </view>
+  </view>
+  <view class="desc-box">以下信息用于为您匹配合适的福利优惠券等平台环保福利（可以选填）</view>
+  <view class="function-list-item {{sex == ''?'function-list-arrw':''}}">
+    <view class="function-list-item-left">
+      <view style="padding-left:24rpx;">性别</view>
+    </view>
+    <picker value="{{date_index}}" range="{{sex_list}}" bindchange="bindPickerChange">
+      <view class="arrow-item-text">{{sex}}</view> 
+    </picker>
+  </view>
+  <view class="function-list-item {{date_birthday == ''?'function-list-arrw':''}}">
+    <view class="function-list-item-left">
+      <view style="padding-left:24rpx;">生日</view>
+    </view>
+    <picker mode="date" value="{{date}}" start="1840-10-01" end="2222-02-22" bindchange="bindDateChange">
+      <view class="arrow-item-text">{{date_birthday}}</view> 
+    </picker>
+  </view>
+  <!-- <view class="function-list-item {{profession == ''?'function-list-arrw':''}}">
+    <view class="function-list-item-left">
+      <view style="padding-left:24rpx;">职业</view>
+    </view>
+    <picker value="{{profession_index}}" range="{{profession_list}}" bindchange="bindProfChange">
+      <view class="arrow-item-text">{{profession}}</view> 
+    </picker>
+  </view>   -->
+
+  <view class="function-list-item {{addinput_name == ''?'function-list-arrw':''}}" bindtap="gotoaddmark">
+    <view class="function-list-item-left">
+      <view style="padding-left:24rpx;">地区</view>
+    </view>
+    <view class="arrow-item"> 
+      <text class="arrow-item-text">{{addinput_name}}</text> 
+    </view>
+  </view>
+
+
+</view>
+
+<view class="btn-box">
+  <view class="btn-box-lf" hover-class="set-btn" bindtap="btn_box_lf">忽略</view>
+  <view class="btn-box-rg" hover-class="set-btn" bindtap="btn_box_rg">确认</view>
+</view>
+
+<!-- 地区弹窗 -->
+<view class="is_addmark" wx:if="{{is_addmark}}" bindtap="is_addmark"></view>
+<view class="addmark-box" wx:if="{{is_addmark}}">
+  <view class="addinput-box">
+    <text class="addinput-title">地址:</text>
+    <input type="text" value="{{addinput_name}}" placeholder="省/市/区/街道（乡)" class="addinput-i" bindinput="addinput_name"></input>
+  </view>
+  <view class="caption-box">
+    <view>说明：将有政府、组织、机构、企业、对特定区域居民的环保积分进行现金回购，以奖励居民对环保的贡献；此处邀请您填写常驻区域。</view> 
+    <view>例如：北京市 朝阳区 来广营乡 （精确到乡、镇、街道即可）</view>
+  </view>
+  <view class="addinput-btn" bindtap="addinput_btn">确认</view>
+</view>

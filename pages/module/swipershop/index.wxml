@@ -1,0 +1,10 @@
+<!--  banner图  -->
+<view class="swiper-shop" wx:if="{{swiper_shop}}">
+  <swiper class='swiper' current="{{swiper_index}}">
+    <block wx:for="{{top_img}}" wx:key="index">
+      <swiper-item bindtap="close_swiper">
+        <image src="{{item}}" class="slide-image" mode='aspectFit' data-img="{{item}}" bindlongpress="handleLongPress"/>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

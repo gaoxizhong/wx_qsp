@@ -1,0 +1,36 @@
+page{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.branch-adState-box{
+  padding: 20rpx 0;
+  font-size: 32rpx;
+}
+.member_box {
+  padding-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #EBEBEB;
+  padding: 20rpx 0 20rpx 0;
+}
+.sxed-box {
+  width: 198rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+}
+.avatar {
+  width: 100rpx;
+  border-radius: 50%;
+}
+.applicant_name {
+  font-size: 30rpx;
+  padding: 0 0 15rpx 30rpx;
+}
+.approval_state {
+  color: #8D8D8D;
+  font-size: 28rpx;
+  padding-left: 30rpx;
+}

@@ -1,0 +1,24 @@
+<view class="title-box">
+  <image src="{{newThingInfo.member.avatar}}" class="title-box-avatar"></image>
+  <view class="title-box-info">
+    <view>{{newThingInfo.member.nickname}}</view>
+    <view class="title-box-time">{{newThingInfo.created_at}}</view>
+  </view>
+</view>
+<view class="content-box">{{newThingInfo.content}}</view>
+<view class="imagesList-box">
+  <block  wx:for="{{newThingInfo.image}}" wx:key="index">
+    <view class="imagesList-items">
+      <image src="{{item}}" class="slide-image" mode="aspectFill"></image>
+    </view>
+  </block>
+</view>
+<!-- <view class="swiper-container">
+  <swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+    <block wx:for="{{newThingInfo.image}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" mode="aspectFill"/>
+      </swiper-item>
+    </block>
+  </swiper>
+</view> -->

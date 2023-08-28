@@ -1,0 +1,81 @@
+<view style="padding: 0 30rpx;">
+  <view class="filter-title-box">
+    <view class="filter-title-top {{is_filter?'show-arr':''}}" bindtap="is_filter">
+      <view style="font-weight: 600;">筛选模式</view>
+      <view style="margin-left:42rpx; color:#999;">更精准的找到匹配用户</view>
+    </view>
+    <view class="filter-title-bott {{is_filter?'show-class':''}}">
+      <view>
+        <text>距离:</text>
+        <view class="list-box-items">
+          <block wx:for="{{distance_list}}" wx:key="index">
+            <view class="distance-item {{is_dist == index?'highlight-item':''}} " data-dist="{{item.dist}}" data-index="{{index}}" bindtap="select_dist" wx:if="{{index != 0}}">{{item.name}}</view>
+          </block>
+        </view>
+
+      </view>
+      <view>
+        <text>性别:</text>
+        <block wx:for="{{sex_list}}" wx:key="index">
+          <view class="agelist-item {{is_sex == index?'highlight-item':''}}" data-sex="{{item.sex}}" data-index="{{index}}" bindtap="select_sex">{{item.name}}</view>
+        </block>
+      </view>
+      <view>
+        <text>年龄:</text>
+        <block wx:for="{{age_list}}" wx:key="index">
+          <view class="agelist-item {{is_age == index?'highlight-item':''}}" data-age="{{item.age}}" data-index="{{index}}" bindtap="select_age">{{item.name}}</view>
+        </block>
+      </view>
+      <view>
+        <text>区域:</text>
+        <view class="region-box">
+          <input type="text" value="{{address}}" placeholder="请输入城市名" bindfocus="focus_address" bindinput="add_address" bindblur="blur_address"></input>
+        </view>
+      </view>
+      <view>
+        <text>短信:</text>
+        <view class="agelist-item  {{is_duanxin?'highlight-item':''}}" bindtap="is_duanxin">发送短信通知</view>
+        <view class="agelist-item  {{is_yesterday?'highlight-item':''}}" bindtap="is_yesterday" wx:if="{{ member_id == 2 || member_id == 125599 || member_id == 125482 }}">平台回购</view>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="filter-list-box">
+    <view class="filter-list-th">
+      <view style="width:102rpx;"></view>
+      <view style="flex:1;">用户名</view>
+      <view style="flex:1;">额度</view>
+      <view style="flex:1;">活跃度</view>
+      <!-- <view style="width:86rpx;"></view> -->
+    </view>
+    <block wx:for="{{filter_list}}" wx:key="index">
+      <view class="filter-list-tr" bindtap="goto" data-member_id="{{item.member_id}}">
+        <view class="filter-list-tr-image">
+          <image src="{{item.avatar}}"></image>
+        </view>
+        <view style="flex:1;" class="filter-list-tr-name">
+          <view>{{item.nickname}}</view>
+          <view style="color:#999;" class="is_address">{{is_address?is_address:'附近的人'}}</view>
+        </view>
+        <view style="flex:1;">{{item.integral}}</view>
+        <view style="flex:1;">{{item.activity}}%</view>
+        <!-- <view style="width:86rpx;" class="cell__hd_box"></view> -->
+      </view>
+    </block>
+    <view class="filter-list-tr"></view>
+  </view>
+</view>
+
+<view class="fixed-bottom-box">
+  <view>
+    <view>合计积分:{{total_integral?total_integral:'0.00'}}</view>
+    <view style="margin-top:20rpx;">共:{{total_peop?total_peop:'0.00'}}人</view>
+  </view>
+  <view>
+    <view>合计:￥{{total_price}}</view>
+    <view style="margin-top:10rpx;" class="fixed-bottom-btn" bindtap="fixed_btn" wx:if="{{ total_price != 0 }}">开始推广</view>
+  </view>
+</view>
+
+<view class="masking" wx:if="{{masking}}" bindtap="masking"></view>

@@ -1,0 +1,407 @@
+<view class="title-pagebox">
+  <view class="image-box">
+    <view style="display: flex;align-items: center;">
+      <image mode='widthFix' src='{{avatarUrl ? avatarUrl : "/images/notlogin.jpg"}}' />
+      <view class="name">
+        {{nickName}}
+      </view>
+    </view>
+    <view style="margin-bottom: 40rpx;" wx:if="{{identify.flag == '3'}}">
+      <switch name="switch" color="#fd783c" checked="{{switchvalue}}" bindchange="switch1Change" style="transform: scale(.9);"/>
+    </view>
+    <view class="switchvalue" wx:if="{{identify.flag == '3'}}">当前接单状态：{{switchvalue?'可接单':'不接单'}}</view>
+  </view>
+  <view class="tab-h1" style="background:#eaeaea;">
+    <scroll-view class="method-list" scroll-x="{{true}}">
+      <view class="method-item {{currentTab==item.id?'active':''}}" wx:for="{{orderArr}}" wx:key="index" bindtap="swichNav" data-current="{{item.id}}">
+        <view class="method-title">{{item.name}}</view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 普通上门回收 tab 开始 -->
+  <view class="tab-bar" wx:if="{{ currentTab == 0 }}">
+    <view class="tab-bar-item {{identify.status == '5'?'color-64B':'color-333'}}" data-status="5" bindtap="changeTabItem">
+      <text>待接单</text>
+      <view class="bar-border bacg-64B" wx:if="{{identify.status == '5'}}"></view>
+    </view>
+    <view class="tab-bar-item {{identify.status == '2'?'color-64B':'color-333'}}" data-status="2" bindtap="changeTabItem">
+      <text>已接单</text>
+      <view class="bar-border bacg-64B" wx:if="{{identify.status == '2'}}"></view>
+    </view>
+    <view class="tab-bar-item {{identify.status == '3'?'color-64B':'color-333'}}" data-status="3" bindtap="changeTabItem">
+      <text>已完成</text>
+      <view class="bar-border bacg-64B" wx:if="{{identify.status == '3'}}"></view>
+    </view>
+
+  </view>
+  <!-- 普通上门回收 tab 结束 -->
+  <!-- 图书回收 tab 开始 -->
+  <view class="tab-bar" wx:if="{{ currentTab == 1 }}" >
+    <view class="tab-bar-item {{statusTab == 1 ?'color-64B':'color-333'}}" data-statusTab="1" bindtap="changeTabItem1">
+      <text>待接单</text>
+      <view class="bar-border bacg-64B" wx:if="{{statusTab == 1}}"></view>
+    </view>
+    <view class="tab-bar-item {{statusTab == 2 ?'color-64B':'color-333'}}" data-statusTab="2" bindtap="changeTabItem1">
+      <text>已接单</text>
+      <view class="bar-border bacg-64B" wx:if="{{statusTab == 2}}"></view>
+    </view>
+    <view class="tab-bar-item {{statusTab == 3?'color-64B':'color-333'}}" data-statusTab="3" bindtap="changeTabItem1">
+      <text>已完成</text>
+      <view class="bar-border bacg-64B" wx:if="{{statusTab == 3}}"></view>
+    </view>
+  </view>
+  <!-- 图书回收 tab 结束 -->
+</view>
+<view style="height:425rpx;" wx:if="{{ currentTab == 0 || currentTab == 1  }}" ></view>
+<view style="height:325rpx;" wx:else></view>
+
+<!-- 普通上门回收 -->
+<view wx:if="{{qwe && currentTab == 0 }}">
+  <view class="order-list-box">
+    <view class="order-item" wx:for="{{orderlists}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+      <view class="order-desc">
+        <text>{{item.orderno}}</text>
+      </view>
+      <view class="order-detail">
+        <view class="order-time">
+          <text>下单日期：</text>
+          <text>{{item.created_at}}</text>
+        </view>
+        <view class="order-appoint-time" wx:if="{{identify.flag != '3'}}">
+          <text>回收专员：</text>
+          <text>{{item.recover_name == null?"暂无":item.recover_name}}</text>
+        </view>
+        <view class="order-appoint-time" wx:if="{{identify.flag == '3'}}">
+          <text>联系人：</text>
+          <text>{{item.contact_name}}</text>
+        </view>
+        <view class="order-appoint-time" wx:if="{{identify.flag != '3'}}" bindtap="makeCall" data-phone="{{item.recover_phone == null?'010-84672332':item.recover_phone}}" style="padding:4rpx 0;">
+          <text>联系电话：</text>
+          <text>{{item.recover_phone == null?"010-84672332":item.recover_phone}}</text>
+          <image src="http://oss.qingshanpai.com/banner/phh.png" class="order-appoint-images" />
+        </view>
+        <view class="order-appoint-time" wx:if="{{identify.flag == '3'}}" bindtap="makeCall" data-phone="{{item.contact_phone}}">
+          <text>联系电话：</text>
+          <image src="http://oss.qingshanpai.com/banner/phh.png" class="order-appoint-images" />
+          <text>{{item.contact_phone}}</text>
+        </view>
+        <view class="order-appoint-time">
+          <text>预约时间：</text>
+          <text>{{item.visited_at}}</text>
+        </view>
+        <view class="order-appoint-time">
+          <text>所在区域：</text>
+          <text>{{item.garden}}</text>
+        </view>
+        <view class="order-appoint-time">
+          <text>详细地址：</text>
+          <text>{{item.address}}</text>
+        </view>
+        <view class="order-sum">
+          <text>回收金额：</text>
+          <text class="color-64B">{{item.sum_money}}{{item.pay_mode}}</text>
+        </view>
+        <view class="order-info">
+          <text>订单详情：</text>
+          <text>{{item.orderInfo ? item.orderInfo : '暂无'}}</text>
+        </view>
+        <view class="exchange-info">
+          <text>兑换详情：</text>
+          <text>{{item.welfareGoods ? item.welfareGoods : '暂无'}}</text>
+        </view>
+        <view class="exchange-info">
+          <text>订单备注：</text>
+          <text>{{item.remark ? item.remark : '暂无'}}</text>
+        </view>
+      </view>
+      <view class="order-button">
+        <button wx:if="{{identify.status == '5' && identify.flag == '3'}}" data-id="{{item.id}}" data-status="2" data-sum_money="{{item.sum_money}}" data-txt="确定接单吗？" bind:tap="savaData">确认接单
+        </button>
+        <button wx:if="{{identify.status == '5' && identify.flag == '3'}}" style="border-color: #FF0000;color:#FF0000" data-id="{{item.id}}" data-flag="{{identify.flag == '3'}}" data-status='1' data-txt="确定取消吗？" bind:tap="savaData">取消
+        </button>
+        <button wx:if="{{identify.status == '5' && identify.flag != '3'}}" style="border-color: #FF0000;color:#FF0000" data-id="{{item.id}}" data-status='4' data-txt="确定取消吗？" bind:tap="savaData">取消
+        </button>
+        <button wx:if="{{identify.status == '3' && identify.flag != '3'}}" bind:tap="goToOrderComment" data-id="{{item.id}}">订单评价
+        </button>
+        <button wx:if="{{identify.status == '2' && identify.flag == '3'}}" data-id="{{item.id}}" data-status='3' data-sum_money='{{item.sum_money}}' data-pay_mode='{{item.pay_mode}}' bind:tap="savaData" hover-class="none" data-txt="确定完成订单？">确认完成
+        </button>
+        <button wx:if="{{identify.status == '2' && identify.flag == '3'}}" data-id="{{item.id}}">正在上门
+        </button>
+        <button wx:if="{{identify.status == '2' && identify.flag != '3'}}" hover-class="none">正在上门
+        </button>
+      </view>
+    </view>
+    <view class='nulldata_wrap' wx:if="{{orderlists.length <= 0}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>暂无订单</view>
+    </view>
+  </view>
+</view>
+<!-- 旧物回收 （飞蚂蚁订单） -->
+<view wx:if="{{currentTab == 3 }}">
+  <view class="order-list-box">
+    <view class="order-item" wx:for="{{jiuyi_lists}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+      <view class="order-desc">
+        <text>{{item.order_num}}</text>
+        <view class="order-status1">
+          <text>{{item.status_str}}</text>
+        </view>
+      </view>
+      <view class="order-detail">
+        <view class="order-time">
+          <text>下单日期：</text>
+          <text>{{item.created_at}}</text>
+        </view>
+        <!-- <view class="order-appoint-time" wx:if="{{identify.flag == '3'}}">
+              <text>联系人：</text>
+              <text>{{item.contact_name}}</text>
+            </view> -->
+        <!-- <view class="order-appoint-time" wx:if="{{identify.flag != '3'}}" bindtap="makeCall" data-phone="{{item.recover_phone == null?'010-84672332':item.recover_phone}}" style="padding:4rpx 0;">
+              <text>联系电话：</text>
+              <text>{{item.recover_phone == null?"010-84672332":item.recover_phone}}</text>
+              <image src="http://oss.qingshanpai.com/banner/phh.png" class="order-appoint-images"/>
+            </view> -->
+        <!-- <view class="order-appoint-time" bindtap="makeCall" data-phone="{{item.contact_phone}}">
+              <text>联系电话：</text>
+              <image src="http://oss.qingshanpai.com/banner/phh.png" class="order-appoint-images"/>
+              <text>{{item.contact_phone}}</text>
+            </view> -->
+        <!-- <view class="order-appoint-time">
+          <text>最早时间：</text>
+          <text>{{item.order_date}} {{item.order_start_time}}</text>
+        </view> -->
+        <view class="order-appoint-time">
+          <text>预约时间：</text>
+          <text>{{item.order_date}} {{item.order_end_time}}</text>
+        </view>
+        <view class="order-appoint-time">
+          <text>所在区域：</text>
+          <text>{{item.user_province + item.user_city + item.user_district + item.user_street}}</text>
+        </view>
+        <view class="order-appoint-time">
+          <text>详细地址：</text>
+          <text>{{item.user_address}}</text>
+        </view>
+        <view class="order-appoint-time">
+          <text>回收类型：</text>
+          <text style="color: #FF0000;" wx:if="{{item.order_type == 1}}">旧衣物</text>
+          <text style="color: #FF0000;" wx:if="{{item.order_type == 2}}">旧书籍</text>
+          <text style="color: #FF0000;" wx:if="{{item.order_type == 3}}">旧家电</text>
+        </view>
+        <view class="order-appoint-time" wx:if="{{item.order_type != 3 && item.weight}}">
+          <text>实际重量：</text>
+          <text>{{item.weight}} Kg</text>
+        </view>
+        <view class="order-appoint-time" wx:if="{{item.order_type == 3 && item.price}}">
+          <text>实际金额：</text>
+          <text>{{item.price}} 元</text>
+        </view>
+        <view class="order-appoint-time" wx:if="{{item.order_type != 3 && item.image}}">
+          <text>留存照片：</text>
+          <view class="images-box">
+            <view class="images-item" bindtap="openPhoto" data-index="0" data-url="{{item.image}}">
+              <image src="{{item.image}}" mode="" />
+            </view>
+          </view>
+        </view>
+        <!-- <view class="exchange-info">
+              <text>订单备注：</text>
+              <text>{{item.remark ? item.remark : '暂无'}}</text>
+            </view> -->
+        <view class="order-btn-box" style="align-items: center;justify-content: flex-end;">
+          <button  hover-class="none" bindtap="clickQXDD" data-item="{{item}}" data-index="{{index}}" wx:if="{{item.status == 1}}">取消订单</button>
+        </view>
+
+      </view>
+    </view>
+    <view class='nulldata_wrap' wx:if="{{jiuyi_lists.length <= 0}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>暂无订单</view>
+    </view>
+  </view>
+</view>
+
+<!-- 家电回收 -->
+<view wx:if="{{currentTab == 4 }}">
+  <view class="order-list-box">
+    <view class="order-item" wx:for="{{ahs_lists}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+      <view class="order-desc">
+        <text>{{item.order_num}}</text>
+        <view class="order-status1">
+          <text>{{item.status_str}}</text>
+        </view>
+      </view>
+      <view class="order-detail">
+        <view class="order-time">
+          <text>下单日期：</text>
+          <text>{{item.created_at}}</text>
+        </view>
+        <!-- <view class="order-appoint-time" wx:if="{{identify.flag == '3'}}">
+              <text>联系人：</text>
+              <text>{{item.contact_name}}</text>
+            </view> -->
+        <!-- <view class="order-appoint-time" wx:if="{{identify.flag != '3'}}" bindtap="makeCall" data-phone="{{item.recover_phone == null?'010-84672332':item.recover_phone}}" style="padding:4rpx 0;">
+              <text>联系电话：</text>
+              <text>{{item.recover_phone == null?"010-84672332":item.recover_phone}}</text>
+              <image src="http://oss.qingshanpai.com/banner/phh.png" class="order-appoint-images"/>
+            </view> -->
+        <!-- <view class="order-appoint-time" bindtap="makeCall" data-phone="{{item.contact_phone}}">
+              <text>联系电话：</text>
+              <image src="http://oss.qingshanpai.com/banner/phh.png" class="order-appoint-images"/>
+              <text>{{item.contact_phone}}</text>
+            </view> -->
+        <view class="order-appoint-time">
+          <text>预约时间：</text>
+          <text>{{item.order_time}}</text>
+        </view>
+
+        <view class="order-appoint-time">
+          <text>所在区域：</text>
+          <text>{{item.user_province + item.user_city + item.user_district + item.user_street}}</text>
+        </view>
+        <view class="order-appoint-time">
+          <text>详细地址：</text>
+          <text>{{item.user_address}}</text>
+        </view>
+        <!-- <view class="order-sum">
+              <text>回收金额：</text>
+              <text class="color-64B">{{item.sum_money}}{{item.pay_mode}}</text>
+            </view> -->
+
+        <!-- <view class="exchange-info">
+              <text>订单备注：</text>
+              <text>{{item.remark ? item.remark : '暂无'}}</text>
+            </view> -->
+      </view>
+    </view>
+    <view class='nulldata_wrap' wx:if="{{ahs_lists.length <= 0}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>暂无订单</view>
+    </view>
+  </view>
+</view>
+<!-- 图书回收 -->
+<view wx:if="{{!qwe && currentTab == 1 }}">
+
+  <view class="order-list-box">
+    <view class="order-item" wx:for="{{booklists}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+      <view class="order-desc">
+        <view class="order-status">
+          <text wx:if="{{statusTab == 1}}">待接单</text>
+          <text wx:if="{{statusTab == 2}}">已接单</text>
+          <text wx:if="{{statusTab == 3}}">已完成</text>
+          <image wx:if="{{statusTab == 1}}" src="http://oss.qingshanpai.com/banner/icon_waitconfirm1.png" />
+          <image wx:if="{{statusTab != 1}}" src="http://oss.qingshanpai.com/banner/icon_hasconfirm.png" />
+        </view>
+        <text>{{item.orderno}}</text>
+      </view>
+      <view class="order-detail">
+        <view class="order-time">
+          <text>下单日期：</text>
+          <text>{{item.create_time}}</text>
+        </view>
+        <view class="order-appoint-time">
+          <text>联系人：</text>
+          <text>{{item.member_name}}</text>
+        </view>
+        <view class="order-appoint-time">
+          <text>联系电话：</text>
+          <text>{{item.member_phone}}</text>
+        </view>
+        <view class="order-appoint-time">
+          <text>预约时间：</text>
+          <text>{{item.metting_time}}</text>
+        </view>
+        <view class="order-appoint-time" wx:if="{{statusTab == 2 || statusTab == 3}}">
+          <text>回收专员：</text>
+          <text>{{item.recover_name}}</text>
+        </view>
+        <view class="order-appoint-time" wx:if="{{statusTab == 2 || statusTab == 3}}">
+          <text>回收电话：</text>
+          <text>{{item.recover_phone}}</text>
+        </view>
+        <view class="order-appoint-time">
+          <text>所在区域：</text>
+          <text>{{item.member_address}}</text>
+        </view>
+        <view class="order-appoint-time">
+          <text>详细地址：</text>
+          <text>{{item.member_address_detail}}</text>
+        </view>
+        <view class="order-sum">
+          <text>回收金额：</text>
+          <text class="color-64B">{{item.integral}}环保积分</text>
+        </view>
+        <view class="order-info">
+          <text>订单详情：</text>
+          <text>{{item.orderInfo ? item.orderInfo : '暂无'}}</text>
+        </view>
+      </view>
+      <view class="order-button" wx:if="{{item.status == 1}}">
+        <button style="border-color: #FF0000;color:#FF0000" data-id="{{item.id}}" data-status='1' data-integral_book='{{item.integral}}' data-txt="确定取消吗？" bind:tap="savaData1">取消
+        </button>
+      </view>
+    </view>
+    <view class='nulldata_wrap' wx:if="{{booklists.length <= 0}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>暂无订单</view>
+    </view>
+  </view>
+</view>
+<!-- 图书邮送 -->
+<view wx:if="{{currentTab == 2}}">
+  <view class="order-list-box">
+    <view class="order-item" wx:for="{{bookyoujis}}" wx:for-item="item" wx:for-index="index" wx:key="index" style="padding:30rpx 0;">
+      <view class="order-detail">
+        <view class="order-time">
+          <text>下单日期：</text>
+          <text>{{item.created_at}}</text>
+        </view>
+        <view class="order-appoint-time">
+          <text>邮寄人：</text>
+          <text>{{item.name}}</text>
+        </view>
+        <view class="order-appoint-time">
+          <text>邮寄电话：</text>
+          <text>{{item.mobile}}</text>
+        </view>
+        <view class="order-sum">
+          <text>图书数量：</text>
+          <text class="color-64B">{{item.book_num}}本</text>
+        </view>
+        <view class="order-sum">
+          <text>获得积分：</text>
+          <text class="color-64B">{{item.integral}}环保积分</text>
+        </view>
+        <view class="order-sum" wx:if="{{item.library_id}}">
+          <text>图书馆名：</text>
+          <text class="color-64B">{{item.library_name}}</text>
+        </view>
+        <view class="order-info">
+          <text>订单备注：</text>
+          <text>{{item.remark ? item.remark : '暂无'}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='nulldata_wrap' wx:if="{{bookyoujis.length <= 0}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>暂无订单</view>
+    </view>
+  </view>
+</view>
+
+
+<!--设置费用弹出层-->
+<modal hidden="{{setDeliveryPrice}}" title="修改{{pay_mode=='元'?'金额':'积分'}}" confirm-text="确定" cancel-text="取消" bindcancel="setDeliveryPriceHide" bindconfirm="setDeliveryPrice">
+  <input type='text' placeholder="请输入{{pay_mode=='元'?'金额':'积分'}}" bindinput="currentDeliveryPrice" value="{{ currentPrice }}" />
+</modal>
+
+
+<view class="layer" wx:if="{{layer}}" bindtap='closePic'>
+  <view class="cover"></view>
+  <view class="con">
+    <image src='{{preview}}' mode="widthFix"></image>
+    <!-- <view bindtap='delPic' class="txt">删除</view> -->
+  </view>
+</view>
+

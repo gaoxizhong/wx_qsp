@@ -1,0 +1,94 @@
+page{
+  background: #f4f4f4;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.items-box{
+  width: 100%;
+  margin-top: 20rpx;
+  height: auto;
+  border-radius: 8px;
+  background: #fff;
+  box-sizing: border-box;
+}
+.items-t-box{
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  border-bottom: 1px dashed #CCCCCC;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.items-t-l{
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.items-price{
+  font-size: 70rpx;
+  font-family: FZDaHei-B02S;
+  font-weight: 600;
+  color: #FD7E02;
+}
+
+.items-t-r{
+  width: 140rpx;
+  height: 58rpx;
+  border-radius: 20px;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  background: #FC7F01;
+  text-align: center;
+  line-height: 58rpx;
+}
+.items-title-box{
+  box-sizing: border-box;
+  padding-left: 26rpx;
+}
+.items-title-1{
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #010101;
+}
+.items-title-t{
+  margin-top: 20rpx;
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #FD7E02;
+}
+.items-b-box{
+  width: 100%;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #8B8B8B;
+}
+.is-invalidList{
+  width: 100%;
+  padding: 40rpx 0 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8B8B8B;
+  font-size: 28rpx;
+}
+.is-invalidList image{
+  width: 24rpx;
+  margin-left: 10rpx;
+}
+.is-invalidList image.hover{
+  transform: rotate(180deg);
+}
+.useList-box.hover .items-price,.useList-box.hover .items-title-1,.useList-box.hover .items-title-t{
+  color: #CCCCCC;
+}
+.useList-box.hover .items-t-r{
+  color: #FFFFFF;
+  background: #CCCCCC;
+}

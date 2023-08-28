@@ -1,0 +1,78 @@
+<view class="swiper-container">
+  <swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+    <block wx:for="{{goodInfo.img}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" mode="aspectFit" bindtap="saveImage" data-img="{{item}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="price-info">
+  <view class="info-title">
+    {{goodInfo.title}}    
+  </view>
+  <view class="origin-price">
+    <view><text decode="true">原&emsp;价</text></view>
+    <text style="text-decoration:line-through;">￥{{goodInfo.price}}</text>
+  </view>
+  <view class="now-price">
+    <view class="now-price-z">
+      <view class="price-z-title">兑换价</view>
+      <view>{{goodInfo.total_price}}元+{{goodInfo.hbb}}积分+{{goodInfo.buy_like}}集赞</view>
+    </view>
+    <view class="noe-price-stock">
+      <text style="padding-left:16rpx;" wx:if="{{goodInfo.bal_count > 0}}">剩余：{{goodInfo.bal_count}}</text>
+      <text style="padding-left:16rpx;" wx:else>库存不足</text>
+    </view>
+  </view>
+</view>
+<view class="divide" style="height:34rpx"></view>
+<view class="introduction">
+  <image src="/images/icon-liwu.png"></image>
+  <text>{{goodInfo.info}}</text>
+</view>
+<view class="divide" style="height:22rpx"></view>
+<view class="good-desc">
+  <view class="desc-title">商品详情</view>
+  <view style="color: #9C9A9A;font-size: 28rpx;width:100%;height:auto;" bindlongtap="textPaste" data-content="{{goodInfo.desc}}">{{goodInfo.desc?goodInfo.desc:'暂无商品详情'}}</view>
+  <view style="height:30rpx"></view>
+</view>
+<view class="bottom-buy">
+  <view class="to-buy" style="background:#F5A718;" bindtap="goTobank">获取积分</view>
+  <!--库存不足按钮-->
+  <view class="to-buy1" bind:tap="buyNow" wx:if="{{goodInfo.bal_count > 0}}">立即兑换</view>
+  <view class="to-buy1 understock" wx:else>库存不足</view>
+  <view class="to-buy" style="background:#F5A718;" bindtap="goto_circle">获取点赞</view>
+
+
+</view>
+
+
+
+<!--弹窗-->
+<view class="modal-hide" bindtap="hideModal" wx:if="{{showModel}}"></view>
+<view class="modal-dialog" wx:if="{{showModel}}">
+  <view class="modal-title">积分不足提示</view>
+  <view class="modal-content">
+    <view class="modal-input">
+       您的可用积分不足，请先赚取更多积分哦~
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="hideModal" data-status="cancel">取消</view>
+    <button class="btn-confirm" data-status="confirm" bindtap="goTobank">赚积分</button>
+  </view>
+</view>
+  <!-- 返回上一步 -->
+<include src="/pages/module/backto/index.wxml" />
+
+<view class="is_notice_marek" wx:if="{{is_notice}}" bindtap="click_marek"></view>
+<view class="is_notice_box" wx:if="{{is_notice}}">
+  <view class="notice_center">用今日收获的赞，参与兑换福利商品，去分享一个自己的动态，让朋友们给你点赞！</view>
+  <view class="notice_center">发一个优秀的动态，可以收获更多的赞！快去分享集赞吧！</view>
+  <view class="notice_btn" hover-class="notice_hover_btn" bindtap="notice_btn">确定</view>
+</view>
+
+
+
+

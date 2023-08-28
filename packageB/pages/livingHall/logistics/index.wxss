@@ -1,0 +1,138 @@
+.logistic-items{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logistic-items .logistic-items-list{
+  display: flex;
+  align-items: center;
+  padding: 40rpx 40rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.logistic-items .logistic-items-list .logistic-img{
+  width: 78rpx;
+  height: 78rpx;
+}
+.logistic-items .logistic-items-list .logistic-img image{
+  width: 58rpx;
+  height: 58rpx;
+}
+.logis-list-text{
+  flex: 1;
+  padding: 0 14rpx 0 24rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.logis-list-text .logis-list-title{
+  font-size: 36rpx;
+  color: #333333;
+}
+.logis-list-descri{
+  font-size: 24rpx;
+  color: #333333;
+}
+.fill-from{
+height: 96rpx;
+width: 100%;
+background: #29c572;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 26rpx;
+color: #fff;
+}
+.logistic-enter{
+width: 100%;
+padding: 40rpx;
+overflow: hidden;
+box-sizing: border-box;
+
+}
+.logistic-enter>view{
+width: 100%;
+box-sizing: border-box;
+}
+.logistic-enter-title{
+padding: 20rpx 40rpx;
+font-size: 24rpx;
+color: #a5a4a4;
+}
+
+.logistic-single{
+padding: 20rpx 0;
+}
+.logistic-single input{
+font-size: 28rpx;
+color: #666666; 
+padding: 28rpx;
+background: #eef5ee; 
+margin-top:20rpx;
+}
+.logistic-single>view>text,.logistic-company>view>text{
+font-size: 32rpx;
+color: #333; 
+}
+.form-btn{
+width: 100%;
+padding: 20rpx 0;
+text-align: center;
+font-size: 28rpx;
+background: #29c572;
+color: #fff;
+position: fixed;
+bottom: 0;
+z-index: 99999;
+border-radius: 5px 5px 0 0;
+}
+.list-msg {
+  padding: 38rpx 0;
+  background-color: #fff;
+  position: relative;
+}
+
+.list-msg1 {
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-msg .list-msg2 {
+  height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 0 10rpx;
+  font-size: 26rpx;
+}
+
+.select_box {
+  background-color: #fff;
+  padding: 0 10rpx;
+  width: 70%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 999999;
+  height: 588rpx;
+  overflow: auto;
+  border-radius:10px;
+}
+
+.select_one {
+  height: 76rpx;
+  line-height: 76rpx;
+  border-bottom: 1px solid #e7e5e5;
+  font-size: 30rpx;
+  text-align: center;
+}
+

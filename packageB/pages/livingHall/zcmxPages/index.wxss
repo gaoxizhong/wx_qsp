@@ -1,0 +1,136 @@
+page{
+  background: #f8f6f4;
+}
+.search-box {
+  height: 94rpx;
+  padding-left: 30rpx;
+  background-color: #F6F6F6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search-box .search-button {
+  width: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-box .search-button text {
+  margin-right: 8rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+.search-box .search-button image {
+  width: 20rpx;
+  height: 14rpx;
+}
+
+.order-list {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 24rpx;
+  z-index: 100;
+  padding: 15rpx 20rpx;
+  box-sizing: border-box;
+}
+.order-list .order-item {
+  height: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 8px;
+  margin: 15rpx 0;
+}
+
+.order-list .order-item .order-info {
+  display: flex;
+  align-items: flex-start;
+
+}
+.orderImg{
+  width: 182rpx;
+  height: 170rpx;
+  border-radius: 6px;
+}
+.order-info-r{
+  flex: 1;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  box-sizing: border-box;
+}
+.items-r-title {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.items-r-m{
+  font-size: 26rpx;
+  margin-top: 8rpx;
+  box-sizing: border-box;
+}
+.items-r-pbox{
+  font-size: 26rpx;
+  color: #b3b3b3;
+  margin-top: 8rpx;
+  box-sizing: border-box;
+}
+
+.order-list .order-item .order-rimg {
+  width: 136rpx;
+  height: 136rpx;
+  border-radius: 6px;
+}
+.order-list .order-item .order-info text {
+  display: block;
+}
+.order-list .order-item .order-info .name {
+  font-size: 30rpx;
+  color: #333;
+}
+.order-list .order-item .order-info .time {
+  font-size: 26rpx;
+  color: #999;
+  width: 470rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+.search-condition {
+  font-size: 28rpx;
+  height: 200px;
+  padding: 0 2%;
+}
+.search-condition .date-choose {
+  width: 100%;
+}
+.search-condition .btn-search {
+  margin-top: 80rpx;
+}
+.search-condition .btn-search button {
+  width: 304rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-image: linear-gradient(to right, #2eae84 , #6cd67f);
+  border-radius: 40rpx;
+  margin: 0 auto;
+  padding: 0;
+  color: #fff;
+}
+.search-condition .start-time {
+  padding-top: 76rpx;
+  margin-bottom: 60rpx;
+}
+.search-condition .end-time {
+  margin-bottom: 60rpx;
+}
+.xiaohao-box{
+  font-size: 28rpx;
+  font-family: FZDaHei-B02S;
+  font-weight: 400;
+  color: #000000;
+  padding-top: 20rpx;
+  text-align: right;
+}

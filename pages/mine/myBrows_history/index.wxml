@@ -1,0 +1,60 @@
+<view class='nulldata_wrap' wx:if="{{dataStatus}}">
+  <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+  <view class='msg'>暂无数据</view>
+</view>
+<view class='page' wx:else>
+  <view class="idleList-box">
+    <block wx:for="{{listData}}" wx:key="idx" wx:for-index="idx">
+      <view class="idleList-box-item" style='{{item.length != 0?"border-bottom:2rpx solid #F2F2F2;":""}}'>
+        <view class='circle'>
+          <view class='shop-centent'>
+            <view class='shop-centent-title' bind:tap="goToActivity" data-idle="{{item.id}}" data-curidx="{{idx}}" data-busnesid="{{item.member_id}}" data-copy_business="{{item.copy_business}}">
+              <view class="shop-img">
+                <image src='{{item.img}}' class="shop-img-width"></image>
+              </view>
+              <view class='shop-jottings'>
+                <view selectable='true' class='text {{showFull[idx].leng >= 200 && !showFull[idx].status ?"cool":""}}'>{{item.title}}</view>
+                <view class='circle-head' style="justify-content: space-between;">
+                  <text style="font-size:20rpx;text-decoration: line-through;color:#010101;">原价 ￥{{item.price}}</text>
+                  <view class='time'>
+                    {{item.created_at}}
+                    <text decode="true">&emsp;{{item.idle_num?item.idle_num:'0'}} 阅读</text>
+                  </view>
+                </view>
+
+                <view class="discount">
+                  <view class="discount-price">
+                    <text>折扣价：￥{{item.total_price}}+{{item.hbb}}积分</text>
+                  </view>
+                </view>
+
+              </view>
+            </view>
+            <view class='circle-footer-operation'>
+              <!-- <view wx:if="{{personalInfo.business_type == '2' && personalInfo.id != item.member_id && item.discount_id != '0' &&item.is_copy == '2' && !item.copy_member}}">
+                <view class="copyy" bindtap="copy" data-contentid="{{item.content_id}}" data-id="{{item.id}}" data-is_idle="{{item.is_idle}}">
+                  <view wx:if="{{item.commission > 0}}"> 赚{{item.commission}}元</view>
+                  <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;{{configData.copy_text}}</text>
+                </view>
+              </view> -->
+              <view class="retweet">
+              </view>
+            </view>
+            <view class="discount-btn" bind:tap="goToActivity" data-idle="{{item.id}}" data-curidx="{{idx}}" data-busnesid="{{item.member_id}}" data-business_id="{{item.business_id}}" data-copy_business="{{item.copy_business}}">
+              立即抢购
+            </view>
+            <!-- <view class="retweet-2">
+              <button hover-class='none' open-type="share" data-sharetxt="{{item.title}}" data-gdImages="{{item.img.url}}" data-contentid="{{item.id}}">
+                <image mode='widthFix' src='/images/icon-relay.png'></image>
+                <label>
+                  <text>{{item.forward_count}}</text>
+                </label>
+                分享
+              </button>
+            </view> -->
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

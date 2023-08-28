@@ -1,0 +1,219 @@
+page{
+  background: #f2f2f2;
+  padding: 24rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+}
+.todayLike-title-box{
+  width: 100%;
+  height: 226rpx;
+  box-sizing: border-box;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.todayLike-title-bg{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.todayLike-title-info{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 0 50rpx;
+  box-sizing: border-box;
+}
+.title-info-top{
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 10rpx;
+}
+.titleInfo-ljdh-box{
+  width: 146rpx;
+  height: 76rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  line-height: 1.5;
+  position: relative;
+  padding-top: 10rpx;
+}
+.titleInfo-ljdh-box>image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.titleInfo-title{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: 24rpx;
+  box-sizing: border-box;
+  color: #b62d1a;
+  padding-bottom: 16rpx;
+}
+.titleInfo-title-t{
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+}
+.titleInfo-title-t>image{
+  width: 34rpx;
+  margin-left: 2px;
+}
+.todayLike-bottom-ye{
+  width: 100%;
+  height: 78rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  color: #af1812;
+}
+.titleInfo-num{
+  font-size: 38rpx;
+  font-weight: bold;
+  color: #de0200;
+}
+.bgmode{
+  width: 10rpx;
+  margin-left: 10rpx;
+}
+/* ==================================== 头部账户信息以上 ================================= */
+
+.todayLike-listitems-box{
+  width: 100%;
+  background: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20rpx 0;
+}
+.listitems-top-box{
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+.listitems-top-img{
+  width: 90rpx;
+}
+.add-icon-box{
+  flex: 1;
+  padding-left: 14rpx;
+  box-sizing: border-box;
+}
+.add-icon{
+  width: 20rpx;
+}
+.cx-btn-box{
+  width: 100%;
+  height: 76rpx;
+  padding: 12rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.cx-btn-box>view{
+  width: auto;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  color: #626262;
+}
+.icon_today_hh{
+  width: 44rpx;
+}
+.icon_today_listhghh{
+  width: 130rpx;
+}
+/* ================== 点赞、礼物列表 以下 ===========*/
+.dzlw-list-box{
+  width: 100%;
+  height: auto;
+  background: #f7f7f7;
+  border-radius: 4px;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+.dzlw-listitems-box{
+  width: 100%;
+  display: flex;
+  padding: 15rpx 0;
+}
+.dzlw-listitems-avatar{
+  width: 76rpx;
+  height: 76rpx;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.dzlw-listitems-hzbox{
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+.dzlw-listitems-hzbox>image{
+  width: 46rpx;
+}
+.dzlw-listitems-hzbox>text{
+  font-size: 28rpx;
+  color: #333;
+  padding-left: 14rpx;
+}
+.dzlw-listitems-nameinfo{
+  flex: 1;
+  font-size: 28rpx;
+  padding-left: 12rpx;
+}
+.listitems-lw-box{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+}
+.listitems-lwlist{
+  width: auto;
+  position: relative;
+  padding-right: 26rpx;
+}
+.dzlw-listitems-lwimg{
+  width: 120rpx;
+  height: 120rpx;
+}
+.lw-num{
+  color: #fb2d56;
+  font-size: 30rpx;
+  position: absolute;
+  top: -20rpx;
+  right: 0;
+  font-weight: bold;
+}
+.result-today{
+  padding: 5rpx 30rpx;
+  font-size: 28rpx;
+  color: #333;
+  margin-top: 10rpx;
+}

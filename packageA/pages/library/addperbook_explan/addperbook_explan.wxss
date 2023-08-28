@@ -1,0 +1,30 @@
+page{
+  background: #fff;
+}
+.btn-scanning{
+  position: fixed;
+  bottom: 40rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 88%;
+  padding: 20rpx 0;
+  background-image: linear-gradient(to right,#4AC081,#6cd67f);
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-scanning image{
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 12rpx;
+}
+.scann-step{
+  width: 100%;
+  height: auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

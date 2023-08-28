@@ -1,0 +1,46 @@
+<view class="all">
+   <scroll-view scroll-y="true" style="height: 100%;">
+      <view class="content" wx:for ="{{book_list}}"  wx:for-item="item" wx:key="index">
+        <view class="cancel" bindtap="cancel" data-index="{{index}}" data-book_id="{{item.book_id}}">
+          <image src="/images/icon-chacha.png"></image>
+        </view>
+        <view class="content-top">
+          <view class="left">
+            <image src="{{item.book_image}}" mode="aspectFill"></image>
+          </view>
+          <view class="right">
+            <input type="text" data-index="{{index}}" value="{{item.book_name?item.book_name:''}}" bindinput="input_book_name" style="font-size:30rpx;padding:4rpx 8rpx;background:#eaeaea;margin-right:38rpx;"></input>
+            <text class="book-author">{{item.book_author?item.book_author:'暂无作者'}}</text> 
+            <view class="book-prace" style="padding-left: 30rpx;">
+              <input class="centent-int1" type="number" data-index="{{index}}" value="{{item.book_price}}" placeholder="请输入价格" bindinput="setbookprice" placeholder-style="text-align:right;font-size:24rpx;"></input>
+              <text style="padding-left:20rpx;">积分</text>
+            </view>
+            <view class="book-prace" style="margin-top:8rpx;">
+              <picker bindchange="bindPickerChange" data-index="{{index}}" data-book_id="{{item.book_id}}" value="{{inx}}" range="{{oldNewarray}}" class="modify-btn">
+                {{item.book_grade ? item.book_grade:'选择'}}
+              </picker>
+            </view>
+          </view>
+        </view>
+        <view class="class-box">
+          <view class="btn-list"
+            wx:for="{{cate_list}}"
+            wx:for-index="indx"
+            wx:for-item="items"
+            wx:key="indx"
+            bindtap="getCateShop"
+            data-id="{{items.id}}"
+            data-index='{{index}}' 
+            data-indx='{{indx}}'
+            style="background: {{item.category_id == items.id? '#4ac280':'#bee9d1'}}"
+          >{{items.category_name}}</view>
+        </view>
+      </view> 
+      <view style="width:100%;height:140rpx;"></view>
+    </scroll-view>
+    <view class="btn-sao">
+      <button bindtap="saoyisao">继续扫码</button>
+      <button bindtap="submit" data-type="add">确认上架</button>
+    </view>
+
+</view>

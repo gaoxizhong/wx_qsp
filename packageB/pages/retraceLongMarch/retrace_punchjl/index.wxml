@@ -1,0 +1,45 @@
+<import src="../../../../wxParse/wxParse.wxml" />
+<wxs module="filters">
+  var filters = {
+    toFix: function (value) {
+			//丢弃小数部分,保留整数部分
+      return parseInt(value)
+    }
+  }
+  module.exports = {
+    toFix: filters.toFix
+  }
+</wxs>
+<view class="gz-box">
+<view class="position-box">
+	<view style="width: 100%;display: flex;justify-content: center;">
+		<image src="https://oss.qingshanpai.com/icon/dkcs-title.png" class="dkcs-title-imag"></image>
+	</view>
+	<view class="dkcs-box">
+		<text wx:if="{{content_count < punch_in_num }}">领奖凭证还需打卡{{ filters.toFix(punch_in_num - content_count) }}次可激活</text>
+		<text wx:else>领奖凭证已经激活</text>
+	</view>
+	<view style="font-size: 11px;">{{time_place?time_place:''}}联系电话：<text style="padding: 4rpx 8rpx;font-size: 14px;color: #E50612;"   data-mobile="{{mobile?mobile:'13521233911'}}" bindtap="tel">{{mobile?mobile:'13521233911'}}</text></view>
+	<view class="dkjlgz-box">打卡奖励规则</view>
+  <view class="cssm-info-box">
+		<view>
+			<template is="wxParse" data="{{wxParseData:punch_in_rule.nodes}}" />
+		</view>
+
+	</view>
+	<view class="dkjlgz-box">礼品名称</view>
+	<view class="ts-box"><text style="color: #ff0000;padding-right:10rpx;">*</text>请勿自己点击核销，当面由工作人员点击核销！</view>
+	<view class="gift-box">
+		<block wx:for="{{giftList}}" wx:key="index">
+			<view class="giftlist-box">
+				<view class="giftlist-m">
+					<view style="font-weight: 600;">{{item.good_name}} {{item.num}}个</view>
+					<view style="font-size: 28rpx;padding: 10rpx 0;">剩余:{{item.stock}}件</view>
+				</view>
+				<view class="giftlist-r"><view class="acList-r-btn" bindtap="writeClick" data-id="{{item.id}}">{{ item.is_dh?'已核销':'去核销'}}</view></view>
+			</view>
+		</block>
+	</view>
+</view>
+
+</view>

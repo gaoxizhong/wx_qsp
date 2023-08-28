@@ -1,0 +1,170 @@
+page{
+  background: #f2f2f2;
+}
+.popularActivity-box {
+  width: auto;
+  margin: 30rpx 20rpx;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.popularActivity-list-box {
+  width: 100%;
+  box-sizing: border-box;
+}
+.popularActivity-list-box>view {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+  background: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.index-list-img {
+  width: 117rpx;
+  height: 112rpx;
+}
+
+.popularActivity-list-titletext {
+  flex: 1;
+  padding-left: 20rpx;
+  font-size: 30rpx;
+}
+.my-more {
+  width: 48rpx;
+}
+
+.footer-box{
+  width: 100%;
+  margin-top: 50rpx;
+  text-align: center;
+}
+.list-snbtext{
+  color: #999;
+  font-size: 12px;
+  margin-top: 10rpx;
+}
+.footer-btn{
+  width: 440rpx;
+  height: 130rpx;
+}
+.footer-ingbox{
+  width: 440rpx;
+  height: 100rpx;
+}
+.hoverClass{
+  opacity: 0.8;
+}
+/* ============== 个人账户开始 ============== */
+.bac-box {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  padding: 20rpx 0;
+  margin-bottom: 60rpx;
+}
+.bac-box-title {
+  padding: 30rpx 20rpx 36rpx 20rpx;
+  height: auto;
+  margin: 0 20rpx;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background: #fff;
+}
+.box-title-number {
+  width: 100%;
+  height: 102rpx;
+  flex: 1;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.box-title-income {
+  margin-top: 26rpx;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+.box-title-number>view.box-title-number-lf {
+  flex: 1;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.box-title-number-rg {
+  width: 132rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid #dddddd;
+}
+
+.box-title-number-lf>view.number-lf-image {
+  width: 102rpx;
+  height: 102rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.number-lf-info {
+  flex: 1;
+  height: auto;
+  padding: 8rpx 0;
+  box-sizing: border-box;
+  margin-left: 10rpx;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.box-title-number-lf>view.number-lf-image image {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+.m_name {
+  height: 38rpx;
+  line-height: 38rpx;
+  display: flex;
+  align-items: flex-start;
+}
+.qianbi-box {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 28rpx;
+  position: relative;
+}
+.qianbi-box>image.image1 {
+  width: 30rpx;
+  height: 30rpx;
+}
+.box-title-income>view {
+  flex: 1;
+  height: 84rpx;
+  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.income-text-nub {
+  font-size: 26rpx;
+  height: 50rpx;
+  box-sizing: border-box;
+}
+.income-text-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  padding-left: 8rpx;
+}
+.income-text-img {
+  width: 34rpx;
+  height: 34rpx;
+  margin-top: 4rpx;
+}
+/* ============== 个人账户结束 ============== */

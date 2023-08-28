@@ -1,0 +1,73 @@
+.projectList-items{
+  width: 100%;
+  height: auto;
+}
+.listitems-box{
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  margin: 20rpx 0;
+  padding: 20rpx;
+  border-bottom: 1px solid #ececec;
+}
+.items-btnbox{
+  width: 118rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.items-buybtn{
+  width: 112rpx;
+  height: 54rpx;
+  border-radius: 20px;
+  color: #fff;
+  background: #ff6300;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 54rpx;
+}
+.items-sold{
+  font-size: 22rpx;
+  margin-top: 10rpx;
+}
+.graphics-box{
+  flex: 1;
+  display: flex;
+}
+.graphics-img{
+  width: 186rpx;
+  height: 140rpx;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.graphics-title{
+  flex: 1;
+  font-size: 30rpx;
+  padding: 6rpx 0 6rpx 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+.hoverClass{
+  opacity: 0.8;
+}
+.nulldata_wrap {
+  padding: 10% 0;
+  width: 100%;
+}
+.nulldata_wrap .msg {
+  font-size: 28rpx;
+  color: #b7b7b7;
+  text-align: center
+}
+.nulldata_wrap image {
+  width: 432rpx;
+  margin: 0 auto;
+  display: block
+}
+

@@ -1,0 +1,44 @@
+<!-- 个人账户开始 -->
+<view class="bac-box" style="padding: 0;">
+	<view class="bac-box-title flex-column-space">
+		<view class="box-title-number">
+			<view class="box-title-number-lf">
+				<view class="number-lf-image">
+					<image src="{{m_avatar?m_avatar:'/images/notlogin.jpg'}}"></image>
+				</view>
+				<view class="number-lf-info">
+					<view class="m_name">
+						<text>{{m_name ? m_name : '未知'}}</text>
+					</view>
+					<view style="font-size:24rpx;margin-top: 10rpx;">{{memberBankTitle}}：{{memberIdBank ? memberIdBank : '暂无账号'}}</view>
+				</view>
+			</view>
+			<view class="box-title-number-rg" bindtap="goToHisOrder">积分账单</view>
+		</view>
+		<view class="box-title-income flex-justitem-startcent">
+			<view>
+				<image src="/packageB/assets/images/icon-sy.png" class="income-text-img"></image>
+				<view class="income-text-title">
+					<text>环保积分</text>
+					<view class="income-text-nub">{{realAmount ? realAmount : '暂无积分'}}</view>
+				</view>
+			</view>
+			<view bindtap="goToFootprint">
+				<image src="/packageB/assets/images/icon-jy.png" class="income-text-img"></image>
+				<view class="income-text-title">
+					<text>我的订单</text>
+					<view class="income-text-nub"></view>
+				</view>
+			</view>
+			<view bindtap="goToyhq">
+				<image src="/packageB/assets/images/icon-jb.png" class="income-text-img"></image>
+				<view class="income-text-title">
+					<text>卡包</text>
+					<view class="income-text-nub"></view>
+				</view>
+			</view>
+
+		</view>
+	</view>
+</view>
+<!-- 个人账户结束 -->

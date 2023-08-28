@@ -1,0 +1,71 @@
+<view style="background:#fff;padding:20rpx; box-sizing:border-box;" wx:if="{{steps != '2'}}">
+  <view class="swiper-container">
+    <swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+      <block wx:for="{{top_img}}" wx:key="index">
+        <swiper-item bind:tap="goToFromImg" data-index="index">
+          <image src="{{item}}" class="slide-image" mode='aspectFill' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+
+<view class="addInfo-box">
+  <view class="garden-box">
+    <view class="types-i">联系人</view>
+    <input type="text" bindinput="user_name" placeholder="如某先生、某女士" value="{{user_name}}" class="types-input"/>
+  </view>
+  <view class="garden-box">
+    <view class="types-i">联系电话</view>
+    <input type="number" bindinput="user_phone" placeholder="手机号" value="{{user_phone}}" class="types-input"/>
+  </view>
+  <view class="garden-box">
+    <view class="types-i">所在地区</view>
+    <picker mode="region" style="flex:1;height:62rpx;" name="garden" value="{{garden}}" start="2015-09-01" bindchange="saveGarden">
+      <view class="shengshi">{{garden ? garden:'点击选择所在地址'}}</view>
+    </picker>
+  </view>
+  <view class="garden-box" style="margin-top: 20rpx;">
+    <view class="types-i">社区街道</view>
+    <input value="{{user_street}}" placeholder="街道（乡镇）" bindinput="user_street" class="types-input" />
+  </view>
+</view>
+
+<view class="optionList-box">
+  <view class="optionList-title">选择您感兴趣的功能（多选）</view>
+  <view class="popularActivity-list-box">
+    <checkbox-group>
+      <block wx:for="{{pa_list}}" wx:key="index">
+        <view class="list-before {{index != ( pa_list.length - 1 ) ? 'list-before-b' : '' }}" bindtap="chooseLibrary" data-index="{{index}}" data-id="{{item.id}}">
+          <image src="{{item.icon}}" mode="widthFix" class="index-list-img"></image>
+          <view class="popularActivity-list-titletext">
+            <view style="font-weight:600;">{{item.function_name}}</view>
+            <view style="color: #b7b7b7;font-size: 24rpx;">{{item.comment}}</view>
+          </view>
+          <!-- <view class="quan {{item.checked == true ? 'quan-in': ''}}" > -->
+          <view class="weui-cell__hd">
+            <checkbox value="{{item.function_name}}" checked="{{item.checked}}"/>
+          </view>
+        </view>
+      </block>
+    </checkbox-group>
+  </view>
+</view>
+
+<view class="page-listbox listbox-btn">
+  <view><view hover-class="hoverClass" class="listbox-leftbtn" bindtap="clickConfirm">确认提交</view></view>
+  <view><view hover-class="hoverClass" class="listbox-rightbtn" data-mobile="010-84672332" bindtap="clickAcquire">获取联系方式</view></view>
+</view>
+
+ <!-- 提示弹窗组件 -->
+<view>
+  <toast id='toast'></toast>
+</view>
+
+<!-- 联系方式弹窗 -->
+<view class="acquire-pop-box" wx:if="{{is_acquire}}">
+  <view class="acquire-msk-box" bindtap="clickMsk"></view>
+  <view class="acquire-view-box">
+    
+  </view>
+</view>

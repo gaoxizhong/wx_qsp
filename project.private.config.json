@@ -1,0 +1,225 @@
+{
+  "setting": {
+    "compileHotReLoad": false
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "圈人数",
+          "pathName": "pages/circle_people/circle_people",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "商家扫描演示入口",
+          "pathName": "packageA/pages/merchant_entrance/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "回收页面",
+          "pathName": "pages/garbageClass/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "申请店铺",
+          "pathName": "pages/register/register",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "挂售积分",
+          "pathName": "packageA/pages/inttran_receive/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "活动详情页",
+          "pathName": "packageA/pages/home_page/volunacti_details/index",
+          "query": "id=4&name='爱心赠送'",
+          "scene": null
+        },
+        {
+          "name": "服务详情",
+          "pathName": "packageA/pages/convenience_plate/plate_details/index",
+          "query": "id=4",
+          "scene": null
+        },
+        {
+          "name": "我的动态",
+          "pathName": "pages/mine/myContent/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "志愿活动扫码页",
+          "pathName": "packageA/pages/vol_act_pages/index",
+          "query": "contentid=5405",
+          "scene": null
+        },
+        {
+          "name": "一分钱扫码页面",
+          "pathName": "packageA/pages/apenny_dynamic_pages/index",
+          "query": "id=5537",
+          "scene": null
+        },
+        {
+          "name": "有偿回收",
+          "pathName": "packageA/pages/receivearticle/formsubmiss/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "闲置发布",
+          "pathName": "pages/mine/myIdlerelease/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的闲置列表页",
+          "pathName": "pages/mine/myIdle/index",
+          "query": "member_id=22611",
+          "scene": null
+        },
+        {
+          "name": "我的闲置",
+          "pathName": "pages/mine/myIdleIndex/index",
+          "query": "member_id=22611",
+          "scene": null
+        },
+        {
+          "name": "发圈",
+          "pathName": "pages/publish/publish",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的闲圈",
+          "pathName": "packageA/pages/idleGroup/myidleGroupIndex/index",
+          "query": "member_id=22611",
+          "scene": null
+        },
+        {
+          "name": "志愿分享",
+          "pathName": "packageA/pages/vol_act_pages/index",
+          "query": "id=5536",
+          "scene": null
+        },
+        {
+          "name": "闲置卖场",
+          "pathName": "pages/getalllist/getalllist",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "冬奥打卡",
+          "pathName": "packageB/pages/winter_olympics/winter_punchlist/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "领居的书",
+          "pathName": "packageA/pages/library/neighbook/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "我的店铺",
+          "pathName": "pages/shop/shop",
+          "query": "member_id=22611&business_id=421",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "闲置圈圈",
+          "pathName": "pages/getalllist/getalllist",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "收积分集赞",
+          "pathName": "pages/dicount_good/dicount_good",
+          "query": "discount_id=1589&record_id=16&is_taskShare=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "packageB/pages/postStationCode/index",
+          "query": "l_id=9&b_id=421",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "签到首页",
+          "pathName": "packageB/pages/signIndex/index",
+          "query": "m_id=125599",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "低碳绿城",
+          "pathName": "packageB/pages/communityFunction/home/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "清河营社区功能",
+          "pathName": "packageB/pages/qhyRally/home/index",
+          "query": "id=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "packageA/pages/merchant_entrance/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "商品详情",
+          "pathName": "pages/dicount_good/dicount_good",
+          "query": "business_id=20&discount_id=2632&jiage=0.2&is_smallacqu=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "packageB/pages/postStationCode/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "packageB/pages/livingHall/projectList/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "packageA/pages/home_page/volunacti_page/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "手工坊项目列表页",
+          "pathName": "packageB/pages/livingHall/projectList/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "libVersion": "2.25.4"
+}

@@ -1,0 +1,118 @@
+
+<view class="is-blindBox">
+  <view class="is-blinBox-title">本次交易获得</view>
+  <view class="is-blindBox-jg"><text style="font-size: 54rpx;padding-right: 10rpx;">{{jiage}}</text>元</view>
+</view>
+
+<view class="is-blindBox-info">{{confirm_coupons.data.business_name?confirm_coupons.data.business_name:''}}向您推荐以下商品</view>
+<view style="padding-bottom: 140rpx;" wx:if="{{confirm_coupons.tab.select_type == '2'}}">
+  <view class="coupon-list-box" style="margin-top:30rpx;">
+    <view class="coupon-list-items">
+      <view class="sheng-bg">
+        <image src="/images/sheng-bg.png"></image>
+      </view>
+      <view class="listitems-le">
+        <view class="listitems-le-title">凭此券 享优惠</view>
+        <view class="calendar-box">
+          <view class="calendar-con"><text style="font-size:28rpx;">￥</text>{{(confirm_coupons.data.price) - (confirm_coupons.data.current_price)}}</view>
+        </view>
+        <view class="shops-name">{{confirm_coupons.data.business_name}}</view>
+      </view>
+      <view class="listitems-ri">
+        <view class="listitems-rititle-box">
+          <view class="coupon-title">{{confirm_coupons.data.name}} 优惠券</view>
+        </view>
+        <view class="ri-price-curr"><text>原价： {{confirm_coupons.data.price}}</text><text style="padding-left:12rpx;">劵后价： {{confirm_coupons.data.current_price}}</text></view>
+        <view class="coupon-view">支付：￥{{confirm_coupons.data.coupon_price}} + {{confirm_coupons.data.coupon_integral}}积分 获取本券</view>
+        <view class="start-end-time">{{confirm_coupons.data.start_time}} 至 {{confirm_coupons.data.end_time}}内有效。</view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="product-title">关联商品</view> -->
+      
+  <view class="prduct-box">
+    <view class="prduct-img-box">
+      <image src="{{confirm_coupons.data.thumb}}" mode="aspectFit" class="is-jifen1"></image>
+    </view>
+  </view>
+  <view class="liuyan-box">
+    <view class="liuyan-box-left">
+      <image src="{{confirm_coupons.data.avatar?confirm_coupons.data.avatar:'/packageA/assets/images/notlogin.jpg'}}"></image>
+    </view>
+    <view class="liuyan-box-right">
+      <view style="font-size:28rpx;">{{confirm_coupons.data.business_name}}</view>
+      <view class="dianzhang-info">
+        {{confirm_coupons.data.content?confirm_coupons.data.content:'我是店长，赠送您一张优惠券，诚邀您到店体验！'}}
+        <image src="/packageA/assets/images/sanjiao.png" class="dianzhang-info-image"></image>
+      </view>
+    </view> 
+
+  </view>
+  <!-- <view class="page_title">
+    <view class="page_title_view"><text style="color:red;">{{done_p}}</text>+人接受</view>
+  </view> -->
+  <view class="bottom-box1">
+    <view class="bottom-box-ri you-box-ri" bindtap="xuyao_coupon">立享优惠</view>
+  </view>
+</view>
+
+
+<view style="padding-bottom: 110rpx;" wx:if="{{confirm_coupons.tab.select_type == '1'}}">
+  <view class="commodity-items">
+    <view class='circle' style="padding:30rpx 20rpx;">
+      <view class='shop-centent'>
+        <view class='shop-centent-title'>
+          <view class="shop-img">
+            <image class="shop-img-width" src="{{ confirm_coupons.data.img[0] }}"></image>
+          </view>
+          <view class='shop-jottings'>
+            <view selectable='true' class='text'>{{confirm_coupons.data.title}}</view>
+            <view class='circle-head' style="justify-content: space-between;">
+              <text style="font-size:20rpx;text-decoration: line-through;">原价 ￥{{confirm_coupons.data.price}}</text>
+            </view>
+            <view class="discount">
+              <view class="discount-price">
+                <text>折扣价：￥{{confirm_coupons.data.total_price}}+{{confirm_coupons.data.hbb?confirm_coupons.data.hbb:'0.00'}}积分</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="product-title">关联商品</view> -->
+      
+  <view class="prduct-box">
+    <view class="prduct-img-box">
+      <image src="{{confirm_coupons.data.img[0]}}" mode="aspectFit" class="is-jifen1"></image>
+    </view>
+  </view>
+  <view class="liuyan-box">
+    <view class="liuyan-box-left">
+      <image src="{{confirm_coupons.data.avatar?confirm_coupons.data.avatar:'/packageA/assets/images/notlogin.jpg'}}"></image>
+    </view>
+    <view class="liuyan-box-right">
+      <view style="font-size:28rpx;">{{confirm_coupons.data.business_name}}</view>
+      <view class="dianzhang-info">
+        {{confirm_coupons.data.content?confirm_coupons.data.content:'暂无'}}
+        <image src="/packageA/assets/images/sanjiao.png" class="dianzhang-info-image"></image>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="page_title">
+    <view class="page_title_view"><text style="color:red;">{{done_p}}</text>+人接受</view>
+  </view> -->
+  <view class="bottom-box1">
+    <view class="bottom-box-ri shang-box-ri" bindtap="audit_btn" data-status="1">查看优惠详情</view>
+  </view>
+</view>
+<view class="jia-jifen">
+  <view style="color:red;text-align: center;padding: 10rpx 0;">+ <text style="font-size:36rpx;"> 0.21</text>元</view>
+  <view styke="text-align: left;">环保账号余额{{total_price}}元</view>
+  <view styke="text-align: left;">可在积分账户或我的钱包提现</view>
+</view>
+<view class="jia-jifen2">
+<view style="color:red;text-align: center;padding: 10rpx 0;">+ <text style="font-size:36rpx;"> 0.1</text>元</view>
+  <view styke="text-align: left;">环保账号余额{{total_price}}元</view>
+  <view styke="text-align: left;">可在积分账户或我的钱包提现</view>
+</view>

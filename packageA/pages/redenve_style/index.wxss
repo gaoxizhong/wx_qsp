@@ -1,0 +1,169 @@
+page{
+  box-sizing: border-box;
+  padding: 30rpx;
+}
+.image-box{
+  width: 690rpx;
+  height: 230rpx;
+  box-sizing: border-box;
+  border-radius: 2px;
+  margin: 24rpx 0;
+  box-shadow: 0 0 20rpx 2rpx #00000020;
+  position: relative;
+}
+.image-box image{
+  width: 100%;
+  height: 100%;
+}
+.image-box.select-items::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 3px solid #00b377;
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-origin: left top;
+  transform-origin: left top;
+  z-index: 999;
+}
+.footer-box{
+  width: 100%;
+  padding: 20rpx 0;
+  background: #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-btn{
+  width: 342rpx;
+  text-align: center;
+  height: 62rpx;
+  line-height: 62rpx;
+  font-size: 30rpx;
+  background-color: #438dbd;
+  color: #fff;
+  border-radius: 20px;
+}
+.is_limit_layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.6;
+  z-index: 9999;
+}
+.is_limit_box {
+  width: 60%;
+  padding: 30rpx 60rpx;
+  background: #fff;
+  border-radius: 6px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 9999;
+}
+.limit_box_title {
+  width: 100%;
+  font-weight: 600;
+  padding-bottom: 10rpx;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.limit_btn_box {
+  margin-top: 12rpx;
+  padding: 20rpx 0;
+}
+.limit_box_label {
+  display: flex;
+  padding: 16rpx 0;
+  position: relative;
+}
+.limit_box_label::after{
+  content: '';
+  height: 1px;
+  width: 100%;
+  transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #b6b6b6;
+}
+.limit_box_name {
+  padding: 0 12rpx;
+  flex: 1;
+}
+.limit_btn {
+  width: auto;
+  padding: 12rpx 30rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background: #438dbd;
+  border-radius: 20px;
+  text-align: center;
+  margin: 0 auto;
+}
+.btn-hover{
+  opacity: .8;
+}
+.buy-money-view {
+  width: 100%;
+  text-align: center;
+  font-size: 42rpx;
+  padding-bottom: 26rpx;
+  position: relative;
+}
+.way-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+}
+.the-view-box {
+  font-size: 30rpx;
+  padding-top: 30rpx;
+}
+.limit_btn_box {
+  margin-top: 12rpx;
+  padding: 20rpx 0;
+}
+.buy-money-view::after{
+  content: '';
+  width: 100%;
+  height: 1px;
+  transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #b6b6b6;
+}
+.way-title {
+  font-size: 28rpx;
+  color: #949292;
+}
+.way-name {
+  font-size: 30rpx;
+  color: #333;
+}
+.promlines_btn {
+  width: 266rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  text-align: center;
+  background: #2477fa;
+  color: #fff;
+  border-radius: 10px;
+  margin: 0 auto;
+}

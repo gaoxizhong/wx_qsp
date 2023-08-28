@@ -1,0 +1,41 @@
+<view class="pages-tbox">
+  <view class="tbox-title">可兑换余额（元）<image src="/images/mark_image.png" bindtap="openIllustrate" mode="widthFix" class="tbox-img"></image></view>
+  <view class="tbox-money">{{my_coin}}</view>
+</view>
+<view class="money-itemsbox">
+  <view class="itemsbox-i">作品获赞收益 <text>{{coin_like}}</text></view>
+  <view class="itemsbox-m"></view>
+  <view class="itemsbox-i">作品分享收益 <text>{{coin_share}}</text></view>
+</view>
+<view class="t-30"></view>
+<view class="mx-itemsbox">
+  <view class="mx-items"  bindtap="goToExchangeRecord">
+    收入明细
+    <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+  </view>
+  <view class="mx-items" bindtap="goTozcmx">
+    支出明细
+    <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+  </view>
+</view>
+<view class="t-30"></view>
+
+<!-- 兑换项目 -->
+<view class="project-box">
+  <view class="project-box-title">兑换项目</view>
+  <projectList id="projectID"/>
+</view>
+
+<view class="illustrate-box" catchtouchmove="catchtouchmove" wx:if="{{is_illustrate}}">
+  <view class="illustrate-pop" catchtouchmove="catchtouchmove" bindtap="infoTextBtn"></view>
+  <view class="illustrate-infobox">
+    <view class="illustrate-title-box">
+      <view>可兑换余额</view>
+      <view class="close" bindtap="infoTextBtn">X</view>
+    </view>
+    <view class="infoText-box">
+      可兑换余额为本人作品获赞的收益和分享好友购买平台项目及其他人作品获得的收益。可用来抵现兑换项目或抵现加金钱兑换，不可提现。
+    </view>
+    <view class="infoText-btn" bindtap="infoTextBtn">我知道了</view>
+  </view>
+</view>

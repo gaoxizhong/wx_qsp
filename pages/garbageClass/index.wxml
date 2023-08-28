@@ -1,0 +1,35 @@
+<view class="swiper-container">
+  <swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+    <block wx:for="{{top_img}}" wx:key="index">
+      <swiper-item bind:tap="goToFromImg" data-label="{{item.label}}" data-labelid="{{item.label_id}}">
+        <image src="{{item.image}}" class="slide-image" mode='aspectFill' />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="maekp">
+  <view class="maekp_btn" bindtap="gotoMakephoto">一键生成垃圾分类宣传海报</view>
+</view>
+<view class="page-listbox">
+  <view class="listbox-view">
+    <view  wx:for="{{items}}" wx:key="index" bindtap="items_image" data-id="{{item.id}}" data-pagesUrl="{{item.pagesUrl}}">
+      <image class="{{supe_idx == item.id ? 'sale' : ''}}  images-1" src="{{item.url_1}}"></image>
+      <image class="images-2" wx:if="{{supe_idx == item.id}}" src="/images/super-{{index+1}}.png"></image>
+    </view>
+  </view>
+</view>
+<view class="page-listbox listbox-images">
+  <image mode="widthFix" class="images-3" wx:for="{{items}}" wx:key="index" data-id="{{item.id}}" wx:if="{{supe_idx == item.id}}" src="{{item.url_2}}"></image>
+</view>
+<view style="width:100%;height:166rpx;"></view>
+<view class="page-listbox listbox-btn">
+  <view class="footer-btn" bindtap="footer_btn" hover-class='hover_color'>点击上传正确分类照片-获得奖励</view>
+</view>
+<!-- 生成海报弹窗 -->
+<include src="/pages/module/makephoto/index.wxml" />
+<!-- 授权登录弹窗 -->
+<include src="/pages/module/login_mark/index.wxml" />
+<!-- 自动挂积分 -->
+<!-- <include src="/pages/module/deal_integral/index.wxml" /> -->
+<!-- 做任务得积分弹窗 -->
+<include src="/pages/module/signTaskMask/index.wxml" />

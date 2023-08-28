@@ -1,0 +1,107 @@
+  
+  <view class="sousuo-box">
+    <view class="input-box">
+      <input type="text" value="" placeholder="输入图书名称"  bindinput="searchLibrary" value="{{library_name}}"></input>
+    </view>
+    <view class="btn-box" catchtouchmove="aaa" bindtap="getLibraryByConditon">搜索</view>
+  </view>
+  
+  <view>
+    <view class="class_box"> 
+      <view class="create-library" bindtap="goToindex_personal" wx:if="{{my_library}}" data-library_id="{{my_library.id}}">
+        <image src="http://oss.qingshanpai.com/banner/my-bookstore.png" mode=""></image>
+      </view>
+      <view class="create-library" wx:if="{{!my_library}}" bindtap="goTocreate">
+        <image src="http://oss.qingshanpai.com/banner/create-bookstore.png" mode=""></image>
+      </view>
+      <view class="box-right">
+        <view class="my-group" bindtap="getmygroup">
+          <image src="http://oss.qingshanpai.com/banner/my-group.png"></image>
+        </view>
+        <view class="my-attention" bindtap="my_attention">
+          <image src="http://oss.qingshanpai.com/banner/my-attention.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="b-view">
+      <view class="inner-layer">
+        <image src="http://oss.qingshanpai.com/banner/B-bg.png"></image>
+        <view class="b-view-box">
+          <view class="view-box-iamge">
+            <image src="http://oss.qingshanpai.com/banner/booksicon.png" mode="widthFix"></image>
+          </view>
+          <view class="view-title">这里共有{{dd.aa}}本书， {{dd.bb}}书友， {{dd.cc}}人次来过。</view>
+        </view>
+      </view>
+    </view>
+    <view class="library-list1" style="padding: 0 26rpx;">
+      <view 
+        class="list-item" 
+        wx:for="{{library_member_List}}" 
+        wx:for-index="index" 
+        wx:for-item="item" 
+        wx:key="index" 
+        data-id="{{item.id}}" 
+        data-is_password="{{item.is_password}}" 
+        data-library_id="{{item.id}}" data-book_num="{{item.book_num}}" bind:tap="goToindex_personal" 
+        >
+        <view class="lt">
+          <view class="lt-left">
+            <view class="lt-image">
+              <image src='{{item.library_img}}'></image>
+            </view>
+            <view class="lt-text">
+              <view class="name">{{item.library_name}}</view>
+              <text style="font-size:26rpx;">店长：{{item.member_name?item.member_name: '暂无'}}</text>
+            </view>
+          </view>
+          <view class="lt-right">
+            <view class="right-cang" style="margin-bottom:10rpx;" wx:if="{{item.stock > 0}}">
+              <image src="/images/16.png"></image>
+              <text>藏书{{item.stock}}册</text> 
+            </view>
+            <view style="margin-bottom:10rpx;color:#4AC08B;" wx:if="{{item.stock <= 0}}">暂无图书</view>
+
+            <view>距离{{item.distance}}KM</view>
+          </view>
+        </view>
+        <view class="rt">
+          <view class="score" wx:for="{{item.books}}" wx:key="idx" wx:for-item="items">
+            <view class="rt-image-box"><image src="{{items.images_medium}}"></image></view>
+            <view class="rt-title-box">
+              <text class="rt-title-text">{{items.book_name}}</text>
+              <text class="rt-title-bg">
+                <text class="btn-bg">折后价</text>
+                <text class="btn-jiage">￥{{items.discount_price}}</text>
+              </text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='nulldata_wrap' wx:if="{{libraryList.length == 0}}">
+        <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+        <view class='msg'>暂无数据</view>
+      </view>
+  </view>
+  </view>
+
+
+<!-- 密码弹框 -->
+<include src="/pages/module/is_password/index.wxml" />
+
+<!-- 设置密码 -->
+<view class='set-cover' wx:if="{{setPassword}}" bindtap="setPassword_cover" catchtouchmove="myCatchTouch"></view>
+<block wx:if="{{setPassword}}">
+  <view class="set-toast-box">
+    <form bindsubmit="set_library_password">
+      <view class="set-title-input">
+        <view>设置书店密码:</view>
+        <input placeholder="请设置书店密码" placeholder-style='color:#FFFFFF;' class="set-input-num" name='library_password' value="{{library_password}}"></input>
+      </view>
+      <view class="password-instruct">用于团组活动和隐藏自己的书店；好友或邻居设置相同的密码即可进入同一团组</view>
+      <button class="set-t-b" hover-class="hover-set-t" form-type="submit">确定</button>
+    </form>
+  </view>
+</block>
+
+

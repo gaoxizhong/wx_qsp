@@ -1,0 +1,10 @@
+<view class='state_wrap'>
+  <image src="/images/S1.jpg" />
+  <view class='txt'>提交成功</view>
+  <form bindsubmit='getFormId' report-submit>
+    <view class='success-btn-list'>
+      <button form-type='submit' class="btn-lt" bind:tap="goToUseCoin">逛逛图书</button>
+      <button form-type='submit' class="btn-rt" bind:tap="goToUseCoinaa">回到首页</button>
+    </view>
+  </form>
+</view>

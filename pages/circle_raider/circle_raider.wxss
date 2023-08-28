@@ -1,0 +1,25 @@
+/* pages/circle_raider/circle_raider.wxss */
+page {
+  color: #333333;
+  font-family: PingFangSC-Regular,PingFangSC;
+}
+.circle_raider .main .title{
+  font-size: 30rpx;
+  padding-bottom: 18rpx;
+}
+.circle_raider .main view{
+  margin: 24rpx 0;
+  font-size: 30rpx;
+  color: #1f1e1e;
+}
+.circle_raider .main view text.title_secondary{
+  font-size: 32rpx;
+  color: #b40707;
+}
+.circle_raider .main view text.red{
+  color: #b40707;
+}
+.gohome {
+bottom: 80rpx;
+
+}

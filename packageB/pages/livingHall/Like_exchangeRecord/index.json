@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "兑换明细"
+}

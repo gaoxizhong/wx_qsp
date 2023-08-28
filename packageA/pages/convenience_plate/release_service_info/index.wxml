@@ -1,0 +1,137 @@
+<form catchsubmit="formSubmit">
+  <view class="release_section_box">
+    <view class="release_title">发布类型</view>
+    <view class="release_box">
+      <block wx:for="{{items_list}}" wx:key="index">
+        <view class="release_items {{seled_items == item.id ? 'seled_style' : '' }}" bindtap="seled_items" data-id="{{item.id}}">{{item.name}}</view>
+      </block>
+    </view>
+  </view>
+
+  <view class="release_section_2">
+    <view class="release_title" style="padding:0rpx;">基础信息</view>
+    <view class="section_2_items">
+      <view class="input_box">
+        <view class="input_title">名称：</view>
+        <view class="input_items">
+          <input type="text" value="{{member_name}}" name="member_name" placeholder="请填写名称" bindinput="member_name"></input>
+        </view>
+      </view>
+      <view class="input_box">
+        <view class="input_title">电话：</view>
+        <view class="input_items">
+          <input type="number" value="{{member_mobile}}" name="member_mobile" placeholder="请填写电话" bindinput="member_mobile"></input>
+        </view>
+      </view>
+      <view class="input_box">
+        <view class="input_title">市区：</view>
+        <picker mode="region" value="{{member_garden}}" name="member_garden" bindchange="saveGarden">
+          <view  class="picker_items" style="color:{{member_garden ? '#333':'#808080'}};">{{member_garden ? member_garden:'请选择省市区'}}</view>
+        </picker>
+      </view>
+      <view class="input_box">
+        <view class="input_title">地址：</view>
+        <view class="input_items">
+          <input type="text" value="{{member_address}}" name="member_address" placeholder="请填写地址" bindinput="member_address"></input>
+        </view>
+      </view>
+      <view class="input_box">
+        <view class="input_title">营业时间：</view>
+        <view class="input_items">
+          <input type="text" value="{{member_time}}" name="member_time" placeholder="请填写营业时间" bindinput="member_time"></input>
+        </view>
+      </view>
+      <view class="input_box">
+        <view class="input_title">资质：</view>
+        <view class="input_items" style="height:auto;">
+          <view class="activity-imgs">
+            <image 
+                wx:for="{{aptitude_img}}"
+                wx:for-item="item"
+                wx:for-index="index"
+                wx:key="index"
+                mode="aspectFill"
+                data-index="{{index}}" 
+                 data-is_btn="1" 
+                src="{{item}}"
+                bindtap="openPhoto"/>
+            <view class="add-pic" bindtap="choosePic" data-is_btn="1">
+              <image src="/images/icon-addphoto.png" mode="aspectFill"/>
+            </view>
+          </view>
+        </view>
+        
+      </view>
+    </view>
+  </view>
+
+  <view class="release_section_2">
+    <view class="release_title" style="padding:0rpx;">发布信息</view>
+    <view class="section_2_items">
+      <view class="input_box">
+        <view class="input_title">标题：</view>
+        <view class="input_items">
+          <input type="text" value="{{info_title}}" name="info_title" placeholder="请填写标题" bindinput="info_title"></input>
+        </view>
+      </view>
+      <view class="input_box">
+        <view class="input_title">上传图片：</view>
+        <view class="input_items" style="height:auto;">
+          <view class="activity-imgs">
+            <image 
+                wx:for="{{banner_img}}"
+                wx:for-item="item"
+                wx:for-index="index"
+                wx:key="index"
+                mode="aspectFill"
+                data-index="{{index}}" 
+                data-is_btn="2" 
+                src="{{item}}"
+                bindtap="openPhoto"/>
+            <view class="add-pic" bindtap="choosePic" data-is_btn="2">
+              <image src="/images/icon-addphoto.png" mode="aspectFill"/>
+            </view>
+          </view>
+        </view>
+        
+      </view>
+      <view class="shuoming">说明：此处图片用于向用户展示，你可以上传多张自己关于工作宣传的图片！</view>
+
+      <view class="input_box">
+        <view class="input_title">详情介绍：</view>
+        <view class="input_items" style="height:auto;">
+          <textarea type="text" value="{{info_details}}" name="info_details" placeholder="请填写服务详情内容" bindinput="info_details"></textarea>
+        </view>
+      </view>
+      <view class="input_box">
+        <view class="radio_title">是否可以评论：</view>
+        <radio-group bindchange="radioChange" style="display:flex;">
+          <label class="weui-check__label" wx:for="{{items}}" wx:key="index">
+            <view class="weui-cell__hd">
+              <radio value="{{item.value}}" checked="{{item.checked}}"/>
+            </view>
+            <view class="weui-cell__bd">{{item.name}}</view>
+          </label>
+        </radio-group>
+      </view>
+
+    </view>
+  </view>
+  <view style="width:100%;height:160rpx;"></view>
+  <view class="btn-area">
+    <button class="preview_btn" bindtap="preview_btn">预览</button>
+    <button type="primary" formType="submit">提交</button>
+  </view>
+</form>
+
+
+<view class="layer" wx:if="{{showFull}}" bindtap='closePic'>
+  <view class="cover"></view>
+  <view class="con">
+    <image src='{{preview}}' mode="widthFix"></image>
+    <view bindtap='delPic' class="txt">删除</view>
+  </view>
+</view>
+
+
+<!-- 预览弹窗 -->

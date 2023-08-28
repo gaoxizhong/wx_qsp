@@ -1,0 +1,142 @@
+<!-- 我的闲置上部分 -->
+
+<include src="/pages/module/myIdleHead/index.wxml" />
+<!-- <view class="indexbg"></view> -->
+
+<view class='nulldata_wrap' wx:if="{{dataStatus}}">
+  <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+  <view class='msg'>等等啦~Ta还没有发布闲置~</view>
+</view>
+<view class='page' wx:else>
+  <view class="myidle-box-title">
+    <view class="myidle-title-l">
+      <view class="myidle-title-l-b"></view>
+      <text>发布的闲置</text>
+    </view>
+  </view>
+  <view class="idleList-box">
+    <block wx:for="{{wenzData}}" wx:key="idx" wx:for-index="idx">
+      <view class="idleList-box-item" style='{{item.length != 0?"border-bottom:2rpx solid #F2F2F2;":""}}'>
+        <view class="shou-tu" style="background: none;" wx:if="{{item.bal_count == 0}}">
+          <image src="http://oss.qingshanpai.com/banner/shouwan.png"></image>
+        </view>
+        <view class='circle'>
+
+          <view class='shop-centent'>
+            <view class='shop-centent-title' bind:tap="goToActivity" data-idle="{{item.id}}" data-curidx="{{idx}}" data-copy_business="{{item.copy_business}}">
+              <view class="shop-img">
+                <image src='{{item.img.url}}' class="shop-img-width"></image>
+              </view>
+              <view class='shop-jottings'>
+                <view selectable='true' class='text {{showFull[idx].leng >= 200 && !showFull[idx].status ?"cool":""}}'>{{item.title}}</view>
+                <view class='time'>
+                  {{item.created_at}}
+                  <text decode="true">&emsp;{{item.idle_num}} 阅读</text>
+                </view>
+                <view class='circle-head' style="justify-content: space-between;">
+                  <text style="font-size:20rpx;text-decoration: line-through;color:#010101;">原价 ￥{{item.price}}</text>
+                </view>
+                <view class="discount">
+                  <view class="discount-price"><text>折扣价：￥{{item.total_price}}+{{item.hbb}}积分</text></view>
+                </view>
+              </view>
+            </view>
+            <view class='circle-footer-operation'>
+              <view class="editstatus" wx:if="{{shangjia_id == member_id || type == 1}}">
+                <view class="editstatus-item" wx:if="{{ item.in_stock < 2 && item.is_idle !=2 }}" bindtap="edit" data-id="{{item.id}}" data-is_sales="{{item.is_idle}}" data-curidx="{{idx}}">
+                  编辑
+                </view>
+                <view class="editstatus-item" hover-class='none' bindtap="stand" data-idle="{{item.id}}" data-index="{{idx}}" data-is_idle="{{item.is_idle}}" data-stand="{{item.stand == 1? 2 : 1}}">{{item.stand == 1?'下架':'上架'}}</view>
+                <view class="editstatus-item" data-id="{{item.id}}" data-curidx="{{idx}}" wx:if="{{item.in_stock == 1}}">
+                  在售
+                </view>
+                <view class="editstatus-item qu" data-is_idle="{{item.is_idle}}" data-business_id="{{item.business_id}}" data-id="{{item.id}}" data-curidx="{{idx}}" bindtap="goTofahuo" wx:if="{{item.in_stock == 2}}">
+                  去发货
+                </view>
+                <view class="editstatus-item" data-business_id="{{item.business_id}}" data-id="{{item.id}}" data-curidx="{{idx}}" wx:if="{{item.in_stock == 3}}">
+                  已发货
+                </view>
+                <view class="editstatus-item" data-business_id="{{item.business_id}}" data-id="{{item.id}}" data-curidx="{{idx}}" wx:if="{{item.in_stock == 4}}">
+                  已签收
+                </view>
+                <view class="more-activit" bindtap='openguanli' data-curindex="{{idx}}" style="text-align:center; margin-left: 10px;">
+                  <image src="/images/dian.png"></image>
+                </view>
+              </view>
+
+            </view>
+            <view class="retweet-2">
+              <button hover-class='none' open-type="share" data-is_list="1" data-sharetxt="{{item.title}}" data-gdImages="{{item.img.url}}" data-contentid="{{item.id}}">
+                <image mode='widthFix' src='/images/icon-relay.png'></image>
+                <label>
+                  <text>{{item.forward_count}}</text>
+                </label>
+                分享
+              </button>
+            </view>
+          </view>
+          <view class="discount-btn" bind:tap="goToActivity" data-idle="{{item.id}}" data-curidx="{{idx}}" data-copy_business="{{item.copy_business}}" wx:if="{{shangjia_id != member_id && type != 1 }}">
+            立即抢购
+          </view>
+        </view>
+        <view wx:if="{{idx == popidx && pop3}}">
+          <view class='pop-bg' catchtouchmove='true' bindtap="popLock_itemm"></view>
+          <view class='pop-add'>
+            <view class='itemm'>
+              <form report-submit bindsubmit='viewLogistics' data-discount_order_tid="{{item.discount_order_tid}}" data-order_id="{{item.order_id}}" data-in_stock="{{item.in_stock}}" data-curidx="{{idx}}" wx:if="{{item.in_stock >= 3}}">
+                <button form-type='submit' class='last' hover-class='none'>查看物流</button>
+              </form>
+              <form report-submit bindsubmit='' data-content_id="{{item.id}}" data-id="{{item.activty.id}}" data-curidx="{{idx}}" wx:else>
+                <button form-type='submit' class='last' hover-class='none'>暂无物流</button>
+              </form>
+            </view>
+            <view class='itemm' wx:if="{{item.is_idle != 2}}">
+              <form report-submit bindsubmit='delCircle' data-content_id="{{item.content_id}}" data-member_id="{{item.member_id}}" data-discount_id="{{item.id}}" data-curidx="{{idx}}">
+                <button form-type='submit' class='last' hover-class='none'>删除商品</button>
+              </form>
+            </view>
+            <view class='itemm'>
+              <form report-submit bindsubmit='popLock_itemm' data-content_id="{{item.discount_id}}" data-id="{{item.id}}" data-curidx="{{idx}}" data-member_id="{{member_id}}">
+                <button form-type='submit' class='last' hover-class='none'>取消</button>
+              </form>
+            </view>
+          </view>
+
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<!-- =================代卖确认弹出窗==================== -->
+<!--邀请助力提示-->
+<!-- <view class='mask' bindtap="hide_circle_rule" wx:if="{{share}}"  catchtouchmove="myCatchTouch"></view>
+<view class='popups' wx:if="{{share}}">
+  <view class="sale_img"><image src="{{salesImage}}"></image> </view>
+  <view class="sales_price"><text> 出手价： </text>{{salesPrice}}</view>
+  <view class="sales_title">{{salesTitle}}</view>
+   <form  bindsubmit="openCircle">
+    <view class="addwx-wrapp">
+          <input type='text' placeholder='请输入您的姓名..' value="{{inputName}}" class='inp' bindinput='bindKeyName'></input>
+      <input type='text' placeholder='请输入您的联系方式..' value="{{inputPhone}}" class='inp' bindinput='bindKeyPhone'></input>
+      <input type='text' placeholder='请输入您的联系地址..' value="{{inputAdd}}" class='inp' bindinput='bindKeyAdd'></input>
+      <view class="sales_radio flex-justitem-center">
+        <radio-group class="radio-group" bindchange="readRuleChange">
+          <radio value="1" checked="{{radio_val}}" bindtap="readrule"></radio>
+      </radio-group>
+      <navigator class="navig" open-type="navigate" url="/pages/salespact/salespact"> 《 青山生态代卖协议 》</navigator>
+      </view>
+      <button hover-class='none' formType="submit" class="send-btn">
+        同意
+      </button>
+    </view>
+  </form>
+</view> -->
+
+<!-- 生成海报弹窗 -->
+<include src="/pages/module/makephoto/index.wxml" />
+<!-- 返回上一步 -->
+<movable-area class="movable-area">
+  <movable-view direction="all" out-of-bounds='true' bindtap="turnto" class="movable-view">
+    <image mode='widthFix' src="http://oss.qingshanpai.com/banner/icon_gohome.png"></image>
+  </movable-view>
+</movable-area>

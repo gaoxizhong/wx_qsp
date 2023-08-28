@@ -1,0 +1,33 @@
+<view class="topup-listbtn-box">
+  <view class="topup-listbtn-items">    
+    <view class="{{selected == 1 ? 'select_class' :'' }}" data-id="1" data-sel_money="500" bindtap="select_items">500元</view>
+  </view>
+  <view class="topup-listbtn-items">
+    <view class="{{selected == 2 ? 'select_class' :'' }}" data-id="2" data-sel_money="1000" bindtap="select_items">1000元</view>
+  </view>
+  <view class="topup-listbtn-items">
+    <view class="{{selected == 3 ? 'select_class' :'' }}" data-id="3" data-sel_money="2000" bindtap="select_items">2000元</view>
+  </view>
+  <view class="topup-listbtn-items">
+    <view class="{{selected == 4 ? 'select_class' :'' }}" data-id="4" data-sel_money="3000" bindtap="select_items">3000元</view>
+  </view>
+  <view class="topup-listbtn-items">
+    <view class="{{selected == 5 ? 'select_class' :'' }}" data-id="5" data-sel_money="5999" bindtap="select_items">5999元</view>
+  </view>
+</view>
+
+<view class="custom-input-box">
+  <view class="custom-title">自定义金额 (元) <text style="font-size:26rpx;color:red;">*最高5999元</text></view>
+  <view class="topupinput-box">
+    <text class="topupinput-box-icon">￥</text>
+    <view class="topupinput-view">
+      <input type="number" placeholder="请输入金额" value="{{money}}" bindinput="setinput"></input>
+    </view>
+  </view>
+</view>
+<view class="topup-desc-box">
+  <view><view class="desc-number">1、</view><view class="desc-text">最多一次充值5999元。</view></view>
+  <view><view class="desc-number">2、</view><view class="desc-text">当日最多充值9000元。</view></view>
+  <view><view class="desc-number">3、</view><view class="desc-text">超多限额请联系客服 <text style="color:#4ac081;" bind:tap="makeCall">010-84672332</text>。</view></view>
+</view>
+<view class="pages-btn" hover-class="hover-btn" bindtap="recharge_btn">充值</view>

@@ -1,0 +1,26 @@
+<view class="indexbg"></view>
+<!-- 附近闲置圈 -->
+<view class="myidle-box">
+  <view class="myidle-box-title">
+    <view class="myidle-title-l">
+      <view class="myidle-title-l-b"></view>
+      <text>附近闲友</text>
+    </view>
+  </view>
+  <view class='nulldata_wrap' wx:if="{{fjxyList.length <=0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据</view>
+  </view>
+  <view wx:else>
+    <view class="idleGroupBuddy-items-box">
+      <view wx:for="{{fjxyList}}" wx:key="index">
+        <view class="items-list-box" data-id="{{item.id}}" bindtap="gotoxyIdle">
+          <image src="{{item.avatar}}" class="idleGroupBuddy-img"></image>
+          <view class="idleGroupBuddy-name">{{item.nickname}}</view>
+          <view class="idleGroupBuddy-juli">距离{{item.distance}}Km</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

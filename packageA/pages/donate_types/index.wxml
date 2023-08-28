@@ -1,0 +1,142 @@
+<!--  banner图  -->
+<view class="swiper-container" wx:if="{{!is_yzm}}">
+  <swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+    <block wx:for="{{top_img}}" wx:key="index">
+      <swiper-item bind:tap="goToFromImg" data-label="{{item.label}}" data-labelid="{{item.label_id}}">
+        <image src="{{item.image}}" class="slide-image" mode='aspectFill' />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="reclaim_title1" wx:if="{{!is_yzm}}">
+	<text>爱心赠送：您可以将可回收物（如塑料瓶、废纸箱）送给身边有需要的人（如帮扶对象、拾荒老人、保洁等）</text>
+</view>
+<view class="reclaim_title">
+	<text>请选择可回收类型及数量</text>
+</view>
+<view class="cate lt">
+	<view class="cate-item" wx:for="{{cateList}}" wx:for-index="index" wx:for-item="item" wx:key="index" bind:tap="changeCate" data-cateid="{{item.id}}" data-catename="{{item.name}}" data-cion_price="{{item.cion_price}}" data-integral_price="{{item.integral_price}}" data-money_price="{{item.money_price}}">
+		<view class="cate-name1">
+			<image class="imagurl" src="{{item.imageUrl}}"></image>
+			<image class="cate-name1-image" src="/images/sele-0.png" wx:if="{{sel_cate_id == item.id}}"></image>
+		</view>
+		<view class="cate-name">{{item.name}}</view>
+		<image class="lt-image" src="/images/super-1.png" wx:if="{{sel_cate_id == item.id}}"></image>
+	</view>
+</view>
+<view class="hd rt">
+	<view class="items" bind:tap="changere" wx:for="{{newlists}}" wx:key='idx' wx:for-index='idx' wx:for-item="item" data-goodid="{{item.id}}" data-goodtypeid="{{item.goodstype_id}}" data-curidx="{{idx}}">
+		<view class="{{goodid == item.id && sel_type==1 ? 'items-list-hove':''}} items-list">{{item.min}}{{item.type}} - {{item.max}}{{item.type}}</view>
+	</view>
+	<view class="items" bindtap="getsel_type" wx:for="{{cateList}}" wx:if="{{sel_cate_id == item.id}}" wx:for-index="index" wx:key="index">
+		<input 
+      class="{{sel_cate_id == item.id && sel_type_input==1 ? 'items-list-hove':''}}"
+      type="number" 
+			pattern="[0-9]*" 
+      name='text'
+      data-cateid="{{item.id}}" 
+      data-curidx="{{index}}"  
+      data-name="{{item.name}}"  
+      data-unit="{{item.unit}}"  
+      data-cion_price = "{{item.cion_price}}"
+      data-integral_price = "{{item.integral_price}}"
+      data-money_price = "{{item.money_price}}"
+      value="{{numbers}}"
+      bindinput="save_input_num"
+      placeholder="手动输入（只输数字）" 
+			bindblur="blur_input_num"
+     >
+     </input>
+	</view>
+</view>
+<view class="shop-list">
+  <view class="list-ele">已选中：</view>
+  <view class="shop-list-item" wx:for='{{selected_goods}}' wx:key='index'>
+    <view>{{item.name}} : {{item.good_num}} {{item.type}}</view>
+    <view class="btn-shanchu" bindtap="delet_list" data-id="{{item.id}}" data-goodstype_id='{{item.goodstype_id}}' data-index="{{index}}">删除</view>
+  </view>
+</view>
+<view class="divide-bold"></view>
+<view class='tot'>
+	<view style="font-weight:600;">预计收获环保积分：</view> 
+	<text class='color-64B'>{{total?total:0.00}}</text>
+</view>
+<view class='tot1'>
+	<view style="font-weight:600;">上传照片</view> 
+  <view class="activity-imgs">
+		<image src="http://oss.qingshanpai.com/banner/aixin_1type.jpg" bind:tap="openPhoto1" data-image="http://oss.qingshanpai.com/banner/aixin_1type.jpg"></image>
+		<image src="http://oss.qingshanpai.com/banner/aixin_2type.jpg" bind:tap="openPhoto1" data-image="http://oss.qingshanpai.com/banner/aixin_2type.jpg"></image>
+    <image 
+      wx:for="{{img}}"
+      wx:for-item="item"
+      wx:for-index="index"
+      wx:key="index"
+      mode="aspectFill"
+      data-index="{{index}}"
+      src="{{item}}"
+      bindtap="openPhoto"/>
+    <view class="add-pic" bindtap="choosePic" wx:if="{{img.length < 9}}">
+      <image src="/images/icon-addphoto.png" mode="aspectFill"/>
+    </view>
+  </view>
+	<view style="color:#585858;font-size:28rpx;" wx:if="{{!is_yzm}}">说明：完成爱心赠送后，上传至少两张照片，其中一张能清晰展现物品，另一张展现物品赠送场景(带人物)</view>
+</view>
+
+<view class="tot1" wx:if="{{is_activity == '1'}}">
+	<view class="name-phone">
+		<view>
+			<view class="types-i" style="width:75rpx;text-align:left;">姓名</view>
+			<input class="types-input" value="{{contact_name}}" placeholder="选填(如活动需要)" bindinput="contact_name"></input>
+		</view>
+		<view>
+			<view class="types-i" style="width:75rpx;text-align:left;">电话</view>
+			<input class="types-input"  value="{{contact_phone}}" placeholder="选填(如活动需要)" bindinput="contact_phone"></input>
+		</view>
+	</view>
+	<view class="garden-box">
+		<view class="types-i">所在地区</view>
+		<picker mode="region" style="flex:1;" name="garden" value="{{garden}}" start="2015-09-01" bindchange="saveGarden">
+			<view class="shengshi">{{garden ? garden:'请选择'}}</view>
+		</picker>
+	</view>
+	<view class="garden-box">
+		<view class="types-i">详细地址</view>
+		<input style="margin-left:20rpx;" class="types-input"  value="{{address}}" placeholder="{{is_yzm?'选填':'地址用于垃圾分类信息统计'}}" bindinput="address"></input>
+	</view>
+	<view class="garden-box">
+		<view class="types-i">订单备注</view>
+		<input style="margin-left:20rpx;" class="types-input" value="{{remark}}" placeholder="" bindinput="remark"></input>
+	</view>
+</view>
+
+<!-- 承德打卡活动 -->
+<include src="/pages/module/chengde_huodong/index.wxml" />
+<view class='bd'>
+  <view style="width:100%;height:100rpx;"></view>
+	<view class='btn-send'>
+		<form report-submit bindsubmit='savaData'>
+			<button form-type='submit' hover-class='hover_color'> 
+				{{is_activity == '1'?'提交':'确定'}}
+			</button>
+		</form>
+	</view>
+</view>
+<view style="width:100%;height:100rpx;"></view>
+
+<view class="layer" wx:if="{{showFull}}" bindtap='closePic'>
+  <view class="cover"></view>
+  <view class="con">
+    <image src='{{preview}}' mode="widthFix"></image>
+    <view bindtap='delPic' class="txt">删除</view>
+  </view>
+</view>
+<view class="layer" wx:if="{{showFull_image}}" bindtap='closePic1'>
+  <view class="cover"></view>
+  <view class="con">
+    <image src='{{preview1}}' mode="widthFix"></image>
+  </view>
+</view>
+<!-- 广告弹窗 -->
+<include src="/pages/module/ad_preview/index.wxml" />
+<!-- 用来渲染的canvas --> 
+<canvas class="canvas" canvas-id="canvas" style="width:{{cWidth}}px;height:{{cHeight}}px;position: fixed;top: -9999px;left: -9999px;"></canvas>

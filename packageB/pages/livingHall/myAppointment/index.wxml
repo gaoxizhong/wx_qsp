@@ -1,0 +1,81 @@
+<view class="tab-h1">
+  <form report-submit class="tab-item1 {{currentTab==0? 'active' :''}}" data-current="0" bindsubmit="swichNav">
+    <button hover-class='none' form-type='submit' style=" border:none;">预约记录</button>
+  </form>
+  <form report-submit class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindsubmit="swichNav">
+    <button hover-class='none' form-type='submit' style="border:none;">留言记录</button>
+  </form>
+  <form report-submit class="tab-item2 {{currentTab==2?'active':''}}" data-current="2" bindsubmit="swichNav">
+    <button hover-class='none' form-type='submit' style="border:none;">点赞记录</button>
+  </form>
+</view>
+
+
+<view class="beusedList-box" wx:if="{{ currentTab == '0' }}">
+  <block wx:for="{{beusedList}}" wx:key="index">
+    <view class="beused-items-box">
+      <view class="beused-items-tbox">
+        <view class="photo-title-box">
+          <image class="photo-image" src="https://oss.qingshanpai.com/dtshg/shg_6.jpg"></image>
+          <text>青山生态生活馆</text>
+        </view>
+        <view style="width: 120rpx;text-align: right;font-size: 28rpx;color: {{item.status?'#333':'#999'}};">{{item.status?'预约成功':'已取消'}}</view>
+      </view>
+      <view class="beused-items-infobox">
+        <image src="{{item.image_array[0]}}"></image>
+        <view class="items-infobox-left">
+          <view>预约时间: {{item.start_text}}</view>
+          <view>预约人数: {{item.number}}人 </view>
+          <view>预约项目: {{item.project.title}}</view>
+        </view>
+      </view>
+      <view class="items-btnbox">
+        <view class="items-btnbox1 {{item.status?'':'active'}}" hover-class="hoverClass" data-s_id="{{item.id}}" bindtap="{{item.status?'clickQx':''}}">{{item.status?'预约成功':'已取消'}}</view>
+      </view>
+    </view>
+  </block>
+</view>
+<!-- 留言记录 -->
+<view class="beusedList-box order-list" wx:if="{{currentTab == '1'}}">
+  <view class="order-item" wx:for="{{orderList}}" wx:for-index="index" wx:key="index" wx:for-item="item">
+    <view class="order-info">
+      <image src="{{item.work.member.avatar}}" class="orderImg"></image>
+      <view class="order-info-r">
+        <view class="items-r-title">{{item.work.member.nickname}}</view>
+        <view class="items-r-m">{{item.content}}</view>
+        <view class="items-r-pbox">{{item.created_at}}</view>
+      </view>
+    </view>
+    <image src="{{ item.work.image_array[0] }}" class="order-rimg"></image>
+  </view>
+  <view class='nulldata_wrap' wx:if="{{orderList.length == 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg' style="color:#000;">暂无留言数据</view>
+  </view>
+</view>
+
+<!-- 点赞记录 -->
+<view class="beusedList-box dianzan-box" wx:if="{{currentTab == '2'}}">
+  <block wx:for="{{my_likeList}}" wx:key="index">
+    <view data-id="{{item.work_id}}" bindtap="gotogoodsdetails">
+      <view class="scroll-workList-item_H">
+        <view class="item_Himage-box">
+          <image src="{{item.work.image_array[0]}}" class="item_Himage-workimg"></image>
+        </view>
+        <view class="scroll-workList-info">
+          <view class="scroll-workList-title">{{item.work.title}}</view>
+          <view class="scroll-workList-f">
+            <view class="scroll-workList-l">
+              <image src="{{item.work.member.avatar}}"></image>
+              <text>{{item.work.member.nickname}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class='nulldata_wrap' wx:if="{{my_likeList.length == 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据...</view>
+  </view>
+</view>

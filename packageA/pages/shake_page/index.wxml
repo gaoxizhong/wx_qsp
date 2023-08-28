@@ -1,0 +1,36 @@
+<view class="wechat-title-box">
+  <view class="wechat-title-node">
+    <view class="title-node-left">
+      <image src="https://oss.qingshanpai.com/banner/trees_icon.png"></image>
+    </view>
+    <view class="title-node-right">
+      <view class="right-title">去种一棵摇钱树</view>
+    </view>
+  </view>
+</view>
+<view class="introduce-box">
+  <view>功能介绍</view>
+  <view class="introduce-text">
+    <view>种一棵摇钱树，每摇一次都有收获</view>
+  </view>
+</view>
+
+<view class="theycount-box">
+  <view class="conversion-btn" hover-class="hover-btn" bindtap="conversion_btn">种一棵摇钱树</view>
+  <view class="theycount-box-info"> 今日被摇{{today_likes?today_likes:0}}次，共收获了{{today_likes?today_likes:0}}个赞</view>
+</view>
+
+<view class="instructions-box">
+  <view class="instructions-padd">
+    <view style="align-items:flex-status;width: 100%;padding-top:8rpx;font-size: 26rpx;">截止目前收获的摇一摇价值 {{result_today?result_today:0}}元，明日24：00之前可兑换</view>
+
+    <view style="display: flex;justify-content: space-between;margin-top:20rpx;">
+      <text>钱包余额: {{total_price?total_price:0}}元 （满1元即可提现）</text><text class="instr-btn" bindtap="gototixian">去提现</text>
+    </view>
+  </view>
+
+</view>
+
+<todayWelfare />
+
+<view style="width:100%;height:20px;"></view>

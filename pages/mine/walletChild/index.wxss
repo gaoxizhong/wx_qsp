@@ -1,0 +1,134 @@
+page{
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.section{
+  padding: 30rpx 30rpx 0;
+  box-shadow: 1px 2px 4px 1px #00000020;
+  
+  border-radius: 6px;
+}
+.section .section_box{
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-bottom: 20rpx;
+
+}
+.section .section_box:nth-of-type(1)::after{
+  content: '';
+  height: 1px;
+  width: 100%;
+  background: #8b8b8b;
+  transform: scaleY(0.5);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+/* .section .section_box .section_title{
+  flex: 1;
+} */
+.section .section_box input{
+  flex: 1;
+  padding: 20rpx;
+}
+.btn-area{
+  width:610rpx;
+  padding: 22rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34rpx;
+  color: #fff;
+  background: #f19249;
+  margin: 30rpx auto;
+  border-radius: 20px;
+  line-height:1;
+  box-shadow: 0 2px 2px 4rpx #00000020;
+}
+.desc-box{
+  padding: 30rpx;
+}
+.desc-box>view{
+  font-size: 28rpx;
+  color: #999;
+}
+.mark_tishi{
+  padding: 10rpx;
+  display: flex;
+}
+.mark_image{
+  width: 36rpx;
+  height: 36rpx;
+}
+.record_title{
+  width: 100%;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  /* color: #fc2206; */
+  color: #000; 
+  font-size: 600;
+}
+.record_item{
+  height: auto;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  padding: 20rpx;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 30rpx 0;
+  box-shadow: 0 0 10px 0 #00000015;
+  position: relative;
+  /* z-index: -1; */
+  color: #000;
+  border-radius: 6px;
+  /* border: 1rpx solid #00000015; */
+}
+.record_item_left{
+  font-size: 30rpx;
+  flex: 1;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+}
+.record_item_left>view{
+  padding: 6rpx 0;
+  font-size: 30rpx;
+}
+.item_left_time{
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #000;
+}
+.record_item_right{
+  width: auto;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.item_right_look{
+  box-sizing: border-box;
+  width: 110rpx;
+  padding: 10rpx 0;
+  border-radius: 20px;
+  background-color: #f19249;
+  color: #fff;
+  font-size: 22rpx;
+  text-align: center;
+  margin: 12rpx 0;
+}
+.record_item_image{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.font_color{
+  color: #333;
+}

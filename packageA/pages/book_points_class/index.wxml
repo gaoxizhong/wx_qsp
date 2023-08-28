@@ -1,0 +1,25 @@
+<view class="swiper-container">
+  <swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+    <block wx:for="{{top_img}}" wx:key="index">
+      <swiper-item bind:tap="goToFromImg" data-label="{{item.label}}" data-labelid="{{item.label_id}}">
+        <image src="{{item.image}}" class="slide-image" mode='aspectFill' />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="page-listbox">
+  <view class="listbox-view">
+    <view  wx:for="{{items}}" wx:key="index" bindtap="items_image" data-id="{{item.id}}" data-pagesUrl="{{item.pagesUrl}}">
+      <image class="{{supe_idx == item.id ? 'sale' : ''}}  images-1"  style="width:{{index == 1?'140':'84'}}rpx;height:{{index == 1?'140':'84'}}rpx;"  src="{{item.url_1}}"></image>
+      <view class="listbox-view-text">{{item.name}}</view>
+      <image class="images-2" wx:if="{{supe_idx == item.id}}" src="/packageA/image/point-arrow-{{index+1}}.png"></image>
+    </view>
+  </view>
+</view>
+<view class="page-listbox listbox-images">
+  <image mode="widthFix" wx:for="{{items}}" wx:key="index" data-id="{{item.id}}" wx:if="{{supe_idx == item.id}}" src="{{item.url_2}}"></image>
+</view>
+<view style="width:100%;height:166rpx;"></view>
+<view class="listbox-btn">
+  <view class="footer-btn" bindtap="footer_btn" hover-class='hover_color'>进入</view>
+</view>

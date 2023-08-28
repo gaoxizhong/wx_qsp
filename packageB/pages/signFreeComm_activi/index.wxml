@@ -1,0 +1,9 @@
+<view class="content-box">{{signShopInfo.content}}</view>
+<view class="imagesList-box">
+  <block  wx:for="{{signShopInfo.image}}" wx:key="index">
+    <view class="imagesList-items">
+      <image src="{{item}}" class="slide-image" mode="aspectFill"></image>
+    </view>
+  </block>
+</view>
+

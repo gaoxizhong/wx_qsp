@@ -1,0 +1,48 @@
+<view wx:if="{{is_put}}" class="is-mark" catchtouchmove="myCatchTouch" bindtap="click_mark"></view>
+<view wx:if="{{is_put}}" class="put-box" catchtouchmove="myCatchTouch">
+	<view class="put-center">
+		<view>
+			<view class="put-title">企业名称</view>
+			<view class="input-box"> 
+				<input type="text" value="{{set_name}}" placeholder="输入企业名称" bindinput="set_name" maxlength="12"></input>
+			</view>
+		</view>
+		<view>
+			<view class="put-title">联系电话</view>
+			<view class="input-box">
+				<input type="text" value="{{set_phone}}" placeholder="联系电话" bindinput="set_phone"></input>
+			</view>
+		</view>
+		<view>
+			<view class="put-title">链接端口</view>
+			<view class="port flex-justitem-spacecent">
+				<view data-index="1" data-name="商家店铺" class="{{yulian_selec_id == '1'?'selec_hove':''}}" bindtap="getselecid">商家店铺</view>
+				<!-- <view data-index="2" data-name="机构福利" class="{{yulian_selec_id == '2'?'selec_hove':''}}" bindtap="getselecid">机构福利</view>
+				<view data-index="3" data-name="公益宣传" class="{{yulian_selec_id == '3'?'selec_hove':''}}" bindtap="getselecid">公益宣传</view>
+				<view data-index="4" data-name="个人动态" class="{{yulian_selec_id == '4'?'selec_hove':''}}" bindtap="getselecid">个人动态</view> -->
+			</view>
+		</view>
+<!-- ============= 4.12 新增 ============================= -->
+		<view wx:if="{{yulian_selec_id == '1'}}">
+			<view class="put-title">选择要投放的商品或优惠券</view>
+			<view class="port shop_list flex-justitem-startcent">
+				<view data-index="1" data-name="商品" class="{{select_type == '1'?'selec_hove':''}}" bindtap="getshop_selecid">店铺商品</view>
+				<view data-index="2" data-name="优惠券" class="{{select_type == '2'?'selec_hove':''}}" bindtap="getshop_selecid">优惠券</view>
+			</view>
+		</view>
+<!-- ============= 以上 新增 ============================= -->
+
+		<view>
+			<view class="put-title">投放距离</view>
+			<view class="distance flex-justitem-spacecent">
+				<block wx:for="{{put_distance}}" wx:key="index">
+					<view data-index="{{index}}" data-integral="{{item.integral}}" data-name="{{item.distance}}" class="{{selec_distance == index?'selec_hove':''}}" bindtap="getselecdistance">{{item.gl}}</view>
+				</block>
+			</view>
+		</view>
+		<view style="margin-top:20rpx;">
+			<view class="put-title">广告消费： <text style="color:#e69c36;padding-left:20rpx;">{{gl_integral}}环保积分/次</text></view>
+		</view>
+	</view>
+	<view class="buy-btn" bindtap="submit_put">预览并投放</view>
+</view>

@@ -1,0 +1,11 @@
+<!--index/component/component.wxml-->
+  <navigator hover-class='none' open-type='navigate' url="/pages/huishou/index/index" style="display:none">
+    <view class='pop_music huishou'
+          style="width:64px;height:64px;top:{{recovery_place.top}}px;left:{{recovery_place.left}}px"
+          catch:touchmove="keepMove"
+        >
+      <image mode='widthFix' class='audio x' src="http://oss.qingshanpai.com/huanbaobi/23916a6d4174c000d10ef8765429ee56.png"></image>
+    </view>
+  </navigator>
+  <view class='animate-like' wx:if="{{isShow == 1}}" style="top:{{animateY-15}}px;left:{{animateX-15}}px;display:none">
+  </view>

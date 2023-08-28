@@ -1,0 +1,53 @@
+<block wx:for="{{getdatalist}}" wx:key="index">
+  <view class="datalist-items">
+    <view class="items-info" style="padding-bottom:{{item.estimated_price ==''?'20rpx':'0rpx'}};">
+      <view class="items-info-top">
+        <view class="info-imges-box"><image src="{{item.img}}"></image></view>
+        <view class="info-right-info">
+          <view class="chubu" wx:if="{{item.type == true}}">{{item.chubu}}</view>
+          <view class="chubu" wx:if="{{item.type == false}}">{{item.shiji}}</view>
+          <view class="pinlei"> 
+            <view class="pinlei-list" wx:if="{{item.type == true}}">{{item.estimated_price ==''?'等待估价中':item.estimated_price}}</view> 
+            <view class="pinlei-list" wx:if="{{item.type == false}}">
+              <text>{{item.actual_price}}</text>
+              <image src="/images/idea.png" data-sign="{{item.sign}}" bindtap="getsign"></image>
+              </view> 
+          </view>
+          <view class="pinpai">品牌：{{item.name}}/{{item.brand_model}}</view>
+        </view>
+      </view>
+      <view class="items-info-bottom"  wx:if="{{item.estimated_price != '' && item.type == true }}">
+        <view class="info-bottom-btn" data-id="{{item.id}}" data-status="2" data-index="{{index}}" bindtap="{{item.status == '0'?'estimated_price_no':''}}" wx:if="{{item.status == '0'}}">不接受</view>
+        <view class="info-bottom-btn" style="color:#fff;background:red;border:none;" wx:if="{{item.status == '2'}}">已拒绝</view>
+
+        <view class="info-bottom1-btn" data-id="{{item.id}}" data-status="1" data-index="{{index}}" bindtap="estimated_price_yes" wx:if="{{item.status == '0'}}">接受</view>
+        <view class="info-bottom1-btn" data-id="{{item.id}}" data-status="1" data-index="{{index}}" wx:if="{{item.actual_price =='' && item.type == true && item.status == '1'}}">已接受</view>
+      </view>
+
+      <view class="items-info-bottom"  wx:if="{{item.actual_price !='' && item.type == false}}">
+        <view class="info-bottom-btn" data-id="{{item.id}}" data-status="4" data-index="{{index}}" bindtap="actual_price_no" wx:if="{{item.actual_price !='' && item.type == false && item.status == '1'}}">不接受</view>
+        <view class="info-bottom-btn" style="color:#fff;background:red;border:none;" wx:if="{{item.actual_price !='' && item.status == '4'}}">已拒绝</view>
+        <view class="info-bottom1-btn" data-id="{{item.id}}" data-status="3" data-index="{{index}}" bindtap="actual_price_yes" wx:if="{{item.actual_price !='' && item.type == false && item.status == '1'}}">接受</view>
+        <view class="info-bottom1-btn" wx:if="{{item.actual_price !='' && item.status == '3'}}">已接受</view>
+      </view>
+    </view>
+    <view class="Prelprice" wx:if="{{item.actual_price != ''}}">
+      <view>初步估价</view>
+      <view style="padding:10rpx 0;">￥{{item.estimated_price}}</view>
+    </view>
+  </view>
+</block>
+<view style="width:100%;height:170rpx;"></view>
+<view class="btn-sub" >
+  <view class="btn-box" bindtap="gotoaddress" wx:if='{{yuyue =="1"}}'>预约上门取件</view>
+</view>
+
+<view class="popss-box" wx:if='{{popss_box}}'>
+  <view class="mark-bg"></view>
+  <view class="mark-info">
+    <view class="mark-info-price">{{actual_price?actual_price:'0.00'}}</view>
+    <view class="mark-info-legend">已到账钱包</view>
+    <view class="chakan">可去我的- <text style="color:#4AC08B;" bindtap="gotoqianbao">我的钱包</text> 处查看到账信息</view>
+    <view class="queding" bindtap="queding">确定</view>
+  </view>
+</view>

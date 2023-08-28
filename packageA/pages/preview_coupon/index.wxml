@@ -1,0 +1,53 @@
+<view style="padding-bottom: 140rpx;">
+  <view class="coupon-list-box" style="margin-top:30rpx;">
+    <view class="coupon-list-items">
+      <view class="listitems-le">
+        <view class="listitems-le-title">凭此券 享优惠</view>
+        <view class="calendar-box">
+          <!-- <view class="calendar-title">优惠金额</view> -->
+          <view class="calendar-con"><text style="font-size:28rpx;">￥</text>{{(yulan_params.price - yulan_params.current_price)}}</view>
+        </view>
+        <view class="shops-name">{{yulan_params.business_name}}</view>
+      </view>
+      <view class="listitems-ri">
+        <view class="listitems-rititle-box">
+          <view class="coupon-title">{{yulan_params.name}} 优惠券</view>
+        </view>
+        <view class="ri-price-curr"><text>原价： {{yulan_params.price}}</text><text style="padding-left:12rpx;">劵后价： {{yulan_params.current_price}}</text></view>
+        <view class="coupon-view">支付：￥{{yulan_params.coupon_price}} + {{yulan_params.coupon_integral}}积分 获取本券</view>
+        <view class="start-end-time">{{yulan_params.start_time}} 至 {{yulan_params.end_time}}内有效。</view>
+      </view>
+    </view>
+  </view>
+  <view class="product-title">关联商品</view>
+      
+  <view class="prduct-box">
+    <view class="prduct-img-box">
+      <image src="{{yulan_params.thumb[0]}}" mode="aspectFit" class="is-jifen1"></image>
+    </view>
+  </view>
+  <view class="liuyan-box">
+    <view class="liuyan-box-left">
+      <image src="/packageA/assets/images/notlogin.jpg"></image>
+    </view>
+    <view class="liuyan-box-right">
+      <view style="font-size:28rpx;">{{yulan_params.business_name}}</view>
+      <view class="dianzhang-info">
+        {{yulan_params.content?yulan_params.content:'我是店长，赠送您一张优惠券，诚邀您到店体验！'}}
+        <image src="/packageA/assets/images/sanjiao.png" class="dianzhang-info-image"></image>
+      </view>
+    </view>
+  </view>
+  <view class="bottom-box1">
+    <view class="bottom-box-lf">
+      <image src="http://oss.qingshanpai.com/banner/a935adece940dee475592976028dde4.png"></image>
+    </view>
+    <view class="bottom-box-ri">
+      <image src="http://oss.qingshanpai.com/banner/168617beac2670139c313f59f262602.png"></image>
+    </view>
+  </view>
+</view>
+
+<view class="bottom-box">
+  <view class="bottom-box-btn" bindtap="cancel_coupon">取消预览</view>
+</view>

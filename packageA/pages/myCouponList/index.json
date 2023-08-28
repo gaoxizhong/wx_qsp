@@ -1,0 +1,7 @@
+{   
+  "onReachBottomDistance": 50,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+      "couponList":"/component/coupon_list/coupon_list"
+    }
+}

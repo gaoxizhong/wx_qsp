@@ -1,0 +1,36 @@
+<view class="page-box">
+  <block>
+    <view class="commodity-list-box" wx:for="{{list}}" wx:key="index">
+      <view class='circle'>
+        <view class='shop-centent'>
+          <view class='shop-centent-title' bindtap="goToActivity" data-id="{{item.id}}" data-index="{{index}}" data-user_id="{{item.user_id}}">
+            <view class="shop-img">
+              <image src="{{ item.goods_image[0] }}" class="shop-img-width"></image>
+            </view>
+            <view class='shop-jottings'>
+              <view selectable='true' class='text'>{{item.goods_name}}</view>
+              <view>
+                <view class='circle-head'>
+                  <text style="font-size:20rpx;text-decoration: line-through;color:#010101;">原价 ￥{{item.goods_price}}</text>
+                  <text class="time">数量：{{item.goods_stock}}</text>
+                </view>
+
+                <view class="discount">
+                  <view class="discount-price">
+                    <text class="discount-price-text">￥{{item.goods_discount_price}}+{{item.goods_integral}}积分</text>
+                  </view>
+                </view>
+              </view>
+            
+
+            </view>
+          </view>
+          <view class="discount-btn" bindtap="goToActivity" data-id="{{item.id}}" data-index="{{index}}" data-user_id="{{item.user_id}}">
+            立即购买
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+</view>

@@ -1,0 +1,124 @@
+page{
+  background: #fbfbfb;
+  font-size: 30rpx;
+  box-sizing: border-box;
+}
+.logistics-box{
+  padding: 20rpx 42rpx 20rpx 30rpx;
+  background: #fff;
+}
+.send-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+.send-box-left,.send-box-right{
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.send-box-left image,.send-box-right image{
+  width: 64rpx;
+  height: 64rpx;
+}
+.send-box-right{
+  margin-top: 20rpx;
+}
+.commodity-order-item,.order-info-box {
+  background: #fff;
+  margin: 20rpx 0;
+  padding:0 20rpx 20rpx 20rpx;
+}
+.order-shop-title {
+  font-weight: 600;
+  font-size: 30rpx;
+  padding: 26rpx 0;
+}
+.order-shop-content {
+  display: flex;
+  align-items: center;
+  height: 126rpx;
+}
+
+.order-button {
+  height: 86rpx;
+  padding-right: 10rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.image-box {
+  width: 122rpx;
+  height: 122rpx;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.order-shop-info {
+  flex: 1;
+  padding-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+}
+.commodity-order-number {
+  width: 54rpx;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: felx-start;
+  color: #666666;
+}
+.image-box image {
+  width: 122rpx;
+  height: 122rpx;
+}
+.order-shop-info-title {
+  color: #7a7a7a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.order-button button {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: 58%;
+  text-align: center;
+  font-size: 24rpx;
+  color: #989898;
+  border: 2rpx solid #4ac081;
+  border-radius: 50rpx;
+  margin-left: 20rpx;
+  padding: 4rpx 12rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.order-info-title{
+  color:#717171;
+  font-weight: 600;
+  font-size: 30rpx;
+  padding: 26rpx 0;
+}
+.order-info-list{
+  font-size: 28rpx;
+  color: #666666;
+}
+.order-info-list view{
+  margin: 14rpx 0;
+}
+.result-info{
+  padding-left:30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  flex: 1;
+  font-size: 28rpx;
+}

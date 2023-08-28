@@ -1,0 +1,70 @@
+<view class="Barrage-box">
+  <view class="displayGroup">
+        <!-- 无需弹幕 -->
+    <view class='dmGroup' wx:for="{{ dmList }}" wx:key="index"  style="top:{{ item.top }}rpx; animation: dmAnimation {{item.time}}s linear {{ index*1.5 }}s; ">
+      <view class='dmItem'>
+        <view class='dm'>
+          <view class='avatarBox'>
+            <image src='{{item.avater}}' class='avatar' mode='aspectFit'></image>
+          </view>
+          <text class='content' style="color:{{item.color}};">{{ item.content }}</text>
+          <text style="color: #c4c4c4;">{{item.member_id}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="kilometerItems-box">
+  <view bindtap="goRedenveDrainage">
+    <image src="https://oss.qingshanpai.com/icon/adsub_ic_lbgg.png" mode="widthFix"></image>
+    <text class="info-text">轮播广告</text>
+  </view>
+  <view bindtap="goDynamicDrainage">
+    <image src="https://oss.qingshanpai.com/icon/adsub_ic_zdgg.png" mode="widthFix"></image>
+    <text class="info-text">置顶广告</text>
+  </view>
+  <view bindtap="goToPublish">
+    <image src="https://oss.qingshanpai.com/icon/adsub_ic_nrgg.png" mode="widthFix"></image>
+    <text class="info-text">内容广告</text>
+  </view>
+  <view bindtap="goTocreateMerchantBuy">
+    <image src="https://oss.qingshanpai.com/icon/adsub_ic_yddm.png" mode="widthFix"></image>
+    <text class="info-text">以点带面</text>
+  </view>
+  <view bindtap="gotoall_transaction">
+    <image src="https://oss.qingshanpai.com/icon/adsub_ic_ksgg.png" mode="widthFix"></image>
+    <text class="info-text">快速广告</text>
+  </view>
+  <view bindtap="toufang" wx:if="{{is_ad == '2'}}">
+    <image src="https://oss.qingshanpai.com/icon/adsub_ic_cxgg.png" mode="widthFix"></image>
+    <text class="info-text">持续广告</text>
+  </view>
+  <view bindtap="buy_integral" data-integral="{{result_items.integral}}" data-id="{{result_items.id}}" data-money="{{result_items.money}}" wx:else>
+    <image src="https://oss.qingshanpai.com/icon/adsub_ic_cxgg.png" mode="widthFix"></image>
+    <text class="info-text">开通持续广告</text>
+  </view>
+  <view bindtap="gotorxdb">
+    <image src="https://oss.qingshanpai.com/icon/adsub_ic_rxdb.png" mode="widthFix"></image>
+    <text class="info-text">热血夺宝</text>
+  </view>
+  
+</view>
+<view class="hbb-method wealth-rank">
+  <view class="head-title flex-justitem-spacecent" bind:tap="goToHbbWalkThrough">
+    <view>青蛙动态</view>
+    <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
+  </view>
+  <scroll-view class="method-list" scroll-x="{{true}}">
+    <view class="method-item" wx:for="{{HBBArticle}}" wx:for-item="item" wx:for-index="index" wx:key="index" bindtap="goToFromArticle" data-articlelabel="{{item.article_label}}" data-articlelabelid="{{item.article_label_id}}" data-id="{{item.id}}">
+      <image src="{{item.image}}" />
+      <view class="method-title">{{item.title}}</view>
+      <view class="method-info flex-justitem-spacecent"><text>{{item.scan_count}}次浏览</text></view>
+    </view>
+  </scroll-view>
+</view>
+<!-- 投放广告弹窗 -->
+<include src="/pages/module/is_put/index.wxml" />
+<!-- 信息预览弹窗 -->
+<include src="/pages/module/is_yulian/index.wxml" />
+<!-- 信息广告弹窗 -->
+<include src="/pages/module/ad_preview/index.wxml" />

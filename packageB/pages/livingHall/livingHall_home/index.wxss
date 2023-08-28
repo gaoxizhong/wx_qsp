@@ -1,0 +1,300 @@
+page{
+  padding: 20rpx;
+  box-sizing: border-box;
+  background: #f2f2f2;
+}
+.userList-box{
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+.lifeimg-box{
+  width: 100%;
+  height: 398rpx;
+  position: relative;
+}
+.lifeimg-box .swiper {
+  height: 100%;
+}
+.lifeimg-box .swiper image {
+  width: 100%;
+  height: 100%;
+}
+.lifeimg-titlebox{
+  padding: 20rpx 18rpx;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.titlebox-ljxq{
+  width: auto;
+  display: flex;
+  font-size: 26rpx;
+  color: #737373;
+}
+.titlebox-ljxq>image{
+  width: 38rpx;
+}
+.hoverClass{
+  opacity: 0.8;
+}
+.workList-box{
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+.scroll-view_H{
+  white-space: nowrap;
+}
+.scroll-view-item_H{
+  display: inline-block;
+  width: 216rpx;
+  height: 224rpx;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 0 10rpx;
+}
+.demo-text-1{
+  background:red;
+}
+.demo-text-2{
+  background:#05a78c;
+}
+.demo-text-3{
+  background:#0e0c0c;
+}
+
+
+/* ==================================================== */
+.userList-btnbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.userList-btn{
+  display: inline-block;
+  width: auto;
+  height: 80rpx;
+  padding: 0 20rpx;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  border-radius: 20px;
+  /* border: 1px solid #cecece; */
+  color: #fa5400;
+}
+.livingHall-box{
+  width: 100%;
+  padding: 15rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.livingHall-box image{
+  width: 100%;
+  height: auto;
+}
+.lifeimg-infobtn-box{
+  width: 100%;
+  box-sizing: border-box;
+  height: 144rpx;
+  padding: 20rpx 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.lifeimg-infobtn-box-l{
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.lifeimg-infobtn-box-r{
+  width: 188rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lifeimg-photo-box{
+  width: 102rpx;
+  height: 102rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #fff;
+}
+.lifeimg-photo-box>image{
+  width: 100%;
+  height: 100%;
+}
+.lifeimg-name-title{
+  flex: 1;
+  padding-left: 14rpx;
+  font-size: 26rpx;
+}
+.lifeimg-n-t{
+  color: #fff;
+}
+.lifeimg-n-btn{
+  width: 134rpx;
+  height: 52rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  padding: 0 12rpx;
+  border-radius: 20px;
+  background: #ffffffad;
+  margin-top: 10rpx;
+}
+.lifeimg-n-icon2{
+  width: 32rpx;
+}
+.lifeimg-infobtn-box-r>view.type-item{
+  width: auto;
+  height: 100%;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.lifeimg-infobtn-box-r>view.type-item image{
+  width: 74rpx;
+}
+/* ==================== 以上个人列表样式 =========================  */
+
+.workRecommend-box{
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+.workRecommendList-box{
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 0 0 20rpx 10rpx;
+}
+.scroll-workList{
+  white-space: nowrap;
+}
+.scroll-workList-item_H{
+  display: inline-block;
+  width: 330rpx;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 10rpx;
+  border: 1px solid #ececec;
+}
+.item_Himage-box{
+  width: 100%;
+  height: 204rpx;
+  display: flex;
+  align-items: center;
+}
+.item_Himage-box>image{
+  display: inline-block;
+}
+.item_Himage-poto{
+  width: 148rpx;
+  height: 100%;
+}
+.item_Himage-workimg{
+  flex: 1;
+  height: 100%;
+}
+.scroll-workList-info{
+  width: 100%;
+  padding: 20rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.scroll-workList-title{
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: pre-wrap;
+}
+.scroll-workList-f{
+  width: 100%;
+  margin-top: 18rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+}
+.scroll-workList-l{
+  color: #ff4d1f;
+  font-size: 32rpx;
+  text-align: left;
+  flex: 1;
+}
+.scroll-workList-rbtn{
+  width: 122rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  color: #fff;
+  background: #fa5400;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 24rpx;
+}
+
+/* ==================== 以上作品推荐列表样式 =========================  */
+
+
+
+
+.footer-box{
+  width: 100%;
+  height: 198rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+.footer-box>view{
+  width: 33.33333333333%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+}
+.footer-box>view>image {
+  width: 125rpx;
+  height: 163rpx;
+}
+.zwzpzs-box{
+  width: 100%;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  color: #999;
+}
+.scroll-view-item_H image {
+  width: 100%;
+  height: 100%;
+}

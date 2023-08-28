@@ -1,0 +1,45 @@
+@import "../../wxParse/wxParse.wxss";  
+
+.salespact{
+  padding: 28rpx;
+  font-weight: 700;
+
+}
+.salespact div{
+  display: block;
+  padding: 0 28rpx;
+}
+.salespact-text-title{
+  font-size: 30rpx;
+  font-weight: 700;
+  margin: 18rpx 0;
+}
+.title-box{
+  margin: 20rpx 0 10rpx 0;
+}
+.title-box >view:nth-of-type(odd),.pact-text2 >view:nth-of-type(odd),.salespact >view:nth-of-type(even){
+  display: none;
+}
+.salespact-title{
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+}
+.pact-text{
+  font-family: '仿宋';
+  font-size: 30rpx;
+  color: #3b3b3b;
+  line-height: 44rpx;
+}
+.pact-text1{
+  padding-left:20px; 
+}
+.desc-info{
+  width: 100%;
+  position: fixed;
+  bottom: 15%;
+}
+.pop_music{
+  bottom: 0;
+}

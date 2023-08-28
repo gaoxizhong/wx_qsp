@@ -1,0 +1,68 @@
+<view class="anwer-title-box">垃圾分类试题</view> 
+<view class="answer-list-box">
+  <block wx:for="{{answerList}}" wx:key="index">
+    <view class="answer-items">
+      <view class="answer-items-title"><text style="color:#ff0000;font-size: 32rpx;">*</text>{{index + 1}}、{{item.title}}</view>
+      <view class="answer-options-box">
+        <radio-group bindchange="radioChange" data-id="{{item.id}}" data-index="{{index}}">
+          <block wx:for="{{item.data.option}}" wx:for-item="items" wx:key="idx">
+            <view class="options-list"><label><radio value="{{items.key}}" />{{ items.content }}</label></view>
+          </block>
+        </radio-group>
+      </view>
+    </view>
+  </block>
+</view>
+<view style="width:100%;height:200rpx;"></view>
+
+<view class="footer-box">
+  <view class="footer-status" bindtap="showInfo">下一步</view>
+</view>
+
+
+<!-- 信息弹窗 -->
+<view wx:if="{{is_pop}}" class="is-pop-mark" catchtouchmove="myCatchTouch" bindtap="click_useinter"></view>
+<view wx:if="{{is_pop}}"  class="is-pop-box" catchtouchmove="myCatchTouch">
+  <form catchsubmit="formSubmit">
+    <view class="page-section">
+      <view class="section-info-title">请输入您的信息</view>
+      <view wx:if="{{need_name}}">
+        <view class="page-section-title">姓名</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input class="weui-input" type="text" value="{{name}}" name="name" placeholder="请填写姓名" />
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view wx:if="{{need_mobile}}">
+        <view class="page-section-title">联系方式</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input class="weui-input" type="number" value="{{mobile}}" name="mobile" placeholder="请留下联系电话" />
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view wx:if="{{need_area}}">
+        <view class="page-section-title">社区选择</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <picker mode='selector' bindchange="bindPickerChange" value="{{area_index}}" range="{{ area_list }}">
+                <input class="weui-input" type="text" value="{{area}}" name="area" placeholder="请选择"  disabled="disabled"/>
+              </picker>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="btn-area">
+      <button form-type="submit">确认</button>
+    </view>
+  </form>
+</view>

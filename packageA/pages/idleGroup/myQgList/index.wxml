@@ -1,0 +1,47 @@
+<view class="indexbg"></view>
+<!-- 附近求购 -->
+<view class="myidle-box">
+  <view class="myidle-box-title">
+    <view class="myidle-title-l">
+      <view class="myidle-title-l-b"></view>
+      <text>我的求购</text>
+    </view>
+  </view>
+  <view>
+    <view class="myBuying-box" wx:for="{{full_listdata}}" wx:key="index">
+      <view>
+        <view class="myBuying-list-t-box">
+          <view class="myBuying-list-t-l">
+            <image class="myBuying-list-userAvatarUrl" src="{{item.avatar}}"></image>
+            <view class="myBuying-list-t-info">
+              <view class="myBuying-list-nickName">{{item.nickname}}</view>
+              <view class="myBuying-list-time">{{item.created_at}}</view>
+            </view>
+          </view>
+          <view class="myBuying-list-t-r">
+            <view bindtap="delt_btn" data-id="{{item.id}}" wx:if="{{member_id == item.member_id}}">删除</view>
+          </view>
+        </view>
+        <view class="myBuying-list-img-box">
+          <view class="myBuying-list-title">{{item.introduce}}</view>
+          <view class="myBuying-image-box" wx:if="{{item.img || item.img.length > 0}}">
+            <view wx:for="{{item.img}}" wx:key="idx" wx:for-item="items">
+              <image src="{{items}}"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+</view>
+
+
+
+<!-- 返回上一步 -->
+<movable-area class="movable-area">
+  <movable-view direction="all" out-of-bounds='true' bindtap="turnto" class="movable-view">
+    <image mode='widthFix' src="http://oss.qingshanpai.com/banner/icon_gohome.png"></image>
+  </movable-view>
+</movable-area>

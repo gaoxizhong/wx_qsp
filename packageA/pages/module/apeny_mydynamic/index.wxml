@@ -1,0 +1,36 @@
+<view style="padding: 0 30rpx;">
+  <block wx:for="{{my_circle}}" wx:key="index" wx:for-index="idx">
+    <view class="mydynamic-box {{sele_idn == idx ?'sele_mydynamic':''}}" bindtap="sele_circle" data-index="{{idx}}" data-id="{{item.id}}">
+      <view class="circle-head">
+        <image class="photo" src="{{item.avatar}}" role="img"></image>
+        <view>
+          <view class="name_box">
+            <view class="name">{{item.nickname}}</view>
+          </view>
+          <view class="time">
+            <text style="margin-right:12px">{{item.created_at}}</text>
+            <text style="margin-right:12px">{{item.read_count ? item.read_count: 0}} 阅读</text>
+          </view>
+        </view>
+      </view>
+      <view class="circle-centent">
+        <view>
+          <!-- <text style="color:red;">#{{item.source_text}}#</text> -->
+          <text class='{{item.words.length > 100 && !showFull[idx].status ?"cool":""}}'>{{item.words}}</text>
+        </view>
+        <view class='full_txt' bindtap='openFulltxt' wx:if='{{item.words.length > 100}}' data-curidx="{{idx}}">{{!showFull[idx].status?'全文':'收起'}}</view>
+        <view class="circle-img" style="{{item.source == 9 || item.source == 6?'justify-content: center;':''}}" wx:if="{{item.images.length > 0}}">
+          <image 
+            wx:for="{{item.images}}" 
+            wx:for-item="items" 
+            wx:for-index="subidx" 
+            wx:key="index" src='{{items.url}}' 
+            mode="{{item.images.length > 1 ? 'aspectFill': 'widthFix'}}" 
+            class="{{item.images.length > 1? 'imgduo-width': 'imgyi-width'}}" 
+            >
+          </image>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

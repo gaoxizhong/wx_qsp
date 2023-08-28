@@ -1,0 +1,19 @@
+<!-- <block wx:for="{{bookList}}" wx:key="index"> -->
+  <view class="books-title">书籍名称</view>
+  <view class="books-name-box">
+    <input type="text" class="book-name" placeholder="请输入图书名称" bindinput="saveBookName" value="{{bookList.book_name}}" />
+  </view>
+  <view class="books-title">书籍价格</view>
+  <view class="books-name-box">
+    <input type="digit" class="book-value" placeholder="请输入积分..." bindinput="saveBookPoint" value="{{bookList.integral_price}}"/>
+  </view>
+<!-- </block> -->
+
+<view class="xytext-box">需使用{{point_sum ? point_sum : '0.00'}}环保积分</view>
+
+<view class="infoPlate-box">
+  <view class="infoPlate-Push-box" bindtap="fixed_btn">
+    <image src="/packageB/image/vol-icon-btn1.png" mode="widthFix"></image>
+    <view class="infoPlate-text" hover-class="hoverClass">确认兑换</view>
+  </view>
+</view>

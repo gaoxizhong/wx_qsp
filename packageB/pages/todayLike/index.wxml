@@ -1,0 +1,71 @@
+<view class="todayLike-title-box">
+  <image src="https://oss.qingshanpai.com/sign/icon_today_bg.png" mode="widthFix" class="todayLike-title-bg"></image>
+  <view class="todayLike-title-info">
+    <view class="title-info-top">
+      <view class="titleInfo-title">
+        <view class="titleInfo-title-t">
+          <text>昨日收获赞数</text>
+          <image src="/packageB/assets/images/sigin/icon_today_bgdz.png" mode="widthFix" class="titleInfo-jrsdz-img"></image>
+        </view>
+        <view class="titleInfo-num">{{result_yestoday}}</view>
+      </view>
+      <view class="titleInfo-ljdh-box" bindtap="{{money_today !='0'?'':'conversion_btn'}}">
+        <image src="/packageB/assets/images/sigin/icon_today_bgljdh.png" mode="widthFix"></image>
+        {{money_today !='0'?'已兑换':'立即兑换'}}
+      </view>
+      <view class="titleInfo-title">
+        <view class="titleInfo-title-t">
+          <text>可兑换金额(元)</text>
+        </view>
+        <view class="titleInfo-num">{{result_yestoday1}}</view>
+      </view>
+    </view>
+
+    <view class="todayLike-bottom-ye">
+      <view>可提现金额(元)：{{signCircle.balance}}</view>
+      <view bindtap="goToWallet">
+        <text>去提现</text>
+        <image src="/packageB/assets/images/sigin/icon_today_bgmode.png" mode="widthFix" class="bgmode"></image>  
+      </view>
+    </view>
+  </view>
+</view>
+<view class="result-today">今日当前收到的赞数: <text style="color: #ff0000;">{{signCircle.content.content_laud_count}}</text></view>
+<!--  ==================================== 头部账户信息以上 ================================= -->
+
+<view class="todayLike-list-box">
+  <block wx:for="{{signCircle.my_gift}}" wx:key="index">
+    <view class="todayLike-listitems-box" wx:if="{{item.laud.length > 0}}">
+      <view class="listitems-top-box">
+        <image src="/packageB/assets/images/sigin/icon_today_title.png" mode="widthFix" class="listitems-top-img"></image>
+          <view class="cx-btn-box">
+          <view class="listitems-cxbtn-sghh" data-mid="{{item.member_content.member_id}}" data-id="{{item.member_content.id}}" data-index="{{index}}" bindtap="clickisGift">
+            <image src="/packageB/assets/images/sigin/icon_today_listhghh.png" mode="widthFix" class="icon_today_listhghh"></image>
+          </view>
+        </view>
+      </view>
+      <!-- 点赞、礼物列表 -->
+      <view class="dzlw-list-box">
+        <!-- 点赞列表开始 -->
+        <view class="dzlw-listitems-box">
+          <image src="{{item.member.avatar}}" class="dzlw-listitems-avatar" data-id="{{item.member.id}}" bindtap="goOtherCircle"></image>
+          <view class="dzlw-listitems-nameinfo">
+            <view class="dzlw-listitems-name"> {{item.member.nickname}} <text>{{item.created_at}}</text></view>
+            <view style="margin-top: 8rpx;">{{item.member.nickname}}送了一个赞</view>
+          </view>
+          <view class="dzlw-listitems-hzbox" data-mid="{{item.member_content.member_id}}" data-id="{{item.member_content.id}}" data-index="{{index}}" bindtap="{{item.lauds_status?'':'signLike'}}">
+            <image src="/packageB/assets/images/sigin/{{item.lauds_status?'icon_today_listdz2':'icon_today_listdz1'}}.png" mode="widthFix"></image>
+            <text style="color:{{item.lauds_status?'#fd2c4f':'#333'}};">{{item.lauds_status?'已回赞':'回赞'}}</text>
+          </view>
+        </view>
+        <!-- 点赞列表结束 -->
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- ========  弹窗 ============== -->
+ <!-- ============= 送个花花 弹窗 开始===========  -->
+ <giftList selt_id="{{selt_id}}" content_uid="{{content_uid}}" is_gift="{{is_gift}}" bindshow_poster="show_poster" />
+ <!-- ============= 送个花花 弹窗 结束===========  -->
+

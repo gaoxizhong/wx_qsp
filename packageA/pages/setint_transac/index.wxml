@@ -1,0 +1,59 @@
+<view class="tishi-text">
+  <view>售前必读规则：</view>
+  <view>1、由第三方企业或个人分批次购买积分直至额度完成；</view>
+  <view>2、积分收益与出售进度相关，分批次出售，分批次收益；</view>
+  <view>3、积分交易大厅功能为撮合交易，平台本身不回购积分；</view>
+  <view>4、待售中的环保积分会处于冻结状态，暂不可挪作他用。</view>
+</view>
+<view class="setint-box">
+  <view class="setint-title">设置积分出售额度</view>
+  <view style="color:#666; padding:10rpx 0;">可用：{{realAmount}} </view>
+  <view class="setint-title-desc">规则：最低5积分，最高10000积分，分批次出售</view>
+  <view class="setint-list-box">
+    <view class="setint-list-item" style="justify-content: flex-start;">
+      <view bindtap="changere" class="{{good_seld== '1'?'seld-btn':''}}" data-integral="200" data-index="1">200积分</view>
+    </view>
+    <view class="setint-list-item">
+      <view bindtap="changere" class="{{good_seld== '2'?'seld-btn':''}}" data-integral="500" data-index="2">500积分</view>
+    </view>
+    <view class="setint-list-item" style="justify-content: flex-end;">
+      <view bindtap="changere" class="{{good_seld== '3'?'seld-btn':''}}" data-integral="2000" data-index="3">2000积分</view>
+    </view>
+  </view>
+    <view class="setint-list-box">
+    <view class="setint-list-item" style="justify-content: flex-start;">
+      <view bindtap="changere" class="{{good_seld == '4'?'seld-btn':''}}" data-integral="5000" data-index="4">5000积分</view>
+    </view>
+    <view class="setint-list-item">
+      <view bindtap="changere" class="{{good_seld == '5'?'seld-btn':''}}" data-integral="10000" data-index="5">10000积分</view>
+    </view>
+    <view class="setint-list-item" style="justify-content: flex-end;" data-integral="0"  bindtap="changere" data-index="6">
+      <input type="digit" value="{{value_input}}" class="{{good_seld== '6'?'seld-btn':''}}"  placeholder="自定义" placeholder-style="color:#333;" bindinput="save_input_num"></input>
+    </view>
+  </view>
+  <view class="show-number-box">
+    <view>已选中：{{integral?integral:'0.00'}}积分</view>
+    <view class="right-text">
+      <view>预计收益金额(￥)：<text>{{total_price}}</text></view>
+      <view>福利券(份)：<text>{{quan_number}}</text></view>
+    </view>
+  </view>
+</view>
+<view class="que-btn" hover-class="set-btn" bindtap="que_btn">确定</view>
+<view class="tishi-text">
+  <view>说明：</view>
+  <view>设定额度并且点击确认，即视为已阅读并且同意【售前必读规则】之内容；积分收益随积分购买方意愿和平台规则波动，若有收益，收益以钱包进账和券包为准。</view>
+</view>
+
+<view class="transac-mark" wx:if="{{transac_mark}}" bindtap="transac_mark"></view>
+<view class="transac-view-box" wx:if="{{transac_mark}}">
+  <view class="transac-input-box">
+    <view class="transac-input-title">
+      <text style="font-weight:600;width:108rpx;text-align:left;">手机号:</text>
+      <input type="number" value="{{phone}}" placeholder="请输入手机号" bindinput="setphone"/>
+    </view>
+    <view style="font-size:26rpx;color:#999;margin-top:20rpx;">我们将以短信方式及时通知收益信息，请输入手机号码便于收到短信通知。</view>
+  </view>
+  <view class="transac-input-btn" bindtap="transac_inpbtn">确认</view>
+</view>
+<view style="width:100%;height:60rpx;"></view>

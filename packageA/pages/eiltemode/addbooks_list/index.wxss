@@ -1,0 +1,217 @@
+/* pages/library/addbook/addbook.wxss */
+page{
+  background: #dde1dd;
+}
+.all{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  width: 100%;
+  height: 100%;
+}
+.content{
+  height: auto;
+  margin: 20rpx 15rpx;
+  border-bottom: 2rpx solid #aaa;
+  background: #fff;
+  border-radius: 8px;
+  padding: 24rpx 0;
+  padding-bottom: 10rpx;
+  position: relative;
+}
+.content-top{
+  display: flex;
+  flex-direction: row;
+  padding: 8rpx 0;
+  padding-left: 24rpx;
+}
+image{
+  margin-top:4%;
+  width: 138rpx;
+  height:auto;
+}
+.left{
+   display: flex;
+    flex-direction: row;
+    width: 138rpx;
+    height: auto;
+}
+.right{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  font-size: 26rpx;
+  color: #090909;
+  font-family: PingFang-SC-Regular;
+  margin-left: 30rpx;
+  padding-right: 30rpx;
+  overflow: hidden;
+}
+text{
+ padding: 1px;
+}
+.line{
+width:95%;
+height:5rpx;
+background:#aaa;
+}
+.quan {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  border: 1rpx solid #333;
+  position: relative;
+  top: 18rpx;
+  left: 17rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  
+}
+.quan-in {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: #64b532;
+}
+.btn-sao{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed; 
+  bottom: 0;
+  font-size: 40rpx;
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+}
+button{
+  width: 38%;
+  height:80rpx;
+  line-height: 80rpx;
+  background-image: linear-gradient(to right, #4AC081 , #6cd67f);
+  font-family: PingFang-SC-Regular;
+  color: #FFFFFF;
+  border-radius: 40px;
+
+}
+.book-name{
+  color: #090909;
+  font-size: 30rpx;
+   overflow:hidden; /*超出的文本隐藏 */
+  text-overflow:ellipsis; /*溢出用省略号显示*/
+  white-space:nowrap; /*溢出不换行*/
+}
+.book-author{
+  color: #9a9a9a;
+  padding: 10rpx 0;
+}
+.content-butt{
+  padding-right: 42rpx;
+  margin-top: 12rpx;
+}
+.content-butt .content-butt-list{
+  padding: 11rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-title-right{
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+.list-title-right text{
+  color: #4AC081;
+  font-size: 26rpx;
+  padding: 6rpx 20rpx;
+}
+.butt-list-title{
+  font-size: 28rpx;
+}
+.modify-btn{
+  width: 120rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  margin-left: 40rpx;
+  padding: 0 20rpx;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 26rpx;
+  border: 1rpx solid #4ac07d;
+}
+.add-image{
+  flex: 1;
+  display: flex;
+  
+}
+.centent-int1{
+  width: 120rpx;
+  height: 48rpx;
+  margin-left: 10rpx;
+  padding:0 20rpx;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 26rpx;
+  border: 1rpx solid #4ac07d;
+}
+.centent-int input{
+  font-size: 25rpx;
+}
+
+.book-prace{
+  text-align: right;
+  padding-right: 10px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding-top: 6rpx;
+}
+.centent-int textarea{
+  font-size: 25rpx;
+  height: 300rpx;
+}
+.cancel{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 2rpx;
+  right: 2rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cancel image{
+  width: 44rpx;
+  height: 44rpx;
+}
+.class-box {
+  height: auto;
+  z-index: 100;
+  box-sizing: border-box;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  
+  }
+  .class-box>.btn-list {
+    width: 166rpx;
+    height: auto;
+    padding: 10rpx 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24rpx;
+    border-radius: 20px;
+    margin: 10rpx 6rpx;
+    background: #bee9d1;
+    
+    }
+    
+
+
+  

@@ -1,0 +1,136 @@
+<wxs module="filters">
+  var filters = {
+    toFix: function (value) {
+      return value.toFixed(2)
+    }
+  }
+  module.exports = {
+    toFix: filters.toFix
+  }
+</wxs>
+<!-- 正在交易状态 -->
+<view wx:if="{{ !is_run }}">
+  <view class="bac-box">
+    <view class="dl-bothinfo-box">
+      <view class="dl-itemsinfo-box">
+        <image src="{{m_avatar}}"></image>
+        <view class="dl-text">{{m_name}}</view>
+      </view>
+      <view class="bothinfo-z-box">
+        <view style="color: #ffae58;">正在交易</view>
+        <image src="http://oss.qingshanpai.com/icon/ic_jiaoyi.gif" class="bothinfo-z-img"></image>
+        <view>1积分兑换1元</view>
+      </view>
+      <view class="dl-itemsinfo-box">
+        <image src="{{taskinfo.business.avatar}}"></image>
+        <view class="dl-text">{{taskinfo.business.name}}</view>
+      </view>
+    </view>
+    <view class="jfdatainfo-box">
+      <view class="jfdatainfo-box-l">
+        <view><text class="jfdata-text">环保账号：</text>{{memberIdBank}}</view>
+        <view><text class="jfdata-text">积分总额：</text>{{realAmount}}</view>
+      </view>
+      <view class="jfdatainfo-box-r">
+        <view><text class="jfdata-text">收购积分：</text>{{taskinfo.quota}}</view>
+        <view><text class="jfdata-text">已购积分：</text>{{taskinfo.buy_i?taskinfo.buy_i:'0.00'}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="createMerchantBuy-ChooseAmount-box">
+    <view class="chooseAmount-title-box">
+      <image src="/packageA/assets/images/jfjydt/ic_jfdh.jpg" mode="widthFix" class="chooseAmount-title-img"></image>
+      <view class="chooseAmount-title-text">选择积分兑换数量</view>
+    </view>
+    <view class="chooseAmount-items-box">
+      <block wx:for="{{ chooseAmountList }}" wx:key="index">
+        <view>
+          <view class="chooseIemsList {{select_money == index ? 'selectMoney':''}}" data-index="{{index}}" bindtap="select_money">
+            <view style="text-align: center;">{{ item.jf }}<text style="font-size: 22rpx;">积分</text></view>
+            <image src="{{select_money == index ? 'http://oss.qingshanpai.com/icon/jifenduihuan.gif' :'http://oss.qingshanpai.com/icon/ic_jfdh_norma.png'}}" mode="widthFix" class="chooseIemsList-img"></image>
+            <view style="text-align: center;font-size: 34rpx;font-weight: 600;">{{ item.money }}<text style="font-size: 22rpx;">元</text></view>
+          </view>
+        </view>
+      </block>
+
+      <view>
+        <view class="chooseIemsList {{select_money == 3 ? 'selectMoney':''}}"  data-index="3" bindtap="select_money">
+          <input class="chooseIemsList-input" type="number" value="{{inputjfcount}}" bindinput="inputMoney" placeholder="输入兑换数量"/>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+  <view class="infoPlate-box">
+    <view class="infoPlate-Push-box" bindtap="fixed_btn">
+      <image src="http://oss.qingshanpai.com/icon/bt_zn.png" mode="widthFix"></image>
+      <view class="infoPlate-text" hover-class="hoverClass">开始交易</view>
+    </view>
+  </view>
+
+</view>
+<!-- 做任务状态 -->
+<view wx:else>
+  <view class="bac-box">
+    <view class="dl-bothinfo-box">
+      <view class="dl-itemsinfo-box">
+        <image src="{{m_avatar}}"></image>
+        <view class="dl-text">{{m_name}}</view>
+      </view>
+      <view class="bothinfo-z-box">
+        <view style="color: #ffae58;">正在交易</view>
+        <image src="http://oss.qingshanpai.com/icon/ic_jiaoyi.gif" class="bothinfo-z-img"></image>
+        <view>1积分兑换1元</view>
+      </view>
+      <view class="dl-itemsinfo-box">
+        <image src="{{run_task.business.avatar}}" binderror="imageerror"></image>
+        <view class="dl-text">{{run_task.business.name}}</view>
+      </view>
+    </view>
+    <view class="cyrs-box">{{run_task.record_count}}人次出售积分</view>
+    <view class="jzsj-box">收购截止时间： {{run_task.order_time}}</view>
+  </view>
+
+  <view class="integral-transaction">
+    <view class="transac-img">
+      <image src="http://oss.qingshanpai.com/icon/jfrw_bg.png"></image>
+    </view>
+    <view class="taskCard-box">
+      <image src="http://oss.qingshanpai.com/icon/jftask_img.png"></image>
+    </view>
+    <view class="task-instruction-box">
+      <view><image src="/images/jfjydt/jftask_1.png"></image><text>收集{{run.count}}个绿能量，完成任务，获得{{run.quota}}元</text></view>
+      <view><image src="/images/jfjydt/jftask_2.png"></image><text>根据任务进度条，按比例兑换，放弃任务也可兑换</text></view>
+    </view>
+  </view>
+
+  <view class="jftask-jdt-box">
+    <view class="jdt-sj-box">
+      <view class="jdt-sj-box1" style="left: {{ width }};">
+        <image src="/packageA/assets/images/jfjydt/bg_pop.png" class="sj-box1-img"></image>
+        <text class="sj-box1-text">{{ filters.toFix(run.help_count*0.2) }}￥</text>
+      </view>
+    </view>
+    <view class="jdt-bgbox">
+      <view class="jdt-bgbox1">
+        <image src="/packageA/assets/images/jfjydt/jdt-bg1.png" class="jdt-bg1"></image>
+      </view>
+      <view class="jdt-bgbox2" style="width: {{ width }};">
+        <image src="/packageA/assets/images/jfjydt/jdt-bg2.png" class="jdt-bg2"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="jftask-btn-box">
+    <button hover-class="hoverClass" open-type="share" wx:if="{{run.is_done == 0 }}"><image src="https://oss.qingshanpai.com/icon/jftask-sj-btn.png"></image></button>
+    <button hover-class="hoverClass"  wx:if="{{run.is_done == 1 }}"><image src="https://oss.qingshanpai.com/icon/jftask-wc-btn.png"></image></button>
+    <button hover-class="hoverClass" bindtap="settlement"><image src="https://oss.qingshanpai.com/icon/jftask-js-btn.png"></image></button>
+  </view>
+</view>
+
+<view class="jyhs-page-box1" bindtap="gotoIndex">
+  <image src="https://oss.qingshanpai.com/icon/sgjf_indexbg.png" mode="widthFix"></image>
+</view>
+

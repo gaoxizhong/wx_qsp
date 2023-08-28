@@ -1,0 +1,4 @@
+<view class="jiaoyi_mask" bindtap="gotojifenjiaoyi" wx:if="{{is_jifenjiaoyi || (member_id && is_jifenjiaoyi)}}" catchtouchmove="catchtouchmove"></view>
+<view class="jiaoyi_box"  wx:if="{{is_jifenjiaoyi || (member_id && is_jifenjiaoyi)}}" bindtap="gotojifenjiaoyi" catchtouchmove="catchtouchmove">
+  <image src="http://oss.qingshanpai.com/banner/indexmark_gotobark.jpg" mode="widthFix"></image>
+</view>

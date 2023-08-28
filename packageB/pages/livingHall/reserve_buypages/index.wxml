@@ -1,0 +1,45 @@
+<view class="addpage-box">
+  <view class="address-box" bindtap="openEdit" wx:if="{{!contact_name}}">
+    <view class="address-info-box">
+      <text>请设置您的信息</text>
+    </view>
+    <image src="/images/icon_editcomment.png" class="address-icon"/>
+  </view>
+  <view class="address-box" bind:tap="openEdit" wx:else>
+    <view class="address-info-box">
+      <view class="name-phone">{{contact_name+ '  '}}{{contact_phone}}</view>
+      <view class="address">地址信息：{{contact_area}}</view>
+    </view>
+    <image src="/images/icon_editcomment.png" class="address-icon"/>
+  </view>
+  <image src="/images/address_line.png" style="height: 5rpx;width:100%" />
+</view>
+<view class="good-info">
+  <image src="{{goodsInfo.image_array[0]}}" />
+  <view class="good-title">{{goodsInfo.title}}</view>
+  <view class="good-sum">
+    <view>￥{{goodsInfo.price}}</view>
+    <view>x 1</view>
+  </view>
+</view>
+<view class="divide" style="height:20rpx"></view>
+<view class="good-desc">
+  <view class="price-info-list header">
+    <text>快递费用:</text>
+    <view class="sel"><text style="font-size: 36rpx;" wx:if="{{goodsInfo.parcel_price}}">￥</text><text class="color-64B">{{goodsInfo.parcel_price?goodsInfo.parcel_price:'免运费'}}</text></view>
+  </view>
+</view>
+<view class="divide" style="height:20rpx"></view>
+
+<!-- ========= 购买 ========= -->
+<view class="footer-box">
+  <view class="footer-l-box">
+    <view class="footer-l-p">
+      <text>￥</text><text style="font-size: 50rpx;font-weight: 600;">{{total_price}}</text>
+    </view>
+  </view>
+  <view class="footer-r-box" hover-class="hoverClass" bindtap="create_order">购买</view>
+</view>
+
+
+

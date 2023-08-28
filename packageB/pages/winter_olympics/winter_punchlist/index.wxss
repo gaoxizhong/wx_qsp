@@ -1,0 +1,175 @@
+page{
+  background: #f2f2f2;
+  background-image: linear-gradient(to bottom,#b6ecff, #bff2ff,#c9ffff);
+}
+.wintermap-box{
+  padding-top: 130rpx;
+  padding-bottom: 10rpx;
+  background-image: url('https://oss.qingshanpai.com/icon/wintermap-bg1.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.peple-box{
+  width: 100%;
+  padding: 20rpx 0;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #ff0000;
+  text-align: center;
+}
+.punchpepole-box{
+  margin: 10rpx 24rpx;
+  box-sizing: border-box;
+  position: relative;
+  opacity: 0.8;
+}
+.punchpepole-listbox{
+  width: 100%;
+  height: 62rpx;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  padding: 0 12rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+.userList-number-img {
+  max-width: 302rpx;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.userList-number-img>view {
+  border-radius: 50%;
+  width: 48rpx;
+  height: 48rpx;
+  vertical-align: auto;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.userList-number-img>view>image {
+  width: 100%;
+  height: 100%;
+}
+.userList-text {
+  flex: 1;
+  font-size: 28rpx;
+  font-weight: 600;
+  text-align: left;
+}
+.punchmap-box{
+  height: 512rpx;
+  border-radius: 8px;
+  background: #fff;
+  margin: 0 22rpx;
+  border: 1px solid #e5e5e5;
+  overflow: hidden;
+}
+.container-listbox{
+  padding: 10rpx 24rpx;
+  box-sizing: border-box;
+  background-image: linear-gradient(to bottom,#b6ecff, #bff2ff,#c9ffff);
+} 
+.playList-box{
+  margin: 10rpx 0;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 30rpx;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.playList-box-l{
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+}
+.playList-box-r{
+  width: 154rpx;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+}
+.acList-l-avatar {
+  width: 42rpx;
+  height: 54rpx;
+}
+.acList-l-view {
+  padding-left: 12rpx;
+}
+.acList-l-title {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.acList-l-ac {
+  font-size: 28rpx;
+  padding-top: 8rpx;
+  color: #999;
+}
+.acList-r-btn {
+  width: 112rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  position: relative;
+  text-align: center;
+  margin: 8rpx 0;
+  border-radius: 20px;
+  box-shadow: 0 3px 4px #9acff2;
+  box-sizing: border-box;
+}
+.acList-r-btn.r-btn-t{
+  background: #0388e2;
+  color: #fff;
+}
+.acList-r-btn.r-btn-b{
+  background: #fff;
+  color: #0388e2;
+  border: 1px solid #0388e2;
+  margin-top: 20rpx;
+}
+.ckgd-box{
+  width: 256rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  text-align: center;
+  font-size: 30rpx;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 3px 4px #60bff2;
+  margin: 30rpx auto;
+  box-sizing: border-box;
+}
+.btnitems-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  padding: 30rpx 0 60rpx;
+  box-sizing: border-box;
+}
+.btnitems-box>view,.btnitems-box>button{
+  width: 144rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  border-radius: 20px;
+  color: #fff;
+  background-image: linear-gradient(to right,#ff6c00,#fcb200);
+  margin: 0 20rpx;
+  box-shadow: 0 3px 5px #f1b052;
+  font-size: 30rpx;
+}
+.hoverClass{
+  opacity: 0.8;
+}

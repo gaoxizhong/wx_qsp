@@ -1,0 +1,69 @@
+<view class="tab-bar">
+  <view class="tab-bar-item {{status == ''?'color-64B':'color-333'}}" data-status="" bindtap="changeTabItem">
+    <text>全部</text>
+    <view class="bar-border bacg-64B"  wx:if="{{status == ''}}"></view>
+  </view>
+  <view class="tab-bar-item {{status == '0'?'color-64B':'color-333'}}" data-status="0" bindtap="changeTabItem">
+    <text>待付款</text>
+    <view class="bar-border bacg-64B"  wx:if="{{status == '0'}}"></view>
+  </view>
+  <view class="tab-bar-item {{status == '1'?'color-64B':'color-333'}}" data-status="1" bindtap="changeTabItem">
+    <text>已付款</text>
+    <view class="bar-border bacg-64B" wx:if="{{status == '1'}}"></view>
+  </view>
+  <view class="tab-bar-item {{status == '2'?'color-64B':'color-333'}}" data-status="2" bindtap="changeTabItem">
+    <text>已完成</text>
+    <view class="bar-border bacg-64B" wx:if="{{status == '2'}}"></view>
+  </view>
+  <view class="tab-bar-item {{status == '10'?'color-64B':'color-333'}}" data-status="10" bindtap="changeTabItem">
+    <text>已取消</text>
+    <view class="bar-border bacg-64B" wx:if="{{status == '10'}}"></view>
+  </view>
+</view>
+
+<view class="order-list-box">
+  <view class="commodity-order-box">
+
+    <block wx:for="{{beusedList}}" wx:key="index">
+      <view class="commodity-order-item">
+        <view class="order-shop-title">
+          <view>{{item.work.member.nickname}}</view>
+          <view style="font-size:24rpx;font-weight:100;color: #e96907;" wx:if="{{item.status == 1 && item.express_status == 0 }}">未发货</view>
+          <view style="font-size:24rpx;font-weight:100;color: #e96907;" wx:if="{{item.status == 1 && item.express_status == 1 }}">已发货</view>
+          <view style="font-size:24rpx;font-weight:100;color: #e96907;" wx:if="{{item.status == 1 && item.express_status == 2 }}">已到货</view>
+        </view>
+        <view style="font-size:24rpx;font-weight:100;color: #999;">订单编号: {{item.order_num}}</view>
+        <view class="order-shop-content" data-id="{{item.work_id}}" bindtap="goTogoodsDetails">
+          <view class="image-box">
+            <image src="{{ item.work.image_array[0] }}"></image>
+          </view>
+          <view class="order-shop-info">
+            <view class="order-shop-info-title">{{item.work.title}}</view>
+            <view style="color:#e96907;">￥{{item.total_price}}</view>
+          </view>
+          <view class="commodity-order-number">*1</view>
+        </view>
+        <view>
+          <view class="order-button" wx:if="{{item.status == '0' && dealType == 'buy'}}">
+            <button hover-class="none" bindtap="cancelOrder" class="cancelbg" data-index="{{index}}" data-id="{{item.id}}">取消订单</button>
+            <!-- <button hover-class="none" class="redorg redorgbg" bindtap="payOrder" data-id="{{item.id}}">去支付</button> -->
+          </view>
+          <view class="order-button" wx:if="{{item.status == '0' && dealType == 'sell'}}">
+            <view style="font-size: 28rpx;color: #999;">未支付</view>
+          </view>
+          <view class="order-button" wx:if="{{ item.status == '1' }}">
+            <button hover-class="none" bindtap="shipmentsOrder" class="redorg redorgbg" data-work_id="{{item.work_id}}" data-id="{{item.id}}" wx:if="{{ item.express_status == 0 && dealType == 'sell'}}">去发货</button>
+            <button hover-class="none" bindtap="viewLogistics" class="redorg redorgbg" data-work_id="{{item.work_id}}" data-id="{{item.id}}" wx:if="{{ item.express_status == 1 || item.express_status == 2}}">查看物流</button>
+            <button hover-class="none" bindtap="clickShou" class="redorg redorgbg" data-work_id="{{item.work_id}}" data-id="{{item.id}}" wx:if="{{ item.express_status == 1 && dealType == 'buy' }}">确认收货</button>
+          </view>
+
+        </view>
+      </view>
+    </block>
+    <view class='nulldata_wrap' wx:if="{{beusedList.length == 0}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg'>暂无数据...</view>
+    </view>
+  </view>
+</view>
+

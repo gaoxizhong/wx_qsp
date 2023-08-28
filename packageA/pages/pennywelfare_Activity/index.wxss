@@ -1,0 +1,549 @@
+
+.top-announcement-box {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  font-size: 28rpx;
+  min-height: 126rpx;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+}
+.announcement-img-box {
+  width: 52rpx;
+  height: 42rpx;
+}
+.announcement-img-box image {
+  width: 100%;
+  height: 100%;
+}
+.prop-up-20{
+  width: 100%;
+  height: 20rpx;
+  background: #e9e8e8;
+}
+.love-section{
+  width: 100%;
+  height: auto;
+  padding: 18rpx 30rpx;
+  box-sizing: border-box;
+}
+.love-account-box{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+}
+.love-account-box>view{
+  display: flex;
+  align-items: center;
+}
+.love-icon{
+  width: 38rpx;
+  height: 38rpx;
+}
+.color-red{
+  color: #ff0000;
+}
+.prize-section{
+  padding: 30rpx 30rpx 0;
+  box-sizing: border-box;
+}
+.love-story{
+  position: relative;
+  padding: 20rpx;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 2px #00000020;
+  margin-top: 30rpx;
+}
+.love-story-text{
+  font-size: 28rpx;
+  padding-top: 24rpx;
+  box-sizing: border-box;
+}
+.love-story-text.cool{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box; /*作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient:vertical; /*设置伸缩盒子的子元素排列方式--从上到下垂直排列*/
+  -webkit-line-clamp: 3; /*显示的行*/
+}
+
+.circle-img {
+  margin-top: 10rpx;
+  margin-bottom: 18rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.imgduo-width {
+  width: 217rpx;
+  height: 217rpx;
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
+.prize-title-logo{
+  width: 100%;
+  height: 82rpx;
+  position: relative;
+}
+.prize-title-logo>image{
+  width: 348rpx;
+  height: 82rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.prizeList-box{
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding-top: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.prizeList-items{
+  width: 33.3333333333333%;
+  height: 342rpx;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+}
+.prizeList-items-image{
+  width:100%;
+  height: 182rpx;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.prizeList-items-image image.items-image{
+  width: 100%;
+  height: 100%;
+}
+.prizeList-items-image image.items-image-icon{
+  width: 110rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.prizeList-items-info{
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  overflow: hidden;
+}
+.items-info-title{
+  text-overflow: ellipsis;
+  display:-webkit-box; /*作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient:vertical; /*设置伸缩盒子的子元素排列方式--从上到下垂直排列*/
+  -webkit-line-clamp:2; /*显示的行*/
+}
+.items-info-money{
+  color: #ff0000;
+  font-size: 24rpx;
+  padding: 10rpx 0;
+}
+.cutoff-time-box{
+  width: 100%;
+  box-sizing: border-box;
+  height: 80rpx;
+  padding: 0 10rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  text-align: center;
+}
+.ranking-section{
+  padding: 30rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.ranking-name{
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ranking-name .rankimg-img{
+  width: 92rpx;
+}
+
+.ranklist-items{
+  width: 100%;
+  height: 96rpx;
+  margin: 10rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.ranklist-items::after{
+  content: '';
+  width: 100%;
+  height: 1px;
+  transform: translateY(0.5);
+  background: #dbdada;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.ranklist-items.ranklist-items1::after{
+  background: #fff;
+}
+.ranklist-items.ranklist-items1{
+  box-shadow: 0 1px 20px #00000020;
+}
+
+.ranklist-items>view{
+  height: 100%;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ranklist-items>view:nth-of-type(1){
+  width: 50rpx;
+  height: 50rpx;
+  padding: 0 12rpx;
+}
+.ranklist-items>view:nth-of-type(2){
+  width: auto;
+  padding: 0 12rpx;
+}
+.ranklist-items>view:nth-of-type(4),.ranklist-items>view:nth-of-type(5){
+  width: 120rpx;
+}
+.ranklist-items>view:nth-of-type(3){
+  flex: 1;
+}
+.ranklist-items>view.rank-index image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.ranklist-items>view.rank-avatar image{
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+}
+.rank-4{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rank-4 image{
+  width: 36rpx;
+  height: 36rpx;
+}
+.rank-5-btn{
+  width: 104rpx;
+  height: 44rpx;
+  font-size: 24rpx;
+  border-radius: 20px;
+  background: #4ac081;
+  color: #fff;
+  line-height: 44rpx;
+  text-align: center;
+}
+.footer-box{
+  width: 100%;
+  height: 146rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: fixed;
+  left: 0;
+  bottom: 0; */
+  padding-top: 20rpx;
+}
+.footer-btn{
+  width: 482rpx;
+  height: 82rpx;
+  background: #63d080;
+  color: #fff;
+  line-height: 82rpx;
+  text-align: center;
+  border-radius: 20px;
+}
+.footer-btn1 button{
+  width: 320rpx;
+  height: 82rpx;
+  margin: 0 20rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+}
+.footer-btn1{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.footer-btn1 button.footer-btn1-right{
+  background: #63d080;
+}
+.footer-btn1 button.footer-btn1-left{
+  background: #1f87e8;
+}
+.footer-btn1 button image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+.footer-status{
+  width: 482rpx;
+  height: 82rpx;
+  background: #8a8a8a;
+  color: #fff;
+  line-height: 82rpx;
+  text-align: center;
+  border-radius: 20px;
+}
+.no-ranklist-box{
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  text-align: center;
+  color: #8a8a8a;
+}
+.prize-title-box{
+  padding: 20rpx;
+  position: relative;
+  margin-top: 10rpx;
+}
+.prize-title-text{
+  font-size: 28rpx;
+  color: #ff0000;
+  animation: recomTitle 6s linear infinite;
+  position: absolute;
+  top: 2rpx;
+}
+@keyframes recomTitle {
+  0% {
+    left: 4%;
+  }
+
+  50% {
+    left:40%;
+  }
+
+  100% {
+    left: 4%
+  }
+}
+.ge-btn-box{
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10rpx 0;
+  margin-top: 20rpx;
+}
+.btn-look{
+  width: 186rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 24rpx;
+  background: #4ac081;
+  color: #fff;
+}
+.past-btn{
+  width: 140rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  background: #f9601a;
+  color: #fff;
+  font-size: 26rpx;
+  border-radius: 20px;
+  margin: 0 20rpx;
+  position: absolute;
+  top: 40rpx;
+  right: 20rpx;
+  z-index: 200;
+}
+.method-list {
+  white-space: nowrap;
+}
+.method-item {
+  display: inline-block;
+  width: 295rpx;
+  margin-right: 14rpx;
+  padding: 4px;
+}
+.method-item image {
+  width: 295rpx;
+  height: 198rpx;
+  border-radius: 6px;
+  vertical-align: middle;
+}
+.method-item .method-title {
+  margin-top: 15rpx;
+  color: #000;
+  text-align: left;
+  font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box; /*作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient:vertical; /*设置伸缩盒子的子元素排列方式--从上到下垂直排列*/
+  -webkit-line-clamp: 1; /*显示的行*/
+}
+.method-time{
+  margin-top: 2rpx;
+  color: #ff0000;
+  text-align: left;
+  font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box; /*作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient:vertical; /*设置伸缩盒子的子元素排列方式--从上到下垂直排列*/
+  -webkit-line-clamp: 2; /*显示的行*/
+  white-space: pre-wrap;
+}
+.usecoin-hover{
+  border: 3px solid #4ac081;
+}
+.full_txt {
+  font-size: 32rpx;
+  color: #4285f4;
+  margin-top: 10rpx;
+  text-align: right;
+  box-sizing: border-box;
+  padding-right: 10px;
+}
+.pen-title-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+.pen-title-l{
+  width: 70rpx;
+  height: 70rpx;
+}
+.pen-title-l image{
+  width: 100%;
+  height: 100%;
+}
+.pen-title-r{
+  padding-left: 10rpx;
+}
+.title-r-t{
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.title-r-b{
+  font-size: 26rpx;
+  color: #666;
+}
+.poster-view-box{
+  box-sizing: border-box;
+  width: 100%;
+  height: 370rpx;
+  padding: 10rpx 0;
+}
+.poster-view-box swiper.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.poster-view-box swiper.swiper swiper-item.is_secl{
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  padding: 0 6rpx;
+}
+.poster-view-box swiper.swiper .swiper-item-view {
+  width: 100%;
+  height: 100%;
+  padding: 2rpx;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+.poster-view-box swiper.swiper .swiper-item-view image {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+.aixin-box{
+  padding: 30rpx 0;
+}
+.qiye-r-q{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box; /*作为弹性伸缩盒子模型显示。*/
+  -webkit-box-orient:vertical; /*设置伸缩盒子的子元素排列方式--从上到下垂直排列*/
+  -webkit-line-clamp: 1; /*显示的行*/
+}
+.aixin-qiye-box{
+  font-size: 28rpx;
+  display: flex;
+  align-items: flex-start;
+}
+.qiye-title{
+  padding: 4rpx 18rpx;
+  border-radius: 20px;
+  background: #ffeeee;
+}
+.qiye-r{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-left: 10rpx;
+  flex: 1;
+}
+.qiye-liaojie{
+  border-radius: 20px;
+  background: #4ac081;
+  color: #fff;
+  padding: 2px 0;
+  width: 118rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.aixin-a{
+  font-size: 28rpx;
+  display: flex;
+  margin-top: 14rpx;
+}
+.ai-title{
+  padding: 4rpx 18rpx;
+  border-radius: 20px;
+  background: #ffeeee;
+}
+.ai-a-s{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 30rpx;
+}
+.qi-notice{
+  box-sizing: border-box;
+  font-size: 28rpx;
+  padding: 20rpx;
+}
+.pai-view{
+  font-size: 30rpx;
+  padding: 20rpx 0;
+}
+.hoverClass{
+  background: #00000020;
+}

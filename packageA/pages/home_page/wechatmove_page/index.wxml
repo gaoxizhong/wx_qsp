@@ -1,0 +1,38 @@
+<view class="wechat-title-box">
+  <view class="wechat-title-node">
+    <view class="title-node-left">
+      <image src="/packageA/assets/images/wechat-bg.png"></image>
+    </view>
+    <view class="title-node-right">
+      <view class="right-title">微信运动—绿色出行</view>
+      <view style="color:#747474;font-size:28rpx;">{{is_binding? '已绑定':'未绑定'}}</view>
+    </view>
+  </view>
+</view>
+<view class="introduce-box">
+  <view style='padding-top:20rpx;'>功能介绍</view>
+  <view class="introduce-text">微信运动步数可以折算成环境保护奖励积分，积分可以兑换各种福利和奖励金；支持绿色出行，倡导环保低碳生活。</view>
+</view>
+
+<view class="theycount-box">
+  <view class="theycount-box-info">
+    <view>
+      <view>昨日步数:</view>
+      <view class="number-box">{{step?step:0}}</view>
+    </view>
+    <view>
+      <view>今日兑换积分:</view>
+      <view class="number-box">{{step_integral?step_integral:0}}</view>
+    </view>
+  </view>
+  <view class="conversion-btn" hover-class="hover-btn" bindtap="{{is_binding?'conversion_btn':'getWeRunData'}}">{{is_binding?'转换积分':'绑定该功能'}}</view>
+</view>
+<!-- 广告位 -->
+<view class="circle-adbox" wx:if="{{is_ad}}">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30" bindclose="adClose"></ad>
+</view>
+
+<!-- 今日福利组件以下 -->
+<todayWelfare />
+<!-- 今日福利组件以上 -->
+<view style="width:100%;height:20px;"></view>

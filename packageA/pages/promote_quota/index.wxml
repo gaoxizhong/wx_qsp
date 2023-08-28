@@ -1,0 +1,19 @@
+
+<view class="title-box">
+  <text style="color:#ff0000;">*</text>
+  <text>额度越高,资金利用率越高,投放的广告越多。</text>
+</view>
+<view class="topup-listbtn-box">
+  <view class="topup-listbtn-items">    
+    <view class="{{selected == 1 ? 'select_class' :'' }}" data-id="1" data-multiple="10" bindtap="select_items">10倍</view>
+  </view>
+  <view class="topup-listbtn-items">
+    <view class="{{selected == 2 ? 'select_class' :'' }}" data-id="2" data-multiple="15" bindtap="select_items">15倍</view>
+  </view>
+  <view class="topup-listbtn-items">
+    <view class="{{selected == 3 ? 'select_class' :'' }}" data-id="3" data-multiple="20" bindtap="select_items">20倍</view>
+  </view>
+
+</view>
+
+<view class="pages-btn" hover-class="hover-btn" bindtap="recharge_btn">提升</view>

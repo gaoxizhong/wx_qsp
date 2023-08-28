@@ -1,0 +1,26 @@
+<import src="../../../../wxParse/wxParse.wxml" />
+<view class="poster-view-box">
+  <swiper class='swiper' bindchange="moveServerProSwiper" data-id="{{item.id}}" circular="true" current="{{swiper_index}}" previous-margin="40rpx" next-margin="40rpx">
+    <block wx:for="{{poster_tabs}}" wx:key="index">
+      <swiper-item  class="is_secl" data-id="{{item.id}}" data-swiper_index="{{swiper_index}}">
+        <view class="swiper-item-view {{index == swiper_index?'scaleY-1':'scaleY-2'}}" >
+          <image src="{{item.image}}" mode='scaleToFill'/>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class="love-info-text">
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>
+
+<view class="love-bottom-box">
+  <view class="love-bottom-btn">
+    <view class="btn-view" bindtap="donate_types" hover-class='hover_color'>
+      <image src="/packageA/assets/images/pat_btn.png"></image>
+      <text style="padding-left:20rpx;">选择图片</text>
+    </view>
+  </view>
+  <view class="love-bottom-title">青山生态，让每一个环保行为都有价值！</view>
+</view>

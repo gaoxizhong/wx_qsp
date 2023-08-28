@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "times":"/packageB/component/times/times"
+  }
+
+}

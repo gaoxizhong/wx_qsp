@@ -1,0 +1,230 @@
+page {
+  background: #f5f7f6;
+  overflow: hidden;
+}
+.page-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.page-box-top {
+  width: 100%;
+  height: 370rpx;
+}
+.myitem-listbox {
+  flex: 1;
+  width: 100%;
+}
+.fbxz-box {
+  width: 100%;
+  background: #fff;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  height: 266rpx;
+}
+.fbxz-su-box{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+  padding: 20rpx 0;
+}
+.fbxz-su-box::after{
+  content: '';
+  width: 100%;
+  height: 1px;
+  transform: scaleY(0.5);
+  background: #aaaaaa;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.fbxz-su-left-box{
+  height: 100%;
+  width: 222rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fbxz-su-left-box>image{
+  width: 138rpx;
+  height: 138rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.fbxz-su-nickName{
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.fbxz-su-right-box{
+  flex: 1;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30rpx;
+  padding: 10rpx 10rpx 30rpx;
+  height: 100%;
+}
+.fbxz-su-right-xql{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.fbxz-su-right-xql>view{
+  width: 122rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30rpx;
+}
+.su-right-xql-num{
+  font-weight: 600;
+  margin-top: 10rpx;
+}
+.su-right-xql-title{
+  color: #a0a0a0;
+}
+.su-right-tdkj{
+  height: 66rpx;
+  line-height: 66rpx;
+  width: 416rpx;
+  text-align: center;
+  border-radius: 20px;
+  color: #fff;
+  background: #ff905f;
+}
+.fbxzlist-box {
+  width: 100%;
+  background: #fff;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.tab-bar {
+  height: 98rpx;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  background: #fff;
+}
+.tab-barhover {
+  color: #000;
+  font-weight: 600;
+}
+.tab-bar .tab-bar-item {
+  width: 20%;
+  height: 100%;
+  line-height: 98rpx;
+  text-align: center;
+  position: relative;
+  color: #878787;
+}
+.tab-bar .tab-bar-item .bar-border {
+  width: 50rpx;
+  height: 10rpx;
+  border-radius: 4rpx;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  background: #ff905f;
+}
+.myitem-listbox-scroll-view{
+  width: 100%;
+  padding-bottom: 124rpx;
+  box-sizing: border-box;
+}
+.scroll-view-box{
+  padding: 10rpx 15rpx;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.goToInfo {
+  width: 50%;
+  height: auto;
+  margin: 23rpx 0;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+}
+.goToInfo .good-item-view {
+  width: 100%;
+  position: relative;
+  height: auto;
+  box-sizing: border-box;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0rpx 0rpx 4px#00000020;
+}
+
+.good-item-view image.good-item-img {
+    width: 100%;
+    height: 326rpx;
+    justify-content: center;
+    display: block;
+    border-radius: 6px;
+}
+.good-item-view .goodname {
+  font-size: 26rpx;
+  color: #333;
+  display: block;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 10rpx;
+  padding: 0 10rpx;
+}
+.goodprice {
+  font-size: 26rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding: 0 10rpx;
+}
+.idle-avar-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 10rpx 10rpx;
+}
+.goodprice .goodprice-1 {
+  font-size: 24rpx;
+  color: #999;
+}
+.goodprice .goodprice-2 {
+  font-size: 32rpx;
+  color: #fc6421;
+  font-weight: 600;
+}
+.idle-avar-box>image {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+}
+.idle-avar-box>text {
+  margin-left: 12rpx;
+  font-size: 24rpx;
+  color: #999;
+}

@@ -1,0 +1,98 @@
+ <view class="indexbg">
+  <image src="http://oss.qingshanpai.com/banner/indexbg_1.png"></image>
+</view>
+ 
+  <view class="kapian-box">
+    <view class="kaipian-title-info">
+      <view class="lt">
+        <view class="name">{{library_name?library_name:'暂无'}}</view>
+        <text style="font-size:26rpx;">
+          <text style="background:#cfedc0;padding:4rpx 6rpx;">开放时间</text>
+          <text style="padding:4rpx 6rpx;">{{library_opentime?library_opentime:'暂无'}}</text> 
+        </text>
+        <text class="name-text"> {{library_address?library_address:'暂无'}}  </text>
+      </view>
+      <view class="rt">
+        <view class="seemap">藏书{{book_num?book_num:0}}册</view>
+        <view class="saomama color-64B" bindtap="show_toast">扫码上架</view>
+      </view>
+    </view>
+    <view class="title-bott">
+      <view bindtap="gotobuy"><image src="http://oss.qingshanpai.com/banner/B_2.png" class="d-images"></image><text>积分换书</text></view>
+      <view bindtap="songshow"><image src="http://oss.qingshanpai.com/banner/B_1.png"></image><text>领取福利</text></view>
+      <view bindtap="getRoadLine"><image src="http://oss.qingshanpai.com/banner/B_3.png"></image><text>查看地图</text></view>
+      <view bindtap="gotoMakephoto"><image src="http://oss.qingshanpai.com/banner/F_2.png"></image><text>分享海报</text></view>
+      <view bindtap="tel"><image src="http://oss.qingshanpai.com/banner/B_4.png"></image><text>客户服务</text></view>
+    </view>
+  </view>
+  <view class="box-input">
+    <input type="text" placeholder="请输入图书名称" placeholder-style="text-align: center;" value="{{book_name}}" bindinput="searchLibrary"></input>
+    <view class="search-image-2" bindtap="getLibraryByConditon">搜索</view>
+  </view>
+  <view class='nulldata_wrap' wx:if="{{dataStatus}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据</view>
+  </view>
+  <view class="books-list" wx:else>
+    <view wx:for="{{book_list}}" wx:for-item="item" wx:key="index" wx:for-index='key_name'>
+      <view class="nei">
+        <view class="top" bindtap="goTobookdetail" data-library_id="{{item.library_id}}" 
+      data-id="{{item.book_id}}" data-is_books="1">
+          <image src="{{item.images_medium}}" mode="aspectFill"></image>
+        </view>
+        <view class="bott">
+          <text class="bott-text-1">{{item.name?item.name:'暂无名称'}}</text>
+          <text class="bott-text-2">{{item.integral_price}} 积分</text>
+        </view>
+        <view  class="shopping-cart"  bindtap="add_ShopCart" 
+        data-index="{{key_name}}"
+        data-is_car="{{item.is_car}}"
+        data-book_id="{{item.book_id}}"
+        data-stock="{{item.stock}}" 
+        data-name="{{item.name}}" 
+        data-integral_price="{{item.integral_price}}" 
+        data-images_medium="{{item.images_medium}}" wx:if="{{songshow}}">
+        <image src="{{ item.is_car ? is_car_1 : is_car }}" ></image>
+        </view>
+      </view>
+
+    </view>
+  </view>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  <!-- <view class="first">
+    <view class="f-3">
+      <button class="button1" bindtap="gotoMakephoto">分享海报</button>
+    </view>
+  </view>-->
+
+<!-- 扫码上架弹窗 -->
+<view class='cover' wx:if="{{isShowConfirm}}" bindtap="isShowConfirm" catchtouchmove="myCatchTouch"></view>
+<block wx:if="{{isShowConfirm}}">
+  <view class="toast-box">
+    <form bindsubmit="judge_linbarrnum">
+      <input placeholder="请输入图书馆编码" placeholder-style='color:#FFFFFF;' class="input-num" name='library_bianma' value="{{library_bianma}}"></input>
+      <button class="t-b" form-type="submit">确认</button>
+    </form>
+  </view>
+</block>
+
+<!-- 生成海报弹窗 -->
+<include src="/pages/module/makephoto/index.wxml" />
+<!-- 可拖拽按钮 -->
+<view class='refresh flex-justitem-center' catchtap='refresh' catchtouchmove="buttonMove" bindtouchstart="buttonStart" bindtouchend="buttonEnd" style="top:{{ btnTop }}px;left:{{ btnLeft }}px" wx:if="{{songshow}}">
+  <image src='/images/acrt-all-green.png' bindtap="goToAcrt"></image>
+  <view class="refr-icon flex-justitem-center">
+    {{cart_number}}
+  </view>
+</view>

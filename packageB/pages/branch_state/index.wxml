@@ -1,0 +1,22 @@
+<view class="branch-adState-box">分店广告状态:</view>
+
+<view class="branch-list-box">
+  <block wx:for="{{branchList}}" wx:key="index">
+    <view class="member_box" data-index="{{index}}" data-name="{{item.id}}" bindtap='select'>
+      <view style="width:auto;display: flex; align-items: center;">
+        <view style="font-size: 30rpx;padding-right: 12rpx;">{{index + 1}}、</view>
+        <image src="{{item.avatar}}" mode="widthFix" class="avatar"></image>
+      </view>
+      <view style="flex:1;">
+        <view class="applicant_name">{{item.name}}</view>
+        <view class="approval_state">{{item.name}}分店</view>
+      </view>
+      <view class="sxed-box"><text style="color:#fe9861;">{{item.is_ad?'广告投放中':'暂未投放'}}</text></view>
+    </view>
+  </block>
+  <view wx:if="{{branchList.length <=0}}" style="text-align: center;">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据</view>
+  </view>
+
+</view>

@@ -1,0 +1,84 @@
+page {
+  background: #fff;
+  min-height: 100%;
+}
+.tab-bar {
+  height: 98rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 32rpx;
+  color: #333;
+  box-shadow: 0 0 1px 4px #f2f2f2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 999;
+}
+.tab-bar .tab-bar-item {
+  flex: 1;
+  height: 100%;
+  line-height: 98rpx;
+  text-align: center;
+  position: relative;
+}
+.bacg-64B {
+  background: #29c572 !important;
+}
+.tab-bar .tab-bar-item .bar-border {
+  width: 45rpx;
+  height: 8rpx;
+  border-radius: 4rpx;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+.listBoxs{
+  width: 100%;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  margin-top: 100rpx;
+}
+.list-items {
+  width: 100%;
+  margin: 20rpx 0;
+  position: relative;
+  border-bottom: 1px solid #f1f1f1;
+  padding: 15rpx 0;
+  justify-content: space-between;
+}
+.list-items>view.avatarName-box {
+  height: 100%;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.list-items>view.item-nub-box{
+  width: 86rpx;
+}
+.item-titleinfo{
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.item-titleinfo image {
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+}
+.item-titleinfo .item-info-box{
+  flex: 1;
+  padding-left: 12rpx;
+  box-sizing: border-box;
+}
+
+.number-box{
+  font-size: 28rpx;
+  margin-top: 14rpx;
+}
+

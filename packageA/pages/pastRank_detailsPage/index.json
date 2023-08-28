@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "deliveryInfo":"/packageA/component/delivery_info/delivery_info"
+  }
+}

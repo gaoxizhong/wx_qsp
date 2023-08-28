@@ -1,0 +1,51 @@
+page{
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+}
+.pastRank-box{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+}
+.past-title-xing{
+  color: #ff0000;
+  font-size: 38rpx;
+  padding-right: 10rpx;
+  padding-top: 10rpx;
+}
+.pastlist-items {
+  width: 100%;
+  padding: 18rpx 0;
+  margin: 10rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.pastlist-items::after{
+  content: '';
+  width: 100%;
+  height: 1px;
+  transform: translateY(0.5);
+  background: #dbdada;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.pastlist-items>view {
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pastlist-items>view.past-1{
+  width: 210rpx;
+}
+.pastlist-items>view.past-2{
+  flex: 1;
+}
+.pastlist-items>view.past-3{
+  width: 130rpx;
+}
+.hoverClass{
+  background: #f5f5f5;
+}

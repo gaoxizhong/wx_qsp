@@ -1,0 +1,14 @@
+<view class="order-list">
+  <view class="order-item" wx:for="{{orderList}}" wx:for-index="index" wx:key="index" wx:for-item="item">
+    <view class="order-info">
+      <text class="name" wx:if="{{item.source == 2}}">分享付款收益</text>
+      <text class="name" wx:if="{{item.source == 1}}">作品点赞收益</text>
+      <text class="time">{{item.created_at}}</text>
+    </view>
+    <view class="hbb color-64B">+{{item.value}}</view>
+  </view>
+  <view class='nulldata_wrap' wx:if="{{orderList.length <= 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg' style="color:#000;">暂无数据</view>
+  </view>
+</view>

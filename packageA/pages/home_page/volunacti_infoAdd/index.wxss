@@ -1,0 +1,126 @@
+page{
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.infoadd-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.edit-info {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+.edit-info view.need-hbb {
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 18rpx 10rpx;
+  border-bottom: 2rpx solid #eee;
+}
+.edit-info view>text {
+  flex: 1;
+  padding-left: 20rpx;
+}
+.need-hbb-input{
+  width: 472rpx;
+  height: 100%;
+  padding: 14rpx 10rpx;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background: #f6f6f6;
+}
+.need-hbb-input>view{
+  width: 100%;
+  height: 100%;
+  padding: 6rpx 0;
+}
+.infoPlate-Push-box {
+  width: 442rpx;
+  height: 112rpx;
+  position: relative;
+  margin: 40rpx auto;
+}
+.infoPlate-Push-box>image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.infoPlate-text {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 32rpx;
+  padding-top: 6rpx;
+  box-sizing: border-box;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
+.hoverClass{
+  opacity: 0.8;
+}
+.sc-btn{
+  width: 442rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #ff7b02;
+  border: 1px solid #ff7b02;
+  margin: 10rpx auto;
+  border-radius: 30px;
+}
+.cler-marsk{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: #00000020;
+}
+.cler-box{
+  width: 552rpx;
+  background: #fff;
+  border-radius: 8px;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 9999;
+  overflow: hidden;
+}
+.cler-title{
+  width: 100%;
+  height: 176rpx;
+  line-height: 176rpx;
+  text-align: center;
+}
+.cler-btn-box{
+  width: 100%;
+  height: 104rpx;
+  display: flex;
+  align-items: center;
+}
+.cler-btn-box>view{
+  flex: 1;
+  height: 100%;
+  line-height: 104rpx;
+  text-align: center;
+}
+.cler-btn-r{
+  background: #fe5127;
+  color: #fff;
+}

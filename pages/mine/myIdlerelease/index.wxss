@@ -1,0 +1,179 @@
+@import '/pages/create_activity/create_activity.wxss';
+
+
+.edit-box .discount-price-digit.price-digit-input{
+  width: 19%;
+}
+.activity-desc .font-num{
+  right: 40rpx;
+}
+.activity-desc textarea{
+  margin-left: 10rpx;
+  font-size: 28rpx;
+}
+.activity-desc-box{
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.activity-desc{
+  height: 160rpx;
+  width: 68%;
+  padding: 30rpx 10rpx;
+}
+.activity-imgs view.add-pic{
+  width: 200rpx;
+  height: 200rpx;
+  border: none;
+  background:none;
+  margin-top: 20rpx;
+}
+.activity-imgs view.add-pic image {
+  width: 100%;
+  height: 100%;
+  margin-top: 0;
+  margin-left: 0;
+}
+.activity-imgs image{
+  width: 190rpx;
+  height: 190rpx;
+}
+.add-box{
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+}
+.add-title{
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+.add-title image{
+  width: 48rpx;
+  height: 48rpx;
+}
+.add-title-text{
+  font-size: 32rpx;
+  padding-left: 20rpx;
+  font-weight: 600;
+}
+.add-box1{
+  box-sizing: border-box;
+  padding:20rpx 0 0 10rpx;
+  font-size: 28rpx;
+  overflow: hidden;
+}
+.add-box1-items{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+.add-box1-title{
+  font-weight: 600;
+  width: 120rpx;
+  display: inline-table;
+}
+.scll-list-items{
+  padding-left: 4rpx;
+  width: 568rpx;
+}
+.box1-scroll{
+  white-space: nowrap;
+  padding: 10rpx 0;
+  overflow: hidden;
+}
+.box-scroll-method{
+  padding: 8rpx 14rpx;
+  border-radius: 20px;
+  font-size: 28rpx;
+  background: #f5f7f6;
+  display: inline-block;
+  width: auto;
+  margin-right: 18rpx;
+  text-align: center;
+  position: relative;
+  color: #666;
+}
+.box-scroll-method.active{
+  background: #fff0e0;
+  color: #ff9151;
+}
+
+.title-price .title-right {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.title-price .title-toFix{
+  color: #fc4e01;
+  padding-right: 30rpx;
+}
+.title-right image {
+  margin-right: 10rpx;
+  font-size: 32rpx;
+}
+.discount-price {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 18rpx 24rpx;
+  border-bottom: 2rpx solid #eee;
+}
+.discount-price .discount-input{
+  flex: 1;
+}
+.discount-price input {
+  font-size: 28rpx;
+  padding-left: 30rpx;
+}
+.checkbox-group {
+  padding-left: 30rpx;
+}
+
+button.create-btn-box {
+  border-radius: none;
+  width: 484rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 30rpx;
+  margin: 60rpx auto;
+  text-align: center;
+  background: #f0914a;
+  border-radius: 20px;
+}
+.btn-hover-class{
+  opacity: .8;
+}
+/* .btn-area-button{
+  border-radius: none;
+  width: 484rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 30rpx;
+  margin: 40rpx auto;
+  text-align: center;
+  background: #f0914a;
+  border-radius: 20px;
+} */
+.btn-area-button{
+  border-radius: none;
+  width: 128rpx;
+  text-align: center;
+  height: 64rpx;
+  line-height: 64rpx;
+  color: #fff;
+  font-size: 30rpx;
+  background: #fe5127;
+  border-radius: 20px;
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+}
+.edit-box .discount-price-digit {
+  width: 35%;
+}

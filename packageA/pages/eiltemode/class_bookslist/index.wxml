@@ -1,0 +1,77 @@
+<!--  banner图  -->
+<view class="swiper-container">
+  <swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+    <block wx:for="{{top_img}}" wx:key="index">
+      <swiper-item bind:tap="goToFromImg" data-label="{{item.label}}" data-labelid="{{item.label_id}}">
+        <image src="{{item.image}}" class="slide-image" mode='aspectFill' />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class="search-box">
+  <view bindtap="gotoMakephoto" class="images-box">
+    <image src="/packageA/assets/images/123.png"></image>
+    <text style="padding-top:8rpx;">生成海报</text>
+  </view>
+  <view class="input-box">
+    <input value="{{input_text}}" placeholder="请输入图书" placeholder-style="font-size:28rpx;" bindinput="getinput_text"></input>
+    <view class="search-btn" bindtap="search_btn" catchtouchmove="myCatchTouch">搜索</view>
+  </view>
+  <button  bindtap="" class="images-box" open-type="share"> 
+    <image src="/packageA/assets/images/456.png"></image>
+    <text style="padding-top:8rpx;">分享好友得积分</text>
+  </button>
+</view>
+
+<view class="page-box">
+  <view class="btn-list"
+    wx:for="{{cate_list}}"
+    wx:for-index="index"
+    wx:for-item="item"
+    wx:key="index"
+    bindtap="getCateShop"
+    data-id="{{item.id}}"
+    style="background: {{cateSeleted == item.id? '#4ac280':'#bee9d1'}}"
+  >{{item.category_name}}</view>
+</view>
+
+<view class="list-box"  wx:if="{{!bookinfolen}}">
+  <view wx:for="{{book_info}}" wx:for-item="item" wx:key="index">
+    <view class="nei">
+      <view class="top" bindtap="goTobookdetail" data-library_id="{{item.library_id}}" data-id="{{item.book_id}}">
+        <image src="{{item.images_medium}}" mode="aspectFill"></image>
+      </view>
+      <view class="bott">
+        <text class="bott-text-1">{{item.book_name?item.book_name:'暂无名称'}}</text>
+        <text class="bott-text-2">{{item.integral_price}}环保积分</text>
+      </view>
+      <view class="quan" bindtap="chooseLibrary"
+      data-index="{{index}}" 
+      data-id="{{item.book_id}}"
+      data-book_name="{{item.book_name}}" 
+      data-checked="{{item.checked}}" 
+      data-images_medium="{{item.images_medium}}" 
+      data-integral_price="{{item.integral_price}}" 
+      data-library_id="{{item.library_id}}" 
+      data-stock="{{item.stock}}" 
+      >
+        <view class="{{item.checked == true ? 'quan-in': ''}}" ></view>
+        <!-- <icon size='16' type="{{item.checked == true? 'success_no_circle': ''}}"></icon> -->
+      </view>
+      <view class="class-biaoqian" wx:if="{{cateSeleted == 0}}">
+        {{item.category_name}}
+      </view>
+    </view>
+  
+  </view>
+</view>
+<view wx:else style="text-align:center;padding:40rpx 0;color:#888;">暂无图书</view>
+
+<!-- 可拖拽按钮 -->
+<view class='refresh flex-justitem-center' catchtap='refresh' catchtouchmove="buttonMove" bindtouchstart="buttonStart" bindtouchend="buttonEnd" style="top:{{ btnTop }}px;left:{{ btnLeft }}px">
+  <image src='http://oss.qingshanpai.com/banner/icon-buy.png' bindtap="goToAcrt"></image>
+  <image mode='widthFix' src="http://oss.qingshanpai.com/banner/C_2.png" bindtap="saoma" wx:if="{{truue == true}}"></image>
+</view>
+<!-- 生成海报弹窗 -->
+<include src="/pages/module/makephoto/index.wxml" />

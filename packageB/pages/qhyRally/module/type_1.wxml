@@ -1,0 +1,18 @@
+<view class="dh-box">
+  <image src="https://oss.qingshanpai.com/qhy/qhy-dh.png" class="dhimg"></image>
+</view>
+
+<view class="listitems-box">
+  <image src="https://oss.qingshanpai.com/qhy/qhy-dt.png" class="qhy-dt"></image>
+  <block wx:for="{{itemsList}}" wx:key="index">
+    <view class="items-box"hover-class="hoverClass" data-title="{{item.comment}}" data-url="{{item.url}}" data-status="{{item.status}}" data-is_tab="{{item.is_tab}}" bindtap="{{item.tag == 'sqdj'?'goTosqdj':'clickItems'}}">
+      <image src="{{item.icon}}" class="items-img"></image>
+      <view class="items-title">{{item.comment}}</view>
+      <view class="items-sub">{{item.function_name}}</view>
+    </view>
+  </block>
+</view>
+<view class="btn-box">
+  <image src="https://oss.qingshanpai.com/qhy/icon-qhy-btnhjsq.png" mode="widthFix" data-mobile="{{communityInfo.community_mobile}}" bindtap="tel"></image>
+  <image src="https://oss.qingshanpai.com/qhy/icon-qhy-btnhjwy.png" mode="widthFix" data-mobile="{{communityInfo.property_management_mobile}}" bindtap="tel"></image>
+</view>

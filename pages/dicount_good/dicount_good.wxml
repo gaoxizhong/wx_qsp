@@ -1,0 +1,126 @@
+<wxs module="filters">
+  var filters = {
+    toFix: function (value) {
+      return value.toFixed(2)
+    }
+  }
+  module.exports = {
+    toFix: filters.toFix
+  }
+</wxs>
+
+<!-- ===========================  广告部分 以下 ============================= -->
+<include src="/pages/module/blindBox/index.wxml" />
+<!-- ===========================  广告部分 以上 ============================= -->
+
+
+
+<!-- ===========================  商品信息 以下 ============================= -->
+<view wx:if="{{ !run_helped }}">
+
+
+<view class="swiper-container">
+  <swiper class='swiper' autoplay="{{true}}" circular="{{true}}">
+    <block wx:for="{{img}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" mode="aspectFit" bindtap="saveImage" data-img="{{item}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="price-info">
+  <view class="origin-price" wx:if="{{!is_duizhang}}">
+    <!-- <text style="text-decoration:line-through;">￥{{price}}</text> -->
+    <view class="parice-text-box">
+      <text class="parice-text">￥{{price}}</text><text class="hbb-text">+{{hbb}}环保积分</text>
+    </view>
+    <view class="jg-bg-box">优惠后价格：￥{{total_price}}</view>
+  </view>
+
+  <view class="info-title">
+    {{title}}    
+  </view>
+
+  <view class="now-price">
+    <view class="noe-price-stock">
+      <!-- <text>已售: {{bought}}</text> -->
+      <text style="padding-left:16rpx;" wx:if="{{bal_count > 0}}">剩余：{{bal_count}}</text>
+      <text style="padding-left:40rpx;" wx:else>库存不足</text>
+    </view>
+  </view>
+
+  <view class="now-price">
+    <view class="now-price-z" wx:if="{{is_duizhang}}">
+      <view class="price-z-title">团体价</view>
+      <view >￥{{ daze }} +  {{hbb}}环保积分</view>
+    </view>
+  </view>
+
+</view>
+<view class="divide" style="height:34rpx" wx:if="{{!is_tuan && is_duizhang != '1'}}"></view>
+<view class="introduction" wx:if="{{!is_tuan && is_duizhang != '1'}}">
+  <image src="/images/icon-liwu.png"></image>
+  <text>{{info}}</text>
+</view>
+<view class="divide" style="height:22rpx"></view>
+<view class="good-desc">
+  <view style="color: #9C9A9A;font-size: 28rpx;width:100%;height:auto;" bindlongtap="textPaste" data-content="{{desc}}">{{desc?desc:'暂无商品详情'}}</view>
+
+  <view class="desc-imageList">
+    <image src="{{item}}" mode="widthFix" wx:for="{{img}}" wx:key="index"></image>
+  </view>
+  <view style="height:30rpx"></view>
+</view>
+
+
+<view class="bottom-buy1">
+  <view class="num">
+    <view class="minuadd-box" catch:tap="minusNum">-</view>
+    <input type="number" bindinput="inputValue" value="{{goodnum}}" />
+    <view class="minuadd-box" catch:tap="addNum">+</view>
+  </view>
+  <view class="goTo-shop-box" bindtap="gotoshop" data-business_id="{{business_id}}">
+    <view class="is-dian"></view>
+    <image src="/images/shop/shop-detail-icon.png" class="goToshop-image"></image>
+    <text>进店逛逛</text>
+  </view>
+  <view class="to-buy-box" style="justify-content:{{bal_count > 0?'flex-end':'center'}};">
+    <!-- <view class="tobuy-box-n" data-is_tuan="0" data-is_duoren="0" data-is_idle="{{is_idle}}" bind:tap="buyNow" wx:if="{{bal_count > 0}}">立即购买 立减￥{{filters.toFix(price - total_price)}}</view> -->
+    <view class="tobuy-box-n" data-is_tuan="0" data-is_duoren="0" data-is_idle="{{is_idle}}" bind:tap="buyNow" wx:if="{{bal_count > 0}}">立即购买</view>
+    <view class="tobuy-box-n understock" wx:else>库存不足</view>
+  </view>
+</view>
+
+<view class="bottom-buy" style="height: 128rpx;" wx:if="{{is_duizhang == 1 || is_duizhang}}">
+  <view class="bottom-duiz-btn" bindtap="buyNow">立即购买</view>
+</view>
+<!--好友助力送积分弹出遮罩-->
+<view class='mask' bindtap="deliveryDesc" wx:if="{{isHelp == 1 && title}}"></view>
+<view class='popups' wx:if="{{isHelp == 1  && title}}">
+  <view class="close" bindtap="closeHelp">
+    <image src="http://oss.qingshanpai.com/banner/close.png"></image>
+  </view>
+  <view class="integral">{{cfg.integral}}</view>
+  <image src="http://oss.qingshanpai.com/huanbaobi/52902c41ec16b958b7485b0c21620838.png"></image>
+  <button bindtap="help">立即分享</button>
+</view>
+<!--弹窗-->
+<view class="modal-hide" bindtap="hideModal" wx:if="{{showModel}}"></view>
+<view class="modal-dialog" wx:if="{{showModel}}">
+  <view class="modal-title">积分不足提示</view>
+  <view class="modal-content">
+    <view class="modal-input">
+       您的可用积分不足，请先赚取更多积分哦~
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="hideModal" data-status="cancel">取消</view>
+    <button class="btn-confirm" data-status="confirm" bindtap="goTobank">赚积分</button>
+  </view>
+</view>
+  <!-- 返回上一步 -->
+<include src="/pages/module/backto/index.wxml" />
+</view>
+<!-- 授权登录弹窗 -->
+<!-- <include src="/pages/module/login_mark/index.wxml" /> -->
+

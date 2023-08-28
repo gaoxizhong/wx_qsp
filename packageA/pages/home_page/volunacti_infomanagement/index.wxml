@@ -1,0 +1,40 @@
+<view class="pages-box">
+  <view class="infoItem-box">
+    <view class="infoItem-list-box" wx:for="{{infoItemList}}" wx:key="index" bindtap="{{is_chooseExt?'chooseRecover':''}}" data-ext_id="{{item.ext_id}}">
+      <image src="/packageA/assets/images/vol/vol-icon-grtx.png" mode="widthFix" class="index-list-img"></image>
+      <view class="list-titletext">
+        <view>
+          <text style="font-weight:600;font-size: 30rpx;">{{item.member_name}}</text>
+          <text style="padding-left: 10rpx;font-size: 28rpx;">{{item.vol_number}}</text>
+        </view>
+        <view style="font-size: 28rpx;color: #555555;">{{item.member_mobile}}</view>
+        <view style="font-size: 28rpx;color: #555555;">{{item.member_garden}}{{item.member_address}}</view>
+      </view>
+      <view class="my-more-box" catchtap="more_btn" data-ext_id="{{item.ext_id}}">
+        <image  src="/packageA/assets/images/vol/vol-icon-xg.png" mode="widthFix" class="my-more"></image>
+      </view>
+    </view>
+    <view wx:if="{{infoItemList.length <= 0}}" class="noinfoItemList-box">
+      <image src="/packageA/assets/images/vol/vol-icon-grtx.png" mode="widthFix" class="noinfoItemList-img"></image>
+      <view style="font-size: 30rpx;font-weight: bold;margin-top: 20rpx;">一个志愿者信息也没有</view>
+      <view style="font-size: 28rpx;color: #b7b7b7;">“快去添加志愿信息做活动吧”</view>
+    </view>
+  </view>
+  <view class="infoPlate-box">
+    <view class="infoPlate-Push-box" bindtap="fixed_btn">
+      <image src="/packageA/assets/images/vol/vol-icon-btn1.png" mode="widthFix"></image>
+      <view class="infoPlate-text" hover-class="hoverClass">+ 添加志愿者信息</view>
+    </view>
+  </view>
+</view>
+
+
+<!-- =====================   弹窗  ================= -->
+<view class="cler-marsk" wx:if="{{is_cler}}" catchtap="cler_marsk"></view>
+<view class="cler-box" wx:if="{{is_cler}}">
+  <view class="cler-title">*确定使用该志愿信息吗？</view>
+  <view class="cler-btn-box">
+    <view catchtap="cler_marsk">取消</view>
+    <view class="cler-btn-r" hover-class="hoverClass" catchtap="submit_btn">确定</view>
+  </view>
+</view>

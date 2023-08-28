@@ -1,0 +1,75 @@
+<view class="indexbg">
+  <image src="http://oss.qingshanpai.com/banner/indexbg_1.png"></image>
+</view>
+<view class="kapian-box">
+  <view class="kapian-1">
+    感谢您花30分钟完成学习和调研，让我们了解青少年对于“{{ details_info.title }}”主题的认知。您也可以成为宣传志愿者，让更多人关注并学习，“{{ details_info.title }}”不只是一个号召，还是需要我们共同履行的义务，请从现在开始一起行动起来吧!
+  </view>
+  <view class="kapian-3">
+    <view class="kapian-3-1" bindtap="goto_clock">宣传并申请时长</view>
+    <view class="kapian-3-2" bindtap="gototeaching">去宣传</view>
+  </view>
+  <!-- <view class="kapian-4" wx:else>
+    <view bindtap="gotodati">去学习</view>
+  </view> -->
+</view>
+
+<view class="info-box">
+  <view class="QRcode-box">
+    <image src="{{my_i.qrcode}}" data-img="{{my_i.qrcode}}" bindtap="saveImage"></image>
+  </view>
+
+  <view class="info-text-box">
+    <view>未报名的点击保存群二维码</view>
+    <view>进群获取报名链接</view>
+    <view>或添加客服</view>
+    <view>{{S_name}} <text bindtap="fuzhi_btn" style="color: #4ac081;"> (点击复制)</text></view>
+  </view>
+</view>
+
+<!-- 申报弹窗 -->
+<!-- <include src="/packageA/pages/module/declare_pop/index.wxml" /> -->
+<view wx:if="{{is_pop}}" class="is-pop-mark" catchtouchmove="myCatchTouch" bindtap="click_useinter"></view>
+<view wx:if="{{is_pop}}"  class="is-pop-box" catchtouchmove="myCatchTouch">
+  <view class="is-pop-listbox">
+    <view>
+      <view class="infoItem-title">志愿者信息</view>
+        <view class="items-list" bindtap="chooseExt" data-ext_id="{{ selectedExt.ext_id }}">
+          <view class="infoItem-list-box">
+            <image src="/packageA/assets/images/vol/vol-icon-grtx.png" mode="widthFix" class="index-list-img"></image>
+            <view class="list-titletext">
+              <view>
+                <text style="font-weight:600;font-size: 30rpx;">{{selectedExt.member_name}}</text>
+                <text style="padding-left: 10rpx;font-size: 28rpx;">{{selectedExt.vol_number}}</text>
+              </view>
+              <view style="font-size: 28rpx;color: #555555;">{{selectedExt.member_mobile}}</view>
+              <view style="font-size: 28rpx;color: #555555;">{{selectedExt.member_garden}}{{selectedExt.member_address}}</view>
+            </view>
+            <view class="list-top-sele">
+              <image src="/packageA/assets/images/my_more.png" mode="widthFix"></image>
+            </view>
+          </view>
+        </view>
+        <view class="infoPlate-box" wx:if="{{ !selectedExt }}">
+          <view bindtap="fixed_btn" class="infoPlate-Push-box">
+            <image src="/packageA/assets/images/vol/vol-icon-btn1.png" mode="widthFix"></image>
+            <view class="infoPlate-text" hover-class="hoverClass">+ 添加志愿者信息</view>
+          </view>
+        </view>
+    </view>
+  </view>
+  <view class="newbtn-area"  wx:if="{{ selectedExt }}">
+    <button bindtap="gotoduration">确定</button>
+  </view>
+</view>
+
+
+
+<!-- 宣传提示弹窗 -->
+<view wx:if="{{is_pop1}}" class="is-pop-mark" catchtouchmove="myCatchTouch"></view>
+<view wx:if="{{is_pop1}}"  class="is-pop1-box" catchtouchmove="myCatchTouch">
+  <view class="is-pop1view">你可以将所学的调研知识宣传分享给您身边的人、同事或朋友,让大家充分认识到“{{ details_info.title }}”教育的意义,帮助树立正确的世界观、人生观、价值观。 </view>
+  <view class="newbtn-area1">
+    <button bindtap="click_useinter_1">已了解</button>
+  </view>
+</view>

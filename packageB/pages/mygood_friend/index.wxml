@@ -1,0 +1,16 @@
+<view>
+  <view class="tab-content" wx:for="{{lists}}" wx:key="index">
+    <view class="lt">
+      <image src='{{item.member.avatar}}' class="qy" mode='aspectFill'></image>
+    </view>
+      <view class='rt'>
+        <view style='max-width:320rpx;'>
+          <view class='txt ellipsis'>{{item.member.nickname}}</view>
+        </view>
+      </view>
+  </view>
+  <view class='nulldata_wrap' wx:if="{{lists.length <= 0}}">
+    <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据</view>
+  </view>
+</view>

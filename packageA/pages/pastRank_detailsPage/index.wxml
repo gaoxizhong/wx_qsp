@@ -1,0 +1,27 @@
+<view class="ranklist-box">
+    <block wx:for="{{ranklist}}" wx:key="index">
+      <view class="ranklist-items">
+        <view class="rank-index">
+          <image src="/packageA/assets/images/loveActivity/rank_{{index + 1}}.png" wx:if="{{index == 0 || index == 1 || index == 2}}"></image>
+          <text wx:else>{{index+1}}</text>
+        </view>
+        <view class="rank-avatar">
+          <image src="{{item.member.avatar}}"></image>
+        </view>
+        <view style="color:#757474;">{{item.member.nickname}}</view>
+        <view class="rank-4">
+          <image src="/images/icon-praise.png"></image>
+          <text style="padding-left:10rpx;color:#ff0000;">{{item.like_num}}</text>
+        </view>
+        <view class="rank-5">
+          <view class="rank-5-btn" wx:if="{{index <= 2 && member_id == item.member_id }}" bindtap="gotodeliveryInfo">去领取</view>
+        </view>
+      </view>
+    </block>
+    <view class='nulldata_wrap' wx:if="{{ranklist.length == 0}}">
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+    <view class='msg'>暂无数据</view>
+  </view>
+  </view>
+
+  <deliveryInfo bindis_info="click_mask" welfare="{{id}}" wx:if="{{is_info}}" />

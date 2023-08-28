@@ -1,0 +1,57 @@
+<view class="image-box">
+  <image src="http://oss.qingshanpai.com/banner/bottle-1.png" mode="widthFix"></image>
+</view>
+<view class="geshu">数量：20个</view>
+<view class='bg'>
+  <view class="textarea-wrp">
+    <textarea name="cont" maxlength="-1" bindinput="textareaChange" placeholder-style='color:#aaaaaa;' placeholder="此处写上志愿者本人参加活动的体会和感言" value="{{textareaVal}}" disabled="{{isDisabled}}" auto-focus />
+  </view>
+  <view class='photo-box'>
+    <view class='photo' wx:for="{{content.gdImages}}" wx:key="index" data-index="{{index}}" data-url="{{content.images[index].url}}" data-imgname="{{item.imgname}}" bindtap='openPhoto'>
+        <image mode='aspectFill' src="{{item.url}}" mode='aspectFill'></image>
+    </view>
+    <view class='photo' wx:for="{{photos}}" wx:key="index" data-index="{{index}}" data-url="{{item}}" data-imgname="" bindtap='openPhoto'>
+      <image mode='aspectFill' src="{{item}}" mode='aspectFill'></image>
+    </view>
+    <view class="add-pic" bindtap="chooseImg" hover-class='none' wx:if="{{photos.length + gdImages.length < 9}}" disabled="{{isDisabled}}">
+      <image mode='widthFix' src="/images/icon-addphoto.png" />
+    </view>
+  </view>
+  <view class="acitiv_1">此处上传参与活动的成果照片</view>
+
+</view>
+<view class="layer" wx:if="{{layer}}" bindtap='closePic'>
+  <view class="cover"></view>
+  <view class="con">
+    <image src='{{preview}}' mode="widthFix"></image>
+    <view bindtap='delPic' class="txt">删除</view>
+  </view>
+</view>
+<comp id="comp"/>
+<view class='btn-send'>
+  <form report-submit bindsubmit='shareSub'>
+    <button form-type='submit' hover-class='hover_color'> 
+      确定
+    </button>
+  </form>
+</view>
+<!--弹窗-->
+<view class="modal-hide" bindtap="hideModal" wx:if="{{showModel}}"></view>
+<view class="modal-dialog" wx:if="{{showModel}}">
+  <view class="modal-content">
+    <view class="modal-input">
+       {{tips}}
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="hideModal" data-status="cancel">取消</view>
+    <form report-submit bindsubmit='savaData' data-istrue="true" data-cid="{{cid}}" style="width:50%">
+      <button class="btn-confirm" form-type='submit' open-type="share" data-status="confirm">确定</button>
+    </form>
+  </view>
+</view>
+<!-- 广告弹窗 -->
+<!-- <include src="/pages/module/ad_preview/index.wxml" /> -->
+
+<!-- 用来渲染的canvas --> 
+<canvas class="canvas" canvas-id="canvas" style="width:{{cWidth}}px;height:{{cHeight}}px;position: fixed;top: -9999px;left: -9999px;"></canvas>

@@ -1,0 +1,7 @@
+  <import src="../../wxParse/wxParse.wxml" />
+
+<view class="salespact">
+<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>
+<!-- 返回上一步 -->
+<include src="/pages/module/backto/index.wxml" />

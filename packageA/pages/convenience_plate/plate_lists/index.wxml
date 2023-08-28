@@ -1,0 +1,23 @@
+<block  wx:for="{{items_list}}" wx:key="index">
+  <view class="items_list_box" bindtap="goToclassactical" data-id="{{item.id}}">
+    <view class="items_image_box">
+      <image src="{{item.image[0]}}" />
+    </view>
+    <view class="items_detail">
+      <view class="items_detail_name">{{item.title}}</view>
+      <view class="items_detail_activity">
+        <view class="items_list_image"><image src="/packageA/assets/images/list_time.png" style="width:26rpx;height:26rpx;"/></view>
+        <text>{{item.time}}</text>
+      </view>
+      <view class="items_detail_activity">
+        <view class="items_list_image"><image src="/packageA/assets/images/list_add.png" style="width:24rpx;height:34rpx;"/></view>
+        <text>{{item.address}}</text>
+      </view>
+      <view class="items_info_number">已有{{item.browse}}邻居用过此条信息</view>
+    </view>
+    <view class="view_2">距您{{item.distance}}Km</view>
+  </view>
+</block> 
+<view class="my_box" wx:if="{{ is_publisher == 1 }}" bindtap="gotomy_release">我的发布</view>
+
+

@@ -1,0 +1,21 @@
+  <view style="padding: 11rpx 22rpx 0 22rpx;">
+    <block wx:if="{{library_content.length>0}}">
+      <view class="leave-box" wx:for="{{library_content}}" wx:key="index">
+        <view class='img_box' data-id="{{item.id}}" data-index="{{index}}" bindtap="{{is_dongtai?'deldongtai':'delCircle'}}" wx:if='{{my_member_id == member_id}}'>
+          <image src='/images/icon_fun_del.png' mode='widthFix' style='margin:0 0 0 8rpx;'></image>
+        </view>
+        <view class="leave-items">
+          <view class="items-avatar"><image src="{{item.member_photo?item.member_photo:'/images/notlogin.jpg'}}"></image></view>
+          <view class="items-info">
+            <view class="leave-name">{{item.member_name}}</view>
+            <text style="display: inline-block;font-size:23rpx;">{{item.create_time}}</text>
+            <view class="info-deac">{{item.content}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class='nulldata_wrap' wx:else>
+      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
+      <view class='msg' style="color:#333;margin-top:20rpx;">暂无数据</view>
+    </view>
+  </view>
