@@ -169,9 +169,10 @@ Page({
 
 
   getData(){
-    publicMethod.zhuan_baidu(this);
+    let that = this;
+    // publicMethod.zhuan_baidu(this);
     // app.guajifen(this,app.globalData.longitude,app.globalData.latitude);
-    this.getPersonInfo();
+    that.getPersonInfo();
     // this.gotoback();
   },
 

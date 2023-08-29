@@ -62,6 +62,8 @@ Page({
         canIUseGetUserProfile: true
       })
     }
+    // 获取定位
+    publicMethod.zhuan_baidu(this);
   },
 
   /**

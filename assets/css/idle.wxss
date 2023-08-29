@@ -1,0 +1,379 @@
+.myidle-box {
+  height: auto;
+  margin: 0 20rpx;
+  box-sizing: border-box;
+  border-radius: 6px;
+  overflow: initial;
+  background: #fff;
+  padding: 24rpx 20rpx;
+  margin-top: 40rpx;
+}
+.myidle-box-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.myidle-title-l {
+  display: flex;
+  align-items: center;
+}
+.myidle-title-r {
+  font-size: 28rpx;
+  color: #888;
+}
+.myidle-title-l-b {
+  width: 16rpx;
+  height: 46rpx;
+  border-radius: 6px;
+  background: linear-gradient(to bottom,#fd8002,#feba2d);
+}
+.myidle-title-l text {
+  padding-left: 14rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+/* ============================ 附近闲置 以下====================================== */
+.goodinfo {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+.goodinfo>view.goToInfo {
+  width: 50%;
+  height: auto;
+  margin: 23rpx 0;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+}
+.goodinfo>view.goToInfo .good-item-view {
+  width: 100%;
+  position: relative;
+  height: auto;
+  box-sizing: border-box;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0rpx 0rpx 4px#00000020;
+}
+.shou-tu{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  opacity: 0.4;
+  background: #383838;
+  transform: translate(0,0);
+}
+.shou-tu image{
+  width: 200rpx;
+  height: 160rpx;
+  overflow: hidden;
+}
+
+.good-item-view image.good-item-img {
+  width: 100%;
+  height: 326rpx;
+  justify-content: center;
+  display: block;
+  border-radius: 6px;
+}
+.good-item-view .goodname {
+  font-size: 26rpx;
+  color: #333;
+  display: block;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 10rpx;
+  padding: 0 10rpx;
+}
+.goodprice {
+  font-size: 26rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding: 0 10rpx;
+}
+.goodprice .goodprice-1 {
+  font-size: 24rpx;
+  color: #999;
+}
+.goodprice .goodprice-2 {
+  font-size: 32rpx;
+  color: #fc6421;
+  font-weight: 600;
+}
+.idle-avar-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10rpx 10rpx;
+
+}
+.idle-avar-box>image{
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+}
+.idle-avar-box>text{
+  margin-left: 12rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+/* ============================ 附近闲置 以上====================================== */
+/* ============================ 附近闲友 以下====================================== */
+
+.idleGroupBuddy-items-box{
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.idleGroupBuddy-items-box>view{
+  box-sizing: border-box;
+  padding: 0 10rpx;
+  width: 33.33333333%;
+  margin: 20rpx 0;
+}
+.idleGroupBuddy-items-box>view>view.items-list-box{
+  border-radius: 6px;
+  background: #f5f7f6;
+  height: 228rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.items-list-box .idleGroupBuddy-img{
+  width: 76rpx;
+  height: 76rpx;
+  border-radius: 50%;
+}
+.idleGroupBuddy-name{
+  font-size: 26rpx;
+  color: #333;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 8rpx;
+
+}
+.idleGroupBuddy-juli{
+  font-size: 24rpx;
+  color: #878787;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 8rpx;
+}
+/* ============================ 附近闲友 以上====================================== */
+/* ============================ 附近闲置圈 以下====================================== */
+.idleGroup-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20rpx 10rpx;
+  box-sizing: border-box;
+  margin: 30rpx 0;
+  box-shadow: 0 1px 3px #00000020;
+  height: 164rpx;
+}
+.idleGroup-box>image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 6px;
+}
+.idleGroup-item-info {
+  padding-left: 10rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  flex: 1;
+}
+.item-info-title {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.idleGroup-item-info>view {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.item-info-add {
+  font-size: 28rpx;
+  color: #878787;
+  padding: 8rpx 0;
+}
+.item-info-fijin {
+  font-size: 28rpx;
+}
+.idleGroup-juli {
+  font-size: 24rpx;
+  color: #878787;
+}
+/* ============================ 附近闲友 以上====================================== */
+
+/* ============================ 我的求购 以下====================================== */
+.myBuying-box{
+  margin: 18rpx 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 2px 10px #00000020;
+  padding: 20rpx;
+}
+.myBuying-list-t-box{
+  width: 100%;
+  height: 102rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+.myBuying-list-t-l{
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.myBuying-list-t-l .myBuying-list-userAvatarUrl{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  margin-top: 4rpx;
+}
+.myBuying-list-t-info{
+  padding-left: 10rpx;
+}
+.myBuying-list-nickName{
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.myBuying-list-time{
+  font-size: 22rpx;
+  color: #999999;
+}
+.myBuying-list-t-r{
+  width: 144rpx;
+  display: flex;
+  align-items: center;
+}
+.myBuying-list-t-r>view{
+  width: 126rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 20px;
+  background: #ff905f;
+  color: #fff;
+  font-size: 26rpx;
+}
+/* .myBuying-list-img-box{
+  margin-top: 10rpx;
+} */
+.myBuying-list-title{
+  font-size: 28rpx;
+  color: #ff905f;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding: 10rpx 20rpx;
+}
+.myBuying-image-box{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  box-sizing: border-box;
+}
+.myBuying-image-box>view{
+  width: 33.3333333333333333333%;
+  padding: 15rpx;
+  box-sizing: border-box;
+}
+.myBuying-image-box>view image{
+  width: 100%;
+  height: 172rpx;
+  border-radius: 6px;
+  vertical-align: middle;
+}
+/* ============================ 我的求购 以上====================================== */
+
+/* ============================ 圈友闲置 以下====================================== */
+.userList-box{
+  margin: 15rpx 0;
+  /* box-shadow: 0 1px 4px #00000020; */
+  border-bottom: 1px solid #00000020;
+  padding: 10rpx 0;
+  box-sizing: border-box;
+}
+.user-box{
+  width: 100%;
+  display: flex;
+  margin-top: 14rpx;
+  margin-bottom: 20rpx;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  align-items: center;
+}
+.user-items-avatar{
+  width: 74rpx;
+  height: auto;
+}
+.user-items-avatar image {
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 50%;
+}
+
+.user-items-info {
+  font-size: 28rpx;
+  margin-left: 20rpx;
+}
+.user-leave-name {
+  font-size: 32rpx;
+}
+.user-items-sf{
+  width: auto;
+  height: 44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  border-radius: 20px;
+  background: #ff905f;
+  color: #fff;
+  font-size: 26rpx;
+  margin-left: 20rpx;
+  padding: 0 10rpx;
+}
+/* ============================ 圈友闲置 以上====================================== */
+
+
+
+
+
