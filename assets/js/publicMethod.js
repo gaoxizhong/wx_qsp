@@ -1092,7 +1092,7 @@ let publicMethod = {
     })
   },
   // 转百度定位
-  zhuan_baidu(t){
+  zhuan_baidu(t,f){
     let that = t;
     wx.getLocation({
       type: 'wgs84',
@@ -1108,6 +1108,9 @@ let publicMethod = {
         getApp().globalData.latitude = gcj02tobd09[1];
         console.log(that.data.longitude)
         console.log(that.data.latitude)
+        if (typeof f == "function") {
+          return f()
+        }
       },
       fail: function(res) {
         that.setData({

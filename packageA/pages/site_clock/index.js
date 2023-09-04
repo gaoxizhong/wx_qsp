@@ -62,8 +62,7 @@ Page({
         canIUseGetUserProfile: true
       })
     }
-    // 获取定位
-    publicMethod.zhuan_baidu(this);
+
   },
 
   /**
@@ -399,23 +398,42 @@ Page({
   // 开始按钮
   start_btn(e){
     let that = this;
+    if( that.data.latitude ){
+      that.getStartLocation();
+    }else{
+      // 获取定位
+      publicMethod.zhuan_baidu(this,that.getStartLocation);
+    }
+    return
     that.get_gps(e,that,that.getStartLocation);
   },
   // 结束按钮
   end_btn(e){
     let that = this;
+    if( that.data.latitude ){
+      that.getendLocation();
+    }else{
+      // 获取定位
+      publicMethod.zhuan_baidu(this,that.getendLocation);
+    }
+    return
     that.get_gps(e,that,that.getendLocation);
   },
   // 设置桶站确定按钮
   set_siteform(e){
     let that = this;
+    if( that.data.latitude ){
+      that.getsetsiteLocation();
+    }else{
+      // 获取定位
+      publicMethod.zhuan_baidu(this,that.getsetsiteLocation);
+    }
+    return
     that.get_gps(e,that,that.getsetsiteLocation);
   },
   get_gps(e,t,f){
     let that = t;
     let evn = e;
-
-    console.log(that.data.photos)
     // 实例化API核心类
     qqmapsdk = new QQMapWX({
       key: 'MBQBZ-IU4CX-XI34P-75P45-R5O22-XGF67'
