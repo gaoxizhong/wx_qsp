@@ -69,3 +69,6 @@ page{
 button.cancelLogin-btn{
   background: #dfdfdf;
 }
+.hoverClass{
+  opacity: 0.8;
+}

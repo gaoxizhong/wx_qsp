@@ -61,9 +61,15 @@
     </view>
   </view>
 </view>
+<view style="margin-top: 30rpx;">
+  <!-- 广告    -->
+  <ad-custom unit-id="adunit-888ed239ad8713ad"></ad-custom>
+  <!-- 广告    -->
+</view>
+
+
 <view wx:if="{{m_id == member_id}}">
   <!-- 免费兑换模块 开始-->
-
   <!-- <view class="sigin-mfdh-box">
     <image src="https://oss.qingshanpai.com/sign/icon_mfdh_bg.png" mode="widthFix" class="mfdh-box-bgimg"></image>
     <view class="mfdh-infoBox">
@@ -85,6 +91,9 @@
   </view> -->
   
   <!-- 免费兑换模块 结束-->
+
+
+
   <!-- 签到交友 -->
   <view class="sigin-qdjy-box">
     <image src="https://oss.qingshanpai.com/sign/icon_qdjy_bg.png" mode="widthFix" class="mfdh-box-bgimg"></image>

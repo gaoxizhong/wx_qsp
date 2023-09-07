@@ -255,6 +255,11 @@ Page({
         is_block:true
       })
       console.log(e)
+      wx.showToast({
+        title: e.data.message,
+        icon:'none',
+        duration: 2000
+      })
     })
   },
   // 推广期限弹窗确认按钮

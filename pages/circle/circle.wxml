@@ -26,6 +26,9 @@
     {{item.title}}
   </view>
 </scroll-view>
+<!-- 广告    -->
+<ad-custom unit-id="adunit-888ed239ad8713ad"></ad-custom>
+<!-- 广告    -->
 <include src="/pages/module/circle/index.wxml" />
 <!-- 生成海报弹窗 -->
 <include src="/pages/module/makephoto/index.wxml" />

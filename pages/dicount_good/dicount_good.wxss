@@ -473,6 +473,7 @@ height: 120rpx;
   justify-content: space-between;
   align-items: center;
   background: #fff;
+  z-index: 9999;
 }
 .bottom-buy1 .num {
   width: 220rpx;

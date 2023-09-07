@@ -34,7 +34,7 @@
 
 
   <view class="my-function-list">
-    <view class="function-list-item" bindtap="getdetails">
+    <!-- <view class="function-list-item" bindtap="getdetails">
       <view class="function-list-item-left">
         <image src="http://oss.qingshanpai.com/banner/walltemx.png" mode="widthFix"></image>
         <view style="padding-left:12px;">收入明细</view>
@@ -42,11 +42,11 @@
       <view class="arrow">
         <image class="my-more" mode="widthFix" src="/images/my/my_more.png"></image>
       </view>
-    </view>
+    </view> -->
     <view class="function-list-item" bindtap="getWithdraw">
       <view class="function-list-item-left">
         <image src="http://oss.qingshanpai.com/banner/walltemx.png" mode="widthFix"></image>
-        <view style="padding-left:12px;">提现明细</view>
+        <view style="padding-left:12px;">明细</view>
       </view>
       <view class="arrow">
         <image class="my-more" mode="widthFix" src="/images/my/my_more.png"></image>

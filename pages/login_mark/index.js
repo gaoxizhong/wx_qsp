@@ -20,6 +20,7 @@ Page({
     let that = this;
     // 获取定位
     // publicMethod.zhuan_baidu(this);
+
   },
 
   /**
@@ -33,7 +34,24 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
+    let that = this;
+    wx.login({
+      success: (data) => {
+        console.log(data)
+        that.setData({
+          code: data.code,
+        })
+      },
+      fail: (res) => {
+        console.log(res)
+        wx.showToast({
+          title: res,
+          icon:'none'
+        })
+      },
+
+    })
+    that.setData({
       longitude: app.globalData.longitude,
       latitude: app.globalData.latitude,
     })
@@ -89,14 +107,6 @@ Page({
   // 微信授权
   getUserProfileClick(f){
     let that = this;
-    wx.login({
-      success: (data) => {
-        console.log(data)
-        that.setData({
-          code: data.code,
-        })
-      }
-    })
     wx.getUserProfile({
       desc: '获取你的昵称、头像、地区及性别', 
       success: (res) => {
@@ -109,8 +119,8 @@ Page({
           code: that.data.code,
           encryptedData: res.encryptedData,
           iv: res.iv,
-          // avatarUrl: res.userInfo.avatarUrl,
-          // nickName: res.userInfo.nickName,
+          avatarUrl: '',
+          nickName: '',
           gender: res.userInfo.gender,
         }).then(res => {
           if (res.data.code == 200) {
@@ -136,13 +146,21 @@ Page({
             })
           }
         }).catch(e => {
-          app.showToast({
-            title: "数据异常",
+          wx.showToast({
+            title: e,
+            icon: 'none'
           })
           console.log(e)
         })
         
+      },
+      fail: (res) => {
+        wx.showToast({
+          title: res,
+          icon: 'none'
+        })
       }
+
     })
 
   },
@@ -169,10 +187,9 @@ Page({
 
 
   getData(){
-    let that = this;
     // publicMethod.zhuan_baidu(this);
     // app.guajifen(this,app.globalData.longitude,app.globalData.latitude);
-    that.getPersonInfo();
+    this.getPersonInfo();
     // this.gotoback();
   },
 

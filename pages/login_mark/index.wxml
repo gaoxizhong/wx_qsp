@@ -12,6 +12,6 @@
 </view>
 
 <view class="footer-btn-box">
-  <button type="primary" size="mini" class="getUserProfile-btn" lang="zh_CN" bindtap="getUserProfile"> 立即登录 </button>
-  <button type="default" size="mini" class="cancelLogin-btn" bindtap='cancelLogin' > 取消登录 </button>
+  <button type="primary" size="mini" hover-class="hoverClass" class="getUserProfile-btn" lang="zh_CN" bindtap="getUserProfile"> 立即登录 </button>
+  <button type="default" size="mini" hover-class="hoverClass" class="cancelLogin-btn" bindtap='cancelLogin' > 取消登录 </button>
 </view>
