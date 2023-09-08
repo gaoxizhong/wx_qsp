@@ -1100,6 +1100,7 @@ let publicMethod = {
         // zhuan_dingwei方法转换百度标准
         var gcj02tobd09 = zhuan_dingwei.wgs84togcj02(Number(res.longitude),  Number(res.latitude));
         wx.setStorageSync('zhuan_dingwei', gcj02tobd09);
+        console.log(gcj02tobd09[0]+','+gcj02tobd09[1])
         that.setData({
           longitude: gcj02tobd09[0],
           latitude: gcj02tobd09[1]

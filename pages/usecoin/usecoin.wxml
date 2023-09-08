@@ -152,3 +152,8 @@ module.exports = {
   <view styke="text-align: left;">环保账号余额{{total_price}}元</view>
   <view styke="text-align: left;">可在积分账户或我的钱包提现</view>
 </view> -->
+<!-- 广告位 banner开始 -->
+<view class="circle-adbox">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>
+</view>
+<!-- 广告位 结束-->

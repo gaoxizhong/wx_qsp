@@ -194,7 +194,6 @@ page {
   padding-left: 2rpx;
 }
 .good-desc {
-  margin-bottom: 98rpx;
   box-sizing: border-box;
   background: #fff;
 }

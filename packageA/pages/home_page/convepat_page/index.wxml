@@ -24,3 +24,8 @@
   </view>
   <view class="love-bottom-title">青山生态，让每一个环保行为都有价值！</view>
 </view>
+<!-- 广告位 开始 -->
+<view class="circle-adbox">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>
+</view>
+<!-- 广告位 结束-->

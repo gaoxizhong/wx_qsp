@@ -273,6 +273,7 @@ page{
   bottom: 0;
   padding: 20rpx 0;
   box-sizing: border-box;
+  z-index: 999;
 }
 .footer-box>view{
   width: 33.33333333333%;

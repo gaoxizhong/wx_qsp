@@ -97,6 +97,8 @@
   </view>
 </view>
 
-
+<!-- 广告   原生模板-->
+<ad-custom unit-id="adunit-888ed239ad8713ad"></ad-custom>
+<!-- 广告    -->
 <!-- 信息广告弹窗 -->
 <include src="/pages/module/ad_preview/index.wxml" />

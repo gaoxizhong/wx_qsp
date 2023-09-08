@@ -15,3 +15,9 @@
   <button type="primary" size="mini" hover-class="hoverClass" class="getUserProfile-btn" lang="zh_CN" bindtap="getUserProfile"> 立即登录 </button>
   <button type="default" size="mini" hover-class="hoverClass" class="cancelLogin-btn" bindtap='cancelLogin' > 取消登录 </button>
 </view>
+
+<!-- 广告位 开始 -->
+<view style="margin-top: 80px;">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>
+</view>
+<!-- 广告位 结束-->

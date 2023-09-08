@@ -19,6 +19,12 @@
 <view class="page-listbox listbox-images">
   <image mode="widthFix" wx:for="{{items}}" wx:key="index" data-id="{{item.id}}" wx:if="{{supe_idx == item.id}}" src="{{item.url_2}}"></image>
 </view>
+
+<!-- 广告位 开始 -->
+<view class="circle-adbox">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>
+</view>
+<!-- 广告位 结束-->
 <view style="width:100%;height:166rpx;"></view>
 <view class="listbox-btn">
   <view class="footer-btn" bindtap="footer_btn" hover-class='hover_color'>进入</view>

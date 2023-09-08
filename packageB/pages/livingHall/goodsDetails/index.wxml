@@ -58,6 +58,14 @@
     <view style="height:30rpx"></view>
   </view>
 </view>
+<!-- 广告位 开始 -->
+<view class="circle-adbox">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>
+</view>
+<!-- 广告位 结束-->
+<view style="width: 100%;height: 120rpx;"></view>
+
+
 <!-- 底部图标、按钮 开始 -->
 <view class="infoList-items-btnbox">
   <view class="infoList-items-iconbox">

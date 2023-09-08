@@ -111,6 +111,10 @@
   </view>
 </view>
 <!-- <view style="width: 100%;height: 80rpx;"></view> -->
-
+<!-- 广告位 banner开始 -->
+<view class="circle-adbox">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>
+</view>
+<!-- 广告位 结束-->
 <!-- 信息广告弹窗 -->
 <include src="/pages/module/ad_preview/index.wxml" />

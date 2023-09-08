@@ -18,6 +18,11 @@
     <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
   </view>
 </view>
+<!-- 广告位 开始 -->
+<view class="circle-adbox">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>
+</view>
+<!-- 广告位 结束-->
 <view class="t-30"></view>
 
 <!-- 兑换项目 -->

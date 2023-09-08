@@ -54,7 +54,11 @@
     <image src="/packageB/image/my_more.png" mode="widthFix"></image>
   </view>
 </view>
-
+<!-- 广告位 开始 -->
+<view class="circle-adbox">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>
+</view>
+<!-- 广告位 结束-->
 <view class="t-20"></view>
 
 <view class="projectList-box">

@@ -36,47 +36,9 @@ Page({
    */
   onShow: function () {
     let that = this;
-    wx.getLocation({
-      type: 'wgs84',
-      success:function(res){
-        console.log(res)
-        that.setData({
-         latitude : Number(res.latitude),
-         longitude : Number(res.longitude)
-        })
-        // zhuan_dingwei方法转换百度标准
-        var gcj02tobd09 = zhuan_dingwei.wgs84togcj02(that.data.longitude, that.data.latitude);
-        that.setData({
-          longitude: gcj02tobd09[0],
-          latitude: gcj02tobd09[1]
-        })
-        that.getlotterylist();
 
-      },
-      fail: function(res) {
-        wx.showModal({
-          title: '需要开启手机定位',
-          content: '请前去开启GPS服务',
-          showCancel:false,
-          success (res) {
-            if (res.confirm) {
-              console.log('用户点击确定')
-            } else if (res.cancel) {
-              console.log('用户点击取消')
-            }
-          }
-        })
-        that.setData({
-          latitude: '',
-          longitude: ''
-        })
-        that.getlotterylist();
+    that.getlotterylist();
 
-        if (res.errMsg == "getLocation:fail auth deny") {
-          that.openSetting(that)
-        }
-      }
-    })
   },
 
   /**

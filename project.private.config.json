@@ -216,6 +216,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "钱包",
+          "pathName": "pages/mine/wallet/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "志愿活动详情页",
+          "pathName": "packageA/pages/home_page/volunacti_details/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

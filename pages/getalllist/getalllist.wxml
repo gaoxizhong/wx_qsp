@@ -119,7 +119,9 @@
       </view>
     </view>
   </view>
-
+  <!-- 广告位 banner开始 -->
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>
+  <!-- 广告位 结束-->
 </view>
 
 <!-- 返回上一步 -->

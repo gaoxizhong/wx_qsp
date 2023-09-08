@@ -73,7 +73,11 @@
 
 <!-- 留言 -->
 <leaveCom id='leave_com' is_you="{{is_you}}" leavecom_list="{{leavecom_list}}" data-title_text="留言区" bindgoTolist_detail="goTolist_detail" bindrelease_btn="release_btn"/>
-
+<!-- 广告位 开始 -->
+<view class="circle-adbox">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>
+</view>
+<!-- 广告位 结束-->
 <include src="/pages/module/circle/index.wxml" />
 <!-- 弹层 -->
   <view class="is_popess" wx:if="{{pop3}}" bindtap="is_popess"></view>
@@ -87,6 +91,7 @@
       </button>
     </view>
   </view>
+  
 <comp id="comp"/>
   <!-- 返回上一步 -->
 <include src="/pages/module/backto/index.wxml" />
