@@ -9,6 +9,8 @@
 </view>
 
 
+
+
 <view class="hyk-box1" wx:if="{{beusedList.length > 0}}">
   <view class="ksy-titlebox">
     <view style="display: flex;align-items: center;">可兑换余额</view>
@@ -62,12 +64,11 @@
 </view>
 <!-- 提交手机号确认信息弹窗 -->
 
-<view catchtouchmove="myCatchTouch" class="cover" wx:if="{{isShowConfirm}}"></view>
-<view class="toast-box" wx:if="{{isShowConfirm}}">
-  <view class="items-name">姓名：哈哈哈</view>
-  <view class="items-name">昵称：啦啦啦</view>
-  <view class="clickQr" bindtap="clickQr">确认</view>
+<!-- 广告位 banner开始 -->
+<view style="margin-top: 60rpx;">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>
 </view>
+<!-- 广告位 结束-->
 
 <view catchtouchmove="myCatchTouch" class="is_tcover" bindtap="clickCover" wx:if="{{is_t}}"></view>
 <view class="is_ttoast-box" wx:if="{{is_t}}">

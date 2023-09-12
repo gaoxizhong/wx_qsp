@@ -1,7 +1,3 @@
-<!-- 广告位 -->
-<view class="circle-adbox" wx:if="{{is_ad}}">
-  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30" bindclose="adClose"></ad>
-</view>
 
 <view class='bg'>
   <view class="textarea-wrp">
@@ -53,6 +49,11 @@
     </form>
   </view>
 </view>
+<!-- 广告位 -->
+<view class="circle-adbox" wx:if="{{is_ad}}">
+  <ad unit-id="adunit-3f73132161281cda" ad-intervals="30" bindclose="adClose"></ad>
+</view>
+
 <!-- 广告弹窗 -->
 <include src="/pages/module/ad_preview/index.wxml" />
 <!-- 做任务得积分弹窗 -->

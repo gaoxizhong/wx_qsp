@@ -1,5 +1,6 @@
 const app = getApp()
 const common = require('../../../assets/js/common');
+let videoAd = null
 Page({
   data: {
     img_url: app.data.imgUrl,
@@ -16,6 +17,8 @@ Page({
     confirm_coupons:{},
     longitude: '',
     latitude: '',
+    property: false, // 提现资格
+
   },
   onTabItemTap(item) {
     if (item.index == 3) {
@@ -54,6 +57,36 @@ Page({
       longitude: app.globalData.longitude,
       latitude: app.globalData.latitude,
     })
+
+  // 在页面onLoad回调事件中创建激励视频广告实例
+  if (wx.createRewardedVideoAd) {
+    videoAd = wx.createRewardedVideoAd({
+      adUnitId: 'adunit-f6ea451e26a50fda'
+    })
+    videoAd.onLoad(() => {
+      console.log('onLoad event emit')
+    })
+    videoAd.onError((err) => {})
+    videoAd.onClose((res) => {
+       // 用户点击了【关闭广告】按钮
+      if (res && res.isEnded) {
+        // 正常播放结束，可以下发游戏奖励
+        wx.showToast({
+          title: '获取资格成功！',
+        })
+        that.setData({
+          property: true
+        })
+        wx.setStorageSync('property', true);
+      } else {
+        // 播放中途退出，不下发游戏奖励
+        wx.showToast({
+          title: '中途退出，未获取资格',
+          icon:'none'
+        })
+      }
+    })
+  }
     wx.hideShareMenu();
   },
   onShow: function () {
@@ -63,6 +96,7 @@ Page({
       member_id,
       longitude: app.globalData.longitude,
       latitude: app.globalData.latitude,
+      property: wx.getStorageSync('property')? wx.getStorageSync('property'): false, // 提现资格
     })
     that.getData();
   },
@@ -210,12 +244,16 @@ Page({
       })
       return
     }
+
+
     if( !debug_submit ){
       return
     }
     that.setData({
       debug_submit:false
     })
+
+
     wx.showModal({
       title: '提现提醒',
       content: '审核通过后1-2个工作日到账微信',
@@ -239,11 +277,15 @@ Page({
             console.log(res)
             if (res.data.code == 200) {
               wx.hideLoading();
-              app.showToast({
+              wx.showToast({
                 title: '提交审核成功！',
                 icon: 'none',
                 duration: 1500,
               })
+              that.setData({
+                property: false
+              })
+              wx.setStorageSync('property', false);
               let content_id = res.data.data.content_id;
               if(content_id){
                 setTimeout(function(){
@@ -289,6 +331,7 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
+
 
   },
   // 确认交易按钮事件
@@ -414,5 +457,40 @@ Page({
     }).catch(e =>{
       console.log(e)
     })
-  }
+  },
+
+  // 点击获取提现资格
+  clcikProperty(){
+    let that = this;
+    wx.showModal({
+      title: '获取资格',
+      content: '成功观看30s激励广告后即可获取本次提现资格！',
+      cancelText:'取消',
+      confirmText:'观看',
+      complete: (res) => {
+        if (res.cancel) {
+          
+        }
+    
+        if (res.confirm) {
+          // 点击确认观看
+          // 用户触发广告后，显示激励视频广告
+          if (videoAd) {
+            videoAd.show().catch(() => {
+              // 失败重试
+              videoAd.load()
+              .then(() => videoAd.show())
+              .catch(err => {
+                console.log('激励视频 广告显示失败')
+                wx.showToast({
+                  title: '激励视频 广告显示失败',
+                  icon:'none'
+                })
+              })
+            })
+          }
+        }
+      }
+    })
+  },
 })

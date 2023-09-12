@@ -1,4 +1,7 @@
 const common = require("../../../../assets/js/common")
+// 在页面中定义插屏广告
+let interstitialAd = null
+
 Page({
 
   /**
@@ -28,12 +31,23 @@ Page({
     // 获取可用余额
     that.getCodeSession();
 
+    // 在页面onLoad回调事件中创建插屏广告实例
+  if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-4dcbe9fa7ac56fb4'
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    this.toast = this.selectComponent("#toast");
 
   },
 
@@ -262,26 +276,29 @@ Page({
       content: '到店请工作人员当面核销！',
       success(res) {
         if (res.confirm) {
+          wx.showToast({
+            title: '正在核销.....',
+            icon:'none',
+            duration: 10000
+          })
+          // that.toast.showToast({
+          //   msg: '正在核销...',
+          //   duration: 10000
+          // });
           common.get('/life/index?op=confirm_project_card',{
             member_id:wx.getStorageSync('member_id'),
             card_id,
             num,
             coin_value: my_coin
           }).then(res =>{
-            if(res.data.code == 200){
-              wx.showToast({
-                title: '核销成功',
-              })
-              setTimeout(() => {
-                // let beusedList = that.data.beusedList;
-                // beusedList.forEach(ele =>{
-                //   if(ele.id == order_id){
-                //     ele.goodnum -= num;
-                //   }
-                // })
-                // that.setData({
-                //   beusedList
-                // })
+            
+            setTimeout(() => {
+              // wx.hideLoading();
+              if(res.data.code == 200){
+                wx.showToast({
+                  title: '核销成功',
+                  duration: 2000
+                })
                 that.setData({
                   list:[],
                   beusedList:[],
@@ -291,17 +308,23 @@ Page({
                 that.getbeusedList();
                 // 获取可用余额
                 that.getCodeSession();
-              }, 1000);
-
-            }else{
-              wx.showToast({
-                title: res.data.msg,
-                icon:'none'
-              })
-            }
+              }else{
+                wx.showToast({
+                  title: res.data.msg,
+                  icon:'none'
+                })
+              }
+            }, 10000);
           }).catch(e =>{
+            // wx.hideLoading();
             console.log(e)
           })
+          // 在适合的场景显示插屏广告
+          if (interstitialAd) {
+            interstitialAd.show().catch((err) => {
+              console.error(err)
+            })
+          }
         } else if (res.cancel) {
           console.log('点击了取消')
         }

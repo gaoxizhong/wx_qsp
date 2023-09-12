@@ -12,12 +12,12 @@
   </view>
 </view>
 <view style="padding-top:18rpx;">
-  <view class="ktx-box" wx:if="{{money > 0}}">
+  <view class="ktx-box">
     <view class="section_box">
       <view class="section_title">可提现金额</view>
       <view class="mark_tishi" bindtap="caption"><image class="mark_image" src="/images/mark_image.png"></image></view>
     </view>
-    <form bindsubmit="gettxian">
+    <form bindsubmit="gettxian" wx:if="{{ property }}">
       <view class="ktxje-box">
         <image src="http://oss.qingshanpai.com/icon/wdqb-ic-bz.png" mode="widthFix"></image>
         <!-- <input class="ktxje-num" name="money" value="" disabled/> -->
@@ -30,6 +30,12 @@
       </view>
       <button formType="submit" class="btn-area" hover-class='hover_color'>提现</button>
     </form>
+    <!-- 获取提现资格-- 按钮 -->
+    <view class="property-box" wx:else>
+      <view class="property-btn" hover-class="hoverClass" bindtap="clcikProperty">获取提现资格</view>
+    </view>
+
+
   </view>
 
 

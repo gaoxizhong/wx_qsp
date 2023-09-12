@@ -202,7 +202,7 @@ Page({
         let imageUrl = res.target.dataset.gdimages;
         let share_id = res.target.dataset.id;
         return {
-          title: '我正在参加青山生态志愿活动，非常的有意义，你也来一起参加吧！',
+          title: '我正在参加志愿活动，非常的有意义，你也来一起参加吧！',
           path: '/packageA/pages/home_page/volunacti_details/index?id=' + res.target.dataset.activity_id + '&member_id=' + wx.getStorageSync('member_id') + '&share_id=' + share_id + '&is_duizhang=1',
           imageUrl,
           success: function(res) {
@@ -220,7 +220,7 @@ Page({
         var shareImage = gdImages[0];
         var url = '/packageA/pages/vol_act_pages/index?contentid=' + res.target.dataset.contentid + '&member_id=' + member_id + '&is_onShare=1';
         return {
-          title: '我正在参加青山生态志愿活动，请为我点赞;' + words,
+          title: '我正在参加志愿活动，请为我点赞;' + words,
           path: url,
           imageUrl: shareImage,
           success: function(res) {
@@ -236,7 +236,7 @@ Page({
     }else{
       console.log('右上角')
       return {
-        title: '青山生态志愿活动',
+        title: '志愿活动',
         imageUrl: '',
         path: '/packageA/pages/home_page/volunacti_details/index?id=' + that.data.id,
         success: function(res) {

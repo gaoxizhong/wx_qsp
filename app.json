@@ -350,6 +350,7 @@
     "backgroundTextStyle": "light",
     "navigationStyle":"default"
   },
+  "__usePrivacyCheck__": true,
   "tabBar": {
     "color": "#333",
     "selectedColor": "#4AC081",

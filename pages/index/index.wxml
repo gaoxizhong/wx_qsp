@@ -150,6 +150,10 @@
 <include src="/pages/module/ad_preview/index.wxml" />
 
 
+ <!-- ==================== 隐私授权 ===================  -->
+<privacy-popup bind:agree="agree" bind:disagree="disagree"></privacy-popup>
+
+
 
 
 

@@ -287,3 +287,28 @@ position: absolute;
   text-align: center;
   margin: 12rpx 0;
 }
+.property-box{
+  margin-top: 60rpx;
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.property-btn{
+  width: 100%;
+  padding: 22rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34rpx;
+  color: #fff;
+  background: #ff0000;
+  margin: 46rpx auto;
+  border-radius: 20px;
+  line-height:1;
+  box-shadow: 0 2px 4px #f19969;
+}
+.hoverClass{
+  opacity: 0.8;
+  transform: rotate(0.9);
+}

@@ -45,3 +45,8 @@
     </view>
   </block>
 </view>
+
+ <!-- 提示弹窗组件 -->
+ <view>
+  <toast id='toast'></toast>
+</view>
