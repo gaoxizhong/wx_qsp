@@ -120,6 +120,7 @@ Page({
         sizeType:['compressed'], // 可以指定是原图还是压缩图，默认二者都有
         sourceType:['album','camera'], // 可以指定来源是相册还是相机，默认二者都有
         success:function(res){
+          console.log(res)
           // 返回选定图片的本地文件列表，tempFilePaths可以作为img标签的src列表
           let tempFilePaths = res.tempFilePaths; //这个是选择后返回的图片列表
           that.getLessLimitSizeImage(0,tempFilePaths);
