@@ -9,6 +9,7 @@ page{
   font-size: 66rpx;
   font-weight: bold;
   text-align: center;
+  color: #000;
 }
 .userUrl-view{
   width: 100%;

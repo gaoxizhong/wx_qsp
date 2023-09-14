@@ -1,4 +1,4 @@
-<view wx:if="{{innerShow}}" class="weui-half-screen-dialog" style="border-color:rgb(64, 247, 94); border-style:solid; border-width:3px; position: fixed;  bottom:{{height}}px" >
+<view wx:if="{{innerShow}}" class="weui-half-screen-dialog" style="border-color:rgb(64, 247, 94); border-style:solid; border-width:3px; position: fixed;" >
     <view class="weui-half-screen-dialog__hd">
           <text class="weui-half-screen-dialog__title">{{title}}</text>
     </view>

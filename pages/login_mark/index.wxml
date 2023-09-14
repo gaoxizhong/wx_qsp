@@ -21,3 +21,6 @@
   <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>
 </view>
 <!-- 广告位 结束-->
+
+ <!-- ==================== 隐私授权 ===================  -->
+ <privacy-popup bind:agree="agree" bind:disagree="disagree"></privacy-popup>
