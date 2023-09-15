@@ -1,4 +1,14 @@
 <view class="taskList-box">
+    <view class="taskList-items-box">
+      <image src="https://oss.qingshanpai.com/sign/icon/9092c92aae756cc6c39e4b9026180d7e.png" mode="widthFix" class="list-items-image"></image>
+      <view class="taskList-items-info">
+        <view class="items-info-title">看广告赚积分</view>
+        <view class="items-info-text">积分+5</view>
+      </view>
+      <view class="taskList-items-btnbox" bindtap="goToGg">
+        <view class="items-text items-text1">去完成</view>
+      </view>
+    </view>
   <block wx:for="{{more_integral}}" wx:key="index">
     <view class="taskList-items-box">
       <image src="{{item.icon}}" mode="widthFix" class="list-items-image"></image>
