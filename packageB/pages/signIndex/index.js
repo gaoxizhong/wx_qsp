@@ -1,6 +1,8 @@
 const app = getApp();
 const common = require('../../../assets/js/common');
 const publicMethod = require('../../../assets/js/publicMethod');
+let videoAd = null
+
 Page({
 
   /**
@@ -15,7 +17,7 @@ Page({
     member_id:'', // 当前查看人的member_id
     more_integral:[], // 积分任务列表
     signtList:[], // 签到好友列表
-    is_true:false,
+    is_true:false,  // 是否签到状态
     is_goToSign: true,
     is_fx: 1
   },
@@ -39,22 +41,47 @@ Page({
         is_fx: options.is_fx
       })
     }
-    wx.getLocation({
-      type: 'wgs84',
-      success:function(res){
-        that.setData({
-          longitude: Number(res.longitude),
-          latitude: Number(res.latitude),
-        })
-      },
-      fail: function(res) {
-        console.log('未获取到定位')
-        that.setData({
-          latitude: '',
-          longitude: ''
-        })
-      }
-    })
+    // wx.getLocation({
+    //   type: 'wgs84',
+    //   success:function(res){
+    //     that.setData({
+    //       longitude: Number(res.longitude),
+    //       latitude: Number(res.latitude),
+    //     })
+    //   },
+    //   fail: function(res) {
+    //     console.log('未获取到定位')
+    //     that.setData({
+    //       latitude: '',
+    //       longitude: ''
+    //     })
+    //   }
+    // })
+      // 在页面onLoad回调事件中创建激励视频广告实例
+    if (wx.createRewardedVideoAd) {
+      videoAd = wx.createRewardedVideoAd({
+        adUnitId: 'adunit-f6ea451e26a50fda'
+      })
+      videoAd.onLoad(() => {
+        console.log('onLoad event emit')
+      })
+      videoAd.onError((err) => {})
+      videoAd.onClose((res) => {
+        // 用户点击了【关闭广告】按钮
+        if (res && res.isEnded) {
+          // 正常播放结束，可以下发游戏奖励
+         
+           // 每日签到
+          that.goToSign();
+        } else {
+          // 播放中途退出，不下发游戏奖励
+          wx.showToast({
+            title: '中途退出，未签到成功',
+            icon:'none'
+          })
+        }
+      })
+    }
   },
 
   /**
@@ -371,6 +398,41 @@ Page({
     wx.navigateTo({
       url: '/packageB/pages/signTaskList/index',
     })
+  },
+  // 点击签到观看激励广告
+  goToSign_vd(){
+    let that = this;
+    wx.showModal({
+      title: '签到打卡',
+      content: '成功观看30s激励广告后即可签到成功获取积分！',
+      cancelText:'取消',
+      confirmText:'观看',
+      complete: (res) => {
+        if (res.cancel) {
+          
+        }
+    
+        if (res.confirm) {
+          // 点击确认观看
+          // 用户触发广告后，显示激励视频广告
+          if (videoAd) {
+            videoAd.show().catch(() => {
+              // 失败重试
+              videoAd.load()
+              .then(() => videoAd.show())
+              .catch(err => {
+                console.log('激励视频 广告显示失败')
+                wx.showToast({
+                  title: '激励视频 广告显示失败',
+                  icon:'none'
+                })
+              })
+            })
+          }
+        }
+      }
+    })
+
   },
   // 每日签到
   goToSign(){

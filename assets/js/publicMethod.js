@@ -1765,6 +1765,75 @@ let publicMethod = {
       djs_timer,   // 倒计时
     })
   },
+  // 现金购买积分
+  recharge_btn(t,f){
+    let that = t;
+    let money = that.data.money;
+    console.log(money)
+    if(!money || money == '' || money == 0){
+      wx.showToast({
+        title: '请选择或填写要充值金额',
+        icon:'none'
+      })
+      return
+    }
+    common.post('/ad/invest',{
+      member_id:wx.getStorageSync('member_id'),
+      money,
+    }).then(res =>{
+      if(res.data.code == 200){
+        if (res.data.data != '') {
+          console.log('有支付签名')
+            var $config = res.data.data
+            wx.requestPayment({
+              timeStamp: $config['timeStamp'],
+              nonceStr: $config['nonceStr'],
+              package: $config['package'],
+              signType: $config['signType'],
+              paySign: $config['paySign'],
+              success: function (res) {
+                wx.showToast({
+                  title: '充值成功！',
+                  icon:'none',
+                  duration:2000
+                })
+                // 支付成功后的回调函数
+                setTimeout(function(){
+                 return f();
+                },2000)
+              },
+              fail: function (e) {
+                console.log(e)
+                wx.showToast({
+                  title: '支付失败！',
+                  duration: 1000,
+                  icon: 'none'
+                })
+                that.setData({
+                  is_block:true
+                })
+                return;
+              }
+            });
+          } else {
+            console.log('没有支付签名')
+            wx.showToast({
+              title: res.data.msg,
+              duration: 1000,
+              icon: 'none'
+            })
+          }
+
+      }else{
+        wx.showToast({
+          title: res.data.mag,
+          icon:'none'
+        })
+      }
+    }).catch(e =>{
+      console.log(e)
+    })
+  },
 
 }
 

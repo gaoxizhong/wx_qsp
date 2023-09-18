@@ -25,7 +25,8 @@
 </view>
  <!-- 签到按钮 -->
  <view class="new-adbtn-box signbox">
-  <view bindtap="{{is_true?'goTobank':'goToSign'}}">
+  <!-- <view bindtap="{{is_true?'goTobank':'goToSign'}}"> -->
+    <view bindtap="goTobank">
     <view class="index-ic-sub">
       <image src="/images/index/bg_tag_1.png" mode="widthFix"></image>
       <text>+5</text>

@@ -1061,4 +1061,9 @@ Page({
         url: page
       })
     },
+    goToBay_jf(){
+      wx.navigateTo({
+        url: '/packageA/pages/topup_pages/index',
+      })
+    }
 })
