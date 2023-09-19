@@ -252,8 +252,8 @@
         "pages/adSubpage/index",
         "pages/myCouponList/index",
         "pages/myFmyinv_list/index",
-        "pages/invext_activity/index"
-
+        "pages/invext_activity/index",
+        "pages/points_Buy/index"
       ]
     },
     {

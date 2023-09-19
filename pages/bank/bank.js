@@ -1063,7 +1063,7 @@ Page({
     },
     goToBay_jf(){
       wx.navigateTo({
-        url: '/packageA/pages/topup_pages/index',
+        url: '/packageA/pages/points_Buy/index',
       })
     }
 })

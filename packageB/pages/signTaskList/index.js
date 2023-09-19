@@ -9,6 +9,7 @@ Page({
    */
   data: {
     more_integral:[], // 积分任务列表
+    ad_num: 20, // 看广告获取积分
   },
 
   /**
@@ -37,11 +38,11 @@ Page({
         
           common.get('/mine/index?op=ad_point',{
             member_id: wx.getStorageSync('member_id'),
-            point: 5, // 积分
+            point: that.data.ad_num, // 积分
           }).then(res =>{
             if(res.data.code == 200){
               wx.showToast({
-                title: '获取积分成功！',
+                title: '获取' + that.data.ad_num + '积分成功！',
               })
             }else{
               wx.showToast({

@@ -1,9 +1,9 @@
 <view class="taskList-box">
     <view class="taskList-items-box">
-      <image src="https://oss.qingshanpai.com/sign/icon/9092c92aae756cc6c39e4b9026180d7e.png" mode="widthFix" class="list-items-image"></image>
+      <image src="https://oss.qingshanpai.com/sign/icon/bc4f2ae360cd8827de1d2318586dfddd.png" mode="widthFix" class="list-items-image"></image>
       <view class="taskList-items-info">
         <view class="items-info-title">看广告赚积分</view>
-        <view class="items-info-text">积分+5</view>
+        <view class="items-info-text">积分+{{ad_num}}</view>
       </view>
       <view class="taskList-items-btnbox" bindtap="goToGg">
         <view class="items-text items-text1">去完成</view>
