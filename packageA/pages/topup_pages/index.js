@@ -93,7 +93,8 @@ Page({
   },
   recharge_btn(){
     let that = this;
-    publicMethod.recharge_btn(that,that.goTOreLaunch);
+    let api = '/ad/invest';
+    publicMethod.recharge_btn(that,api,that.goTOreLaunch);
   },
   makeCall() {
     wx.makePhoneCall({

@@ -93,7 +93,8 @@ Page({
   },
   recharge_btn(){
     let that = this;
-    publicMethod.recharge_btn(that,that.goTOreLaunch);
+    let api = '/ad/memberInvestPoint';
+    publicMethod.recharge_btn(that,api,that.goTOreLaunch);
   },
   makeCall() {
     wx.makePhoneCall({
@@ -102,7 +103,7 @@ Page({
   },
   goTOreLaunch(){
     wx.reLaunch({
-      url: '/packageA/pages/merchant_entrance/index',
+      url: '/pages/bank/bank',
     })
   }
 })

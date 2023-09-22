@@ -3,7 +3,7 @@
     <image src="/packageB/assets/images/sigin/icon_xz.png" mode="widthFix"></image>
     <view style="font-size: 32rpx;font-weight: bold;padding-left: 20rpx;">已完成{{signCircle.sign_count}}次签到打卡</view>
   </view>
-  <view class="siginDt-text">{{signCircle.content.words}}</view>
+  <view class="siginDt-text">{{signCircle.content.words?signCircle.content.words:'今日暂未签到打卡！'}}</view>
   <view class="circle-img">
     <image src="{{signCircle.content.images[0].url}}" class="imgyi-width" mode="widthFix"></image>
   </view>

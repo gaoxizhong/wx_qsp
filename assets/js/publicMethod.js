@@ -1766,7 +1766,7 @@ let publicMethod = {
     })
   },
   // 现金购买积分
-  recharge_btn(t,f){
+  recharge_btn(t,api,f){
     let that = t;
     let money = that.data.money;
     console.log(money)
@@ -1777,7 +1777,7 @@ let publicMethod = {
       })
       return
     }
-    common.post('/ad/invest',{
+    common.post(api,{
       member_id:wx.getStorageSync('member_id'),
       money,
     }).then(res =>{
