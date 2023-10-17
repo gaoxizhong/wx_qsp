@@ -2,8 +2,5 @@
   "backgroundTextStyle": "dark",
   "enablePullDownRefresh": true,
   "navigationBarBackgroundColor": "#00a7e1",
-  "navigationBarTextStyle": "white",
-  "usingComponents": {
-    "privacy-popup": "../../component/privacyPopup/privacyPopup"
-  }
+  "navigationBarTextStyle": "white"
 }

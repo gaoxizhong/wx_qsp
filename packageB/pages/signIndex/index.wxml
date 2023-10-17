@@ -1,7 +1,7 @@
 <view class="sigin-dt-box">
   <view class="siginDt-title-box">
     <image src="/packageB/assets/images/sigin/icon_xz.png" mode="widthFix"></image>
-    <view style="font-size: 32rpx;font-weight: bold;padding-left: 20rpx;">已完成{{signCircle.sign_count}}次签到打卡</view>
+    <view style="font-size: 32rpx;font-weight: bold;padding-left: 20rpx;">第{{signCircle.sign_count}}次签到打卡</view>
   </view>
   <view class="siginDt-text">{{signCircle.content.words?signCircle.content.words:'今日暂未签到打卡！'}}</view>
   <view class="circle-img">
@@ -61,12 +61,6 @@
     </view>
   </view>
 </view>
-<!-- <view class="sigin-dt-box" wx:esle>
-  <view>您今日还没签到</view>
-  <view class="mySign-box" >
-    <view class="mySign-boxbtn" hover-class="hoverClass" bindtap="goTobank">立即签到打卡</view>
-  </view>
-</view> -->
 <view style="margin-top: 30rpx;">
   <!-- 广告    -->
   <ad-custom unit-id="adunit-888ed239ad8713ad"></ad-custom>
@@ -161,18 +155,18 @@
 </view>
 
 <view class="mySign-box" wx:else>
-  <view class="mySign-boxbtn" hover-class="hoverClass" bindtap="{{is_true?'goTobank':'goToSign_vd'}}">我也去签到打卡</view>
+  <view class="mySign-boxbtn" hover-class="hoverClass" bindtap="{{is_true?'goTobank':'goToSign'}}">我也去签到打卡</view>
 </view>
 
 
 
 <!-- =====================   弹窗  ================= -->
-<view class="cler-marsk" wx:if="{{ !is_true }}"></view>
-<view class="cler-box" wx:if="{{ !is_true }}">
-  <view class="cler-title"><text style="font-weight: bold;color: #ff0000;font-size: 38rpx;">*</text>今日暂未打卡,请先签到打卡</view>
+<view class="cler-marsk" wx:if="{{m_id == member_id && !is_true}}"></view>
+<view class="cler-box" wx:if="{{m_id == member_id && !is_true}}">
+  <view class="cler-title">*请先签到打卡</view>
   <view class="cler-btn-box">
     <view catchtap="cler_marsk">取消</view>
-    <view class="cler-btn-r" hover-class="hoverClass" catchtap="goToSign_vd">签到</view>
+    <view class="cler-btn-r" hover-class="hoverClass" catchtap="goToSign">签到</view>
   </view>
 </view>
 

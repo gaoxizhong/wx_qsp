@@ -15,7 +15,15 @@
   <button type="primary" size="mini" hover-class="hoverClass" class="getUserProfile-btn" lang="zh_CN" bindtap="getUserProfile"> 立即登录 </button>
   <button type="default" size="mini" hover-class="hoverClass" class="cancelLogin-btn" bindtap='cancelLogin' > 取消登录 </button>
 </view>
-
+<view class="checkbox-view">
+  <checkbox-group bindchange="bindChange">
+    <label class="checkbox">
+      <checkbox value="1" checked="{{ checked }}"/>
+      <text>同意</text>
+    </label>
+  </checkbox-group>
+  <text class="lable-text" bindtap="openPrivacyContract">《用户隐私保护协议》</text>
+</view>
 <!-- 广告位 开始 -->
 <view style="margin-top: 80px;">
   <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>
@@ -23,4 +31,29 @@
 <!-- 广告位 结束-->
 
  <!-- ==================== 隐私授权 ===================  -->
- <privacy-popup bind:agree="agree" bind:disagree="disagree"></privacy-popup>
+ <!-- <privacy-popup bind:agree="agree" bind:disagree="disagree" wx:if="{{privacy}}"></privacy-popup> -->
+ <view wx:if="{{innerShow}}" class="weui-half-screen-dialog" style="border-color:rgb(64, 247, 94); border-style:solid; border-width:3px; position: fixed;" >
+    <view class="weui-half-screen-dialog__hd">
+      <text class="weui-half-screen-dialog__title">{{title}}</text>
+    </view>
+    <view class="weui-half-screen-dialog__bd">
+        <view class="weui-half-screen-dialog__tips">{{desc1}}</view>
+        <view class="weui-half-screen-dialog__tips" style="color:blue" bindtap="openPrivacyContract">{{urlTitle}}</view>
+        <view class="weui-half-screen-dialog__tips">{{desc2}}</view>
+    </view>
+    <view class="weui-half-screen-dialog__ft">
+      <view class="weui-half-screen-dialog__btn-area">
+        <button id="disagree-btn"
+          type="default"
+          class="weui-btn"
+          bindtap="disagree"
+        >不同意并退出</button>
+        <button id="agree-btn"
+          type="default"
+          open-type="agreePrivacyAuthorization"
+          class="weui-btn"
+          bindagreeprivacyauthorization="agree"
+        >同意并继续</button>
+      </view>
+    </view>
+  </view>

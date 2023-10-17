@@ -17,6 +17,9 @@
         </view>
       </view>
     </view>
+    <view class="list-btn-box" wx:if="{{item.status == 0}}">
+      <view class="listview-btn" data-index="{{index}}" data-item="{{item}}" bindtap="speed_up">加速审核</view>
+    </view>
     <view class="auditResult-list-sbyy"  wx:if="{{item.status != 0}}">
       <view class="list-sbyy-text" wx:if="{{item.status == 2}}">
         <text style="width: auto;padding-top: 4rpx;">未通过原因：</text>
@@ -28,7 +31,6 @@
       <view class="list-btn-box" wx:if="{{ item.status == 2 && !item.is_xg }}">
         <view class="listview-btn" data-index="{{index}}" bindtap="getis_xg">修改</view>
       </view>
-
     </view>
     <view class="edit-info" wx:if="{{ item.is_xg }}">
       <form bindsubmit="savaData" data-index="{{index}}" >
@@ -61,3 +63,6 @@
     <view class='msg'>暂无数据</view>
   </view>
 </view>
+
+
+<!-- 加速审核弹窗 -->

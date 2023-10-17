@@ -73,3 +73,20 @@ button.cancelLogin-btn{
 .hoverClass{
   opacity: 0.8;
 }
+.checkbox-view{
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+.checkbox{
+  display: flex;
+  align-items: center;
+}
+.lable-text{
+  color: blue;
+}
+.checkbox checkbox{
+  transform: scale(0.7);
+}

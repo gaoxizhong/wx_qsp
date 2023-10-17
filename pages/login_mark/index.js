@@ -11,8 +11,20 @@ Page({
     canIUseGetUserProfile: false,
     longitude: '',
     latitude: '',
+    checked: false,
+    checkbox:[],
+    innerShow: false,
+    title: "用户隐私保护提示",
+    desc1: "感谢您使用本小程序，您使用本小程序前应当阅井同意",
+    urlTitle: "《用户隐私保护指引》",
+    desc2: "当您点击同意并开始使用产品服务时，即表示你已理解并同息该条款内容，该条款将对您产生法律约束力。如您拒绝，将无法进入小程序。",
+    height: 0,
   },
- 
+  clickcheckbox(){
+    this.setData({
+      innerShow: true
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -100,6 +112,14 @@ Page({
   // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
   // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
   getUserProfile() {
+    let checkbox = this.data.checkbox;
+    if(checkbox.length == 0){
+      wx.showToast({
+        title: '请先同意《用户隐私保护协议》',
+        icon: 'none'
+      })
+      return
+    }
     // publicMethod.getUserProfile(this,this.getData);
     this.getUserProfileClick(this.getData);
   },
@@ -107,6 +127,7 @@ Page({
   // 微信授权
   getUserProfileClick(f){
     let that = this;
+    console.log('11')
     wx.getUserProfile({
       desc: '获取你的昵称、头像、地区及性别', 
       success: (res) => {
@@ -209,16 +230,44 @@ Page({
   //  ==================== 隐私授权 ===================/
   agree(e){
     console.log("用户同意隐私授权, 接下来可以调用隐私协议中声明的隐私接口")
-    wx.getClipboardData({
-      success(res) {
-        console.log("getClipboardData success", res)
-      },
-      fail(res) {
-        console.log("getClipboardData fail", res)
-      },
+    this.setData({
+      innerShow: false,
+      checked :true,
     })
   },
   disagree(e){
     console.log("用户拒绝隐私授权, 未同意过的隐私协议中的接口将不能调用")
+    this.setData({
+      innerShow: false,
+      checked :false,
+      checkbox : []
+    })
   },
+  openPrivacyContract() {
+    wx.openPrivacyContract({
+      success: res => {
+        console.log('openPrivacyContract success')
+      },
+      fail: res => {
+        console.error('openPrivacyContract fail', res)
+      }
+    })
+  },
+  bindChange(e){
+    console.log(e)
+    this.setData({
+      checkbox : e.detail.value
+    })
+    if(e.detail.value.length == 0){
+      this.setData({
+        checked :false
+      })
+    }
+    if(e.detail.value[0] == '1'){
+      this.setData({
+        checked :true,
+        innerShow: true
+      })
+    }
+  }
 })

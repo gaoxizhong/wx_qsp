@@ -1,5 +1,4 @@
 {
   "usingComponents": {
-    "privacy-popup": "../../component/privacyPopup/privacyPopup"
   }
 }
