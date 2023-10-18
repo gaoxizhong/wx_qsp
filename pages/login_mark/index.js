@@ -19,6 +19,7 @@ Page({
     urlTitle: "《用户隐私保护指引》",
     desc2: "当您点击同意并开始使用产品服务时，即表示你已理解并同息该条款内容，该条款将对您产生法律约束力。如您拒绝，将无法进入小程序。",
     height: 0,
+    getPrivacySetting: true
   },
   clickcheckbox(){
     this.setData({
@@ -32,6 +33,15 @@ Page({
     let that = this;
     // 获取定位
     // publicMethod.zhuan_baidu(this);
+    if (wx.getPrivacySetting) {
+
+    } else {
+      // 低版本基础库不支持 wx.getPrivacySetting 接口
+      this.setData({
+        getPrivacySetting: false,
+        checked: true
+      })
+    }
 
   },
 
@@ -113,21 +123,30 @@ Page({
   // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
   getUserProfile() {
     let checkbox = this.data.checkbox;
-    if(checkbox.length == 0){
-      wx.showToast({
-        title: '请先同意《用户隐私保护协议》',
-        icon: 'none'
+    if (wx.getPrivacySetting) {
+      if(checkbox.length == 0){
+        wx.showToast({
+          title: '请先同意《用户隐私保护协议》',
+          icon: 'none'
+        })
+        return
+      }
+      this.getUserProfileClick(this.getData);
+    } else {
+      this.setData({
+        checked: true
       })
-      return
+      // 低版本基础库不支持 wx.getPrivacySetting 接口，隐私接口可以直接调用
+      // publicMethod.getUserProfile(this,this.getData);
+      this.getUserProfileClick(this.getData);
     }
-    // publicMethod.getUserProfile(this,this.getData);
-    this.getUserProfileClick(this.getData);
+
+
   },
 
   // 微信授权
   getUserProfileClick(f){
     let that = this;
-    console.log('11')
     wx.getUserProfile({
       desc: '获取你的昵称、头像、地区及性别', 
       success: (res) => {

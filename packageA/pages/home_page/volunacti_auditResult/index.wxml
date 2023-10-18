@@ -17,9 +17,9 @@
         </view>
       </view>
     </view>
-    <view class="list-btn-box" wx:if="{{item.status == 0}}">
+    <!-- <view class="list-btn-box" wx:if="{{item.status == 0}}">
       <view class="listview-btn" data-index="{{index}}" data-item="{{item}}" bindtap="speed_up">加速审核</view>
-    </view>
+    </view> -->
     <view class="auditResult-list-sbyy"  wx:if="{{item.status != 0}}">
       <view class="list-sbyy-text" wx:if="{{item.status == 2}}">
         <text style="width: auto;padding-top: 4rpx;">未通过原因：</text>

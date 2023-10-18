@@ -154,6 +154,8 @@ Page({
     if (!member_id) {
       console.log('未授权')
       //todo 执行跳转登录页面
+      publicMethod.gotoLoginMark();
+      return
     } else {
       wx.navigateTo({
         url: e.currentTarget.dataset.url+'&member_id='+member_id +'&business_id='+business_id,
@@ -165,6 +167,8 @@ Page({
     let member_id = wx.getStorageSync('member_id');
     if (!member_id) {
       console.log('未授权')
+      publicMethod.gotoLoginMark();
+      return
       //todo 执行跳转登录页面
     }else{
       wx.navigateTo({
@@ -190,6 +194,8 @@ Page({
     let member_id = wx.getStorageSync('member_id');
     if (!member_id) {
       console.log('未授权')
+      publicMethod.gotoLoginMark();
+      return
       //todo 执行跳转登录页面
     } else {
       let business_id = that.data.business_info.id;
@@ -210,6 +216,8 @@ Page({
     let member_id = wx.getStorageSync('member_id');
     if (!member_id) {
       console.log('未授权')
+      publicMethod.gotoLoginMark();
+      return
       //todo 执行跳转登录页面
     } else {
       wx.navigateTo({
