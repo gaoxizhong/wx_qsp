@@ -126,3 +126,66 @@ page {
   font-size: 30rpx;
   color: #fff;
 }
+
+
+
+.is-pop-mark{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.4;
+  z-index: 9999;
+}
+.is-pop-box{
+  width: 650rpx;
+  height: auto;
+  background: #fff;
+  border-radius: 6px;
+  padding: 12rpx 28rpx;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+.newbtn-area{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+.newbtn-area>button{
+  flex: 1;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx 0;
+}
+.newbtn-area>button.button-1{
+  color: #000;
+}
+.newbtn-area>button.button-2{
+  color: #154cff;
+}
+.infoItem-title {
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  padding-top: 10rpx;
+}
+
+.infoItem-text {
+  margin-top: 20rpx;
+  padding: 20rpx 16rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #f1f1f1;
+}

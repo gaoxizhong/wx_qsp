@@ -17,9 +17,9 @@
         </view>
       </view>
     </view>
-    <!-- <view class="list-btn-box" wx:if="{{item.status == 0}}">
+    <view class="list-btn-box" wx:if="{{item.status == 0}}">
       <view class="listview-btn" data-index="{{index}}" data-item="{{item}}" bindtap="speed_up">加速审核</view>
-    </view> -->
+    </view>
     <view class="auditResult-list-sbyy"  wx:if="{{item.status != 0}}">
       <view class="list-sbyy-text" wx:if="{{item.status == 2}}">
         <text style="width: auto;padding-top: 4rpx;">未通过原因：</text>
@@ -66,3 +66,15 @@
 
 
 <!-- 加速审核弹窗 -->
+<view wx:if="{{is_pop}}" class="is-pop-mark" catchtouchmove="myCatchTouch" bindtap="click_useinter"></view>
+<view wx:if="{{is_pop}}"  class="is-pop-box" catchtouchmove="myCatchTouch">
+  <view class="is-pop-listbox">
+    <view class="infoItem-title">加速审核</view>
+
+    <view class="infoItem-text">可以提前加速一个工作日！每次加速需30积分或者观看30s激励广告</view>
+  </view>
+  <view class="newbtn-area">
+    <button bindtap="" class="button-1">积分加速</button>
+    <button bindtap="" class="button-2">广告加速</button>
+  </view>
+</view>

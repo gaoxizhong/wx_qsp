@@ -17,7 +17,8 @@ Page({
     list:[],
     pageIndex: 1,
     pageSize: 15,
-    hasMore: true
+    hasMore: true,
+    is_pop: false
   },
 
   /**
@@ -382,5 +383,11 @@ Page({
       }
     })
 
-  }
+  },
+  click_useinter(){
+    let that = this;
+    that.setData({
+      is_pop:false
+    })
+  },
 })
