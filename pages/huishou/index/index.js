@@ -90,44 +90,7 @@ Page({
       types_a,
       elect,
     })
-    // 转百度定位坐标
-    wx.getLocation({
-      type: 'wgs84',
-      success:function(res){
-        // zhuan_dingwei方法转换百度标准
-        var gcj02tobd09 = zhuan_dingwei.wgs84togcj02(Number(res.longitude),Number(res.latitude));
-        that.setData({
-          longitude: gcj02tobd09[0],
-          latitude: gcj02tobd09[1]
-        })
-        // 获取地址
-        that.getLastOrderInfo();
-      },
-      fail: function(res) {
-        wx.showModal({
-          title: '需要开启手机定位',
-          content: '请前去开启GPS服务',
-          showCancel:false,
-          success (res) {
-            if (res.confirm) {
-
-            } else if (res.cancel) {
-
-            }
-          }
-        })
-        that.setData({
-          latitude: '',
-          longitude: ''
-        })
-        if (res.errMsg == "getLocation:fail auth deny") {
-          that.openSetting(that)
-        }
-        // 获取地址
-        that.getLastOrderInfo();
-      }
-    })
-
+    that.getLastOrderInfo();
   },
   onShow: function () {
     let that = this
@@ -1039,8 +1002,6 @@ queding(){
     contact_phone: that.data.contact_phone,
     garden: that.data.garden,
     address: that.data.address,
-    lng: that.data.longitude,
-    lat: that.data.latitude,
   }
   common.get('/library/save_address',perm).then(res => {
     if (res.data.code == 200) {

@@ -83,7 +83,6 @@ Page({
           longitude: gcj02tobd09[0],
           latitude: gcj02tobd09[1]
         })
-        that.getCategory();
       },
       fail: function(res) {
         wx.showModal({
@@ -108,6 +107,7 @@ Page({
         }
       }
     })
+    that.getCategory();
 
     for ( let i in that.data.payItems ) {
       that.data.payItems[i].checked = !1
