@@ -173,7 +173,15 @@ page {
 }
 .newbtn-area>button.button-2{
   color: #154cff;
+  position: relative;
 }
+.newbtn-area>button.button-2::after{
+  content: '';
+  width: 1px;
+  height: 50%;
+  background: #f2f2f2;
+}
+
 .infoItem-title {
   text-align: center;
   font-size: 32rpx;

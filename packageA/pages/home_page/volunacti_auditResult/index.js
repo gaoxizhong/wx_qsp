@@ -18,7 +18,8 @@ Page({
     pageIndex: 1,
     pageSize: 15,
     hasMore: true,
-    is_pop: false
+    is_pop: false,
+    selet_item: {}
   },
 
   /**
@@ -351,38 +352,10 @@ Page({
   speed_up(e){
     console.log(e)
     let item = e.currentTarget.dataset.item;
-    wx.showModal({
-      title:'加速审核',
-      content:'可以提前加速一个工作日！每次加速需30积分或者观看30s激励广告',
-      cancelText:'积分加速',
-      confirmText:'广告加速',
-      success(res){
-        if(res.confirm){
-          console.log('广告加速')
-          // 用户触发广告后，显示激励视频广告
-          if (videoAd) {
-            videoAd.show().catch(() => {
-              // 失败重试
-              videoAd.load()
-              .then(() => videoAd.show())
-              .catch(err => {
-                console.log('激励视频 广告显示失败')
-                wx.showToast({
-                  title: '激励视频 广告显示失败',
-                  icon:'none'
-                })
-              })
-            })
-            
-          }
-        }
-        if(res.cancel){
-          console.log('积分加速')
-
-        }
-      }
+    this.setData({
+      selet_item: item,
+      is_pop: true
     })
-
   },
   click_useinter(){
     let that = this;
@@ -390,4 +363,29 @@ Page({
       is_pop:false
     })
   },
+  // 点击积分加速按钮
+  clickJfbtn(){
+    console.log('积分加速')
+
+  },
+  // 点击广告极速按钮
+  clickAdbtn(){
+    console.log('广告加速')
+    // 用户触发广告后，显示激励视频广告
+    if (videoAd) {
+      videoAd.show().catch(() => {
+        // 失败重试
+        videoAd.load()
+        .then(() => videoAd.show())
+        .catch(err => {
+          console.log('激励视频 广告显示失败')
+          wx.showToast({
+            title: '激励视频 广告显示失败',
+            icon:'none'
+          })
+        })
+      })
+      
+    }
+  }
 })

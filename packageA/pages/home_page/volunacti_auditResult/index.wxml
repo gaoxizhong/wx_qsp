@@ -74,7 +74,7 @@
     <view class="infoItem-text">可以提前加速一个工作日！每次加速需30积分或者观看30s激励广告</view>
   </view>
   <view class="newbtn-area">
-    <button bindtap="" class="button-1">积分加速</button>
-    <button bindtap="" class="button-2">广告加速</button>
+    <button bindtap="clickJfbtn" class="button-1">积分加速</button>
+    <button bindtap="clickAdbtn" class="button-2">广告加速</button>
   </view>
 </view>

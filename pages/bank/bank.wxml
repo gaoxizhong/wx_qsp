@@ -273,6 +273,19 @@
 	<image class="tast-icon-title" src="http://oss.qingshanpai.com/banner/task_title.png"></image>
 	<image class="task-module-icon" bindtap="guanbi_task" src="http://oss.qingshanpai.com/banner/close.png"></image>
 	<view class="items-box">
+    <view class="items-box-list flex-justitem-spacecent">
+			<image class="list-image" src="/images/task_{{item.id}}.png"></image>
+			<view class="list-text">
+				<view style="font-size:30rpx;margin-bottom:8rpx;">看广告赚积分</view>
+				<view style="font-size:26rpx;">成功观看激励广告30s即可赚取积分</view>
+			</view>
+			<view class="list-btn flex-column-space">
+				<view class="list-btn-icon flex-justitem-spacecent">
+					<image src="/images/task_gold.png"></image><text style="font-size:32rpx;line-height:1;">+20</text>
+				</view>
+				<view style="background:#fff45c;color:#f19149;" class="list-btn-bind" bindtap="goToGg">去完成</view>
+			</view>
+		</view>
 		<view class="items-box-list flex-justitem-spacecent" wx:for="{{more_integral}}" wx:key="idx">
 			<image class="list-image" src="/images/task_{{item.id}}.png"></image>
 			<view class="list-text">

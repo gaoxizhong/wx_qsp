@@ -4,6 +4,8 @@ const publicMethod = require('../../assets/js/publicMethod');
 const md5 = require('../../utils/md5');
 var zhuan_dingwei = require('../../assets/js/dingwei.js');
 let time1 = null;
+let videoAd = null
+
 Page({
   data: {
     lists: [],
@@ -125,7 +127,46 @@ Page({
     if(this.options.fromindex == 1){
       that.goToaddintegral();
     }
-
+      // 在页面onLoad回调事件中创建激励视频广告实例
+      if (wx.createRewardedVideoAd) {
+        videoAd = wx.createRewardedVideoAd({
+          adUnitId: 'adunit-f6ea451e26a50fda'
+        })
+        videoAd.onLoad(() => {
+          console.log('onLoad event emit')
+        })
+        videoAd.onError((err) => {})
+        videoAd.onClose((res) => {
+          // 用户点击了【关闭广告】按钮
+          if (res && res.isEnded) {
+            // 正常播放结束，可以下发游戏奖励
+          
+            common.get('/mine/index?op=ad_point',{
+              member_id: wx.getStorageSync('member_id'),
+              point: that.data.ad_num, // 积分
+            }).then(res =>{
+              if(res.data.code == 200){
+                wx.showToast({
+                  title: '获取' + that.data.ad_num + '积分成功！',
+                })
+              }else{
+                wx.showToast({
+                  title: res.data.msg,
+                  icon:'none',
+                })
+              }
+            }).catch(e=>{
+              console.log(e)
+            })
+          } else {
+            // 播放中途退出，不下发游戏奖励
+            wx.showToast({
+              title: '中途退出，未获取积分',
+              icon:'none'
+            })
+          }
+        })
+      }
   },
   onShow() {
     this.audioCtx = wx.createAudioContext('myAudio');
@@ -1065,5 +1106,22 @@ Page({
       wx.navigateTo({
         url: '/packageA/pages/points_Buy/index',
       })
+    },
+    goToGg(){
+      // 用户触发广告后，显示激励视频广告
+      if (videoAd) {
+        videoAd.show().catch(() => {
+          // 失败重试
+          videoAd.load()
+          .then(() => videoAd.show())
+          .catch(err => {
+            console.log('激励视频 广告显示失败')
+            wx.showToast({
+              title: '激励视频 广告显示失败',
+              icon:'none'
+            })
+          })
+        })
+      }
     }
 })
