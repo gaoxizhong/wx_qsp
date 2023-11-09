@@ -5,12 +5,12 @@
           <view class='circle-head'>
             <form report-submit bindsubmit='goOtherCircle' data-id="{{item.member_id}}" data-business_id="{{item.copy_business ? item.copy_business : item.business_id}}">
               <button form-type='submit' hover-class='none'>
-                <image class='photo' src="{{item.avatar}}" style="border-radius:50%;width:94rpx;height:94rpx"></image>
+                <image class='photo' src="{{item.avatar? item.avatar : '/images/notlogin.jpg'}}" style="border-radius:50%;width:94rpx;height:94rpx"></image>
               </button>
             </form>
             <view>
               <view class='name_box'>
-                <view class='name'>{{item.nickname}}
+                <view class='name'>{{item.nickname?item.nickname:"微信用户"}}
                 </view>
               </view>
               <view class='time'>
