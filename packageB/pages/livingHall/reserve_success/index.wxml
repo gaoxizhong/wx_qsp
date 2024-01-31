@@ -37,7 +37,7 @@
           <view class="lifeimg-name-title">
             <view class="lifeimg-n-t">{{item.name}}</view>
             <view class="lifeimg-n-btn" data-member_id="{{ item.member_id }}" bindtap="gotoPersonalHome">
-              <image class="lifeimg-n-icon2" src="/packageB/assets/images/livingHall/icon-tx.png" mode="widthFix"></image>
+              <image class="lifeimg-n-icon2" src="/images/index/Ahome.png" mode="widthFix"></image>
               <text style="margin: 0 6rpx;">主页</text>
               <image class="lifeimg-n-icon2" src="/packageB/image/my_more.png" mode="widthFix"></image>
             </view>

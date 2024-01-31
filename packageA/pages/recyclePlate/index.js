@@ -25,7 +25,7 @@ Page({
       number_r:Math.floor(Math.random()*10000),
     })
     // 转百度定位坐标
-    publicMethod.zhuan_baidu(this,this.data.longitude,this.data.latitude);
+    // publicMethod.zhuan_baidu(this,this.data.longitude,this.data.latitude);
   },
 
   /**

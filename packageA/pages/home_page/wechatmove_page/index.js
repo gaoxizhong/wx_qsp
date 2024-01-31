@@ -29,7 +29,7 @@ Page({
    */
   onLoad: function (options) {
     // 转百度定位坐标
-    publicMethod.zhuan_baidu(this);
+    // publicMethod.zhuan_baidu(this);
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true
@@ -199,8 +199,8 @@ getUserInfo: function(e) {
     common.post("/member/sport_get_integral",{
       member_id:wx.getStorageSync('member_id'),
       step,
-      latitude: that.data.latitude,
-      longitude: that.data.longitude,
+      latitude: that.data.latitude?that.data.latitude:0,
+      longitude: that.data.longitude?that.data.longitude:0,
     }).then(res =>{
       wx.hideLoading();
       if(res.data.code == 200){

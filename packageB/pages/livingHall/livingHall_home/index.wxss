@@ -285,7 +285,7 @@ page{
   font-size: 30rpx;
 }
 .footer-box>view>image {
-  width: 125rpx;
+  width: 108rpx;
   height: 163rpx;
 }
 .zwzpzs-box{

@@ -71,7 +71,7 @@
   <view class="infoList-items-iconbox">
     <view class="iconbox-btn" hover-class="hoverClss" bindtap="gotoPersonalHome">
       <view class="infoList-items-iconi">
-        <image src="/packageB/assets/images/livingHall/icon-zp-bj.png" mode="widthFix"></image>
+        <image src="/images/index/Ahome.png" mode="widthFix"></image>
       </view>
       <view class="infoList-items-icont">主页</view>
     </view>

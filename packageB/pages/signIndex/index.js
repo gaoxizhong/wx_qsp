@@ -29,7 +29,7 @@ Page({
     }
     console.log(this.options)
     let that = this;
-    if(this.options.m_id){
+    if(this.options && this.options.m_id){
       that.setData({
         m_id: options.m_id
       })
@@ -112,6 +112,7 @@ Page({
       })
     })
   },
+
   getSigntList(){
     let that = this;
     common.get('/mine/index?op=friend_content',{
@@ -377,6 +378,10 @@ Page({
   goToSign(){
     let that = this;
     let member_id = wx.getStorageSync('member_id');
+    if(!member_id){
+      publicMethod.gotoLoginMark();
+      return
+    }
     let peamrs = {
       member_id,
       task_id:1,
