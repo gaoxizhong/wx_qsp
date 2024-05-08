@@ -2,6 +2,8 @@ const app = getApp()
 const common = require('../../assets/js/common');
 const setting = require('../../assets/js/setting');
 const publicMethod = require('../../assets/js/publicMethod');
+var WxParse = require('../../wxParse/wxParse.js');
+
 import { getLessLimitSizeImage, getBase64} from '../../utils/newImgcomp'
 Page({
   data: {
@@ -42,7 +44,18 @@ Page({
     is_signTaskMask: false,
     taskMaskpreview_title:'',
     taskMaskpreview_jifen:'',
-    is_ad:true
+    is_ad:true,
+    checked: false,
+    checkbox:[],
+    innerShow: false,
+    illustrate_image:[],
+    nodes: [{
+      name: 'view',
+      children: [{
+        type: 'text',
+        text: 'Hello&nbsp;World!'
+      }]
+    }],
   },
 
   /**
@@ -57,6 +70,15 @@ Page({
         activity_id: options.activity_id,
         ext_id: options.ext_id
       })
+
+      if(options.illustrate){
+        let illustrate = options.illustrate;
+        console.log(illustrate)
+        WxParse.wxParse('illustrate', 'html', illustrate, that, 1);
+        that.setData({
+          illustrate_image: JSON.parse(options.illustrate_image)
+        })
+      }
     }
     // ======= 做任务赚积分数据  
     if(options.is_Signtask){
@@ -250,6 +272,13 @@ Page({
     if (content==""){
       wx.showToast({
         title:'内容不能为空！',
+        icon:'none'
+      })
+      return
+    }
+    if(!that.data.checked && that.data.is_activity == '2'){
+      wx.showToast({
+        title:'请先同意本项目志愿者培训选项',
         icon:'none'
       })
       return
@@ -558,5 +587,33 @@ gotoxuanze(){
     this.setData({
       is_ad: false
     })
+  },
+  bindChange(e){
+    console.log(e)
+    this.setData({
+      checkbox : e.detail.value
+    })
+    if(e.detail.value.length == 0){
+      this.setData({
+        checked :false
+      })
+    }
+    if(e.detail.value[0] == '1'){
+      this.setData({
+        checked: true,
+        innerShow: true
+      })
+    }
+  },
+  openPrivacyContract() {
+   this.setData({
+    innerShow: true
+   })
+  },
+  close_dialog(){
+    this.setData({
+      innerShow: false,
+      checked: true,
+     })
   }
 })

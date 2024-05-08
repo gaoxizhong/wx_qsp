@@ -30,7 +30,7 @@
   <view class="conversion-btn" hover-class="hover-btn" bindtap="conversion_btn">转换金钱</view>
 </view>
 
-<view class="instructions-box">
+<!-- <view class="instructions-box">
   <view class="instructions-padd">
     <view style="align-items:flex-status;width: 100%;padding-top:8rpx;font-size: 26rpx;">截止目前收获的赞价值 {{result_today}}元，明日24：00之前可兑换</view>
 
@@ -39,7 +39,7 @@
     </view>
   </view>
 
-</view>
+</view> -->
 <!-- 广告位 开始 -->
 <view class="circle-adbox">
   <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>

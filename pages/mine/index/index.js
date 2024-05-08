@@ -386,6 +386,20 @@ jump_frog(){
     url: '/packageA/pages/merchant_entrance/index',
   })
 },
+gotocreate_shop(e) {
+  let that = this;
+  let member_id = wx.getStorageSync('member_id');
+  let business_id = that.data.personalInfo.business_id;
+  if (!business_id) {
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url,
+    })
+  } else {
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url,
+    })
+  }
+},
 gotodongao(){
   let member_id = wx.getStorageSync('member_id');
   if(!member_id){

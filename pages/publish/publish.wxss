@@ -16,11 +16,8 @@ page{
 .checkbox {
   font-size: 32rpx;
   color: #333;
-  margin-bottom: 20rpx;
-  margin-left: 44rpx;
   display: flex;
   align-items: center;
-  box-shadow: 0 2rpx 10rpx 0 #00000012;
 }
 
 .textarea-wrp {
@@ -334,4 +331,83 @@ view.add-pic image {
   position: fixed;
   left: 0;
   top: 10000px;
+}
+.checkbox-view{
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+.checkbox{
+  display: flex;
+  align-items: center;
+}
+.lable-text{
+  color: #004caf;
+  font-size: 28rpx;
+}
+.checkbox checkbox{
+  transform: scale(0.7);
+}
+
+.screen-dialog {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5000;
+  box-sizing: border-box;
+}
+.screen-dialog__hd {
+  line-height: 30rpx;
+  padding-top: 30rpx;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.screen-dialog__tips {
+  font-size: 28rpx;
+  color: #000000;
+  line-height: 1.4;
+}
+.screen-dialog__btn-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30rpx;
+}
+.weui-btn {
+  margin-right: 0;
+  background: #ff0000;
+  color: #fff;
+}
+.dialog-mask{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #33333330;
+}
+.dialog-content{
+  width: 80%;
+  max-height: 70%;
+  background: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  line-height: 1.4;
+  border-radius: 8px;
+  overflow: auto;
+  padding: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.screen-dialog__bd>image{
+  margin-top: 30rpx;
+  width: 100%;
 }

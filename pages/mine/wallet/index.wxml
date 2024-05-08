@@ -12,7 +12,7 @@
   </view>
 </view>
 <view style="padding-top:18rpx;">
-  <view class="ktx-box">
+  <!-- <view class="ktx-box">
     <view class="section_box">
       <view class="section_title">可提现金额</view>
       <view class="mark_tishi" bindtap="caption"><image class="mark_image" src="/images/mark_image.png"></image></view>
@@ -20,35 +20,21 @@
     <form bindsubmit="gettxian" wx:if="{{ property }}">
       <view class="ktxje-box">
         <image src="http://oss.qingshanpai.com/icon/wdqb-ic-bz.png" mode="widthFix"></image>
-        <!-- <input class="ktxje-num" name="money" value="" disabled/> -->
         <text class="ktxje-num" name="money">{{money}}</text>
       </view>
-
       <view class="srxm-box">
         <view class="section_title">输入本人姓名:</view>
         <input name="name" placeholder="请输入真实姓名" value="{{name_value}}" bindinput="setName"/>
       </view>
       <button formType="submit" class="btn-area" hover-class='hover_color'>提现</button>
     </form>
-    <!-- 获取提现资格-- 按钮 -->
     <view class="property-box" wx:else>
       <view class="property-btn" hover-class="hoverClass" bindtap="clcikProperty">获取提现资格</view>
     </view>
-
-
-  </view>
+  </view> -->
 
 
   <view class="my-function-list">
-    <!-- <view class="function-list-item" bindtap="getdetails">
-      <view class="function-list-item-left">
-        <image src="http://oss.qingshanpai.com/banner/walltemx.png" mode="widthFix"></image>
-        <view style="padding-left:12px;">收入明细</view>
-      </view>
-      <view class="arrow">
-        <image class="my-more" mode="widthFix" src="/images/my/my_more.png"></image>
-      </view>
-    </view> -->
     <view class="function-list-item" bindtap="getWithdraw">
       <view class="function-list-item-left">
         <image src="http://oss.qingshanpai.com/banner/walltemx.png" mode="widthFix"></image>

@@ -27,10 +27,10 @@
         <view class="income-text-title">奖励金额</view>
         <view class="income-text-nub">{{my_coin}}</view>
       </view>
-      <view data-url="/packageB/pages/livingHall/member_withdrawPage/index" bindtap="click_mybalance">
+      <!-- <view data-url="/packageB/pages/livingHall/member_withdrawPage/index" bindtap="click_mybalance">
         <view class="income-text-title">提现金额</view>
         <view class="income-text-nub">{{money?money:'0.00'}}</view>
-      </view>
+      </view> -->
     </view>
   </view>
 </view>

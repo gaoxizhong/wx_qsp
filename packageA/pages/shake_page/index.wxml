@@ -20,7 +20,7 @@
   <view class="theycount-box-info"> 今日被摇{{today_likes?today_likes:0}}次，共收获了{{today_likes?today_likes:0}}个赞</view>
 </view>
 
-<view class="instructions-box">
+<!-- <view class="instructions-box">
   <view class="instructions-padd">
     <view style="align-items:flex-status;width: 100%;padding-top:8rpx;font-size: 26rpx;">截止目前收获的摇一摇价值 {{result_today?result_today:0}}元，明日24：00之前可兑换</view>
 
@@ -29,7 +29,7 @@
     </view>
   </view>
 
-</view>
+</view> -->
 <!-- 广告位 开始 -->
 <view class="circle-adbox">
   <ad unit-id="adunit-3f73132161281cda" ad-intervals="30"></ad>

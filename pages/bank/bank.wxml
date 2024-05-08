@@ -27,7 +27,7 @@
 			<view class="xiaoxi" wx:if="{{is_type == 1}}"></view>
 			</view> -->
 			<view class="box-title-number-rg" bindtap="goToHisOrder">积分账单</view>
-      <view class="bay_jf" bind:tap="goToBay_jf">购买积分</view>
+      <!-- <view class="bay_jf" bind:tap="goToBay_jf">购买积分</view> -->
 		</view>
 		<view class="box-title-income flex-justitem-startcent">
 			<view>
@@ -60,10 +60,10 @@
 			<image src="/images/jfjydt/ic_zhjf.png"></image>
 			<view>赚积分</view>
 		</view>
-		<view class="type-item" bindtap="goToWallet">
+		<!-- <view class="type-item" bindtap="goToWallet">
 			<image src="/images/jfjydt/ic_tx.png"></image>
 			<view>提现</view>
-		</view>
+		</view> -->
 	</view>
 </view>
 <!-- 环保积分兑换 -->

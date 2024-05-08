@@ -66,6 +66,8 @@ Page({
     ext_list: [],
     recover_index:0,
     selectedExt: {},
+    illustrate:'',
+    illustrate_image: []
   },
 
   /**
@@ -276,6 +278,8 @@ Page({
         let count = details_info.count;
         let my_count = details_info.my_count;
         let activity_status = details_info.activity_status;
+        let illustrate = details_info.illustrate;
+        let illustrate_image = details_info.illustrate_image;
         WxParse.wxParse('article', 'html', article, that, 1);
         WxParse.wxParse('activity_tips', 'html', activity_tips, that, 1);
         that.setData({
@@ -284,6 +288,8 @@ Page({
           count,  //  活动限制次数
           my_count, //  我参与的次数
           activity_status,
+          illustrate,
+          illustrate_image
         })
         if(my_count === count){
           wx.showModal({
@@ -586,8 +592,9 @@ Page({
         activityid: 3,
       })
       wx.setStorageSync('activityid_'+  that.data.id +'_step', 3);
+      let illustrate_image = JSON.stringify(that.data.illustrate_image);
       wx.navigateTo({
-        url: url + "?is_activity=2&activity_id=" + that.data.id + '&ext_id=' + ext_id,
+        url: url + "?is_activity=2&activity_id=" + that.data.id + '&ext_id=' + ext_id + '&illustrate=' + that.data.illustrate + '&illustrate_image=' + illustrate_image,
       })
     }else{
       that.setData({

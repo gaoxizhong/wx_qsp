@@ -335,6 +335,8 @@
         "pages/qhyRally/myJf/index",
         "pages/qhyRally/djShop/index",
         "pages/qhyRally/apply/index",
+        "pages/qhyRally/article/index",
+        "pages/qhyRally/articleDetail/index",
         "pages/retraceLongMarch/home/index",
         "pages/retraceLongMarch/retrace_punch/index",
         "pages/retraceLongMarch/retrace_punchshow/index",

@@ -49,10 +49,6 @@
       <image src="http://oss.qingshanpai.com/icon/my-icon-wddt1.png" mode="widthFix"></image>
       <view>我的动态</view>
     </view>
-    <!-- <view class="type-item" bindtap="jump_frog">
-      <image src="http://oss.qingshanpai.com/icon/my-icon-qwtg.png"  mode="widthFix"></image>
-      <view>青蛙推广</view>
-    </view> -->
     <view class="type-item" bindtap='goToMyCoupon' data-url="/packageA/pages/myCouponList/index">
       <image src="http://oss.qingshanpai.com/icon/my-icon-wdyhq1.png"  mode="widthFix"></image>
       <view>我的优惠券</view>
@@ -70,14 +66,6 @@
       <image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image>
     </view>
   </view>
-  <!-- <view class="function-list-item" bindtap="gotoidleorder">
-    <view class="function-list-item-left">
-      <image src="https://oss.qingshanpai.com/icon/my-ic-mdxz.png" mode="widthFix"></image>
-      <view style="padding-left:24rpx;">买的闲置</view>
-    </view>
-    <view class="arrow"><image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image></view>
-  </view>   -->
- 
   <view class="function-list-item"  bindtap="goToOrderPage" data-status="5">
     <view class="function-list-item-left">
       <image src="https://oss.qingshanpai.com/icon/my-ic-hsdd1.png" mode="widthFix"></image>
@@ -101,13 +89,21 @@
     <view class="arrow"><image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image></view>
   </view> 
 
-  <view class="function-list-item" bindtap='jump_frog'>
+  <!-- <view class="function-list-item" bindtap='jump_frog'>
     <view class="function-list-item-left">
       <image src="https://oss.qingshanpai.com/icon/my-ic-qwtg1.png" mode="widthFix"></image>
       <view style="padding-left:24rpx;">青蛙推广</view>
     </view>
     <view class="arrow"><image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image></view>
+  </view>  -->
+  <view class="function-list-item" bindtap="gotocreate_shop" data-url="{{ personalInfo.business_id ? '/pages/shop/shop' : '/pages/register/register' }}">
+    <view class="function-list-item-left">
+      <image src="https://oss.qingshanpai.com/icon/my-ic-qwtg1.png" mode="widthFix"></image>
+      <view style="padding-left:24rpx;">{{ personalInfo.business_id ? '展厅管理' : '申请展厅' }}</view>
+    </view>
+    <view class="arrow"><image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image></view>
   </view> 
+ 
 </view>
 <view style="width:100%;height:50rpx;"></view>
 <!-- <view class="kefu-box">
