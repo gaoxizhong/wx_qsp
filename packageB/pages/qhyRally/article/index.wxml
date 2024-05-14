@@ -1,25 +1,18 @@
 <!-- 社区活动列表 -->
 <view>
   <!-- 列表 -->
-  <view class="goodinfo">
-    <view class="goToInfo" wx:for="{{shopList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
-      <view class="good-item-view" bind:tap="goToShop" data-id="{{item.id}}">
-        <view class="imagebox">
-          <image class="good-item-img" src="{{ item.bgimg}}" binderror="binderrorimg" mode="aspectFill"></image>
-        </view>
-        <view class="item-title-name">
-          <view class="goodname">{{item.name}}</view>
-          <view class="idle-avar-box">
-            <image src="{{item.member_info.avatar}}"></image>
-            <text class="idle-avar-text">{{item.member_info.nickname}}</text>
-          </view>
-        </view>
-        
+  <view class="article">
+    <view class="article-item" wx:for="{{ shopList }}" wx:key="index" data-article_id="{{item.article_id}}" bind:tap="gotodetail">
+      <view class="article-item-image">
+        <image src="{{item.image}}" class="good-item-img" mode="widthFix"/>
       </view>
-    </view>
-    <view class='nulldata_wrap' wx:if="{{shopList.length <= 0}}">
-      <image src='http://oss.qingshanpai.com/huanbaobi/21d3b572a908f5363be15d3149adf193.png' mode='widthFix'></image>
-      <view class='msg'>暂无数据...</view>
+      <view class="article-item-tilte">
+        <text>{{item.title}}</text>
+      </view>
+      <view class="article-item-tip">
+        <text>{{item.time}}</text>
+        <text>{{item.scan_count?item.scan_count:0}}阅读</text>
+      </view>
     </view>
   </view>
   

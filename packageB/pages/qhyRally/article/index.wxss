@@ -1,1 +1,41 @@
-/* packageB/pages/qhyRally/article/index.wxss */
+page{
+  padding: 25rpx;
+  box-sizing: border-box;
+}
+.article .article-item{
+  width: 700rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 20rpx;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+}
+.article-item:active{
+  background: #f0f0f0;
+}
+.article-item-image{
+  width: 700rpx;
+  height: 350rpx;
+  overflow: hidden;
+}
+.article-item-image image{
+  border-radius: 6px;
+  width: 100%;
+}
+.article-item-tilte{
+  font-size: 14px;
+  color: #000;
+  padding: 10rpx 0;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.article-item-tip{
+  display: flex;
+  justify-content: space-between;
+}
+.article-item-tip text{
+  font-size: 12px;
+  color: #777;
+}

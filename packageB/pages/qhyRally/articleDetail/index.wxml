@@ -1,7 +1,7 @@
 <import src="../../../../wxParse/wxParse.wxml" />
 <import src="/pages/module/authorize/index.wxml"></import>
 <template is="authorize" data="{{isAuthorize:isAuthorize}}"></template>
-<view class='detail' style="margin-bottom:{{article_id != '294'? '98rpx':'240rpx'}}">
+<view class='detail'>
   <view class='detail_hd'>
     <view class='tit'>{{detailData.data.title}}</view>
     <view class='user'>
@@ -37,9 +37,9 @@
     <button hover-class='none' bindtap="scrollToComment">
       <image src='/images/icon_comment.png'></image>
     </button>
-    <button hover-class='none' open-type="share" data-sharetxt="{{detailData.data.title}}" data-contentId="{{detailData.data.id}}">
+    <!-- <button hover-class='none' open-type="share" data-sharetxt="{{detailData.data.title}}" data-contentId="{{detailData.data.id}}">
       <image src='/images/icon_relay.png'></image>
-    </button>
+    </button> -->
     <button hover-class='none' class="{{detailData.data.laud_status == 1 ? 'active':''}}" data-curindex="{{idx}}" data-zxid="{{detailData.data.id}}" bindtap='like'>
       <image src="/images/{{detailData.data.laud_status == 1 ? 'icon-praise-opt':'icon-praise'}}.png"></image>
       <text>{{detailData.data.laud_count}}</text>

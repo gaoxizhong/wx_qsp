@@ -255,14 +255,12 @@ Page({
       let num = "detailData.data.laud_count"
       var laudCount = parseInt(that.data.detailData.data.laud_count)
       if (that.data.detailData.data.laud_status == 1) {
-        console.log("quxiao")
+        console.log("取消点赞")
         that.setData({
           [num]:  laudCount -= 1,
           [zan]: 0
         })
       } else {
-        let comp = that.selectComponent("#comp");
-        comp.myevent(e.touches[0].pageX, e.touches[0].pageY);
         that.setData({
           [num]: laudCount += 1,
           [zan]: 1

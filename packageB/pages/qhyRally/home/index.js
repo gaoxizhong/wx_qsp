@@ -10,8 +10,8 @@ Page({
     itemsList:[
       {comment:'社区大集',function_name:'带上闲置来赶集',tag:'sqdj',icon:'https://oss.qingshanpai.com/qhy/icon-qhy-sqdj.png',url:'/packageB/pages/qhyRally/countyActivity/index',status:'1'},
       {comment:'社区图书馆',function_name:'以书换书 积分换书',icon:'https://oss.qingshanpai.com/qhy/icon-qhy-zhhb.png',url:'/packageA/pages/library/index?is_comtype=qhysq',status:'1'},
-      {comment:'志愿风采',function_name:'辖区居民 活动风采',icon:'https://oss.qingshanpai.com/qhy/icon-qhy-gxkj.png',url:'/packageB/pages/qhyRally/article/index',status:'1'},
-      {comment:'低碳生活+拉分打卡',subtitle:'默默分类 给生活积分',icon:'https://oss.qingshanpai.com/qhy/icon-qhy-ljfldk.png',url:'/packageB/pages/signTaskList/index?is_comtype=qhysq',status:'1'},
+      {comment:'共享空间',function_name:'辖区居民 免费预约',icon:'https://oss.qingshanpai.com/qhy/icon-qhy-gxkj.png',url:'',status:'2'},
+      {comment:'志愿风采',function_name:'辖区居民 活动风采',icon:'https://oss.qingshanpai.com/qhy/icon-qhy-ljfldk.png',url:'/packageB/pages/qhyRally/article/index?is_comtype=qhysq',status:'1'},
       {comment:'旧衣回收-免费上门',function_name:'环保低碳 让温暖循环',icon:'https://oss.qingshanpai.com/qhy/icon-qhy-jyhs.png',url:'/packageA/pages/recyclePlate/recyclePlateClothes/index?is_comtype=qhysq',status:'1'},
       {comment:'纸壳贝儿-上门回收',function_name:'足不出户 让资源变现',icon:'https://oss.qingshanpai.com/qhy/icon-qhy-smhs.png',url:'/packageB/pages/qhyRally/smhs/index?is_comtype=qhysq',status:'1'},
       {comment:'周边福利',function_name:'附近每天有优惠',icon:'https://oss.qingshanpai.com/qhy/icon-qhy-zb.png',url:'/packageB/pages/qhyRally/djShop/index?is_comtype=qhysq',status:'1'},
