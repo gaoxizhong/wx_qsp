@@ -656,7 +656,7 @@ Page({
               } else {
                 console.log('没有支付签名')
                 wx.showToast({
-                  title: res.data.message,
+                  title: res.data.msg,
                   duration: 1000,
                   icon: 'success'
                 })
@@ -668,9 +668,9 @@ Page({
               }
 
             } else {
-              wx.hideLoading()
+              wx.hideLoading();
               wx.showToast({
-                title: res.data.message,
+                title: res.data.msg,
                 duration: 1000,
                 icon: 'none'
               })

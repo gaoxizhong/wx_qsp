@@ -96,7 +96,7 @@
     </view>
     <view class="arrow"><image src="/images/my/my_more.png" mode="widthFix" class="my-more"></image></view>
   </view>  -->
-  <view class="function-list-item" bindtap="gotocreate_shop" data-url="{{ personalInfo.business_id ? '/pages/shop/shop' : '/pages/register/register' }}">
+  <view class="function-list-item" bindtap="gotocreate_shop" data-url="{{ personalInfo.business_id ? '/pages/shop/shop?' : '/pages/register/register' }}">
     <view class="function-list-item-left">
       <image src="https://oss.qingshanpai.com/icon/my-ic-qwtg1.png" mode="widthFix"></image>
       <view style="padding-left:24rpx;">{{ personalInfo.business_id ? '展厅管理' : '申请展厅' }}</view>

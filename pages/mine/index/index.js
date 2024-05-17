@@ -396,7 +396,7 @@ gotocreate_shop(e) {
     })
   } else {
     wx.navigateTo({
-      url: e.currentTarget.dataset.url,
+      url: e.currentTarget.dataset.url+'&member_id='+member_id +'&business_id='+business_id,
     })
   }
 },
