@@ -29,6 +29,10 @@
 			<view class="box-title-number-rg" bindtap="goToHisOrder">积分账单</view>
       <!-- <view class="bay_jf" bind:tap="goToBay_jf">购买积分</view> -->
 		</view>
+    <view class="yzm-box" wx:if='{{ memberCode }}'>
+      <text style="font-weight: bold;">个人验证码：</text><text>{{memberCode ? memberCode : '暂无验证码'}}</text>
+      <text class="fz-box" data-text="{{ memberCode?memberCode:''}}" bindtap="fuzhi_btn">复制</text>
+    </view>
 		<view class="box-title-income flex-justitem-startcent">
 			<view>
 				<view class="income-text-nub">{{realAmount ? realAmount : '暂无积分'}}</view>

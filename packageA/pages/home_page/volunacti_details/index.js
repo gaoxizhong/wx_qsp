@@ -412,6 +412,18 @@ Page({
         activityid: 2
       })
       wx.setStorageSync('activityid_'+  that.data.id +'_step', 2);
+      wx.navigateToMiniProgram({
+        appId: 'wxd4a32c29a78ee879',
+        path: url,
+        envVersion: 'release', // 'release'正式版，trial	体验版，develop	开发版
+        // extraData: { // 传参
+        //   foo: 'bar'
+        // },
+        success(res) {
+          // 打开成功
+        }
+      })
+      return
       if(url.indexOf("?") != -1){
         url = e.currentTarget.dataset.material_url + '&steps=2';
       }else{

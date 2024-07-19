@@ -780,3 +780,20 @@ page{font-family:PingFangSC-Regular,PingFangSC;color:#333;background: #f2f2f2;}.
   right: 30rpx;
   top: 124rpx;
 }
+.yzm-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+  padding-left: 30rpx;
+}
+.fz-box{
+  display: inline-block;
+  padding: 4rpx 26rpx;
+  border-radius: 20px;
+  font-size: 26rpx;
+  background: #e36969;
+  color: #fff;
+  margin-left: 14rpx;
+}

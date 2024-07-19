@@ -15,6 +15,7 @@ Page({
     canUseGrandTotalTitle: '',  //全国总额标题
     memberBankTitle: '',  //环保账户名称
     memberIdBank: '',  //环保id
+    memberCode: '',
     realAmount: '',  //环保财富值
     hbb_add:0, //本月收入
     hbb_reduce:0, // 本月支出
@@ -231,6 +232,7 @@ Page({
           jf: res.data.data.jf,
           df: res.data.data.df,
           t_money: res.data.data.t_money,
+          memberCode: res.data.data.memberCode?res.data.data.memberCode:'',
         })
       }
     }).catch(error => {
@@ -1105,6 +1107,23 @@ Page({
     goToBay_jf(){
       wx.navigateTo({
         url: '/packageA/pages/points_Buy/index',
+      })
+    },
+    fuzhi_btn(e){
+      let that = this;
+      let S_info = e.currentTarget.dataset.text;
+      wx.setClipboardData({
+        data: S_info,
+        success (res) {
+          wx.getClipboardData({
+            success (res) {
+              console.log(res.data) 
+              wx.showToast({
+                title: '复制成功！',
+              })
+            }
+          })
+        }
       })
     },
     goToGg(){
