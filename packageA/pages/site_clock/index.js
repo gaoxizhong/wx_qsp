@@ -614,8 +614,8 @@ Page({
         }
         common.get('/trash/end',{
           member_id: wx.getStorageSync('member_id'),
-          lat: latitude,
-          lng: longitude,
+          lat: that.data.latitude,
+          lng: that.data.longitude,
           image: img,
         }).then(res =>{
           if(res.data.code == 200){

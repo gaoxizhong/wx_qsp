@@ -203,11 +203,26 @@ Page({
     that.getxiaoxi();
     that.getacquisitionList(that.data.latitude,that.data.longitude);  //  获取商家收购列表数据
     that.getpaimingllist(that.data.latitude,that.data.longitude);
+    that.getMemberCode();
   },
   onHide() {
     clearInterval(time1);
   },
   onUnload() {
+  },
+  getMemberCode(){
+    let that = this;
+    common.get("/member/member_code", {
+      member_id: wx.getStorageSync('member_id'),
+    }).then(res => {
+      if (res.data.code == 200) {
+        that.setData({
+          memberCode: res.data.data.code?res.data.data.code:'',
+        })
+      }
+    }).catch(error => {
+      console.log(error);
+    })
   },
   // 获取环保银行账户详情
   getaccountnumber(){
@@ -232,7 +247,6 @@ Page({
           jf: res.data.data.jf,
           df: res.data.data.df,
           t_money: res.data.data.t_money,
-          memberCode: res.data.data.memberCode?res.data.data.memberCode:'',
         })
       }
     }).catch(error => {
