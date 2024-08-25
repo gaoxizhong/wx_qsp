@@ -3,10 +3,15 @@
     <view class="icon-box">{{card.title}}</view>
     <view class="new-title-tbox">
       <view class="title-tbox-t">
-        <image class="photo-image" src="{{getmy_space.member.avatar?getmy_space.member.avatar:'/images/notlogin.jpg'}}"></image>
+        <image class="photo-image" bindtap="{{is_vip?'gotomemberInfo':''}}" src="{{getmy_space.member.avatar?getmy_space.member.avatar:'/images/notlogin.jpg'}}"></image>
       </view>
       <view class="title-tbox-m">
-        <view class="tbox-m-name"><text style="flex: 1;">{{space.name?space.name:'暂无'}}</text><view class="m-name-btn"></view></view>
+        <view class="tbox-m-name"  bindtap="{{ is_vip?'gotomemberInfo':'' }}">
+          <text>{{space.name?space.name:'暂无'}}</text>
+          <view class="m-name-btn">
+            <image class="image1" mode="widthFix" src="/images/bianji-1.png" bindtap="gotomemberInfo" wx:if="{{ is_vip }}"/>
+          </view>
+        </view>
         <view class="tbox-m-info">
           <view class="m-info-zh">
             <view class="m-info-hyzh">会员账号：{{space.member_id?space.member_id:'0'}}</view>

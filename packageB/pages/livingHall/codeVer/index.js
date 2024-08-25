@@ -104,23 +104,35 @@ Page({
         title: "请输入对方手机号"
       })
     }else{
-      common.get('/life/index?op=order_list', {
+      wx.showLoading({
+        title: '加载中...',
+      })
+      common.get('/life/index?op=check_card', {
         member_mobile: mobile,
         member_id: wx.getStorageSync('member_id'),
-        official_type:'1'
+        // official_type:'1'
       }).then(res => {
+        wx.hideLoading();
         if(res.data.code==200){
           let beusedList = res.data.data.list;
-          let memid = beusedList[0].member_id;
-          that.setData({
-            memid
-          })
           if(beusedList.length > 0){
+            let memid = beusedList[0].member_id;
+            that.setData({
+              memid
+            })
             wx.showToast({
               title: '查询成功！',
               duration:2000
             })
-
+            beusedList.forEach(ele => {
+              ele.goodnum = 1
+            });
+            setTimeout(()=>{
+              that.setData({
+                // isShowConfirm: true,
+                beusedList
+              })
+            },1500)
             if( wx.getStorageSync('member_id') == beusedList[0].member_id ){
               setTimeout( () =>{
                 wx.reLaunch({
@@ -135,15 +147,6 @@ Page({
               duration:2000
             })
           }
-          beusedList.forEach(ele => {
-            ele.goodnum = 1
-          });
-          setTimeout(()=>{
-            that.setData({
-              // isShowConfirm: true,
-              beusedList
-            })
-          },1500)
 
         }else{
           wx.showToast({
@@ -151,6 +154,13 @@ Page({
             icon:'none'
           })
         }
+      }).catch( e =>{
+        console.log(e)
+        wx.hideLoading();
+        wx.showToast({
+          title: '数据异常',
+          icon:'none'
+        })
       })
     }
   },
@@ -236,7 +246,7 @@ Page({
     let member_id = wx.getStorageSync('member_id'); // 使用者用户id
     let num = 0;
     beusedList.forEach(ele =>{
-      if(ele.id == o_id){
+      if(ele.id == card_id){
         num = ele.goodnum;
       }
     })

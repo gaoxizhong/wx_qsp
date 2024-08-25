@@ -40,6 +40,8 @@ Page({
     communityInfoList:[], // 社区大集列表
   },
   onLoad: function(options) {
+   
+
      let that = this;
      let is_jifenjiaoyi= wx.getStorageSync('is_jifenjiaoyi');
      if(is_jifenjiaoyi == '1'){
@@ -118,6 +120,7 @@ Page({
   },
   getData() { //初始化数据
     let that = this
+  
     // that.getBuyItems();
     that.getClassmodule();
   },

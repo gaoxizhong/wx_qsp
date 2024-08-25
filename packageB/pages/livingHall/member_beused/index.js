@@ -109,9 +109,9 @@ Page({
   },
   getbeusedList(){
     let that = this;
-    common.get('/life/index?op=order_list',{
+    common.get('/life/index?op=check_card',{
       member_id: wx.getStorageSync('member_id'),
-      official_type:'1'
+      // official_type:'1'
     }).then(res =>{
       if(res.data.code == 200){
         let data = res.data.data.list;// 获取存储总数据
@@ -260,6 +260,7 @@ Page({
 
   //点击核销
   clickQx(e){
+    console.log(e)
     let that = this;
     let beusedList = that.data.beusedList;
     let  card_id = e.currentTarget.dataset.c_id; // 会员卡id
@@ -267,7 +268,7 @@ Page({
     let my_coin = that.data.num_coin; // 可兑换余额
     let num = 0;
     beusedList.forEach(ele =>{
-      if(ele.id == o_id){
+      if(ele.id == card_id){
         num = ele.goodnum
       }
     })

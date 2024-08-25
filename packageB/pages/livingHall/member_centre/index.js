@@ -215,7 +215,12 @@ Page({
       url: "/packageB/pages/livingHall/member_buyOrder/index?status=&express_status=&dealType=sell",
     })
   },
-    
+  // 跳转修改信息
+  gotomemberInfo(){
+    wx.navigateTo({
+      url: '/packageB/pages/livingHall/membership_add/index?is_xiu=1',
+    })
+  } ,
   goToruten(){
     wx.showToast({
       title: '暂未开放！',

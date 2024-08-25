@@ -21,26 +21,26 @@
       <view class="beused-items-tbox">
         <view class="photo-title-box">
           <!-- <image class="photo-image" src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKN0iaIYwibC2icX6Pjvy6uNEhMZ8Wb2cw3n37oUfrAsof1HqRJE7xyticsZZdEBu3ibzdoUrH9jqgiaQGA/132"></image> -->
-          <text>{{ item.official_data.card_detail.title?item.official_data.card_detail.title:item.official_data.card_detail.card_type_text }}</text>
+          <text>{{ item.title }}</text>
         </view>
       </view>
       <view class="beused-items-infobox">
         <!-- <image src="https://oss.qingshanpai.com/icon/index_bg_jfhyhj.png"></image> -->
         <view class="items-infobox-left">
           <!-- <view style="color: #333;">{{item.official_data.card_detail.title}}</view> -->
-          <view>剩余金额: {{item.card.valid_num}} 元</view>
-          <view>失效时间: {{item.card.valid_time}}</view>
+          <view>剩余金额: {{item.valid_num}} 元</view>
+          <view>失效时间: {{item.valid_time}}</view>
         </view>
       </view>
-      <view class="items-infobox-left">{{item.official_data.card_detail.notice?item.official_data.card_detail.notice:'暂无说明...'}}</view>
+      <view class="items-infobox-left">{{item.notice?item.notice:'暂无说明...'}}</view>
       <view class="items-btnbox">
         <view class="num" wx:if="{{is_member != '1'}}">
-          <view class="minuadd-box" data-c_id="{{item.card.id}}" data-o_id="{{item.id}}"  catchtap="minusNum">-</view>
-          <input type="number" data-index="{{index}}" data-c_id="{{item.card.id}}" data-o_id="{{item.id}}" bindinput="inputValue" value="{{ item.goodnum }}" class="input"/>
-          <view class="minuadd-box" style="color: #ff0000;" data-c_id="{{item.card.id}}" data-o_id="{{item.id}}" catchtap="addNum">+</view>
+          <view class="minuadd-box" data-c_id="{{item.id}}" data-o_id="{{item.order_id}}"  catchtap="minusNum">-</view>
+          <input type="number" data-index="{{index}}" data-c_id="{{item.id}}" data-o_id="{{item.order_id}}" bindinput="inputValue" value="{{ item.goodnum }}" class="input"/>
+          <view class="minuadd-box" style="color: #ff0000;" data-c_id="{{item.id}}" data-o_id="{{item.order_id}}" catchtap="addNum">+</view>
         </view>
-        <view class="items-btnbox1" data-c_id="{{item.card.id}}" data-type="{{item.card.type}}" bindtap="userMember" wx:if="{{is_member == '1'}}">确认使用</view>
-        <view class="items-btnbox1" hover-class="hoverClass" data-c_id="{{item.card.id}}" data-o_id="{{item.id}}"  bindtap="clickQx" wx:else>核销</view>
+        <view class="items-btnbox1" data-c_id="{{item.id}}" data-type="{{item.type}}" bindtap="userMember" wx:if="{{is_member == '1'}}">确认使用</view>
+        <view class="items-btnbox1" hover-class="hoverClass" data-c_id="{{item.id}}" data-o_id="{{item.order_id}}"  bindtap="clickQx" wx:else>核销</view>
       </view>
     </view>
   </block>

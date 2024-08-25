@@ -78,10 +78,10 @@ page {
   display: flex;
   align-items: center;
 }
-.m-name-btn{
+/* .m-name-btn{
   width: 92rpx;
   height: 30rpx;
-}
+} */
 .tbox-m-info{
   width: 100%;
   display: flex;
@@ -295,4 +295,9 @@ page {
   background: #fff;
   padding-bottom: 30rpx;
   box-sizing: border-box;
+}
+.image1{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 20rpx;
 }
