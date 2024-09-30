@@ -102,9 +102,7 @@
     <text>写评论...</text>
   </view>
   <view class="comment-btns flex-justitem-spacecent">
-    <!-- <button hover-class='none' bindtap="scrollToComment">
-      <image src='/images/icon_comment.png'></image>
-    </button> -->
+  
     <button hover-class='none' open-type="share" data-sharetxt="{{personalInfo.content.words}}" data-contentId="{{personalInfo.content.id}}">
       <image src='/images/icon_relay.png'></image>
       <text>{{personalInfo.content.forward_count}}</text>

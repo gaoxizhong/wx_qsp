@@ -9,6 +9,7 @@ page{
 .plate-items{
   font-size: 30rpx;
   margin: 20rpx 0;
+  padding-bottom: 20rpx;
 }
 .plate-items-title{
   font-weight: 600;
